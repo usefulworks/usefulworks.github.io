@@ -1,0 +1,93 @@
+/* (c) 2025 UsefulWorks Ltd. */
+
+:root {
+    --main-bg-color: #423833;
+    --main-tx-color: #fff;
+    --main-ln-color: #fff;
+    --main-ln-hover-color: #D1793F;    
+}
+
+body {
+    font-family: "Arimo", sans-serif;
+    color:var(--main-tx-color);
+    background-color: var(--main-bg-color);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+header a {
+    font-size: 16px;
+    color:var(--main-ln-color);
+}
+
+header a:hover {
+    color:var(--main-ln-hover-color);
+}
+
+footer a {
+    color:#D1793F;
+}
+
+span.uwuseful {
+    color: #D1793F;
+}
+
+span.uwworks {
+    color: var(--main-tx-color);
+    font-weight: bold;
+}
+
+div.container {
+    margin: 0 auto;
+    padding: 24px 34px;
+}
+
+.col-12 {
+
+}
+
+.flex-start {
+    align-items: flex-start;
+}
+
+.flex-nowrap {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 8px;
+}
+
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 8px;
+}
+
+header {
+
+}
+
+h1.flex-nowrap, h1.flex-wrap {
+    justify-content: stretch;
+    column-gap: 0;
+}
+
+footer {
+    color:#D1793F;
+    padding: 24px 0;
+    font-size: 12px;
+}
