@@ -1,2 +1,2 @@
-# uw-corp-website (c) 2025 UsefulWorks Ltd.
+staging.usefulworks.github.io
 
