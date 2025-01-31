@@ -1,0 +1,92 @@
+/* (c) 2025 UsefulWorks Ltd. */
+
+:root {
+    --main-bg-color: #423833;
+    --main-fg-color: #fff;
+    --link-color: var(--main-fg-color);
+    --link-hover-color: #D1793F;
+    --logo-base-color: var(--main-fg-color);
+    --logo-highlight-color: #D1793F;
+}
+
+body {
+    font-family: "Arimo", sans-serif;
+    font-size: 14px;
+    color:var(--main-fg-color);
+    background-color: var(--main-bg-color);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+header {
+    font-size: 16px;
+}
+
+header a:hover, footer a:hover {
+    color:var(--link-hover-color);
+}
+
+footer {
+    font-size: 12px;
+    padding: 24px 0;
+}
+
+header a, footer a {
+    color:var(--main-fg-color);
+}
+
+span.uwuseful {
+    color: var(--logo-highlight-color);
+}
+
+span.uwworks {
+    color: var(--logo-base-color);
+}
+
+div.container {
+    margin: 0 auto;
+    padding: 24px 34px;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 16px;
+}
+
+.flex-start {
+    align-items: flex-start;
+}
+
+.flex-nowrap {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 8px;
+}
+
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 8px;
+}
+
+h1.flex-nowrap, h1.flex-wrap {
+    justify-content: stretch;
+    column-gap: 0;
+}
+
