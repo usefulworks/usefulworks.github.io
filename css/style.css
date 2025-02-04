@@ -1,12 +1,21 @@
 /* (c) 2025 UsefulWorks Ltd. */
 
 :root {
+    scroll-behavior: smooth;
+
     --main-bg-color: #423833;
     --main-fg-color: #fff;
     --link-color: var(--main-fg-color);
     --link-hover-color: #D1793F;
     --logo-base-color: var(--main-fg-color);
     --logo-highlight-color: #D1793F;
+
+    --color-pallete-0: #5c2d2e;
+    --color-palette-1: #de6600;
+    --color-palette-2: #fea02f;
+    --color-palette-3: #ebd9c8;
+    --color-palette-4: #007a7a;
+    --color-palette-5: #003f5a;
 }
 
 body {
@@ -58,6 +67,8 @@ div.container {
     margin: 0 auto;
     padding: 24px 34px;
 }
+
+.hero-text {}
 
 .content-grid {
     display: grid;
