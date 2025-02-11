@@ -1,0 +1,89 @@
+/* (c) 2025 UsefulWorks Ltd. */
+/*
+/* test-grid css */
+
+:root {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    --color-pallete-0: #5c2d2e;
+    --color-palette-1: #de6600;
+    --color-palette-2: #fea02f;
+    --color-palette-3: #ebd9c8;
+    --color-palette-4: #007a7a;
+    --color-palette-5: #003f5a;
+    
+    --main-bg-color: var(--color-palette-1);
+    --main-fg-color: var(--color-palette-3);
+}
+
+html, body {
+    color: var(--main-fg-color);
+    background-color: var(--main-bg-color);
+}
+
+div {
+    border: 1px solid black;
+    font-size: 10rem;
+}
+
+div#the-grid {
+    /* 8col x 5row */
+    display: grid;
+    grid-template-columns: 1fr repeat(6, minmax(auto, 10em)) 1fr;
+    grid-template-rows: minmax(1em, auto) 1fr 1fr auto minmax(1em, auto);
+}
+
+.header, .footer, .hero {
+    grid-column: span 8;
+}
+
+span.logo {
+    display: inline-block;
+    width: 100%;
+    background: 5% no-repeat url(./assets/cogstar-2025-02-11.svg);
+}
+
+.hero {
+    font-variant: small-caps;
+}
+
+.content {
+    grid-column: auto;
+    grid-row: auto;
+}
+
+.c1, .c2, .c3 {
+    grid-row: 3/4;
+}
+
+.c1 { /* something not right! */
+    grid-column: 2 / span 2;
+    background-color: var(--color-pallete-0);
+}
+
+.c2 {
+    grid-column: 4 / span 2;
+    color: var(--color-palette-1);
+    background-color: var(--color-palette-3);
+}
+
+.c3 {
+    grid-column: 6 / span 2;
+    background-color: var(--color-palette-2);
+}
+
+.c4, .c5 {
+    grid-row: 4/5;
+}
+
+.c4 {
+    grid-column: 2/5;
+    background-color: var(--color-palette-4);
+}
+
+.c5 {
+    grid-column: 5/8;
+    background-color: var(--color-palette-5);
+}
