@@ -22,12 +22,18 @@
 
 body {
     font-family: "Arimo", sans-serif;
-    color:var(--main-fg-color);
+    color: var(--main-fg-color);
     background-color: var(--main-bg-color);
 }
 
 h1 {
+    margin: 0;
+    padding: var(--pico-nav-element-spacing-vertical) var(--pico-nav-element-spacing-horizontal);
     display: inline-block;
+}
+
+nav, nav > ul  {
+    flex-wrap: wrap;
 }
 
 li {
@@ -42,16 +48,24 @@ header a, footer a {
     color:var(--main-fg-color);
 }
 
-span.uwuseful {
+img.logo {
+    height: 1.5em;
+    padding: 0 0.2em;
+}
+
+p.logo {
+    margin: 0;
+    display: inline-block; 
+    vertical-align: middle;
+    overflow-wrap: anywhere;
+}
+
+span.uwuseful { 
     color: var(--logo-highlight-color);
 }
 
 span.uwworks {
     color: var(--logo-base-color);
-}
-
-img.logo {
-    height: var(--pico-font-size);
 }
 
 .hero-text {
