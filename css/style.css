@@ -27,6 +27,7 @@ body {
 }
 
 h1 {
+    display: inline-block;
 }
 
 li {
@@ -47,6 +48,10 @@ span.uwuseful {
 
 span.uwworks {
     color: var(--logo-base-color);
+}
+
+img.logo {
+    height: var(--pico-font-size);
 }
 
 .hero-text {
