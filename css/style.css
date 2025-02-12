@@ -29,11 +29,11 @@ p, h1, h2, h3, h4, h5, h6, a {
     color: var(--main-fg-color);
 }
 
-header a:hover, footer a:hover {
+header a:hover {
     color:var(--link-hover-color);
 }
 
-header a, footer a {
+header a {
     color:var(--color-palette-1);
 }
 
@@ -95,8 +95,7 @@ main#content-grid {
 }
 
 section.content-section {
-    
-    border: var(--color-palette-4) solid 1px;
+    /* border: var(--color-palette-4) solid 1px; */
 }
 
 .hero {
@@ -127,6 +126,7 @@ section.content-section {
 }
 
 .c4, .c5 {
+    display: none; 
     grid-row: 3 / 4;
 }
 
@@ -160,4 +160,40 @@ section.content-section {
 .content-section img {
     width: 250px;
     height: 250px;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: auto 1fr 1f;
+    grid-template-rows: minmax(auto, 100%);
+    gap: 1rem;
+    padding: 2rem;
+    background-color: var(--color-pallete-0);    
+}
+
+footer * {
+    color: var(--color-palette-3);
+    font-size: medium;
+}
+
+footer .logo-placeholder {
+    background-color: var(--color-palette-2);
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+footer .contact {
+     grid-column: 2 / 3;
+     grid-row: 1 / 2;    
+}
+
+footer ul {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;    
+}
+
+footer .legal {
+    font-size: smaller;
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
 }
