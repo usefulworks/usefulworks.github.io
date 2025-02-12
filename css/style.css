@@ -25,16 +25,19 @@ body {
     background-color: var(--main-bg-color);
 }
 
-p, h1, h2, h3, h4, h5, h6, a {
-    color: var(--main-fg-color);
-}
-
-header a:hover {
-    color:var(--link-hover-color);
+span.needs-edit {
+    font-variant: small-caps;
+    font-weight: 800;
+    font-size: xx-small;
+    color: red;
+    background-color: yellow;
+    border: 1px dashed green;
+    padding: 0.5em;
 }
 
 header a {
     color:var(--color-palette-1);
+    &:hover { color:var(--link-hover-color); }
 }
 
 #page-grid {
@@ -50,7 +53,8 @@ header a {
 }
 
 nav {
-    background-color: var(--color-pallete-0);
+    color: var(--color-pallete-0);
+    background-color: var(--color-pallete-1);
 }
 
 nav > h1 {
@@ -76,14 +80,14 @@ p.logo {
 }
 
 span.uwuseful { 
-    color: var(--logo-highlight-color);
+    color: var(--color-pallete-0);
 }
 
 span.uwworks {
     color: var(--logo-base-color);
 }
 
-/* begin main content layout */
+/* BEGIN main content layout */
 
 main#content-grid {
     /* grid for content sections 1col / 3col / 2col */
@@ -92,10 +96,7 @@ main#content-grid {
     grid-template-rows: auto;
     gap: 0;
     padding: 0;
-}
-
-section.content-section {
-    /* border: var(--color-palette-4) solid 1px; */
+    h1, h2, h3, h4, h5, h6 { color: var(--color-pallete-0); }
 }
 
 .hero {
@@ -126,7 +127,7 @@ section.content-section {
 }
 
 .c4, .c5 {
-    display: none; 
+    display: none; /* for later */
     grid-row: 3 / 4;
 }
 
@@ -138,7 +139,9 @@ section.content-section {
     grid-column: 5 / span 3;
 }   
 
-/* end main content layout */
+/* END main content layout */
+
+/* BEGIN hero */
 
 .hero-text {
     padding-top: 2rem;
@@ -162,38 +165,51 @@ section.content-section {
     height: 250px;
 }
 
+/* END hero */
+
+/* BEGIN footer things */
+
 footer {
     display: grid;
     grid-template-columns: auto 1fr 1f;
-    grid-template-rows: minmax(auto, 100%);
-    gap: 1rem;
+    grid-template-rows: auto;
+    gap: 0 1rem;
     padding: 2rem;
-    background-color: var(--color-pallete-0);    
+    background-color: var(--color-pallete-0);
+    * { color: var(--color-palette-3); }
 }
 
-footer * {
-    color: var(--color-palette-3);
-    font-size: medium;
+footer a {
+    &:hover {
+        color: var(--color-palette-1);
+    }
 }
 
-footer .logo-placeholder {
-    background-color: var(--color-palette-2);
+footer .logo-box {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
 }
 
 footer .contact {
-     grid-column: 2 / 3;
-     grid-row: 1 / 2;    
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    p { margin: 0; }
 }
 
-footer ul {
+footer nav {
     grid-column: 1 / 3;
     grid-row: 2 / 3;    
+    color: var(--color-palette-3);
+    border-top: var(--color-palette-3) 1px solid;
+    ul { margin: 0; }
 }
 
 footer .legal {
-    font-size: smaller;
     grid-column: 1 / 3;
     grid-row: 3 / 4;
+    border-top: var(--color-palette-3) 1px solid;
+    padding: 1em 0;
+    font-size: xx-small;
 }
+
+/* END footer things */
