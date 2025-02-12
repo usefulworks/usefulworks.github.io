@@ -83,6 +83,8 @@ span.uwworks {
     color: var(--logo-base-color);
 }
 
+/* begin main content layout */
+
 main#content-grid {
     /* grid for content sections 1col / 3col / 2col */
     display: grid;
@@ -93,12 +95,19 @@ main#content-grid {
 }
 
 section.content-section {
+    
     border: var(--color-palette-4) solid 1px;
 }
 
 .hero {
     padding: 0 2rem;
     grid-column: 1 / -1;
+    background-color:hsla(358,34%,26%,1);
+    background-image:
+        radial-gradient(at 94% 75%, hsla(180,100%,23%,1) 0px, transparent 50%),
+        radial-gradient(at 80% 16%, hsla(29,100%,85%,1) 0px, transparent 50%),
+        radial-gradient(at 30% 81%, hsla(27,100%,43%,1) 0px, transparent 50%),
+        radial-gradient(at 15% 5%, hsla(32,100%,59%,1) 0px, transparent 50%);
 }
 
 .c1, .c2, .c3 {
@@ -129,9 +138,26 @@ section.content-section {
     grid-column: 5 / span 3;
 }   
 
+/* end main content layout */
+
 .hero-text {
-    font-size: xx-large;
+    padding-top: 2rem;
+    font-size: x-large;
 }
 
+.hero-text p:nth-child(2) {
+    padding-left: 2rem;
+} 
 
+.hero-text p:nth-child(3) {
+    padding-left: 3rem;
+}
 
+.hero-text p:nth-child(4) {
+    padding-left: 4rem;
+} 
+
+.content-section img {
+    width: 250px;
+    height: 250px;
+}
