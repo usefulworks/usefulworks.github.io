@@ -50,12 +50,6 @@ div#the-grid {
     font-variant: small-caps;
 }
 
-span.logo {
-    display: inline-block;
-    width: 100%;
-    background: 5% no-repeat url(./assets/cogstar-2025-02-11.svg);
-}
-
 .rogue {
     grid-column: 5 / 7;
     grid-row: 1 / 3;
