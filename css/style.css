@@ -25,6 +25,12 @@ body {
     background-color: var(--main-bg-color);
 }
 
+div#svg-template-container {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
 a:not([href^=mailto]), button {
     font-family: "Raleway", sans-serif;
     text-transform: uppercase;
@@ -46,9 +52,10 @@ header a {
     font-style: italic;
 }
 
+/* logo */
 svg.cogstar {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
 }
 
 
@@ -65,39 +72,44 @@ svg.cogstar {
 }
 
 /* BEGIN header */
+header {
+    padding: 2rem;
+}
 
-header nav {
+header nav { /* flexbox < pico */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
     color: var(--color-pallete-0);
     background-color: var(--color-pallete-1);
 }
 
-header nav > h1 {
-    color: var(--color-palette-0);
+header nav h1 {
     display: inline-block;
-    padding: var(--pico-nav-element-spacing-vertical) var(--pico-nav-element-spacing-horizontal);
+    color: var(--color-palette-0);
+    margin: 0;
 }
 
-header nav > ul {
-    padding: 0 var(--pico-nav-element-spacing-horizontal);
-    margin-bottom: var(--pico-typography-spacing-vertical);
+header nav ul { /* flexbox < pico */
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    width: auto;
+    margin: 0;
 }
 
 header .logo-text {
-    .uwuseful {
-        color: var(--color-pallete-0)
-    }
-    .uwworks {
-        color: var(--color-palette-1);
-    }
+    vertical-align: middle;
+    .uwuseful { color: var(--color-pallete-0); }
+    .uwworks { color: var(--color-palette-1); }
 }
 
-header .cogstar .inner {
-    color: var(--color-palette-1);
+header .cogstar {
+    width: 45px;
+    height: 45px;
+    .inner { color: var(--color-palette-1); }
+    .outer { color: var(--color-palette-0); }
 }
-header .cogstar .outer {
-    color: var(--color-palette-0);
-}
-
 
 /* END header */
 
@@ -208,6 +220,8 @@ footer nav a {
 
 footer .logo-box { /* .first-row */
     grid-column: 1 / 2;
+    .cogstar { width: 25px; height: 25px; }
+    .logo-text { vertical-align: middle; }
 }
 
 footer .contact { /* .first-row */
