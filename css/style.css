@@ -36,6 +36,22 @@ header a {
     &:hover { color:var(--color-pallete-0); }
 }
 
+/* logo text: USEFUL */
+.logo-text .uwuseful {
+    font-weight: bold;
+}
+
+/* logo text: WORKS */
+.logo-text .uwworks {
+    font-style: italic;
+}
+
+svg.cogstar {
+    width: 50px;
+    height: 50px;
+}
+
+
 #page-grid {
     /* top level grid for header/main/footer */ 
     display: grid;
@@ -48,40 +64,42 @@ header a {
     /* empty */
 }
 
-nav {
+/* BEGIN header */
+
+header nav {
     color: var(--color-pallete-0);
     background-color: var(--color-pallete-1);
 }
 
-nav > h1 {
+header nav > h1 {
+    color: var(--color-palette-0);
     display: inline-block;
     padding: var(--pico-nav-element-spacing-vertical) var(--pico-nav-element-spacing-horizontal);
 }
 
-nav > ul {
+header nav > ul {
     padding: 0 var(--pico-nav-element-spacing-horizontal);
     margin-bottom: var(--pico-typography-spacing-vertical);
 }
 
-img.logo {
-    padding: 0 0.2rem;
-    height: 2rem;  
+header .logo-text {
+    .uwuseful {
+        color: var(--color-pallete-0)
+    }
+    .uwworks {
+        color: var(--color-palette-1);
+    }
 }
 
-p.logo {
-    margin: 0;
-    display: inline-block; 
-    vertical-align: middle;
-    overflow-wrap: break-word;
+header .cogstar .inner {
+    color: var(--color-palette-1);
+}
+header .cogstar .outer {
+    color: var(--color-palette-0);
 }
 
-span.uwuseful { 
-    color: var(--color-pallete-0);
-}
 
-span.uwworks {
-    color: var(--logo-base-color);
-}
+/* END header */
 
 /* BEGIN main content layout */
 
@@ -89,7 +107,7 @@ main#content-grid {
     /* grid for content sections 1col / 3col / 2col */
     display: grid;
     grid-template-columns: minmax(2rem, auto) repeat(6, 1fr) minmax(2rem, auto);
-    grid-template-rows: auto;
+    grid-template-rows: minmax(400px, auto) auto;
     gap: 0;
     padding: 0;
     h1, h2, h3, h4, h5, h6 { color: var(--color-pallete-0); }
@@ -163,7 +181,7 @@ main#content-grid {
 
 /* END hero */
 
-/* BEGIN footer things */
+/* BEGIN footer */
 
 footer {
     display: grid;
@@ -188,16 +206,16 @@ footer nav a {
     }
 }
 
-footer .logo-box {
+footer .logo-box { /* .first-row */
     grid-column: 1 / 2;
 }
 
-footer .contact {
+footer .contact { /* .first-row */
     grid-column: 2 / 3;
     p { margin: 0; }
 }
 
-footer .cta-button {
+footer .cta-button { /* .first-row */
     grid-column: 3 / 4;
 }
 
@@ -221,4 +239,4 @@ footer .legal {
     a { font-family: "Arimo", sans-serif; }
 }
 
-/* END footer things */
+/* END footer */
