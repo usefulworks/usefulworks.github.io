@@ -23,7 +23,7 @@
                 color: var(--color-palette-0);
                 background-color: var(--color-palette-3);
             }
-            button {
+            button, a[role=button] {
                 padding: 1rem 2rem;
                 font-size: xx-large;
                 font-weight: 500;
@@ -32,12 +32,12 @@
                 border: 2px solid var(--color-palette-0);
                 border-radius: 0.5rem;
                 cursor: pointer;
-            }
-            button:hover, button:focus, button:active {
-                color: var(--color-palette-3);
-                background-color: var(--color-palette-2);
-                border-color: var(--color-palette-5);
-                border-radius: 0.8rem;
+                &:hover, &:focus, &:active {
+                    color: var(--color-palette-3);
+                    background-color: var(--color-palette-2);
+                    border-color: var(--color-palette-5);
+                    border-radius: 0.8rem;
+                }
             }
             #spnSvThCh {
                 display: none;
@@ -53,12 +53,31 @@
                 justify-content: space-between;
                 align-items: center;
             }
-            #btnLIKIN {
-                display: inline-block;
+            button#btnSvThCh {
+                padding: 1rem 2rem;
+                font-weight: 500;
+                color: var(--color-palette-0);
+                background-color: var(--color-palette-4);
+                border: 2px solid var(--color-palette-5);
+                border-radius: 0.5rem;
+                cursor: pointer;
+                &:hover, &:focus, &:active {
+                    font-weight: 700;
+                    color: var(--color-palette-3);
+                    background-color: var(--color-palette-1);
+                    border-color: var(--color-palette-2);
+                    border-radius: 0.8rem;
+                }
+            }
+            #btnLIKIN[role=button] {
                 width: 128px;
-                height: auto;
-                color: chartreuse;
+                height: 128px;
+                background-color: transparent;
+                border-radius: 16px;
                 background-image: url(../assets/linkenin_col_svg.webp);
+                &:hover, &:focus, &:active {
+                    background-image: url(../assets/linkedin_round_svg.webp);
+                }
             }
         </style>
         <script type="text/javascript">
@@ -74,7 +93,7 @@
     </head>
     <body>
         <div>
-            <button id="btnLetsTalk">Let&apos;s Talk</button>
+            <a id="btnLetsTalk" role="button">Let&apos;s Talk</a>
         </div>
         <hr/>
         <div class="flex">
@@ -89,7 +108,7 @@
             </form>
         </div>
         <div>
-            <a id="btnLIKIN">LIKIN</a>
+            <a id="btnLIKIN" role="button" alt="linkedin"></a>
         </div>
     </body>
 </html>
