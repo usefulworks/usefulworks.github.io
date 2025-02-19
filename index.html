@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-uw-theme="default">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -107,7 +107,60 @@
                     </p>
                     <p>UsefulWorks is a business transformation consultancy that helps companies of all sizes grow and thrive in the digital age.</p>
                 </div>
+                <div>
+                    <label>
+                        <input id="theme-switch" name="theme-switch" type="checkbox" role="switch" aria-invalid="true" />
+                        enable bw mode
+                    </label>
+                </div>
             </footer>
         </div>
     </body>
+    <script type="text/javascript">
+        window.onload = function () {
+            setupTheme();
+        };
+
+        /**
+         * Sets up the document theme based on a URL query parameter
+         */
+        function setupTheme() {
+            const attrName = "data-uw-theme";
+            const q = getUrlQueryParam("cs") == "bw" ? "bw" : "default";
+
+            // set theme attribute on root
+            document.documentElement.setAttribute(attrName, q);
+
+            // set switcher event handler
+            const themeSwitch = document.getElementById("theme-switch");
+            if (themeSwitch) {
+                themeSwitch.checked = (document.documentElement.getAttribute(attrName) == "bw");
+                themeSwitch.addEventListener("change", function () {
+                    document.documentElement.setAttribute(attrName, themeSwitch.checked ? "bw" : "default");
+                });
+            }
+        }
+
+        /**
+         * Get URL query parameter
+         * @param {string} key - query parameter key
+         * @returns {string|boolean} query parameter value or false if not found
+         */
+        function getUrlQueryParam(key) {
+            return getUrlQueryParams()[key] ?? false;
+        }
+
+        /**
+         * Get URL query parameters
+         * @returns {Object} map of query parameters
+         */
+        function getUrlQueryParams() {
+            let map = {};
+            let q = window.location.search.substring(1).split("&");
+            if (q) {
+                q.forEach(function (kv) { const [k, v] = kv.split("="); map[k] = v || true; });
+            }
+            return map;
+        }
+    </script>
 </html>

@@ -4,7 +4,9 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
 
+[data-uw-theme=default], :root:not([data-uw-theme]) {
     --color-pallete-0: #5c2d2e; --main-fg-color: var(--color-pallete-0);
     --color-palette-1: #de6600;
     --color-palette-2: #fea02f;
@@ -17,6 +19,9 @@
 
     --logo-base-color: var(--color-palette-1);
     --logo-highlight-color: var(--color-palette-3)
+}
+[data-uw-theme=bw] {
+    /* empty */
 }
 
 body {
