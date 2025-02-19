@@ -79,13 +79,9 @@ svg.cogstar {
 
 /* BEGIN header */
 header, main {
-    background-color: var(--main-bg-color);
 }
 
 header nav { /* flexbox < pico */
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
     color: var(--color-pallete-0);
     background-color: var(--color-pallete-1);
 }
@@ -94,17 +90,6 @@ header nav h1 {
     display: inline-block;
     color: var(--color-palette-0);
     margin: 1rem;
-}
-
-header nav ul { /* flexbox < pico */
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 1rem;
-    li {
-       padding: 0 1rem;
-       &:last-child { padding-right: 0; }
-    }
 }
 
 header .logo-text {
