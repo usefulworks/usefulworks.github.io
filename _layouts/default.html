@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
     {% include head.html %}
-    <body>
+    <body data-for="{{ page.name }}">
         <div id="svg-template-container">
             <svg style="display: none" hidden aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
                 <symbol id="cogstar-outer" viewBox="0 0 160 160">
