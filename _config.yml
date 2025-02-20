@@ -5,11 +5,12 @@
 # site settings
 title: "UsefulWorks"
 author:
-  name: UsefulWorks
+  name: UsefulWorks Ltd.
   email: "hello@usefulworks.uk"
   github: usefulworks
 tagline: "a collection of useful works"
 description: "a longer description of this collection of useful works"
+copyright: "Copyright © 2025 UsefulWorks Ltd. All rights reserved."
 url: "https://usefulworks.uk"
 lang: "en-GB"
 
