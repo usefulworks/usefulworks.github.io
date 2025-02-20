@@ -1,11 +1,16 @@
-<!-- @format -->
+---
+layout: null
+food: pizza
+---
 
+<!-- @format -->
+<!-- {{ site.data.common.copyright }} -->
 <!DOCTYPE html>
-<html lang="en" data-uw-theme="default">
+<html lang="{{ site.lang | default: "en" }}" data-uw-theme="default">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>UsefulWorks | Home</title>
+        <title>{{ site.title }} | Home</title>
         <meta name="keywords" content="business consulting growth transformation" />
         <meta name="author" content="UsefulWorks Ltd." />
         <meta name="copyright" content="&copy; 2025 UsefulWorks Ltd. " />
@@ -19,7 +24,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&Arimo:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" />
-        <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96"/>
+        <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
         <link rel="shortcut icon" type="image/x-icon" href="./favicon/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
@@ -56,9 +61,8 @@
                                 <use class="inner" href="#cogstar-inner" />
                             </svg>
                             <span class="logo-text"><span class="uwuseful">USEFUL</span><span class="uwworks">WORKS</span></span>
-                            <span>{{ site.foobar }}</span>
                         </h1>
-                        </ul>
+                    </ul>
                     <ul>
                         <li><a href="#">HOME</a></li>
                         <li><a href="#">ABOUT US</a></li>
@@ -145,7 +149,7 @@
             // set switcher event handler
             const themeSwitch = document.getElementById("theme-switch");
             if (themeSwitch) {
-                themeSwitch.checked = (document.documentElement.getAttribute(attrName) == "bw");
+                themeSwitch.checked = document.documentElement.getAttribute(attrName) == "bw";
                 themeSwitch.addEventListener("change", function () {
                     document.documentElement.setAttribute(attrName, themeSwitch.checked ? "bw" : "default");
                 });
@@ -169,7 +173,10 @@
             let map = {};
             let q = window.location.search.substring(1).split("&");
             if (q) {
-                q.forEach(function (kv) { const [k, v] = kv.split("="); map[k] = v || true; });
+                q.forEach(function (kv) {
+                    const [k, v] = kv.split("=");
+                    map[k] = v || true;
+                });
             }
             return map;
         }
