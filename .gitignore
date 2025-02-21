@@ -5,4 +5,4 @@ _site
 vendor
 _posts
 *markdown
-Gemfile*
+Gemfile.lock
