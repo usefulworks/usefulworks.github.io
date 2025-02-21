@@ -6,7 +6,18 @@
 
 body {
     min-height: 100dvh;
-    > * {
+    * {
         font-family: var(--uw-font-family-san-serif);
     }
 }
+
+nav, footer {
+    background-color: rgb(245,245,245);
+}
+
+.navbar-toggler-icon {
+    font-family: var(--pico-font-family-emoji);
+    font-size: larger;
+    display: inline-block;
+    vertical-align: middle;
+  }
