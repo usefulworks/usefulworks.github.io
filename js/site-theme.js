@@ -8,8 +8,9 @@ document.readyState =="loading" ? window.addEventListener("load", setupTheme) : 
 * Sets up the document theme based on a URL query parameter
 */
 function setupTheme() {
-    const attrName = "data-uw-theme";
-    const q = getUrlQueryParam("cs") == "bw" ? "bw" : "default";
+    const html = document.documentElement;
+    const attrName = "data-theme";
+    const q = getUrlQueryParam("theme") == "dark" ? "dark" : "light" ? "light" : "auto";
 
     // set theme attribute on root
     document.documentElement.setAttribute(attrName, q);
@@ -17,9 +18,9 @@ function setupTheme() {
     // set switcher event handler
     const themeSwitch = document.getElementById("theme-switch");
     if (themeSwitch) {
-        themeSwitch.checked = document.documentElement.getAttribute(attrName) == "bw";
+        themeSwitch.checked = html.getAttribute(attrName) == "dark";
         themeSwitch.addEventListener("change", function () {
-            document.documentElement.setAttribute(attrName, themeSwitch.checked ? "bw" : "default");
+            html.setAttribute(attrName, themeSwitch.checked ? "dark" : "light");
         });
     }
 }
