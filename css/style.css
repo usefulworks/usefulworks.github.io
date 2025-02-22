@@ -35,26 +35,17 @@ svg {
     }
 }
 
-.actionbtn { /* tmp */
-    display: inline-block;
-    margin: 0.5rem 0;
-    margin-right: 0.3125rem;
-    font-family: arial;
-    text-align: center;
-    vertical-align: middle;
-    padding: 0.9375rem 3rem;
-    border-radius: 5rem;
+.action-button {
+    color: #fff;
     background: #4fc949;
-    font-size: 1.25rem;
-    color: #fff;
-    text-decoration: none !important;
-    cursor: pointer;
+    vertical-align: middle;
     letter-spacing: 1px;
-    text-shadow: none;
-    &:hover,
-    &:focus {
-    background-color: #3fb13a;
-    color: #fff;
+    font-weight: bolder;
+    border-radius: 5rem;
+    svg {
+        width: 24px;
+        height: 24px;
+    }
 }
 
 footer > ul,
