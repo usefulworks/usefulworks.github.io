@@ -1,0 +1,14 @@
+- key: home
+  file: index.html
+  name: Home
+  text: "Welcome to UsefulWorks"
+
+- key: about
+  file: about.html
+  name: About
+  text: "About UsefulWorks"
+
+- key: contact
+  file: contact.html
+  name: "Contact Us"
+  text: "Contact UsefulWorks"
