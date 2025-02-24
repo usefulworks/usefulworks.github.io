@@ -1,0 +1,36 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="generated" content="{{ 'now' | date: '%Y-%m-%d %H:%M:%S' }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ site.title }}{% if page.title %} | {{ page.title }}{% endif %}</title>
+    <meta name="keywords" content="business consulting growth transformation" />
+    <meta name="author" content="{{ site.author.name }}" />
+    <meta name="copyright" content="{{ site.copyright }}" />
+    <meta name="application-name" property="og:title" content="{{ site.title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./favicon/web-app-manifest-512x512.png" />
+    <meta property="og:url" content="{{ site.url }}" />
+    <meta name="description" property="og:description" content="We help businesses grow" />
+{% comment %}
+  suffix url with a random query string to foil aggressive caching in chrome
+{% endcomment %}
+{% assign epoch-ms = 'now' | date: "%s%L" %}
+{% if layout.common-css %}
+  {% for css in layout.common-css %}
+    <link rel="stylesheet" type="text/css" href="{{ css | relative_url }}?{{ epoch-ms }}">
+  {% endfor %}
+{% endif %}
+{% if page.css %}
+  {% for css in page.css %}
+    <link rel="stylesheet" type="text/css" href="{{ css | relative_url }}?{{ epoch-ms }}">
+  {% endfor %}
+{% endif %}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&Arimo:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" />
+    <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="./favicon/site.webmanifest" />
+</head>

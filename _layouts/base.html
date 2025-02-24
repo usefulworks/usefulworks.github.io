@@ -1,0 +1,31 @@
+---
+lang: en-GB
+common-css:
+  - "/css/pico.css"
+  - "/css/style.css"
+common-js:
+  - "/js/site-nav.js"
+  - "/js/site-theme.js"
+---
+
+<!-- {{ site.data.common.copyright }} -->
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: layout.lang | default: site.lang | default: 'en' }}">
+    {% include head.html %}
+    <body data-for="{{ page.name }}">
+        <div id="svg-template-container" aria-hidden="true" focusable="false" hidden>
+            {% include svg-all.html %}
+        </div>
+        {{ content }}
+        {% if layout.common-js %}
+            {% for js in layout.common-js %}
+                <script type="text/javascript" src="{{ js | relative_url }}"></script>
+            {% endfor %}
+        {% endif %}
+        {% if page.js %}
+            {% for js in page.js %}
+                <script type="text/javascript" src="{{ js | relative_url }}"></script>
+            {% endfor %}
+        {% endif %}
+    </body>
+</html>
