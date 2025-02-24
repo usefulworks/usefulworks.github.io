@@ -6,6 +6,8 @@
 
 body {
     min-height: 100dvh;
+    max-width: 100%;
+    overflow-x: hidden;
     * {
         font-family: var(--uw-font-family-san-serif);
     }
@@ -21,8 +23,9 @@ body > header {
 body > header > nav {
 }
 
-nav, footer { /* tmp for highlighting boxes */
-    background-color: rgb(240,240,240);
+nav, footer { /* provide some contrast */
+    color: var(--pico-muted-color);
+    background-color: var(--pico-muted-border-color);
 }
 
 svg {
@@ -32,6 +35,65 @@ svg {
     &.cogstar {
         width: 1em;
         height: 1em;
+    }
+}
+
+/* header navigation */
+header > nav, .navbar-nav {
+    align-items: center;
+}
+
+button.menu-button {
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+header ul.navbar-links.shown {
+    display: flex;
+}
+
+/* wide */
+@media screen and (min-width: 1024px) {
+    header > nav {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+    .navbar-nav {
+        display: flex;
+        justify-content: flex-end;
+        flex-basis: auto;
+        flex-grow: 1;
+    }
+    .navbar-links {
+        display: flex; /* match value of display: in .shown class */
+        flex-direction: row;
+    }
+    .navbar-toggler {
+        display: none;
+    }
+}
+
+/* narrow */
+@media screen and (max-width: 1023px) {
+    header > nav {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .navbar-nav {
+        display: block;
+        flex-basis: 100%;
+        flex-grow: 1;
+    }
+    .navbar-links {
+        flex-direction: column;
+        align-items: normal;
+        opacity: 50%;
+        display: none;
+    }
+    .navbar-toggler {
+        display: block;
     }
 }
 
@@ -91,9 +153,3 @@ footer > div {
     font-style: italic;
 }
 
-.navbar-toggler-icon {
-    font-family: var(--pico-font-family-emoji);
-    font-size: larger;
-    display: inline-block;
-    vertical-align: middle;
-}
