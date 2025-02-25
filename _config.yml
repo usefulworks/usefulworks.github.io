@@ -1,0 +1,89 @@
+#
+# Copyright (c) 2025 UsefulWorks Ltd.
+#
+
+# site settings
+title: "UsefulWorks"
+author:
+  name: UsefulWorks Ltd.
+  email: "hello@usefulworks.uk"
+  github: usefulworks
+tagline: "a collection of useful works"
+description: "a longer description of this collection of useful works"
+copyright: "Copyright © 2025 UsefulWorks Ltd. All rights reserved."
+url: "https://usefulworks.uk"
+lang: "en-GB"
+
+# serving
+detach: false
+port: 4001
+host: localhost
+baseurl: ""
+show_dir_listing: false
+
+# filesystem
+source: .
+destination: ./_site
+collections_dir: .
+plugins_dir: _plugins
+layouts_dir: _layouts
+data_dir: _data
+includes_dir: _includes
+sass:
+  sass_dir: _sass
+  style: :expanded
+  load_paths:
+    - _sass
+    - _sass/partials
+    - _sass/vendor
+collections:
+  posts:
+    output: true
+
+# exlude these files from the final build (anything beginning with
+# . _ # ~ are excluded by default)
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/
+  - tests/
+  - sh/
+
+# plugins (see also Gemfile)
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+# GitHub Pages uses plugins that are enabled by default and cannot be disabled:
+  - jekyll-coffeescript
+  - jekyll-default-layout
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-optional-front-matter
+  - jekyll-paginate
+  - jekyll-readme-index
+  - jekyll-titles-from-headings
+  - jekyll-relative-links
+
+# enable safe mode
+safe: true
+
+# whitelist plugins (necessary under safe: true)
+whitelist:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-coffeescript
+  - jekyll-default-layout
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-optional-front-matter
+  - jekyll-paginate
+  - jekyll-readme-index
+  - jekyll-titles-from-headings
+  - jekyll-relative-links
+
+# liquid settings
+liquid:
+  error_mode: warn
+  strict_variables: false
+  strict_filters: true
