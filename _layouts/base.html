@@ -7,11 +7,17 @@ common-js:
   - "/js/site-nav.js"
   - "/js/site-theme.js"
 ---
-
+{% comment %}
+  use millis since epoch as a query suffix to css/js urls to foil aggressive caching in chrome
+{% endcomment %}
+{% assign epoch-ms = 'now' | date: "%s%L" %}
 <!-- {{ site.data.common.copyright }} -->
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: layout.lang | default: site.lang | default: 'en' }}">
     {% include head.html %}
+    {% if jekyll.environment == "production" %}
+        {% include google-analytics.html %}
+    {% endif %}
     <body data-for="{{ page.name }}">
         <div id="svg-template-container" aria-hidden="true" focusable="false" hidden>
             {% include svg-all.html %}
@@ -19,12 +25,12 @@ common-js:
         {{ content }}
         {% if layout.common-js %}
             {% for js in layout.common-js %}
-                <script type="text/javascript" src="{{ js | relative_url }}"></script>
+                <script type="text/javascript" src="{{ js | relative_url }}?{{ epoch-ms }}"></script>
             {% endfor %}
         {% endif %}
         {% if page.js %}
             {% for js in page.js %}
-                <script type="text/javascript" src="{{ js | relative_url }}"></script>
+                <script type="text/javascript" src="{{ js | relative_url }}?{{ epoch-ms }}"></script>
             {% endfor %}
         {% endif %}
     </body>
