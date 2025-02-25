@@ -1,8 +1,84 @@
 /* Copyright (c) 2025 UsefulWorks Ltd. */
 
 :root {
+    --uw-font-family-brand: Ultra, Georgia, Garamond, "Times New Roman", serif, var(--pico-font-family-emoji); /* pico has no def for serif font */
     --uw-font-family-san-serif: Monserrat, var(--pico-font-family-sans-serif);
+
+    --uw-text-light: #373c44;
+    --uw-background-light: transparent;
+    --uw-underline-light: var(--uw-text-light);
+    --uw-border-light: var(--uw-underline-light);
+    --uw-hover-light: #0f1114; /* == inverse */
+    --uw-hover-background: var(--uw-background-light);
+    --uw-hover-underline-light: var(--uw-hover-light);
+    --uw-hover-border-light: var(--uw-background-light);
+
+    --uw-text-dark: #c2c7d0;
+    --uw-background-dark: transparent;
+    --uw-underline-dark: var(--uw-text-dark);
+    --uw-border-dark: var(--uw-underline-dark);
+    --uw-hover-dark: #fff;
+    --uw-hover-background: var(--uw-background-dark);
+    --uw-hover-underline-dark: var(--uw-hover-dark);
+    --uw-hover-border-dark: var(--uw-background-dark);
 }
+
+[data-theme=light],
+:root:not([data-theme=dark]) {
+    --pico-primary: var(--uw-text-light);
+    --pico-background-color: var(--uw-background-light);
+    --pico-underline: var(--uw-underline-light);
+    --pico-primary-background: var(--uw-background-light);
+    --pico-primary-border: var(--uw-border-light);
+    --pico-primary-inverse: var(--uw-hover-light);
+    --pico-primary-underline: var(--uw-underline-light);
+    --pico-primary-hover: var(--uw-hover-light);
+    --pico-primary-hover-background: var(--uw-background-light);
+    --pico-primary-hover-underline: var(--uw-hover-underline-light);
+    --pico-primary-hover-border: var(--uw-hover-border-light);
+}
+
+[data-theme=dark], :root:not([data-theme]) {
+    --pico-primary: var(--uw-text-dark);
+    --pico-background-color: var(--uw-background-dark);
+    --pico-underline: var(--uw-underline-dark);
+    --pico-primary-background: var(--uw-background-dark);
+    --pico-primary-border: var(--uw-border-dark);
+    --pico-primary-inverse: var(--uw-hover-dark);
+    --pico-primary-underline: var(--uw-underline-dark);
+    --pico-primary-hover: var(--uw-hover-dark);
+    --pico-primary-hover-background: var(--uw-background-dark);
+    --pico-primary-hover-underline: var(--uw-hover-underline-dark);
+    --pico-primary-hover-border: var(--uw-hover-border-dark);
+}
+
+
+/* colours to override pico defaults on links and buttons */
+
+/*
+
+:where(a:not([role=button])), [role=link]
+--pico-primary
+--pico-background-color
+--pico-primary-underline
+
+&:hover, &:active, &:focus
+--pico-primary-hover
+--pico-primary-hover-underline
+
+[ ignore .secondary & .contrast ]
+
+button, [role=button]
+--pico-border-color
+--pico-background-color
+--pico-color
+
+&:hover, &:active, &:focus
+--pico-primary-hover-background
+--pico-primary-hover-border
+--pico-primary-inverse
+
+*/
 
 body {
     min-height: 100dvh;
@@ -11,18 +87,10 @@ body {
     * {
         font-family: var(--uw-font-family-san-serif);
     }
-}
-
-body > header {
-    padding-block-start: 0;
-    & > nav {
-        margin-block-end: var(--pico-nav-element-spacing-vertical);
+    header, main, footer {
+        padding: var(--pico-nav-element-spacing-vertical) var(--pico-nav-element-spacing-horizontal);
     }
 }
-
-body > header > nav {
-}
-
 nav, footer { /* provide some contrast */
     color: var(--pico-muted-color);
     background-color: var(--pico-muted-border-color);
@@ -32,15 +100,43 @@ svg {
     color: inherit;
     fill: inherit;
     display: inline-block;
-    &.cogstar {
-        width: 1em;
-        height: 1em;
+}
+
+header {
+    nav {
+        padding: 2rem var(--pico-nav-element-spacing-horizontal);
+        &.top-nav {
+            -webkit-transition: padding .2s ease-in-out;
+            -moz-transition: padding .2s ease-in-out;
+            transition: padding .2s ease-in-out;
+        }
+        &.top-nav-slim {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+    h1 {
+        margin-top: 8rem;
+        margin-bottom: 2rem;
     }
 }
 
-/* header navigation */
-header > nav, .navbar-nav {
-    align-items: center;
+.navbar-brand * {
+    font-family: var(--uw-font-family-brand);
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2.2rem;
+    letter-spacing: 0.rem;
+    text-decoration: none;
+    vertical-align: middle;
+    span {
+        vertical-align: middle;
+    }
+    &.cogstar {
+        padding-right: 0.5rem;
+        width: 3rem;
+        height: 3rem;
+    }
 }
 
 button.menu-button {
@@ -50,8 +146,15 @@ button.menu-button {
     }
 }
 
-header ul.navbar-links.shown {
+/* header navigation */
+header > nav, .navbar-nav {
+    align-items: center;
+}
+
+/* used by nav menu toggle */
+header ul.navbar-links.showing {
     display: flex;
+    max-height: 200px;
 }
 
 /* wide */
@@ -67,7 +170,8 @@ header ul.navbar-links.shown {
         flex-grow: 1;
     }
     .navbar-links {
-        display: flex; /* match value of display: in .shown class */
+        display: flex; /* must match display: and max-height: in .showing class */
+        max-height: 200px;
         flex-direction: row;
     }
     .navbar-toggler {
@@ -89,12 +193,18 @@ header ul.navbar-links.shown {
     .navbar-links {
         flex-direction: column;
         align-items: normal;
-        opacity: 50%;
-        display: none;
+        max-height: 0;
+        overflow-y: hidden;
+        transition: max-height 0.2s ease-in; /* can't transition display: or height: */
     }
     .navbar-toggler {
         display: block;
     }
+}
+
+/* main content */
+main {
+    padding: var(--pico-nav-element-spacing-vertical) var(--pico-nav-element-spacing-horizontal);
 }
 
 .action-button {
@@ -110,17 +220,30 @@ header ul.navbar-links.shown {
     }
 }
 
-footer > ul,
-footer > nav,
-footer > div.legal {
-    border-bottom: var(--pico-border-width) solid var(--pico-contrast-border);
+footer > * {
+    padding-top: var(--pico-nav-element-spacing-vertical);
+    padding-bottom: var(--pico-nav-element-spacing-vertical);
+    &:not(:last-child) {
+        border-bottom: var(--pico-border-width) solid var(--pico-contrast-border);
+    }
+    .uw-useful {
+        font-weight: bold;
+    }
+
+    .uw-works {
+        font-style: italic;
+    }
+    .cogstar {
+        width: 20px;
+        height: 20px;
+    }
 }
 
 footer > ul {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-bottom: 0;
-    padding: 0;
     margin-left: calc(var(--pico-nav-element-spacing-horizontal) * -1);
     li {
         list-style: none;
@@ -133,23 +256,16 @@ footer > ul {
     }
 }
 
-footer > div {
-    margin: 0;
-    padding: var(--pico-nav-element-spacing-vertical) var(--pico-nav-element-spacing-horizontal);
-
-}
-
 .uw-logo-text {
     span.uw-useful, span.uw-works {
         display: inline-block; /* provides hint for word break point */
     }
 }
 
-.uw-useful {
-    font-weight: bold;
+.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
 }
-
-.uw-works {
-    font-style: italic;
-}
-

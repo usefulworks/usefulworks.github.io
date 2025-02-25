@@ -11,10 +11,6 @@
     <meta property="og:image" content="./favicon/web-app-manifest-512x512.png" />
     <meta property="og:url" content="{{ site.url }}" />
     <meta name="description" property="og:description" content="We help businesses grow" />
-{% comment %}
-  suffix url with a random query string to foil aggressive caching in chrome
-{% endcomment %}
-{% assign epoch-ms = 'now' | date: "%s%L" %}
 {% if layout.common-css %}
   {% for css in layout.common-css %}
     <link rel="stylesheet" type="text/css" href="{{ css | relative_url }}?{{ epoch-ms }}">
@@ -27,7 +23,7 @@
 {% endif %}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&Arimo:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ultra&display=swap" />
     <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
     <link rel="shortcut icon" type="image/x-icon" href="./favicon/favicon.ico" />
