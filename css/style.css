@@ -52,7 +52,6 @@
     --pico-primary-hover-border: var(--uw-hover-border-dark);
 }
 
-
 /* colours to override pico defaults on links and buttons */
 
 /*
@@ -89,9 +88,13 @@ body {
     }
     header, main, footer {
         padding: var(--pico-nav-element-spacing-vertical) var(--pico-nav-element-spacing-horizontal);
+        &:is(footer) {
+            padding-top: 0;
+        }
     }
 }
-nav, footer { /* provide some contrast */
+
+nav, footer { /* add a little contrast */
     color: var(--pico-muted-color);
     background-color: var(--pico-muted-border-color);
 }
@@ -115,10 +118,6 @@ header {
             padding-bottom: 0;
         }
     }
-    h1 {
-        margin-top: 8rem;
-        margin-bottom: 2rem;
-    }
 }
 
 .navbar-brand * {
@@ -134,8 +133,8 @@ header {
     }
     &.cogstar {
         padding-right: 0.5rem;
-        width: 3rem;
-        height: 3rem;
+        width: 2.7rem;
+        height: 2.7rem;
     }
 }
 
@@ -233,9 +232,7 @@ main {
 footer > * {
     padding-top: var(--pico-nav-element-spacing-vertical);
     padding-bottom: var(--pico-nav-element-spacing-vertical);
-    &:not(:last-child) {
-        border-bottom: var(--pico-border-width) solid var(--pico-contrast-border);
-    }
+    border-top: var(--pico-border-width) solid var(--pico-contrast-border);
     .uw-useful {
         font-weight: bold;
     }
@@ -278,4 +275,13 @@ footer > ul {
     left: 0;
     right: 0;
     z-index: 10;
+}
+
+.top-of-content {
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+}
+
+.content-section {
+    min-height: 300px;
 }
