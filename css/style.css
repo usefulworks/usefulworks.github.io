@@ -86,7 +86,7 @@ body {
     * {
         font-family: var(--uw-font-family-san-serif);
     }
-    header, main, footer {
+    header, footer {
         padding: var(--pico-nav-element-spacing-vertical) var(--pico-nav-element-spacing-horizontal);
         &:is(footer) {
             padding-top: 0;
@@ -213,11 +213,20 @@ header ul.navbar-links.showing {
 
 /* main content */
 main {
+    margin-top: rem;
+    margin-bottom: 2rem;
+}
+
+.content-section {
+    min-height: 300px;
     padding: var(--pico-nav-element-spacing-vertical) var(--pico-nav-element-spacing-horizontal);
 }
 
 /* hero image */
 .hero {
+    padding-left: 0;
+    padding-right: 0;
+
     /* Use "linear-gradient" to add a darken background effect to the image to make the text easier to read */
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/assets/order_from_chaos_1.webp");
 
@@ -309,11 +318,3 @@ footer > ul {
     z-index: 10;
 }
 
-main > section:first-child, .top-of-content {
-    margin-top: 4rem;
-    margin-bottom: 2rem;
-}
-
-.content-section {
-    min-height: 300px;
-}
