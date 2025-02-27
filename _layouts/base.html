@@ -33,7 +33,7 @@ local-js:
         <div id="svg-template-container" aria-hidden="true" focusable="false" hidden>
             {% include svg-all.html %}
         </div>
-        {{ content deployedFrom=deployedFrom }}
+        {{ content }}
 
         {% assign all-local-js = "" | split: "" %}
         {% if layout.local-js %}{% assign all-local-js = all-local-js | concat: layout.local-js %}{% endif %}
