@@ -191,7 +191,7 @@ header ul.navbar-links.showing {
         display: none;
     }
     .hero {
-        background-attachment: fixed; /* parallax-ish effect */
+        background-attachment: fixed;
     }
 }
 
@@ -280,6 +280,11 @@ main {
     }
 }
 
+section.contact {
+    max-width: 67%;
+}
+
+/* footer */
 footer > * {
     padding: var(--pico-nav-element-spacing-vertical) var(--pico-nav-element-spacing-horizontal);
     border-top: var(--pico-border-width) solid var(--pico-contrast-border);

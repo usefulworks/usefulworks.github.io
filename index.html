@@ -1,6 +1,10 @@
 ---
 layout: default
 title: Home
+external-js:
+  - href: "https://www.google.com/recaptcha/api.js?onload=grecaptcha_load&amp;render=explicit"
+    async: true
+    defer: true
 ---
 <section class="hero">
     <div class="hero-text">
@@ -29,41 +33,31 @@ title: Home
     <p>For any UsefulWorks consulting inquiries, please send us an email <a href="mailto:{{ site.email }}?subject=UsefulWorks consulting inquiry">{{ site.email }}</a></p>
 
     <div style="text-align: center">
-        <a href="https://calendly.com/FIXME/meeting" class="schedule-btn actionbtn"><span class="far fa-calendar-check" aria-hidden="true" hidden></span>Schedule Meeting [[ set correct calend.ly link ]]</a>
+        <a href="https://calendly.com/FIXME/meeting" role="button" class="action-button">
+            <svg><use href="#svg-calendar-icon" /></svg>
+            <span>Schedule Meeting [[ FIXME calend.ly ]]</span>
+        </a>
     </div>
 
     <p>If you&apos;d rather just send us a brief message, please use the email form below and we can take it from there.</p>
 
-    <form action="https://submit-form.com/FIXME" class="form" id="contact-form">
-        <input type="email" name="email" required="required" class="form-control input-lg" placeholder="Email" title="Email" style="margin-bottom: 15px" />
-        <input type="text" name="name" class="form-control input-lg" placeholder="Name" title="Name" style="margin-bottom: 15px" />
-        <textarea type="text" name="content" class="form-control input-lg" placeholder="Message" title="Message" required="required" rows="3"></textarea>
-        <div class="g-recaptcha" data-sitekey="" data-callback="enableSubmitContact">
-            <div style="width: 304px; height: 78px">
-                <div>
-                    <!--iframe
-                        title="reCAPTCHA"
-                        width="304"
-                        height="78"
-                        role="presentation"
-                        name="a-qiwu2yrp9kp6"
-                        frameborder="0"
-                        scrolling="no"
-                        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
-                        src="https://www.google.com/recaptcha/api2/anchor?FIXME">
-                    </iframe-->
-                </div>
-                <textarea
-                    id="g-recaptcha-response"
-                    name="g-recaptcha-response"
-                    class="g-recaptcha-response"
-                    style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none"></textarea>
-            </div>
-        </div>
-        <input type="hidden" name="_feedback.success.title" value="Thanks for contacting AttaliTech, we'll be in touch shortly!" />
-        <input type="hidden" name="_email.from" value="Formspark AttaliTech" />
+    <form action="https://submit-form.com/uYwztaWKq" class="form" id="contact-form">
+        <label for="name" aria-hidden="true" hidden>Name</label>
+        <input type="text" id="name" name="name" placeholder="Name" required="true" />
+        <label for="email" aria-hidden="true" hidden>Email</label>
+        <input type="email" id="email" name="email" placeholder="Email" required="true" />
+        <label for="message" aria-hidden="true" hidden>Message</label>
+        <textarea id="message" name="message" placeholder="Message" required=""></textarea>
+
+        <div id="g-recaptcha" class="g-recaptcha"></div>
+
+        <input type="hidden" name="_feedback.success.title" value="Thanks for contacting UsefulWorks, we'll be in touch shortly!" />
+        <input type="hidden" name="_email.from" value="Formspark UsefulWorks" />
         <input type="hidden" name="_feedback.error.title" value='An error occurred (did you check the "I&apos;m not a robot" box?)' />
         <p></p>
-        <button id="submit_contact" type="submit" class="" disabled="">Submit</button>
+        <button id="submit_contact" type="submit" class="" disabled="false">Submit</button>
     </form>
+    <script type="text/javascript">
+        var grecaptcha_load = () => { grecaptcha.render('g-recaptcha', { 'sitekey' : '6Lf7ReQqAAAAAKErE6ZEBwh2-cx9UGae8VBWe-Nx' });}
+    </script>
 </section>

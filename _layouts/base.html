@@ -6,6 +6,10 @@ common-css:
 common-js:
   - "/js/site-nav.js"
   - "/js/site-theme.js"
+#external-js:
+#  - href: "https:127.0.0.1"
+#    async: false
+#    defer: false
 ---
 {% comment %}
   use millis since epoch as a query suffix to css/js urls to foil aggressive caching in chrome
@@ -31,6 +35,16 @@ common-js:
         {% if page.js %}
             {% for js in page.js %}
                 <script type="text/javascript" src="{{ js | relative_url }}?{{ epoch-ms }}"></script>
+            {% endfor %}
+        {% endif %}
+        {% if layout.external-js %}
+            {% for js in layout.external-js %}
+                <script src="{{ js.href }}" {% if js.async %}{{ "async" }}{% endif %} {% if js.defer %}{{ "defer" }}{% endif %}></script>
+            {% endfor %}
+        {% endif %}
+        {% if page.external-js %}
+            {% for js in page.external-js %}
+                <script src="{{ js.href }}" {% if js.async %}{{ "async" }}{% endif %} {% if js.defer %}{{ "defer" }}{% endif %}></script>
             {% endfor %}
         {% endif %}
     </body>
