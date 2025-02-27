@@ -11,16 +11,12 @@
     <meta property="og:image" content="./favicon/web-app-manifest-512x512.png" />
     <meta property="og:url" content="{{ site.url }}" />
     <meta name="description" property="og:description" content="We help businesses grow" />
-{% if layout.common-css %}
-  {% for css in layout.common-css %}
+{% assign all-local-css = "" | split: "" %}
+{% if layout.local-css %}{% assign all-local-css = all-local-css | concat: layout.local-css %}{% endif %}
+{% if page.local-css %}{% assign all-local-css = all-local-css| concat: page.local-css %}{% endif %}
+{% for css in all-local-css %}
     <link rel="stylesheet" type="text/css" href="{{ css | relative_url }}?{{ epoch-ms }}">
-  {% endfor %}
-{% endif %}
-{% if page.css %}
-  {% for css in page.css %}
-    <link rel="stylesheet" type="text/css" href="{{ css | relative_url }}?{{ epoch-ms }}">
-  {% endfor %}
-{% endif %}
+{% endfor %}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ultra&display=swap" />
@@ -30,3 +26,5 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
     <link rel="manifest" href="./favicon/site.webmanifest" />
 </head>
+
+

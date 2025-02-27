@@ -2,7 +2,7 @@
 layout: default
 title: Home
 external-js:
-  - href: "https://www.google.com/recaptcha/api.js?onload=grecaptcha_load&amp;render=explicit"
+  - href: "https://www.recaptcha.net/recaptcha/api.js?onload=grecaptcha_load&amp;render=explicit"
     async: true
     defer: true
 ---
@@ -57,7 +57,15 @@ external-js:
         <p></p>
         <button id="submit_contact" type="submit" class="" disabled="false">Submit</button>
     </form>
-    <script type="text/javascript">
-        var grecaptcha_load = () => { grecaptcha.render('g-recaptcha', { 'sitekey' : '6Lf7ReQqAAAAAKErE6ZEBwh2-cx9UGae8VBWe-Nx' });}
+
+    <script type="text/javascript">// move this to external file
+        {% if site.github.repository_nwo == "usefulworks/uw-corp-website" %}
+            {% comment %} use site key that is compatible with localhost {% endcomment %}
+            {% assign sitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" %}
+        {% else %}
+            {% comment %} use live site key {% endcomment %}
+            {% assign sitekey = "6Lf7ReQqAAAAAKErE6ZEBwh2-cx9UGae8VBWe-Nx" %}
+        {% endif %}
+        var grecaptcha_load = () => { grecaptcha.render('g-recaptcha', { 'sitekey' : '{{ sitekey }}' });}
     </script>
 </section>
