@@ -1,5 +1,5 @@
 <ul>
-    <li class="logo-box">
+    <li class="logo-box" hidden>
         <svg class="cogstar">
             <use href="#svg-cogstar" />
         </svg>
@@ -8,20 +8,29 @@
         </span>
     </li>
     <li class="contact">
-        <p>CONTACT</p>
-        <p>
+        <p aria-label="email address">
+            <svg><use href="#svg-mail-icon" /></svg>
             <a href="mailto:hello@usefulworks.uk" target="_self">hello@usefulworks.uk</a>
+        </p>
+        <p aria-label="slack channel">
+            <svg><use href="#svg-slack-icon" /></svg>
+            <a href="#" target="_self">@usefulworks</a>
+        </p>
+        <p aria-label="linked in" hidden>
         </p>
     </li>
     <li class="cta-button">
-        <button role="button">Book a Call</button>
+        <a href="#contact" role="button" class="action-button">
+            <svg><use href="#svg-calendar-icon" /></svg>
+            <span>Book A Call</span>
+        </a>
     </li>
 </ul>
 <nav aria-label="footer navigation">
     <ul>
         <li><a href="about.html">About Us</a></li>
         <li><a href="legal.html#privacy">Privacy Policy</a></li>
-        <li><a href="legal.html#t-and-c">Terms & Conditions</a></li>
+        <li><a href="legal.html#t-and-c">Terms &amp; Conditions</a></li>
     </ul>
 </nav>
 <div class="legal">

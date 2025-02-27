@@ -1,3 +1,6 @@
+---
+#
+---
 /* Copyright (c) 2025 UsefulWorks Ltd. */
 
 :root {
@@ -51,7 +54,7 @@
     --pico-primary-hover-underline: var(--uw-hover-underline-dark);
     --pico-primary-hover-border: var(--uw-hover-border-dark);
 }
-
+{% comment %}
 /* colours to override pico defaults on links and buttons */
 
 /*
@@ -78,6 +81,7 @@ button, [role=button]
 --pico-primary-inverse
 
 */
+{% endcomment %}
 
 body {
     min-height: 100dvh;
@@ -86,11 +90,11 @@ body {
     * {
         font-family: var(--uw-font-family-san-serif);
     }
-    header, footer {
+    header {
         padding: var(--pico-nav-element-spacing-vertical) var(--pico-nav-element-spacing-horizontal);
-        &:is(footer) {
-            padding-top: 0;
-        }
+    }
+    footer {
+        padding-top: 0;
     }
 }
 
@@ -186,6 +190,9 @@ header ul.navbar-links.showing {
     .navbar-toggler {
         display: none;
     }
+    .hero {
+        background-attachment: fixed; /* parallax-ish effect */
+    }
 }
 
 /* narrow */
@@ -213,7 +220,7 @@ header ul.navbar-links.showing {
 
 /* main content */
 main {
-    margin-top: rem;
+    margin-top: 3rem;
     margin-bottom: 2rem;
 }
 
@@ -227,21 +234,24 @@ main {
     padding-left: 0;
     padding-right: 0;
 
-    /* Use "linear-gradient" to add a darken background effect to the image to make the text easier to read */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/assets/order_from_chaos_1.webp");
+    /* linear-gradient adds a darker background effect to the text more legible */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+                      url("/assets/order_from_chaos_1.webp");
 
-    /* Set a specific height */
+    /* height */
     height: 672px;
+    min-height: 672px;
+    overflow: hidden;
 
-    /* position and center the image to scale nicely on all screens */
+    /* position and center to scale nicely on all screens */
+    position: relative;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
-  }
+}
 
-  /* Place text in the middle of the image */
-  .hero-text {
+/* place text in the middle of the image */
+.hero-text {
     text-align: center;
     position: absolute;
     top: 50%;
@@ -252,10 +262,10 @@ main {
         font-size: 3rem;
         color: #fff;
         &:last-of-type {
-            padding-bottom: 1rem;
+            padding-bottom: 1.4rem;
         }
     }
-  }
+}
 
 .action-button {
     color: #fff;
@@ -271,19 +281,21 @@ main {
 }
 
 footer > * {
-    padding-top: var(--pico-nav-element-spacing-vertical);
-    padding-bottom: var(--pico-nav-element-spacing-vertical);
+    padding: var(--pico-nav-element-spacing-vertical) var(--pico-nav-element-spacing-horizontal);
     border-top: var(--pico-border-width) solid var(--pico-contrast-border);
     .uw-useful {
         font-weight: bold;
     }
-
     .uw-works {
         font-style: italic;
     }
-    .cogstar {
-        width: 20px;
-        height: 20px;
+    svg {
+        width: 24px;
+        height: 24px;
+        .cogstar {
+            width: 20px;
+            height: 20px;
+        }
     }
 }
 
@@ -299,7 +311,7 @@ footer > ul {
         margin: 0;
         padding: var(--pico-nav-element-spacing-vertical) var(--pico-nav-element-spacing-horizontal);
     }
-    p {
+    p:last-of-type:not([hidden]) {
         margin-bottom: 0;
     }
 }
@@ -318,3 +330,6 @@ footer > ul {
     z-index: 10;
 }
 
+[hidden] {
+    height: 0;
+}
