@@ -13,6 +13,14 @@ local-js:
 #  - href: "https:127.0.0.1"
 #    async: false
 #    defer: false
+# experimental: key-value only
+js-simple-vars:
+  -
+    name: "myName"
+    value: "alice"
+  -
+    name: "magicNumber"
+    value: 42
 ---
 {% comment %}
   use millis since epoch as a query suffix to css/js urls to foil aggressive caching in chrome
@@ -36,15 +44,23 @@ local-js:
         {{ content }}
 
         {% assign all-local-js = "" | split: "" %}
-        {% if layout.local-js %}{% assign all-local-js = all-local-js | concat: layout.local-js %}{% endif %}
-        {% if page.local-js %}{% assign all-local-js = all-local-js| concat: page.local-js %}{% endif %}
+        {% if layout.local-js %}
+          {% assign all-local-js = all-local-js | concat: layout.local-js %}
+        {% endif %}
+        {% if page.local-js %}
+          {% assign all-local-js = all-local-js | concat: page.local-js %}
+        {% endif %}
         {% for js in all-local-js %}
             <script type="text/javascript" src="{{ js | relative_url }}?{{ epoch-ms }}"></script>
         {% endfor %}
 
         {% assign all-external-js = "" | split: "" %}
-        {% if layout.external-js %}{% assign all-external-js = all-external-js | concat: layout.external-js %}{% endif %}
-        {% if page.external-js %}{% assign all-external-js = all-external-js| concat: page.external-js %}{% endif %}
+        {% if layout.external-js %}
+          {% assign all-external-js = all-external-js | concat: layout.external-js %}
+        {% endif %}
+        {% if page.external-js %}
+          {% assign all-external-js = all-external-js | concat: page.external-js %}
+        {% endif %}
         {% for js in all-external-js %}
             <script src="{{ js.href }}"{% if js.async %}{{ " async" }}{% endif %}{% if js.defer %}{{ " defer" }}{% endif %}></script>
         {% endfor %}

@@ -12,8 +12,12 @@
     <meta property="og:url" content="{{ site.url }}" />
     <meta name="description" property="og:description" content="We help businesses grow" />
 {% assign all-local-css = "" | split: "" %}
-{% if layout.local-css %}{% assign all-local-css = all-local-css | concat: layout.local-css %}{% endif %}
-{% if page.local-css %}{% assign all-local-css = all-local-css| concat: page.local-css %}{% endif %}
+{% if layout.local-css %}
+    {% assign all-local-css = all-local-css | concat: layout.local-css %}
+{% endif %}
+{% if page.local-css %}
+    {% assign all-local-css = all-local-css | concat: page.local-css %}
+{% endif %}
 {% for css in all-local-css %}
     <link rel="stylesheet" type="text/css" href="{{ css | relative_url }}?{{ epoch-ms }}">
 {% endfor %}
@@ -25,6 +29,15 @@
     <link rel="shortcut icon" type="image/x-icon" href="./favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
     <link rel="manifest" href="./favicon/site.webmanifest" />
+{% if layout.js-simple-vars %}
+    {% comment %} kludge: needs work {% endcomment %}
+    <script type="text/javascript">
+        const $UW = {
+        {% for js-var in layout.js-simple-vars %}
+            {{ js-var.name }} : "{{ js-var.value }}"
+            {% if forloop.last == false %},{% endif %}
+        {% endfor %}
+        }
+    </script>
+{% endif %}
 </head>
-
-

@@ -1,8 +1,12 @@
 ---
 layout: default
 title: Home
+grecaptcha_container: g-recaptcha
+grecaptcha_onload_handler: Forms.Recaptcha.load
+local-js:
+    - "/js/site-forms.js"
 external-js:
-  - href: "https://www.recaptcha.net/recaptcha/api.js?onload=grecaptcha_load&amp;render=explicit"
+  - href: "https://www.recaptcha.net/recaptcha/api.js?onload=Forms.Recaptcha.load&amp;render=explicit"
     async: true
     defer: true
 ---
@@ -45,11 +49,11 @@ external-js:
         <label for="name" aria-hidden="true" hidden>Name</label>
         <input type="text" id="name" name="name" placeholder="Name" required="true" />
         <label for="email" aria-hidden="true" hidden>Email</label>
-        <input type="email" id="email" name="email" placeholder="Email" required="true" />
+        <input type="email" id="email" name="emai6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhIl" placeholder="Email" required="true" />
         <label for="message" aria-hidden="true" hidden>Message</label>
         <textarea id="message" name="message" placeholder="Message" required=""></textarea>
 
-        <div id="g-recaptcha" class="g-recaptcha"></div>
+        <div id="{{ page.grecaptcha_container }}" class="{{ page.grecaptcha_container }}"></div>
 
         <input type="hidden" name="_feedback.success.title" value="Thanks for contacting UsefulWorks, we'll be in touch shortly!" />
         <input type="hidden" name="_email.from" value="Formspark UsefulWorks" />
@@ -57,15 +61,14 @@ external-js:
         <p></p>
         <button id="submit_contact" type="submit" class="" disabled="false">Submit</button>
     </form>
-
     <script type="text/javascript">// move this to external file
-        {% if site.github.repository_nwo == "usefulworks/uw-corp-website" %}
-            {% comment %} use site key that is compatible with localhost {% endcomment %}
-            {% assign sitekey = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" %}
+        {% if site.uw.repos.dev contains site.github.repository_nwo %}
+            {% assign sitekey = site.uw.recaptcha.v2.localhost.site_key %}
         {% else %}
-            {% comment %} use live site key {% endcomment %}
-            {% assign sitekey = "6Lf7ReQqAAAAAKErE6ZEBwh2-cx9UGae8VBWe-Nx" %}
+            {% assign sitekey = site.uw.recaptcha.v2.usefulworks_uk.site_key %}
         {% endif %}
-        var grecaptcha_load = () => { grecaptcha.render('g-recaptcha', { 'sitekey' : '{{ sitekey }}' });}
+        var grecaptcha_load = () => {
+            grecaptcha.render("g-recaptcha", { "sitekey": "{{ sitekey }}" });
+        }
     </script>
 </section>

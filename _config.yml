@@ -14,6 +14,23 @@ copyright: "Copyright © 2025 UsefulWorks Ltd. All rights reserved."
 url: "https://usefulworks.uk"
 lang: "en-GB"
 
+# custom usefulworks config
+uw:
+  # repositiories
+  repos:
+    dev:
+      - "usefulworks/uw-corp-website"
+    live:
+      - "usefulworks/usefulworks.github.io"
+      - "usefulworks/staging.usefulworks/usefulworks.github.io"
+  # recaptcha
+  recaptcha:
+    v2:
+      localhost:
+        site_key: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+      usefulworks_uk:
+        site_key: "6Lf7ReQqAAAAAKErE6ZEBwh2-cx9UGae8VBWe-Nx"
+
 # serving
 detach: false
 port: 4001
