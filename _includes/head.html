@@ -29,13 +29,18 @@
     <link rel="shortcut icon" type="image/x-icon" href="./favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
     <link rel="manifest" href="./favicon/site.webmanifest" />
-{% if layout.js-simple-vars %}
-    {% comment %} kludge: needs work {% endcomment %}
-    <script type="text/javascript">
+{% assign all-js-literals = "" | split: "" %}
+{% if layout.js-literals %}
+    {% assign all-js-literals = all-js-literals | concat: layout.js-literals %}
+{% endif %}
+{% if page.js-literals %}
+    {% assign all-js-literals = all-js-literals | concat: page.js-literals %}
+{% endif %}
+{% if all-js-literals.size > 0 %}
+    <script type="text/javascript" data-label="generated">
         const $UW = {
-        {% for js-var in layout.js-simple-vars %}
-            {{ js-var.name }} : "{{ js-var.value }}"
-            {% if forloop.last == false %},{% endif %}
+        {% for js-var in all-js-literals %}
+            {{ js-var.name }}: "{{ js-var.value }}"{% if forloop.last == false %},{% endif %}
         {% endfor %}
         }
     </script>

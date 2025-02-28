@@ -2,13 +2,19 @@
 layout: default
 title: Home
 grecaptcha_container: g-recaptcha
-grecaptcha_onload_handler: Forms.Recaptcha.load
 local-js:
     - "/js/site-forms.js"
 external-js:
-  - href: "https://www.recaptcha.net/recaptcha/api.js?onload=Forms.Recaptcha.load&amp;render=explicit"
+  - href: "https://www.recaptcha.net/recaptcha/api.js"
     async: true
     defer: true
+js-literals:
+    -
+      name: "recaptcha_container"
+      value: "g-recaptcha"
+    -
+      name: "site_key"
+      value: "?"
 ---
 <section class="hero">
     <div class="hero-text">
@@ -53,7 +59,12 @@ external-js:
         <label for="message" aria-hidden="true" hidden>Message</label>
         <textarea id="message" name="message" placeholder="Message" required=""></textarea>
 
-        <div id="{{ page.grecaptcha_container }}" class="{{ page.grecaptcha_container }}"></div>
+        {% if site.uw.repos.dev contains site.github.repository_nwo %}
+            {% assign sitekey = site.uw.recaptcha.v2.localhost.site_key %}
+        {% else %}
+            {% assign sitekey = site.uw.recaptcha.v2.usefulworks_uk.site_key %}
+        {% endif %}
+        <div id="{{ page.grecaptcha_container }}" class="{{ page.grecaptcha_container }}" data-sitekey="{{ sitekey }}"></div>
 
         <input type="hidden" name="_feedback.success.title" value="Thanks for contacting UsefulWorks, we'll be in touch shortly!" />
         <input type="hidden" name="_email.from" value="Formspark UsefulWorks" />
@@ -61,14 +72,4 @@ external-js:
         <p></p>
         <button id="submit_contact" type="submit" class="" disabled="false">Submit</button>
     </form>
-    <script type="text/javascript">// move this to external file
-        {% if site.uw.repos.dev contains site.github.repository_nwo %}
-            {% assign sitekey = site.uw.recaptcha.v2.localhost.site_key %}
-        {% else %}
-            {% assign sitekey = site.uw.recaptcha.v2.usefulworks_uk.site_key %}
-        {% endif %}
-        var grecaptcha_load = () => {
-            grecaptcha.render("g-recaptcha", { "sitekey": "{{ sitekey }}" });
-        }
-    </script>
 </section>
