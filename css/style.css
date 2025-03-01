@@ -1,10 +1,7 @@
----
-#
----
 /* Copyright (c) 2025 UsefulWorks Ltd. */
 
 :root {
-    --uw-font-family-brand: Ultra, Georgia, Garamond, "Times New Roman", serif, var(--pico-font-family-emoji); /* pico has no def for serif font */
+    --uw-font-family-brand: Ultra, Georgia, Garamond, "Times New Roman", serif, var(--pico-font-family-emoji);
     --uw-font-family-san-serif: Monserrat, var(--pico-font-family-sans-serif);
 
     --uw-text-light: #373c44;
@@ -54,7 +51,7 @@
     --pico-primary-hover-underline: var(--uw-hover-underline-dark);
     --pico-primary-hover-border: var(--uw-hover-border-dark);
 }
-{% comment %}
+
 /* colours to override pico defaults on links and buttons */
 
 /*
@@ -81,7 +78,6 @@ button, [role=button]
 --pico-primary-inverse
 
 */
-{% endcomment %}
 
 body {
     min-height: 100dvh;
@@ -248,6 +244,10 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    .action-button {
+        background-color: transparent;
+    }
 }
 
 /* place text in the middle of the image */
