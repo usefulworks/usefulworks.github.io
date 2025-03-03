@@ -1,26 +1,33 @@
 ---
 lang: en-GB
-local-css:
-  - "/css/pico.css"
-  - "/css/style.css"
-#
-# tbd: add impl for external-css
-#
+
+linked-resources:
+  - href: "/css/pico.css"
+    rel: "stylesheet"
+  - href: "/css/style.css"
+    rel: "stylesheet"
+  - href: "https://fonts.googleapis.com"
+    rel: "preconnect"
+  - href: "https://fonts.gstatic.com"
+    rel: "preconnect"
+    crossorigin: true
+  - href: "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ultra&display=swap"
+    rel: "stylesheet"
+
 local-js:
   - "/js/site-nav.js"
   - "/js/site-theme.js"
+#
 #external-js:
 #  - href: "https:127.0.0.1"
 #    async: false
 #    defer: false
-# experimental: key-value only
-js-literals:
-  -
-    name: "myName"
-    value: "alice"
-  -
-    name: "magicNumber"
-    value: 42
+#
+#js-literals:
+#  - name: "myName"
+#    value: "alice"
+#  - name: "magicNumber"
+#    value: 42
 ---
 {% comment %}
   use millis since epoch as a query suffix to css/js urls to foil aggressive caching in chrome
@@ -30,6 +37,7 @@ js-literals:
 <!-- {{ site.data.common.copyright }} -->
 {% if jekyll.environment != "production" %}
 <!-- +- deployed from {{ deployedFrom }} -->
+<!-- +- the epoch is @{{ epoch-ms }} -->
 {% endif %}
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: layout.lang | default: site.lang | default: 'en' }}">

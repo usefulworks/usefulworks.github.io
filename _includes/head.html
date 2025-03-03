@@ -11,19 +11,25 @@
     <meta property="og:image" content="./favicon/web-app-manifest-512x512.png" />
     <meta property="og:url" content="{{ site.url }}" />
     <meta name="description" property="og:description" content="We help businesses grow" />
-{% assign all-local-css = "" | split: "" %}
-{% if layout.local-css %}
-    {% assign all-local-css = all-local-css | concat: layout.local-css %}
+{% comment %} link[@rel] tags {% endcomment %}
+{% assign all-linked-resources = "" | split: "" %}
+{% if layout.linked-resources %}
+    {% assign all-linked-resources = all-linked-resources | concat: layout.linked-resources %}
 {% endif %}
-{% if page.local-css %}
-    {% assign all-local-css = all-local-css | concat: page.local-css %}
+{% if page.linked-resources %}
+    {% assign all-linked-resources = all-linked-resources | concat: page.linked-resources %}
 {% endif %}
-{% for css in all-local-css %}
-    <link rel="stylesheet" type="text/css" href="{{ css | relative_url }}?{{ epoch-ms }}">
+{% for res in all-linked-resources %}
+  {% assign proto = res.href | slice: 0, 4 %}
+  {% capture res_url %}
+    {% if  proto == "http" %}
+      {{ res.href }}
+    {% else %}
+      {{ res.href | relative_url }}?{{ epoch-ms }}
+    {% endif %}
+  {% endcapture %}
+  <link rel="{{ res.rel }}" href="{{ res_url | strip }}" {% if res.crossorigin %}crossorigin{% endif %} />
 {% endfor %}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ultra&display=swap" />
     <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
     <link rel="shortcut icon" type="image/x-icon" href="./favicon/favicon.ico" />
