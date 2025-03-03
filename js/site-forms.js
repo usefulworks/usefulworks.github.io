@@ -7,7 +7,7 @@ const Forms = {
     init : function() {
         console.log("Forms.init");
         console.log("$UW.myName is " + $UW.myName);
-        Forms.renderRecaptcha();
+        //Forms.renderRecaptcha();
     },
 
     renderRecaptcha : function() {

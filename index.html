@@ -25,10 +25,10 @@ js-literals:
         </a>
     </div>
 </section>
-<section class="cs1 content-section">
+<section class="cs1 content-section container">
     <h3 id="services">What We Offer</h3>
 </section>
-<section class="cs2 content-section">
+<section class="cs2 content-section container">
     <h3>Who We Serve</h3>
     <ul>
         <li>Solopreneurs</li>
@@ -36,7 +36,7 @@ js-literals:
         <li>Scale-Ups & SMBs</li>
     </ul>
 </section>
-<section class="cs3 content-section">
+<section class="cs3 content-section container">
     <h3>Our Values</h3>
     <ul>
         <li>goodest</li>
@@ -47,7 +47,7 @@ js-literals:
         <span>Work With Us</span>
     </a>
 </section>
-<section id="contact" class="contact content-section">
+<section id="contact" class="contact content-section container">
     <h3>How To Get In Touch</h3>
     <p>We&apos;ve come to understand the best first step in a successful journey is to hold a short, virtual meeting to get introduced, dicuss your needs and gather some basic requirements.</p>
 
@@ -63,11 +63,10 @@ js-literals:
     <p>If you&apos;d rather just send us a brief message, please use the email form below and we can take it from there.</p>
 
     <form action="https://submit-form.com/uYwztaWKq" class="form" id="contact-form">
-        <label for="name" aria-hidden="true" hidden>Name</label>
-        <input type="text" id="name" name="name" placeholder="Name" required="true" />
-        <label for="email" aria-hidden="true" hidden>Email</label>
-        <input type="email" id="email" name="emai6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhIl" placeholder="Email" required="true" />
-        <label for="message" aria-hidden="true" hidden>Message</label>
+        <div class="name-email">
+            <input type="text" id="name" name="name" placeholder="Name" required="true" />
+            <input type="email" id="email" name="email" placeholder="Email" required="true" />
+        </div>
         <textarea id="message" name="message" placeholder="Message" required=""></textarea>
 
         {% if site.uw.repos.dev contains site.github.repository_nwo %}
@@ -81,6 +80,8 @@ js-literals:
         <input type="hidden" name="_email.from" value="Formspark UsefulWorks" />
         <input type="hidden" name="_feedback.error.title" value='An error occurred (did you check the "I&apos;m not a robot" box?)' />
         <p></p>
-        <button id="submit_contact" type="submit" class="" disabled="false">Submit</button>
+        <button id="submit_contact" type="submit" class="submit">Submit</button>
     </form>
 </section>
+<link rel="preconnect" href="https://www.google.com" />
+<link rel="preconnect" href="https://www.gstatic.com" crossorigin />

@@ -244,10 +244,6 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
-    .action-button {
-        background-color: transparent;
-    }
 }
 
 /* place text in the middle of the image */
@@ -281,7 +277,20 @@ main {
 }
 
 section.contact {
-    max-width: 67%;
+    div.name-email {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: stretch;
+        gap: var(--pico-spacing);
+        input {
+            --input-width: calc(50% - var(--pico-spacing) / 2);
+            max-width: var(--input-width);
+            flex-basis: var(--input-width);
+            flex-grow: 0;
+            flex-shrink: 0;
+        }
+    }
 }
 
 /* footer */
