@@ -10,10 +10,16 @@ document.readyState =="loading" ? window.addEventListener("load", setupTheme) : 
 function setupTheme() {
     const html = document.documentElement;
     const attrName = "data-theme";
-    const q = getUrlQueryParam("theme") == "dark" ? "dark" : "light" ? "light" : "auto";
+    const query = getUrlQueryParam("theme");
+    const q = query ? (query == "dark" ? "dark" : (query = "light" ? "light" : "auto")) : "auto";
+    const s = getSystemTheme();
+
+    // query string overrides system
+    const theme = (q == "auto" ? (s == "auto" ? "light" : s) : q);
+    console.log("url theme=" + q + " system theme=" + s + " using theme=" + theme);
 
     // set theme attribute on root
-    document.documentElement.setAttribute(attrName, q);
+    document.documentElement.setAttribute(attrName, theme);
 
     // set switcher event handler
     const themeSwitch = document.getElementById("theme-switch");
@@ -23,6 +29,31 @@ function setupTheme() {
             html.setAttribute(attrName, themeSwitch.checked ? "dark" : "light");
         });
     }
+}
+
+function getSystemTheme() {
+    if (window.matchMedia) {
+        // listen for changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            const html = document.documentElement;
+            const attrName = "data-theme";
+            const themeSwitch = document.getElementById("theme-switch");
+
+            const newColorScheme = e.matches ? "dark" : "light";
+            console.log("system theme changed to " + newColorScheme);
+            //nb. this will override query param, if specified
+            html.setAttribute(attrName, newColorScheme);
+            if (themeSwitch) themeSwitch.checked = newColorScheme == "dark";
+        });
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // dark mode
+            return "dark";
+        } else {
+            // light mode
+            return "light";
+        }
+    }
+    return "auto";
 }
 
 /**
