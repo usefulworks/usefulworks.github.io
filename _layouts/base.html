@@ -16,6 +16,7 @@ linked-resources:
 
 local-js:
   - "/js/site-nav.js"
+  - "/js/site-store.js"
   - "/js/site-theme.js"
 #
 #external-js:
@@ -58,6 +59,7 @@ local-js:
         {% if page.local-js %}
           {% assign all-local-js = all-local-js | concat: page.local-js %}
         {% endif %}
+        {% assign all-local-js = all-local-js | uniq %}
         {% for js in all-local-js %}
             <script type="text/javascript" src="{{ js | relative_url }}?{{ epoch-ms }}"></script>
         {% endfor %}
@@ -69,6 +71,7 @@ local-js:
         {% if page.external-js %}
           {% assign all-external-js = all-external-js | concat: page.external-js %}
         {% endif %}
+        {% assign all-external-js = all-external-js | uniq %}
         {% for js in all-external-js %}
             <script src="{{ js.href }}"{% if js.async %}{{ " async" }}{% endif %}{% if js.defer %}{{ " defer" }}{% endif %}></script>
         {% endfor %}

@@ -62,8 +62,8 @@ const Themes = {
             get init() { return (this._element != null); },
             get _checked() { return this._element.checked; },
             set _checked(value) { this._element.checked = value; },
-            get theme() { return this.checked ? this._checkedTheme : this._checkedTheme.inverse },
-            set theme(value) { this.checked = (value == this._checkedTheme); },
+            get theme() { return this._checked ? this._checkedTheme : this._checkedTheme.inverse },
+            set theme(value) { this._checked = (value == this._checkedTheme); },
             addChangeListener(func) { this._element.addEventListener("change", func); }
         };
         // encapsulates the OS theme
@@ -79,11 +79,21 @@ const Themes = {
             addChangeListener(func) { this._media.addEventListener("change", func); }
         };
 
-        // query string overrides system
-        const queryTheme = Themes.getThemeFromQueryParam();
-        const theme = queryTheme == Theme.Undefined ? systemTheme.value : queryTheme;
+        // persisted data
+        const store_key = "site-theme.theme"
+        const store = new AppStorage();
 
-        console.log("themes: [url]=" + queryTheme + " [system]=" + systemTheme.value + " [using]=" + theme);
+        // query string >> persisted >> system
+        var userTheme = Themes.getThemeFromQueryParam();
+        if (userTheme == Theme.Undefined) {
+            userTheme = Theme.fromString(store.get(store_key));
+        } else {
+            store.set(store_key, userTheme);
+        }
+
+        // find theme to use
+        const theme = userTheme == Theme.Undefined ? systemTheme.value : userTheme;
+        console.log("themes: [user]=" + userTheme + " [system]=" + systemTheme.value + " [using]=" + theme);
 
         // set theme attribute
         if (!themeAttribute.init) {
@@ -96,7 +106,13 @@ const Themes = {
         if (themeSwitch.init) {
             themeSwitch.theme = themeAttribute.theme;
             themeSwitch.addChangeListener(function() {
+                console.log('themeSwitch.change ' + themeSwitch.theme)
                 themeAttribute.theme = themeSwitch.theme;
+                if (themeSwitch.theme == systemTheme.value) {
+                    store.delete(store_key);
+                } else {
+                    store.set(store_key, themeSwitch.theme);
+                }
             });
         }
 
