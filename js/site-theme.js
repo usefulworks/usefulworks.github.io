@@ -86,12 +86,14 @@ const Themes = {
         // query string >> persisted >> system
         var userTheme = Themes.getThemeFromQueryParam();
         if (userTheme == Theme.Undefined) {
+            // no theme in query, try session storage
             userTheme = Theme.fromString(store.get(store_key));
         } else {
+            // persist query theme
             store.set(store_key, userTheme);
         }
 
-        // find theme to use
+        // find theme to use, defaulting to system theme
         const theme = userTheme == Theme.Undefined ? systemTheme.value : userTheme;
         console.log("themes: [user]=" + userTheme + " [system]=" + systemTheme.value + " [using]=" + theme);
 
@@ -106,12 +108,15 @@ const Themes = {
         if (themeSwitch.init) {
             themeSwitch.theme = themeAttribute.theme;
             themeSwitch.addChangeListener(function() {
-                console.log('themeSwitch.change ' + themeSwitch.theme)
                 themeAttribute.theme = themeSwitch.theme;
-                if (themeSwitch.theme == systemTheme.value) {
-                    store.delete(store_key);
-                } else {
-                    store.set(store_key, themeSwitch.theme);
+                if (Themes.getThemeFromQueryParam() == Theme.Undefined) {
+                    if (themeSwitch.theme == systemTheme.value) {
+                        // matches system
+                        store.delete(store_key);
+                    } else {
+                        // persist the user-selected theme
+                        store.set(store_key, themeSwitch.theme);
+                    }
                 }
             });
         }
@@ -119,8 +124,11 @@ const Themes = {
         // set system theme handler
         if (systemTheme.init) {
             systemTheme.addChangeListener(function() {
-                themeAttribute.theme = systemTheme.value;
-                themeSwitch.theme = systemTheme.value;
+                if (Theme.fromString(store.get(store_key)) == Theme.Undefined) {
+                    // only update with system scheme if no user preference
+                    themeAttribute.theme = systemTheme.value;
+                    themeSwitch.theme = systemTheme.value;
+                }
             });
         }
     },
