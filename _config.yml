@@ -16,6 +16,16 @@ lang: "en-GB"
 
 # custom usefulworks config
 uw:
+  # content locations
+  loc:
+    href:
+      home: index.html
+      about: about.html
+      contact: contact.html
+      legal:
+        privacy: legal.html#privacy
+        t-and-c: legal.html#t-and-c
+      services: index.html#services
   # repositiories
   repos:
     dev:
