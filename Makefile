@@ -17,7 +17,7 @@ clean:
 
 # deploy
 #
-# [[ commands to deply to prod ]]
+# [[ commands to deploy to prod ]]
 
 diagnose:
 	bundle exec jekyll doctor
@@ -28,8 +28,7 @@ h help:
 
 # run local server
 s serve:
-	kill -9 $(ps aux | grep '[j]ekyll' | awk '{print $2}')
-	clear
+	killall -9 -r jekyll
 	JEKYLL_ENV=development
 	bundle exec jekyll serve -V --livereload --livereload-min-delay 3 --trace
 
