@@ -72,10 +72,10 @@ collections:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - Makefile
   - README.md
   - vendor/
   - tests/
-  - sh/
 
 # plugins (see also Gemfile)
 plugins:

@@ -2,6 +2,8 @@
 # Copyright (c) 2025 UsefulWorks Ltd. All Rights Reserved.
 #
 
+.PHONY: default build clean diagnose help serve update
+
 # default target
 default: build
 
@@ -16,6 +18,9 @@ clean:
 # deploy
 #
 # [[ commands to deply to prod ]]
+
+diagnose:
+	bundle exec jekyll doctor
 
 # list make targets in this Makefile
 h help:
