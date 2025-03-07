@@ -21,6 +21,7 @@ uw:
     href:
       home: index.html
       about: about.html
+      blog: blog.html
       contact: contact.html
       legal:
         privacy: legal.html#privacy
@@ -62,9 +63,6 @@ sass:
     - _sass
     - _sass/partials
     - _sass/vendor
-collections: # grrr. adding collections_dir: . killed the posts build - investigate
-  posts:
-    output: true
 
 # Jekyll 3 now only supports Kramdown for Markdown
 kramdown:

@@ -1,6 +1,8 @@
-<head>
     <meta charset="UTF-8" />
     <meta name="generated" content="{{ 'now' | date: '%Y-%m-%d %H:%M:%S' }}" />
+{% if jekyll.environment == "production" %}
+    {% include google-analytics.html %}
+{% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ site.title }}{% if page.title %} | {{ page.title }}{% endif %}</title>
     <meta name="keywords" content="business consulting growth transformation" />
@@ -51,4 +53,3 @@
         }
     </script>
 {% endif %}
-</head>
