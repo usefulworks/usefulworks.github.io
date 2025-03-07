@@ -63,7 +63,11 @@ sass:
     - _sass
     - _sass/partials
     - _sass/vendor
-
+collections:
+  posts:
+    output: true
+  pages:
+    output: true
 # Jekyll 3 now only supports Kramdown for Markdown
 kramdown:
   # Use GitHub flavored markdown, including triple backtick fenced code blocks
