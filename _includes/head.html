@@ -13,6 +13,10 @@
     <meta property="og:image" content="./favicon/web-app-manifest-512x512.png" />
     <meta property="og:url" content="{{ site.url }}" />
     <meta name="description" property="og:description" content="We help businesses grow" />
+{% if page.title %}
+    <meta property="og:title" content="{{ page.title }}" />
+    <meta property="twitter:title" content="{{ page.title }}" />
+{% endif %}
 {% comment %} link[@rel] tags {% endcomment %}
 {% assign all-linked-resources = "" | split: "" %}
 {% if layout.linked-resources %}
