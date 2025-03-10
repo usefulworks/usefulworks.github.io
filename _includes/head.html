@@ -7,12 +7,12 @@
     <title>{{ site.title }}{% if page.title %} | {{ page.title }}{% endif %}</title>
     <meta name="keywords" content="business consulting growth transformation" />
     <meta name="author" content="{{ site.author.name }}" />
-    <meta name="copyright" content="{{ site.copyright }}" />
+    <meta name="copyright" content="{{ site.legal.copyright }}" />
     <meta name="application-name" property="og:title" content="{{ site.title }}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="./favicon/web-app-manifest-512x512.png" />
     <meta property="og:url" content="{{ site.url }}" />
-    <meta name="description" property="og:description" content="We help businesses grow" />
+    <meta name="description" property="og:description" content="{{ site.description }}" />
 {% if page.title %}
     <meta property="og:title" content="{{ page.title }}" />
     <meta property="twitter:title" content="{{ page.title }}" />
