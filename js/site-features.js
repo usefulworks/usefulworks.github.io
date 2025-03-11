@@ -21,7 +21,7 @@ const Features = {
                 display: none !important;
                 height: 0 !important;
                 width: 0 !important;
-            `;
+            }`;
 
         // inject a style element
         var head = document.head || document.getElementsByTagName("head")[0];
