@@ -26,6 +26,6 @@ linked-resources:
 </div>
 <div class="wrapper-footer">
     <div class="container">
-        <footer class="footer">{% include svg-icons.html %}</footer>
+        <footer class="footer">{% include svg-icons.lhtml %}</footer>
     </div>
 </div>

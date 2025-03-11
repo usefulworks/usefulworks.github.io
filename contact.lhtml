@@ -1,6 +1,7 @@
 ---
 layout: page-template
 title: Contact
+permalink: contact.html
 local-js:
     - "/js/site-forms.js"
 external-js:

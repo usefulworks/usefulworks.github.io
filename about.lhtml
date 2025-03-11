@@ -1,6 +1,7 @@
 ---
 layout: page-template
 title: About
+permalink: about.html
 ---
 <section class="about content-section container">
     <h2>About Us</h2>

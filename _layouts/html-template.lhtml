@@ -4,21 +4,21 @@ copyright: Copyright (c) 2025 UsefulWorks Ltd. All Rights Resevered
 ---
 <!DOCTYPE html>
 <!-- {{ layout.copyright | default: site.legal.copyright }} -->
-{% include vars.html %}
+{% include vars.lhtml %}
 {% if jekyll.environment != "production" %}
-<!-- +- the epoch is @{{ epoch-ms }} -->
+  <!-- +- the epoch is @{{ epoch-ms }} -->
 {% endif %}
 <html lang="{{ page.lang | default: layout.lang | default: site.lang | default: 'en' }}" data-epoch="{{ epoch-ms }}">
-  <head {% include head-attributes.html %}>
-      {% include head.html page_name=page.name %}
-      {% if layout.foo %}
+  <head {% include head-attributes.lhtml page_name=page.name %}>
+    {% include head.lhtml %}
+    {% if layout.foo %}
       <link rel="layout.foo" name="{{ layout.foo }}" />
-      {% endif %}
-      {% if page.foo %}
+    {% endif %}
+    {% if page.foo %}
       <link rel="page.foo" name="{{ page.foo }}" />
-      {% endif %}
+    {% endif %}
   </head>
-  <body {% include body-attributes.html %}>
-      {{ content }}
+  <body {% include body-attributes.lhtml %}>
+    {{ content }}
   </body>
 </html>
