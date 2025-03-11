@@ -16,9 +16,11 @@ legal:
   copyright: "Copyright © 2025 UsefulWorks Ltd. All rights reserved."
   license: MIT
 
+# set a default repo name to sub for PAGES_REPO_NWO / github.repository
+repository: usefulworks/usefulworks.github.io
+
 # custom usefulworks config
 uw:
-  # content locations
   loc:
     href:
       home: index.html
