@@ -16,7 +16,7 @@ legal:
   copyright: "Copyright © 2025 UsefulWorks Ltd. All rights reserved."
   license: MIT
 
-# set a default repo name to sub for PAGES_REPO_NWO / github.repository
+# set a default repo name/w/owner to sub for PAGES_REPO_NWO & github.repository
 repository: usefulworks/usefulworks.github.io
 
 # custom usefulworks config
@@ -31,6 +31,7 @@ uw:
         privacy: legal.html#privacy
         t-and-c: legal.html#t-and-c
       services: index.html#services
+  # feature flags
   features:
       blog:
         output: true
@@ -51,16 +52,18 @@ uw:
       usefulworks_uk:
         site_key: "6Lf7ReQqAAAAAKErE6ZEBwh2-cx9UGae8VBWe-Nx"
 
-# serving
-detach: false
-port: 4001
-host: localhost
+#serving
 baseurl: ""
 show_dir_listing: false
 
+# local serving
+detach: false
+port: 4001
+host: localhost
+
 # filesystem
 source: .
-destination: ./_site
+destination: _site
 plugins_dir: _plugins
 layouts_dir: _layouts
 data_dir: _data

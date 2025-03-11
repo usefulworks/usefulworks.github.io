@@ -3,11 +3,10 @@
  */
 
 /*
- *
+ * site-features.js
  *
  *
  */
-
 const Features = {
 
     init() {
@@ -23,9 +22,14 @@ const Features = {
                 width: 0 !important;
             }`;
 
-        // inject a style element
+        // retrieve the head element
         var head = document.head || document.getElementsByTagName("head")[0];
+        console.log("site-features");
         console.log(head);
+        console.log("site-features");
+        console.log($features);
+
+        // inject a style element
         const style = document.createElement("style");
         with(style) {
             type = "text/css";
@@ -39,7 +43,7 @@ const Features = {
     },
 
     blog : {
-        get isEnabled() { return false; },
+        get isEnabled() { return true & $features.blog.output; }, // extract value from static config
         set isEnabled(value) { throw new Error("Cannot set value for read-only property 'enabled'"); }
     }
 };

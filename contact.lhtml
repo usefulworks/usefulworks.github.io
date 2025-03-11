@@ -44,7 +44,6 @@ linked-resources:
             {% assign sitekey = site.uw.recaptcha.v2.usefulworks_uk.site_key %}
         {% endif %}
         <div id="{{ page.recaptcha_container }}" class="{{ page.recaptcha_container }}" data-sitekey="{{ sitekey }}"></div>
-
         <input type="hidden" name="_feedback.success.title" value="Thanks for contacting UsefulWorks, we'll be in touch shortly!" />
         <input type="hidden" name="_email.from" value="Formspark UsefulWorks" />
         <input type="hidden" name="_feedback.error.title" value='An error occurred (did you check the "I&apos;m not a robot" box?)' />
