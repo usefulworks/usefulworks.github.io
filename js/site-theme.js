@@ -4,6 +4,8 @@
 
 /*
  * Enum-like class representing allowed theme values
+ *
+ * @requires AppStorage (site-store.js)
  */
 class Theme {
     static Dark = new Theme("dark");

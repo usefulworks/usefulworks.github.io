@@ -31,6 +31,11 @@ uw:
         privacy: legal.html#privacy
         t-and-c: legal.html#t-and-c
       services: index.html#services
+  features:
+      blog:
+        output: true
+      "new feature":
+        output: false
   # repositiories
   repos:
     dev:

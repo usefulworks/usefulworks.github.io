@@ -16,6 +16,7 @@ linked-resources:
 
 local-js:
   - "/js/site-nav.js"
+  - "/js/site-features.js"
   - "/js/site-store.js"
   - "/js/site-theme.js"
 ---

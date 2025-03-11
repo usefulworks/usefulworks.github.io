@@ -166,7 +166,7 @@ header > nav.vertical-menu-showing {
     padding-bottom: 0.4rem;
     ul.navbar-links {
         display: flex;
-        max-height: 200px;
+        max-height: calc(4 * 56px); /* n-children * child-height */
     }
 }
 
@@ -198,8 +198,8 @@ header > nav {
         padding-right: 1rem;
     }
     .navbar-links {
-        display: flex;     /* must match in .vertical-menu-showing */
-        max-height: 200px; /* must match in .vertical-menu-showing */
+        display: flex;              /* must match in .vertical-menu-showing */
+        max-height: calc(4 * 56px); /* must match in .vertical-menu-showing */
         flex-direction: row;
         justify-content: space-between;
         gap: 1rem;

@@ -1,6 +1,6 @@
 ---
 lang: en-GB
-copyright: Copyright (c) 2025 UsefulWorks Ltd. All Rights Resevered
+copyright: Copyright (c) 2025 UsefulWorks Ltd. All Rights Resevered.
 ---
 <!DOCTYPE html>
 <!-- {{ layout.copyright | default: site.legal.copyright }} -->
