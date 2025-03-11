@@ -15,7 +15,7 @@ export PAGES_REPO_NWO=usefulworks/$(shell basename $(PWD))
 default: build
 
 # build site
-b build:
+b build: clean
 	@echo building site with JEKYLL_ENV=$(JEKYLL_ENV)
 	@echo PAGES_REPO_NWO=$(PAGES_REPO_NWO)
 	bundle exec jekyll build --verbose
@@ -36,10 +36,10 @@ h help:
 	@grep '^[a-z].*:' Makefile
 
 # run local server
-s serve:
+s serve: clean
 	bundle exec jekyll serve -V --livereload --livereload-min-delay 3 --trace
 
 # update gems
 update:
+	gem update --system && gem update
 	bundle update --bundler && bundler update
-
