@@ -34,7 +34,7 @@ uw:
   # feature flags
   features:
       blog:
-        output: true
+        output: false
       "new feature":
         output: false
   # repositiories

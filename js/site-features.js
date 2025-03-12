@@ -5,13 +5,18 @@
 /*
  * site-features.js
  *
- *
+ * Currently implemented only for the blog but easily extensible to other features.
  */
-const Features = {
+const Features = (function() {
+    const _feats = {
+        blog: !!$features.blog.output // extract value from static config
+    };
 
-    init() {
-        // style we will inject
-        const css_content = Features.blog.isEnabled
+    let _style = null;
+
+    // style based on current feature state
+    getCssText = function() {
+        return _feats.blog
             ?`
             .feature-blog {
             }`
@@ -21,34 +26,48 @@ const Features = {
                 height: 0 !important;
                 width: 0 !important;
             }`;
+    };
 
-        // retrieve the head element
-        var head = document.head || document.getElementsByTagName("head")[0];
-        console.log("site-features");
-        console.log(head);
-        console.log("site-features");
-        console.log($features);
+    return {
+        init() {
+            console.log("Features.init()");
+            // inject a new style element
+            const style = document.createElement("style");
+            style.textContent = getCssText();
+            document.head.appendChild(style);
+            _style = style;
 
-        // inject a style element
-        const style = document.createElement("style");
-        with(style) {
-            type = "text/css";
+            // temp
+            tbloggle = document.querySelector("#tbloggle");
+            if (tbloggle) {
+                let quickclicks = 0, time = window.performance.now();
+                tbloggle.addEventListener("click", (e) => {
+                    (e.timeStamp - time < 999) ? quickclicks++ : quickclicks = 0;
+                    if (quickclicks === 2) {
+                        Features.blog.toggleEnabled();
+                        quickclicks = 0;
+                    }
+                    time = e.timeStamp;
+                });
+            }
+        },
+        blog : {
+            get isEnabled() { return _feats.blog; },
+            set isEnabled(value) {
+                let b = !!value;
+                if (b !== _feats.blog) {
+                    _feats.blog = b;
+                    _style.textContent = getCssText();
+                }
+            },
+            toggleEnabled() { this.isEnabled = !_feats.blog; }
         }
-        if (style.styleSheet) {
-            style.styleSheet.cssText = css_content;
-        } else {
-            style.appendChild(document.createTextNode(css_content));
-        }
-        head.appendChild(style);
-    },
+    };
 
-    blog : {
-        get isEnabled() { return true & $features.blog.output; }, // extract value from static config
-        set isEnabled(value) { throw new Error("Cannot set value for read-only property 'enabled'"); }
-    }
-};
+// end of IIFE
+}(iife = 0));
 
 // onload => init
-document.readyState =="loading"
+document.readyState == "loading"
     ? window.addEventListener("load", Features.init)
     : Features.init();

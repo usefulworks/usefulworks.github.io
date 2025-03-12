@@ -11,4 +11,4 @@ layout: blank
  * Splat some site configuration into the global JS scope.
  *
  */
-const $features = {{ site.uw.features | jsonify }};
+const $features = (function() { return {{ site.uw.features | jsonify }}; }());

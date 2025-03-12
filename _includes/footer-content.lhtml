@@ -39,7 +39,7 @@
     <p><a href="{{ site.uw.loc.href.home }}">UsefulWorks</a> is a business transformation consultancy that helps
        companies of all sizes grow and thrive in the digital age.</p>
     <p>Copyright &copy; 2025 <a href="{{ site.uw.loc.href.home }}">UsefulWorks</a> Ltd. All Rights Reserved.
-       Incorporated in England &amp; Wales. Company number 16203896.</p>
+       Incorporated in England &amp; Wales. Company number <span id="tbloggle">16203896</span>.</p>
 </div>
 <div class="theme-switch">
     <label>
