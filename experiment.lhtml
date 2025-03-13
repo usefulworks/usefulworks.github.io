@@ -1,0 +1,16 @@
+---
+layout: html-template
+permalink: experiment.html
+---
+
+<div>need some body content</div>
+<div>need some more body content</div>
+<div>need even more body content</div>
+
+<script type="text/javascript" src="/js/usefulworks.js"></script>
+<script type="text/javascript">
+
+console.log("hello world")
+
+
+</script>
