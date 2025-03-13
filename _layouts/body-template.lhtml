@@ -38,7 +38,8 @@ local-js:
 {% endif %}
 {% assign all-local-js = all-local-js | uniq %}
 {% for js in all-local-js %}
-  <script type="text/javascript" src="{{ js | relative_url }}?{{ epoch-ms }}"></script>
+  <!--script type="text/javascript" src="{{ js | relative_url }}?{{ epoch-ms }}"></!--script-->
+  <script type="text/javascript" src="{{ js | relative_url }}"></script>
 {% endfor %}
 
 {% assign all-external-js = "" | split: "" %}
