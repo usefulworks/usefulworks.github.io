@@ -21,6 +21,21 @@
     factory(context);
 
 }(window, function(window) {
+    function isArrayLike(value) {
+        function isLength(length) {
+            return typeof length === "number"
+                && length > -1
+                && length % 1 === 0
+                && length < 4294967296;
+        }
+        if (!value || typeof value === "function" || value === window) {
+            return false;
+        }
+        if (Object.prototype.toString.call(value) === '[object Array]') {
+            return true;
+        }
+        return isLength(value.length);
+    }
 
     // initialize the base UsefulWorks object, which calls
     // the contructor function 'UsefulWorks.fn.init'
@@ -33,17 +48,46 @@
     UsefulWorks.fn = UsefulWorks.prototype = {
         // redefine constructor so the contructor name is the same as the object name
         constructor: UsefulWorks,
-        // version
-        version: "0.0.1",
 
+        // version
+        get version() {
+            return "0.0.1";
+        },
+        get: function(index) {
+            console.log(`UsefulWorks.get(${index})`);
+            return (index ?
+                (index < 0 ?
+                    this._elements[index + this.length]
+                    : this._elements[index])
+                : this._elements);
+        },
         get length() {
             return  this._elements ? this._elements.length : 0;
         },
         get text() {
             return this._elements ? this._elements[0].textContent : "";
         },
-        noop() {}
-        ,
+        each: function(target, callback) {
+            console.log("UsefulWorks.each()");
+            if (arguments.length === 1) {
+                callback = target;
+                target = this;
+            }
+            if (isArrayLike(target)) {
+                let len = target.length;
+                for (let i = 0; i < len; i++) {
+                    if (callback.call(target[i], i, target[i]) === false) break;
+                }
+            } else {
+                for (let prop in target) {
+                    if (callback.call(target[prop], prop, target[prop]) === false) break;
+                }
+            }
+            return target;
+        },
+        noop() {
+
+        },
         on(eventName, handler) {
             console.log("on" + eventName);
             if(this._elements) {
@@ -131,7 +175,12 @@ var $ = u_w("div:first-child").on("click", function() {
     console.log("clicked");
 });
 
+u_w("div").each(function(index, ele) {
+    console.log(index + " Hello, World!");
+    console.dir(ele); // <- null because can't (yet) do [index] on UsefulWorks object
+    //ele.textContent = "Hello, World!";
+})
+
 console.log($._elements); // <- o.o.
-.
 console.dir(u_w);
 console.dir($);
