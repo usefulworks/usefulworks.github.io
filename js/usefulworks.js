@@ -21,21 +21,7 @@
     factory(context);
 
 }(window, function(window) {
-    function isArrayLike(value) {
-        function isLength(length) {
-            return typeof length === "number"
-                && length > -1
-                && length % 1 === 0
-                && length < 4294967296;
-        }
-        if (!value || typeof value === "function" || value === window) {
-            return false;
-        }
-        if (Object.prototype.toString.call(value) === '[object Array]') {
-            return true;
-        }
-        return isLength(value.length);
-    }
+    let _length = 0;
 
     // initialize the base UsefulWorks object, which calls
     // the contructor function 'UsefulWorks.fn.init'
@@ -48,6 +34,7 @@
     UsefulWorks.fn = UsefulWorks.prototype = {
         // redefine constructor so the contructor name is the same as the object name
         constructor: UsefulWorks,
+
 
         // version
         get version() {
@@ -62,31 +49,41 @@
                 : this._elements);
         },
         get length() {
-            return  this._elements ? this._elements.length : 0;
+            return _length;
         },
         get text() {
             return this._elements ? this._elements[0].textContent : "";
         },
         each: function(target, callback) {
             console.log("UsefulWorks.each()");
+
+            // if only one argument is passed, assume it's the callback
             if (arguments.length === 1) {
                 callback = target;
                 target = this;
             }
+
+            // exec the callback; returning false will stop iteration
+            function doCallback(index) {
+                return callback.call(target[index], index, target[index]);
+            };
+
+            // iterate over the target
             if (isArrayLike(target)) {
+                // as array
                 let len = target.length;
                 for (let i = 0; i < len; i++) {
-                    if (callback.call(target[i], i, target[i]) === false) break;
+                    if (doCallback(i) === false) break;
                 }
             } else {
+                // as object
                 for (let prop in target) {
-                    if (callback.call(target[prop], prop, target[prop]) === false) break;
+                    if (doCallback(prop) === false) break;
                 }
             }
             return target;
         },
         noop() {
-
         },
         on(eventName, handler) {
             console.log("on" + eventName);
@@ -120,9 +117,13 @@
         //},
 
         // the splice function lets UsefulWorks be logged as an array in the console (???)
-        splice: Array.prototype.splice
+        splice: Array.prototype.splice,
+        toArray() {
+            return Array.prototype.slice.call(this);
+        }
     };
 
+    // init (context ignored for now)
     const init = UsefulWorks.fn.init = function(selector, context) {
         console.log("UsefulWorks.init()");
 
@@ -130,20 +131,34 @@
             return this;
         }
 
-        // trivial implemenation
         switch (typeof selector) {
             case "string":
-                this._elements = document.querySelectorAll(selector); // is this public?
-                return this;
+                // CSS selector
+                let i = 0, elements = document.querySelectorAll(selector);
+                if (elements) {
+                    _length = 0;
+                    for(j = elements.length; i < j; i++) {
+                        this[i] = elements[i];
+                        _length++;
+                    }
+                }
+                break;
 
             case "function":
-                // default: if doc is ready call immediately otherwise queue for call on ready
+                // shortcut for doc.ready handler; if already ready call immediately otherwise queue
+                // for call when ready
                 // e.g this.ready ? selector(this) : this.ready(selector);
-                return this;
+                break;
 
             default:
-                return this;
-            }
+                // DOMElement
+                if (selector.nodeType) {
+                    this[0] = selector;
+                    _length = 1;
+                    break;
+                }
+        }
+        return this;
     };
 
     // test: prep ready function here
@@ -168,6 +183,31 @@
     // expose to the global object
     window.UsefulWorks = window.u_w = UsefulWorks;
 
+    //
+    // utility functions
+    //
+
+    // isArrayLike
+    function isArrayLike(value) {
+        function isLength(length) {
+            return typeof length === "number"
+                && length > -1
+                && length % 1 === 0
+                && length < 4294967296;
+        }
+        if (!value || typeof value === "function" || value === window) {
+            return false;
+        }
+        if (Object.prototype.toString.call(value) === '[object Array]') {
+            return true;
+        }
+        return isLength(value.length);
+    }
+
+    // merge
+    function merge(arr) {
+    }
+
     console.log("iife end");
 }));
 
@@ -176,11 +216,19 @@ var $ = u_w("div:first-child").on("click", function() {
 });
 
 u_w("div").each(function(index, ele) {
-    console.log(index + " Hello, World!");
-    console.dir(ele); // <- null because can't (yet) do [index] on UsefulWorks object
-    //ele.textContent = "Hello, World!";
+    const s = index + " Hello, World!";
+    console.log(s);
+    console.dir(ele);
+    ele.textContent = s;
 })
 
-console.log($._elements); // <- o.o.
+console.log("u_w");
 console.dir(u_w);
+
+console.dir("$");
 console.dir($);
+
+console.dir(u_w.fn.each);
+//u_w.each($.toArray(), function(i, ele){
+//    console.log(i, ele);
+//});
