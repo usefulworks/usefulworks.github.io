@@ -13,14 +13,12 @@
 // https://github.com/AmraniCh/how-jQuery-works/blob/main/jQuery.js
 
 // iife wrapper to prevent global scope pollution
-(function(context, factory) {
-
+(function (context, factory) {
     // checks on context for window/document/etc...
 
     // build
     factory(context);
-
-}(window, function(window) {
+})(window, function (window) {
     let _length = 0;
     function setLength(l) {
         console.log(`setLength(${l})`);
@@ -29,7 +27,7 @@
 
     // initialize the base UsefulWorks object, which calls
     // the contructor function 'UsefulWorks.fn.init'
-    const UsefulWorks = function(selector, context) {
+    const UsefulWorks = function (selector, context) {
         return new UsefulWorks.fn.init(selector, context);
     };
 
@@ -49,7 +47,7 @@
         get text() {
             return this._elements ? this._elements[0].textContent : "";
         },
-        each: function(target, callback) {
+        each: function (target, callback) {
             console.log("UsefulWorks.each()");
 
             // if only one argument is passed, assume it's the callback
@@ -61,7 +59,7 @@
             // exec the callback; returning false will stop iteration
             function doCallback(index) {
                 return callback.call(target[index], index, target[index]);
-            };
+            }
 
             // iterate over the target
             if (isArrayLike(target)) {
@@ -78,8 +76,7 @@
             }
             return target;
         },
-        noop() {
-        },
+        noop() {},
         on(eventName, handler) {
             console.log("on" + eventName);
             this.each((i, e) => e.addEventListener(eventName, handler, false));
@@ -98,7 +95,7 @@
             this._waitingForReady.push(callback);
 
             return this;
-       },
+        },
         //when(condition) {
         //  console.log("UsefulWorks.when()");
         //    return this;
@@ -108,11 +105,11 @@
         splice: Array.prototype.splice,
         toArray() {
             return Array.prototype.slice.call(this);
-        }
+        },
     };
 
     // init (context ignored for now)
-    const init = UsefulWorks.fn.init = function(selector, context) {
+    const init = (UsefulWorks.fn.init = function (selector, context) {
         console.log(`UsefulWorks.init(): ${selector}`);
 
         if (!selector) {
@@ -122,11 +119,13 @@
         switch (typeof selector) {
             case "string":
                 // CSS selector
-                let i = 0, len = 0, elements = document.querySelectorAll(selector);
+                let i = 0,
+                    len = 0,
+                    elements = document.querySelectorAll(selector);
                 console.log(elements);
                 if (elements) {
                     setLength(len);
-                    for(j = elements.length; i < j; i++) {
+                    for (j = elements.length; i < j; i++) {
                         this[i] = elements[i];
                         setLength(++len);
                     }
@@ -148,11 +147,10 @@
                 }
         }
         return this;
-    };
+    });
 
     // test: prep ready function here
-    const beforeReady = function() {
-
+    const beforeReady = function () {
         document.addEventListener("DOMContentLoaded", afterReady);
         window.addEventListener("load", afterReady);
 
@@ -172,6 +170,9 @@
     // expose to the global object
     window.UsefulWorks = window.u_w = UsefulWorks;
 
+    // root context
+    // const _root = UsefulWorks(document);
+
     //
     // utility functions
     //
@@ -179,23 +180,43 @@
     // isArrayLike
     function isArrayLike(value) {
         function isLength(len) {
-            return typeof len === "number"
-                && len > -1
-                && len % 1 === 0
-                && len < 4294967296;
+            return typeof len === "number" && len > -1 && len % 1 === 0 && len < 4294967296;
         }
         if (!value || typeof value === "function" || value === window) {
             return false;
         }
-        if (Object.prototype.toString.call(value) === '[object Array]') {
+        if (Object.prototype.toString.call(value) === "[object Array]") {
             return true;
         }
         return isLength(value.length);
     }
 
     // merge
-    function merge(arr) {
+    function merge(arr1, arr2) {
+    }
+
+    // pinched from JQuery...
+    // completed(): the ready event handler and self cleanup method
+    function completed() {
+        document.removeEventListener("DOMContentLoaded", completed);
+        window.removeEventListener("load", completed);
+        // jQuery.ready();
+    }
+
+    // catch cases where $(document).ready() is called after the events have already occurred
+    if (document.readyState === "complete" ||
+        (document.readyState !== "loading" && !document.documentElement.doScroll)) {
+
+        // handle asynchronously to allow scripts to delay ready
+        //window.setTimeout(jQuery.ready);
+
+    } else {
+        // sse the handy event callback
+        document.addEventListener("DOMContentLoaded", completed);
+
+        // fallback to window.onload, that will always work
+        window.addEventListener("load", completed);
     }
 
     console.log("iife end");
-}));
+});
