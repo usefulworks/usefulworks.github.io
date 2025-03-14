@@ -22,6 +22,10 @@
 
 }(window, function(window) {
     let _length = 0;
+    function setLength(l) {
+        console.log(`setLength(${l})`);
+        _length = l;
+    }
 
     // initialize the base UsefulWorks object, which calls
     // the contructor function 'UsefulWorks.fn.init'
@@ -35,18 +39,9 @@
         // redefine constructor so the contructor name is the same as the object name
         constructor: UsefulWorks,
 
-
         // version
         get version() {
             return "0.0.1";
-        },
-        get: function(index) {
-            console.log(`UsefulWorks.get(${index})`);
-            return (index ?
-                (index < 0 ?
-                    this._elements[index + this.length]
-                    : this._elements[index])
-                : this._elements);
         },
         get length() {
             return _length;
@@ -87,20 +82,13 @@
         },
         on(eventName, handler) {
             console.log("on" + eventName);
-            if(this._elements) {
-                this._elements.forEach(ele => {
-                    ele.addEventListener(eventName, handler);
-                });
-            }
+            this.each((i, e) => e.addEventListener(eventName, handler, false));
             return this;
         },
         off(eventName, handler) {
             console.log("off" + eventName);
-            if(this._elements) {
-                this._elements.forEach(ele => {
-                    ele.removeEventListener(eventName, handler);
-                });
-            }
+            // doesn't work with anonymous functions; consider the fn-map solution
+            this.each((i, e) => e.removeEventListener(eventName, handler, false));
             return this;
         },
         ready(callback) {
@@ -125,7 +113,7 @@
 
     // init (context ignored for now)
     const init = UsefulWorks.fn.init = function(selector, context) {
-        console.log("UsefulWorks.init()");
+        console.log(`UsefulWorks.init(): ${selector}`);
 
         if (!selector) {
             return this;
@@ -134,12 +122,13 @@
         switch (typeof selector) {
             case "string":
                 // CSS selector
-                let i = 0, elements = document.querySelectorAll(selector);
+                let i = 0, len = 0, elements = document.querySelectorAll(selector);
+                console.log(elements);
                 if (elements) {
-                    _length = 0;
+                    setLength(len);
                     for(j = elements.length; i < j; i++) {
                         this[i] = elements[i];
-                        _length++;
+                        setLength(++len);
                     }
                 }
                 break;
@@ -154,7 +143,7 @@
                 // DOMElement
                 if (selector.nodeType) {
                     this[0] = selector;
-                    _length = 1;
+                    setLength(1);
                     break;
                 }
         }
@@ -189,11 +178,11 @@
 
     // isArrayLike
     function isArrayLike(value) {
-        function isLength(length) {
-            return typeof length === "number"
-                && length > -1
-                && length % 1 === 0
-                && length < 4294967296;
+        function isLength(len) {
+            return typeof len === "number"
+                && len > -1
+                && len % 1 === 0
+                && len < 4294967296;
         }
         if (!value || typeof value === "function" || value === window) {
             return false;
@@ -210,25 +199,3 @@
 
     console.log("iife end");
 }));
-
-var $ = u_w("div:first-child").on("click", function() {
-    console.log("clicked");
-});
-
-u_w("div").each(function(index, ele) {
-    const s = index + " Hello, World!";
-    console.log(s);
-    console.dir(ele);
-    ele.textContent = s;
-})
-
-console.log("u_w");
-console.dir(u_w);
-
-console.dir("$");
-console.dir($);
-
-console.dir(u_w.fn.each);
-//u_w.each($.toArray(), function(i, ele){
-//    console.log(i, ele);
-//});
