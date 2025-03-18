@@ -30,11 +30,11 @@ local-js:
 {{ content }}
 
 {% assign all-local-js = "" | split: "" %}
-{% if layout.local-js %}
-  {% assign all-local-js = all-local-js | concat: layout.local-js %}
-{% endif %}
 {% if page.local-js %}
   {% assign all-local-js = all-local-js | concat: page.local-js %}
+{% endif %}
+{% if layout.local-js %}
+  {% assign all-local-js = all-local-js | concat: layout.local-js %}
 {% endif %}
 {% assign all-local-js = all-local-js | uniq %}
 {% for js in all-local-js %}
@@ -43,11 +43,11 @@ local-js:
 {% endfor %}
 
 {% assign all-external-js = "" | split: "" %}
-{% if layout.external-js %}
-  {% assign all-external-js = all-external-js | concat: layout.external-js %}
-{% endif %}
 {% if page.external-js %}
   {% assign all-external-js = all-external-js | concat: page.external-js %}
+{% endif %}
+{% if layout.external-js %}
+  {% assign all-external-js = all-external-js | concat: layout.external-js %}
 {% endif %}
 {% assign all-external-js = all-external-js | uniq %}
 {% for js in all-external-js %}
