@@ -11,6 +11,7 @@ permalink: experiment.html
 </section>
 <!-- -->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
 <script type="text/javascript" src="/js/usefulworks.js"></script>
 <script type="text/javascript">
 
@@ -18,26 +19,36 @@ function clickHandler() {
     console.log(`clicked ${this.textContent}`);
 }
 
-var $ = u_w("section.scoping > div").on("click", clickHandler);
+console.log(``);
+
+u_w("section.scoping > div").on("click", clickHandler);
 
 u_w("#clickme").on("click", function() {
     console.log(`clicked me`);
     u_w("section.scoping > div").off("click", clickHandler);
 });
 
-console.log("u_w");
+UsefulWorks.ready(function() {
+    console.log("ZZZ ready");
+});
+
+console.log("Usefulworks:");
+console.dir(UsefulWorks)
+
+console.log("u_w:");
 console.dir(u_w);
 
-console.dir("$");
+console.dir("$:");
 console.dir($);
 
-setTimeout(UsefulWorks.ready(function(){
-    console.log("i'm delayed")
-}), 1000);
+// ---
 
-//u_w.each($.toArray(), function(i, ele){
-//    console.log(i, ele);
-//});
+console.dir(new UsefulWorks());
+console.log(typeof $.ready);
+console.dir($);
 
+//setTimeout(UsefulWorks.ready(function(){
+//    console.log("i'm delayed")
+//}), 1000);
 
 </script>
