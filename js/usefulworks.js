@@ -35,8 +35,8 @@
         doReady = function() {
             while (_waitingForReady.length > 0) {
                 handler = _waitingForReady.shift();
-                if (typeof handler === "function") {
-                    handler();
+                if (isFunction(handler)) {
+                    handler.call(this);
                 }
             }
         };
@@ -71,7 +71,7 @@
 
             // if only one argument is passed assume that it is the callback
             // and the target is the UsefulWorks object
-            if (arguments.length === 1) {
+            if (arguments.length == 1) {
                 callback = target;
                 target = this;
             }
@@ -82,7 +82,7 @@
             }
 
             // iterate over the target; returning false will stop iteration
-            if (isArrayLike(target)) {
+            if (isArrayish(target)) {
                 // as array
                 let len = target.length;
                 for (let i = 0; i < len; i++) {
@@ -95,6 +95,9 @@
                 }
             }
             return target;
+        },
+        isFunction(obj) {
+            return obj && typeof obj === "function";
         },
         noop() {},
         on(eventName, handler) {
@@ -167,65 +170,88 @@
     };
 
     // merge objects in a mergey way
-    UsefulWorks.coalesce = UsefulWorks.fn.coalesce = function(target, sources) { // [ deep copy ?!? ]
-        console.log("UsefulWorks.coalesce()");
+    const coalesce = UsefulWorks.coalesce = UsefulWorks.fn.coalesce = (function(deepCopy, target, sources) {
+        return function() {
 
-        const args   = arguments,
-              args_n = arguments.length;
+            const args = arguments, args_n = arguments.length;
+            let deep = false, index = 0, dstObj = null;
 
-        // nothing to do
-        if (args_n == 0) return;
+            // check for [deepCopy] argument
+            if (args_n > 0 && typeof args[0] === "boolean") {
+                deep = args[0];
+                index++;
+            }
 
-        // re-jig target and sources based on args; default (no target => this)
-        if (args_n == 1) {
-            sources = target;
-            target = ( typeof target === "object" || typeof target === "function" ? target : {} );
-        }
+            console.log(`UsefulWorks.coalesce(${args.length} args, deep=${deep})`);
 
-        // borrowed from jQuery.extend()
-        for (let i, source = args[i]; i < args_n; i++ ) {
+            // nothing to do (no args or only [deep] arg)
+            if (args_n == index) return;
 
-            // skip non-null/undefined values
-            if (source == null ) continue
+            // if no target supplied => target this)
+            if ((args_n - index) == 1) {
+                console.log("coalesce: setting default target");
+                dstObj = UsefulWorks;
 
-            // iterate source object properties
-            for (prop in source ) {
-                let copy = source[prop];
+            } else {
+                dstObj = args[index];
+                index++;
+            }
 
-                // jQ: prevent Object.prototype pollution
-                // jQ: prevent never-ending loop
-                if ( prop === "__proto__" || target === copy ) {
-                    continue;
-                }
+            // iterate over the sources
+            for (let i = index, srcObj = args[i]; i < args_n; i++) {
 
-                //---
+                // skip non-null/undefined values
+                if (srcObj === null || srcObj === undefined) continue;
 
-                // [ deep here ] eecurse if we're merging plain objects or arrays
-                if (copy && ( jQuery.isPlainObject( copy ) ||
-                    ( copyIsArray = Array.isArray( copy ) ) ) ) {
-                    src = target[ name ];
+                // iterate source object properties
+                let dstValue, srcValue, clone;
+                for (propName in srcObj) {
+                    dstValue = dstObj[propName];
+                    srcValue = srcObj[propName];
 
-                    // Ensure proper type for the source value
-                    if ( copyIsArray && !Array.isArray( src ) ) {
-                        clone = [];
-                    } else if ( !copyIsArray && !jQuery.isPlainObject( src ) ) {
-                        clone = {};
-                    } else {
-                        clone = src;
+                    // prevent never-ending loop
+                    if (dstObj === srcValue) continue;
+
+                    // deep copy
+                    if (deep && srcValue) {
+                        clone = null;
+
+                        // ensure cloned value is the same type as the source
+                        if (Array.isArray(srcValue)) {
+                            clone = dstValue && Array.isArray(dstValue) ? dstValue : [];
+
+                        } else if (isNormalObject(srcValue)) {
+                            clone = dstValue && isNormalObject(dstValue) ? dstValue : {};
+                        }
+                        // recurse
+                        dstObj[propName] = clone ? coalesce(deep, clone, srcValue) : srcValue;
+
+                    } else if (srcValue !== undefined) {
+                        console.log(`coalesce: setting ${propName} = ${srcValue}`);
+                        // don't coalesce undefined
+                        dstObj[propName] = srcValue;
                     }
-                    copyIsArray = false;
-
-                    // Never move original objects, clone them
-                    target[prop] = jQuery.extend( deep, clone, copy );
-
-                // Don't bring in undefined values
-                } else if ( copy !== undefined ) {
-                    target[prop] = copy;
                 }
             }
+            return dstObj;
+        };
+        // returns true if obj was created using either {} or new Object
+        function isNormalObject(obj) {
+            if (Object.prototype.toString.call(obj) == "[object Object]") {
+                let proto = Object.getPrototypeOf(obj);
+                return !proto || !proto.hasOwnProperty || proto.hasOwnProperty( "hasOwnProperty" );
+            }
+            return false;
         }
-        return this;
-    };
+    }()); //coalesce
+
+    coalesce(false, {
+        // add more functions here
+        ready2: function(handler) {
+            console.log("UsefulWorks.ready2()");
+            return this;
+        }
+    });
 
     // give init function the UsefulWorks prototype for later instantiation
     init.prototype = UsefulWorks.prototype;
@@ -240,23 +266,18 @@
     // utility functions
     //
 
-    // isArrayLike
-    function isArrayLike(value) {
+    // isArrayish
+    function isArrayish(value) {
         function hasLength(len) {
             return typeof len === "number" && len > -1 && len % 1 === 0 && len < 4294967296;
         }
         if (!value || typeof value === "function" || value === window) {
             return false;
         }
-        if (Object.prototype.toString.call(value) === "[object Array]") {
+        if (Array.isArray(value) || Object.prototype.toString.call(value) === "[object Array]") {
             return true;
         }
         return hasLength(value.length);
-    }
-
-    // merge
-    function merge(arr1, arr2) {
-        return this;
     }
 
     // inner iife: setup window/document ready listeners
@@ -277,7 +298,7 @@
             document.addEventListener("DOMContentLoaded", completed);
             window.addEventListener("load", completed);
         }
-        console.log("UsefulWorks(): ready listeners listening");
+        console.log("UsefulWorks(): ready-listeners listening");
     }());
 
     // expose ourself
