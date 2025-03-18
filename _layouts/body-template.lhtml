@@ -15,6 +15,7 @@ linked-resources:
     rel: "stylesheet"
 
 local-js:
+  - "/js/usefulworks.js"
   - "/js/site-config.js"
   - "/js/site-nav.js"
   - "/js/site-features.js"

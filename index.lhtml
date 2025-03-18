@@ -2,9 +2,6 @@
 layout: page-template
 permalink: index.html
 title: Home
-
-local-js:
-    - "/js/usefulworks.js"
 ---
 <section class="hero">
     <div class="hero-text">

@@ -166,6 +166,5 @@ function getUrlQueryParams() {
     return map;
 }
 
-// onload => init
+// ready => init
 UsefulWorks(Themes.init);
-//document.readyState =="loading" ? window.addEventListener("load", Themes.init) : Themes.init();

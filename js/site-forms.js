@@ -27,9 +27,7 @@ const Forms = (function(){
     }
 
 // end of IIFE
-}(iife = 0));
+}(window));
 
 // onload => init
-document.readyState == "loading"
-    ? window.addEventListener("load", Forms.init)
-    : Forms.init();
+UsefulWorks(Forms.init);

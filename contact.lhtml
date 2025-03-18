@@ -4,7 +4,8 @@ title: Contact
 permalink: contact.html
 
 local-js:
-    - "/js/site-forms.js"
+  - "/js/usefulworks.js"
+  - "/js/site-forms.js"
 external-js:
   - href: "https://www.recaptcha.net/recaptcha/api.js"
     async: true

@@ -93,7 +93,7 @@
 
     // init
     const init = UsefulWorks.fn.init = function (selector, context) {
-        console.log(`UsefulWorks.init(): ${selector}`);
+        console.log(`UsefulWorks.init(): ${typeof selector === "string" ? selector : Object.prototype.toString.call(selector)}`);
 
         if (!selector) {
             return this;
@@ -147,7 +147,6 @@
 
             // if no target supplied => target this)
             if ((args_n - index) == 1) {
-                console.log("coalesce: setting default target");
                 dstObj = UsefulWorks;
 
             } else {
@@ -236,7 +235,7 @@
         },
         noop() {},
         ready(handler) {
-            console.log(`UsefulWorks.ready() isReady=${_isReady} handler=${handler}`);
+            console.log(`UsefulWorks.ready() isReady=${_isReady} handler=${typeof handler}`);
             callWhenReady(handler);
             if (_isReady) { doReady(); }
             return this;

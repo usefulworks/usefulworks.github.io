@@ -65,9 +65,7 @@ const Features = (function() {
     };
 
 // end of IIFE
-}(iife = 0));
+}(window));
 
-// onload => init
-document.readyState == "loading"
-    ? window.addEventListener("load", Features.init)
-    : Features.init();
+// ready => init
+UsefulWorks(Features.init);

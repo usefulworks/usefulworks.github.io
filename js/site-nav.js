@@ -33,4 +33,6 @@ const NavBar = {
         initWindowScroll();
     }
 };
-window.addEventListener("load", NavBar.init);
+
+// ready => init
+UsefulWorks(NavBar.init);
