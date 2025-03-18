@@ -19,35 +19,34 @@ function clickHandler() {
     console.log(`clicked ${this.textContent}`);
 }
 
-u_w("section.scoping > div").on("click", clickHandler);
+var divs = $UW("section.scoping > div").on("click", clickHandler);
 
-u_w("#clickme").on("click", function() {
+divs.each(function() {
+    console.log(`div: ${this.textContent}`);
+});
+
+console.log(`divs: ${divs.text}`);
+
+$UW("#clickme").on("click", function() {
     console.log(`clicked me`);
-    u_w("section.scoping > div").off("click", clickHandler);
+    $UW("section.scoping > div").off("click", clickHandler);
 });
 
 
 console.log("Usefulworks:");
 console.dir(UsefulWorks)
 
-console.log("u_w:");
-console.dir(u_w);
-
-console.dir("$:");
-//console.dir($);
-
-UsefulWorks.ready2();
+UsefulWorks.whatIsThis();
 
 
 // ---
 
-console.dir(new UsefulWorks());
+UsefulWorks(function() {
+    console.log("ready!");
+});
 
-//console.log(typeof $.ready);
-//console.dir($);
-
-//setTimeout(UsefulWorks.ready(function(){
-//    console.log("i'm delayed")
-//}), 1000);
+setTimeout(() => {
+    UsefulWorks.ready(function() { console.log("i'm delayed"); });
+}, 1200);
 
 </script>

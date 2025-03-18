@@ -11,6 +11,7 @@
 
 // https://stackoverflow.com/questions/60919267/understanding-how-jquery-works-internally
 // https://github.com/AmraniCh/how-jQuery-works/blob/main/jQuery.js
+// https://github.com/jquery/jquery/issues/3444
 
 // iife wrapper
 (function (context, factory) {
@@ -35,7 +36,7 @@
         doReady = function() {
             while (_waitingForReady.length > 0) {
                 handler = _waitingForReady.shift();
-                if (isFunction(handler)) {
+                if (typeof handler === "function") {
                     handler.call(this);
                 }
             }
@@ -66,40 +67,9 @@
         get text() {
             return (this._length > 0 ? this[0].textContent : "");
         },
-        each(target, callback) {
-            console.log("UsefulWorks.each()");
-
-            // if only one argument is passed assume that it is the callback
-            // and the target is the UsefulWorks object
-            if (arguments.length == 1) {
-                callback = target;
-                target = this;
-            }
-
-            // define the callback
-            function doCallback(index) {
-                return callback.call(target[index], index, target[index]);
-            }
-
-            // iterate over the target; returning false will stop iteration
-            if (isArrayish(target)) {
-                // as array
-                let len = target.length;
-                for (let i = 0; i < len; i++) {
-                    if (doCallback(i) === false) break;
-                }
-            } else {
-                // as object
-                for (let prop in target) {
-                    if (doCallback(prop) === false) break;
-                }
-            }
-            return target;
+        each(callback) {
+            return UsefulWorks.each(this, callback);
         },
-        isFunction(obj) {
-            return obj && typeof obj === "function";
-        },
-        noop() {},
         on(eventName, handler) {
             console.log("UsefulWorks.on" + eventName);
             this.each((i, e) => e.addEventListener(eventName, handler, false));
@@ -112,15 +82,8 @@
             return this;
         },
         ready(handler) {
-            console.log(`UsefulWorks.ready() isReady=${_isReady} handler=${handler}`);
-
-            callWhenReady(handler);
-            if (this._isReady) {
-                this.doReady();
-            }
-            return this;
+            return UsefulWorks.ready(handler);
         },
-
         // the splice function lets UsefulWorks be logged as an array in the console (???)
         splice: Array.prototype.splice,
         toArray() {
@@ -129,7 +92,7 @@
     };
 
     // init
-    const init = UsefulWorks.fn.init = function (selector) {
+    const init = UsefulWorks.fn.init = function (selector, context) {
         console.log(`UsefulWorks.init(): ${selector}`);
 
         if (!selector) {
@@ -153,9 +116,7 @@
                 break;
 
             case "function":
-                // shortcut for doc.ready handler; if already ready call immediately otherwise queue
-                // for call when ready
-                // e.g this.ready ? selector(this) : this.ready(selector);
+                this.ready(selector);
                 break;
 
             default:
@@ -172,7 +133,6 @@
     // merge objects in a mergey way
     const coalesce = UsefulWorks.coalesce = UsefulWorks.fn.coalesce = (function(deepCopy, target, sources) {
         return function() {
-
             const args = arguments, args_n = arguments.length;
             let deep = false, index = 0, dstObj = null;
 
@@ -181,8 +141,6 @@
                 deep = args[0];
                 index++;
             }
-
-            console.log(`UsefulWorks.coalesce(${args.length} args, deep=${deep})`);
 
             // nothing to do (no args or only [deep] arg)
             if (args_n == index) return;
@@ -227,8 +185,7 @@
                         dstObj[propName] = clone ? coalesce(deep, clone, srcValue) : srcValue;
 
                     } else if (srcValue !== undefined) {
-                        console.log(`coalesce: setting ${propName} = ${srcValue}`);
-                        // don't coalesce undefined
+                        // set the property on dest; skip undefined
                         dstObj[propName] = srcValue;
                     }
                 }
@@ -245,11 +202,47 @@
         }
     }()); //coalesce
 
-    coalesce(false, {
-        // add more functions here
-        ready2: function(handler) {
-            console.log("UsefulWorks.ready2()");
+    // extend UsefulWorks with more functions
+    coalesce({
+        each(target, callback) {
+            console.log("UsefulWorks.each()");
+
+            // if only one argument is passed assume that it is the callback
+            // and the target is the UsefulWorks object
+            if (arguments.length == 1) {
+                callback = target;
+                target = this;
+            }
+
+            // define the callback
+            function doCallback(index) {
+                return callback.call(target[index], index, target[index]);
+            }
+
+            // iterate over the target; returning false will stop iteration
+            if (isArrayish(target)) {
+                // as array
+                let len = target.length;
+                for (let i = 0; i < len; i++) {
+                    if (doCallback(i) === false) break;
+                }
+            } else {
+                // as object
+                for (let prop in target) {
+                    if (doCallback(prop) === false) break;
+                }
+            }
+            return target;
+        },
+        noop() {},
+        ready(handler) {
+            console.log(`UsefulWorks.ready() isReady=${_isReady} handler=${handler}`);
+            callWhenReady(handler);
+            if (_isReady) { doReady(); }
             return this;
+        },
+        whatIsThis(thisthis = this) {
+            console.log(`whatIsThis = ${thisthis} => ${typeof thisthis}`);
         }
     });
 
@@ -257,7 +250,7 @@
     init.prototype = UsefulWorks.prototype;
 
     // expose to the global object
-    window.UsefulWorks = window.u_w = UsefulWorks;
+    window.UsefulWorks = window.$UW = UsefulWorks;
 
     // root context
     const _root = UsefulWorks(document);
@@ -283,11 +276,11 @@
     // inner iife: setup window/document ready listeners
     (function() {
         function completed() {
-            console.log(`UsefulWorks.completed() ${this === window ? "window" : "document"}`);
+            console.log(`UsefulWorks.completed() by ${this === window ? "window" : "document"}`);
             document.removeEventListener("DOMContentLoaded", completed);
             window.removeEventListener("load", completed);
             _isReady = true;
-            UsefulWorks.fn.ready();
+            doReady();
         }
 
         // catch cases where $(document).ready() is called after the events have already occurred

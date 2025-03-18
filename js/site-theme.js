@@ -6,6 +6,7 @@
  * Enum-like class representing allowed theme values
  *
  * @requires AppStorage (site-store.js)
+ * @requires Usefulworks (usefulworks.js)
  */
 class Theme {
     static Dark = new Theme("dark");
@@ -166,4 +167,5 @@ function getUrlQueryParams() {
 }
 
 // onload => init
-document.readyState =="loading" ? window.addEventListener("load", Themes.init) : Themes.init();
+UsefulWorks(Themes.init);
+//document.readyState =="loading" ? window.addEventListener("load", Themes.init) : Themes.init();
