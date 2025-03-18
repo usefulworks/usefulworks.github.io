@@ -88,12 +88,17 @@
         ready(handler) {
             return UsefulWorks.ready(handler);
         },
-        where(predicate) {
+        where(predicate, withIndex = false) {
+            const fn = withIndex ? (index, element) => predicate(index, element)
+                                 : (index, element) => predicate(element);
             let results = [];
-            this.each((i, e) => {
-                if (predicate(e)) results.push(e);
+            this.each((index, element) => {
+                if (fn(index, element)) results.push(element);
             });
             return new UsefulWorks(results);
+        },
+        whereWithIndex(predicate) {
+            return this.where(predicate, true);
         },
         // the splice function lets UsefulWorks be logged as an array in the console (???)
         splice: Array.prototype.splice,
@@ -147,20 +152,25 @@
     const init = UsefulWorks.fn.init = function (selector, context) {
         console.log(`UsefulWorks.init(): ${typeof selector === "string" ? selector : Object.prototype.toString.call(selector)}`);
 
-        if (!selector) {
+        this._length = 0;
+
+        // return empty (consider creating a static empty; not critical path)
+        if (selector === null || selector === undefined) {
             return this;
         }
 
-        switch (typeof selector) {
+        // figure out what kind of selector we're dealing with
+        let typeString = typeof selector;
+        if (typeString !== "string" && typeString !== "function") {
+            typeString = (selector.nodeType ? "domelement" : (isArrayish(selector) ? "arrayish" :  typeString));
+        }
+
+        // process the selector
+        switch (typeString) {
             case "string":
                 // CSS selector
-                let i = 0, elements = document.querySelectorAll(selector);
-                if (elements) {
-                    this._length = 0;
-                    for (j = elements.length; i < j; i++) {
-                        this[i] = elements[i];
-                        this._length++;
-                    }
+                if (elements = document.querySelectorAll(selector)) {
+                    populateFromArrayish.call(this, elements);
                 }
                 break;
 
@@ -169,15 +179,31 @@
                 this.ready(selector);
                 break;
 
-            default:
+            case "domelement":
                 // DOMElement
-                if (selector.nodeType) {
-                    this[0] = selector;
-                    this._length = 1;
-                    break;
-                }
+                this[0] = selector;
+                this._length = 1;
+                break;
+
+            case "arrayish":
+                // array-like object
+                populateFromArrayish.call(this, selector);
+                break;
+
+            default:
+                break;
         }
+
         return this;
+
+        // populate this from an array-like value
+        function populateFromArrayish(value) {
+            let len = value.length;
+            for (let i = 0; i < len; i++) {
+                this[i] = value[i];
+                this._length++;
+            }
+        }
     };
 
     // merge objects in a mergey way

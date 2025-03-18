@@ -29,13 +29,15 @@ var _ = (function() {
     var text = divs.toText(";");
     var first = divs.first();
     var last = divs.last();
-    var where = divs.where((e) => e.id == "twoth");
+    var where = divs.where(e => e.id == "twoth").first();
+    var whereWithIndex = divs.whereWithIndex((i, e) => i == 2).first();
 
     console.dir(divs);
     console.log(`divs: text ${text}`);
     console.log(`divs: first: ${first.text}`);
     console.log(`divs: last: ${last.text}`);
     console.log(`divs: where: ${where.text}`);
+    console.log(`divs: whereWithIndex: ${whereWithIndex.text}`);
 
 
     $UW("#clickme").on("click", function() {
