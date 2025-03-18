@@ -49,7 +49,26 @@
         // same as the object name
         constructor: UsefulWorks,
 
-        _length:  0,
+        //
+        // 'internal' properties
+        //
+
+        _length:  0, // number of items
+        _internalFilter: function(predicate) { // return filtered array based on predicate
+            let ret = [], e = null;
+            for (let i = 0, len = this._length; i < len; i++) {
+                e = this[i];
+                if (predicate(i, e)) ret.push(e);
+            }
+            return ret;
+        },
+        _internalElementsOnly: function() { // return array of DOM elements only
+            return this._internalFilter((i, e) => isDOMElement(e));
+        },
+
+        //
+        // instance properties
+        //
 
         // version
         get version() {
@@ -62,9 +81,26 @@
         get text() {
             return (this._length > 0 ? this[0].textContent : "");
         },
-        addClass(className) {},
-        removeClass(className) {},
-        toggleClass(className) {},
+        addClass(className) {
+            const elements = this._internalElementsOnly();
+            elements.forEach(e => e.classList.add(className));
+            return this;
+        },
+        removeClass(className) {
+            const elements = this._internalElementsOnly();
+            elements.forEach(e => e.classList.remove(className));
+            return this;
+        },
+        replaceClass(oldClassName, newClassName) {
+            const elements = this._internalElementsOnly();
+            elements.forEach(e => e.classList.replace(oldClassName, newClassName));
+            return this;
+        },
+        toggleClass(className) {
+            const elements = this._internalElementsOnly();
+            elements.forEach(e => e.classList.toggle(className));
+            return this;
+        },
         each(callback) {
             return UsefulWorks.each(this, callback);
         },
@@ -91,10 +127,7 @@
         where(predicate, withIndex = false) {
             const fn = withIndex ? (index, element) => predicate(index, element)
                                  : (index, element) => predicate(element);
-            let results = [];
-            this.each((index, element) => {
-                if (fn(index, element)) results.push(element);
-            });
+            let results = this._internalFilter(fn);
             return new UsefulWorks(results);
         },
         whereWithIndex(predicate) {
@@ -206,7 +239,7 @@
         }
     };
 
-    // merge objects in a mergey way
+    // merge objects in a coalescey way
     const coalesce = UsefulWorks.coalesce = UsefulWorks.fn.coalesce = (function(deepCopy, target, sources) {
         return function() {
             const args = arguments, args_n = arguments.length;
@@ -218,7 +251,7 @@
                 index++;
             }
 
-            // nothing to do (no args or only [deep] arg)
+            // nothing to do (no args or only [deepCopy] arg)
             if (args_n == index) return;
 
             // if no target supplied => target this)
@@ -277,8 +310,13 @@
         }
     }()); //coalesce
 
-    // extend UsefulWorks with more functions
+    // decorate UsefulWorks top-level with some more functions
     coalesce({
+        alias(name) {
+            if (typeof name === "string") {
+                window[name] = UsefulWorks;
+            }
+        },
         each(target, callback) {
             console.log("UsefulWorks.each()");
 
@@ -346,6 +384,11 @@
             return true;
         }
         return hasLength(value.length);
+    }
+
+    // isDOMElement
+    function isDOMElement(value) {
+        return value && value.nodeType === 1;
     }
 
     // inner iife: setup window/document ready listeners

@@ -2,6 +2,11 @@
 layout: html-template
 permalink: experiment.html
 ---
+<style type="text/css">
+    .clicked {
+        background-color: #f00;
+    }
+</style>
 
 <section class="scoping">
     <div>need some body content</div>
@@ -16,6 +21,7 @@ permalink: experiment.html
 <script type="text/javascript">
 
 var _ = (function() {
+
     function clickHandler() {
         console.log(`clicked ${this.textContent}`);
     }
@@ -39,18 +45,18 @@ var _ = (function() {
     console.log(`divs: where: ${where.text}`);
     console.log(`divs: whereWithIndex: ${whereWithIndex.text}`);
 
+    UsefulWorks.alias("_bubblegum");
+
+    _bubblegum.whatIsThis();
+    _bubblegum.whatIsThis(_bubblegum);
 
     $UW("#clickme").on("click", function() {
         console.log(`clicked me`);
-        $UW("section.scoping > div").off("click", clickHandler);
+        $UW("section.scoping > div").off("click", clickHandler).toggleClass("clicked");
     });
-
 
     console.log("Usefulworks:");
     console.dir(UsefulWorks)
-
-    UsefulWorks.whatIsThis();
-
 
     // ---
 
