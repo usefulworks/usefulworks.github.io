@@ -5,7 +5,7 @@ permalink: experiment.html
 
 <section class="scoping">
     <div>need some body content</div>
-    <div>need some more body content</div>
+    <div id="twoth">need some more body content</div>
     <div>need even more body content</div>
     <button id="clickme">click me</button>
 </section>
@@ -15,38 +15,49 @@ permalink: experiment.html
 <script type="text/javascript" src="/js/usefulworks.js"></script>
 <script type="text/javascript">
 
-function clickHandler() {
-    console.log(`clicked ${this.textContent}`);
-}
+var _ = (function() {
+    function clickHandler() {
+        console.log(`clicked ${this.textContent}`);
+    }
 
-var divs = $UW("section.scoping > div").on("click", clickHandler);
+    var divs = $UW("section.scoping > div").on("click", clickHandler);
 
-divs.each(function() {
-    console.log(`div: ${this.textContent}`);
-});
+    divs.each(function(i) {
+        console.log(`div${i}: ${this.textContent}`);
+    });
 
-console.log(`divs: ${divs.text}`);
+    var text = divs.toText(";");
+    var first = divs.first();
+    var last = divs.last();
+    var where = divs.where((e) => e.id == "twoth");
 
-$UW("#clickme").on("click", function() {
-    console.log(`clicked me`);
-    $UW("section.scoping > div").off("click", clickHandler);
-});
-
-
-console.log("Usefulworks:");
-console.dir(UsefulWorks)
-
-UsefulWorks.whatIsThis();
+    console.dir(divs);
+    console.log(`divs: text ${text}`);
+    console.log(`divs: first: ${first.text}`);
+    console.log(`divs: last: ${last.text}`);
+    console.log(`divs: where: ${where.text}`);
 
 
-// ---
+    $UW("#clickme").on("click", function() {
+        console.log(`clicked me`);
+        $UW("section.scoping > div").off("click", clickHandler);
+    });
 
-UsefulWorks(function() {
-    console.log("ready!");
-});
 
-setTimeout(() => {
-    UsefulWorks.ready(function() { console.log("i'm delayed"); });
-}, 1200);
+    console.log("Usefulworks:");
+    console.dir(UsefulWorks)
 
+    UsefulWorks.whatIsThis();
+
+
+    // ---
+
+    UsefulWorks(function() {
+        console.log("ready!");
+    });
+
+    setTimeout(() => {
+        UsefulWorks.ready(function() { console.log("i'm delayed"); });
+    }, 1200);
+}());
 </script>

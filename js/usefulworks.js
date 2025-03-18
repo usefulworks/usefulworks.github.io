@@ -22,14 +22,7 @@
 
 })(window, function (window) {
 
-    // an array-like length property
-    let _length = 0;
-    function setLength(len) {
-        console.log(`setLength(${len})`);
-        _length = len;
-    }
-
-    // ready state
+    // ready state (shared)
     let _isReady = false,
         _waitingForReady = [],
         callWhenReady = function(handler) { _waitingForReady.push(handler); },
@@ -56,19 +49,30 @@
         // same as the object name
         constructor: UsefulWorks,
 
+        _length:  0,
+
         // version
         get version() {
             return "0.0.1";
         },
         // array-like; number of items
         get length() {
-            return _length;
+            return this._length;
         },
         get text() {
             return (this._length > 0 ? this[0].textContent : "");
         },
+        addClass(className) {},
+        removeClass(className) {},
+        toggleClass(className) {},
         each(callback) {
             return UsefulWorks.each(this, callback);
+        },
+        first() {
+            return this._length > 0 ? new UsefulWorks(this[0]) : [];
+        },
+        last() {
+            return this._length > 0 ? new UsefulWorks(this[this._length - 1]) : [];
         },
         on(eventName, handler) {
             console.log("UsefulWorks.on" + eventName);
@@ -84,11 +88,59 @@
         ready(handler) {
             return UsefulWorks.ready(handler);
         },
+        where(predicate) {
+            let results = [];
+            this.each((i, e) => {
+                if (predicate(e)) results.push(e);
+            });
+            return new UsefulWorks(results);
+        },
         // the splice function lets UsefulWorks be logged as an array in the console (???)
         splice: Array.prototype.splice,
+        toText(delim = "") {
+            if (this._length == 0) return "";
+            let texts = [];
+            this.each((i, e) => {
+                if (e.nodeType) {
+                    switch (e.nodeType) {
+                        case 1: // Node.ELEMENT_NODE
+                            texts.push(e.textContent);
+                            break;
+                        case 2: // Node.ATTRIBUTE_NODE
+                            break;
+                        case 3: // Node.TEXT_NODE
+                            this.text.push(e.nodeValue);
+                            break;
+                        case 4: // Node.CDATA_SECTION_NODE
+                            this.text.push(e.nodeValue);
+                            break;
+                        case 7: // Node.PROCESSING_INSTRUCTION_NODE
+                            break;
+                        case 8: // Node.COMMENT_NODE
+                            break;
+                        case 9: // Node.DOCUMENT_NODE
+                            texts.push(e.documentElement.textContent);
+                            break;
+                        case 10: // Node.DOCUMENT_TYPE_NODE
+                            break;
+                        case 11: // Node.DOCUMENT_FRAGMENT_NODE
+                            texts.push(e.textContent);
+                            break;
+                        default:
+                            break;
+                    }
+                } else {
+                    if (isArrayish(e)) {
+                        for (let i = 0; i < e.lenth; i++) texts.push(e[1]);
+                    }
+                }
+            });
+            return texts.join(delim);
+        },
         toArray() {
             return Array.prototype.slice.call(this);
         },
+
     };
 
     // init
@@ -102,20 +154,18 @@
         switch (typeof selector) {
             case "string":
                 // CSS selector
-                let i = 0,
-                    len = 0,
-                    elements = document.querySelectorAll(selector);
-                console.log(elements);
+                let i = 0, elements = document.querySelectorAll(selector);
                 if (elements) {
-                    setLength(len);
+                    this._length = 0;
                     for (j = elements.length; i < j; i++) {
                         this[i] = elements[i];
-                        setLength(++len);
+                        this._length++;
                     }
                 }
                 break;
 
             case "function":
+                // shortcut for UsefulWorks(handler) or UsefulWorks.ready(handler)
                 this.ready(selector);
                 break;
 
@@ -123,7 +173,7 @@
                 // DOMElement
                 if (selector.nodeType) {
                     this[0] = selector;
-                    setLength(1);
+                    this._length = 1;
                     break;
                 }
         }
