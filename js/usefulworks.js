@@ -70,9 +70,9 @@
             return ret;
         };
 
-        const elementsOnly = function() { // return array of DOM elements only
+        const elementsOnly = function() { // return array of DOM ELEMENT_NODE only
             assertThis(this);
-            return filter.call(this, (i, e) => isDOMElement(e));
+            return filter.call(this, (i, e) => isElementNode(e));
         };
 
         // define the prototype object
@@ -116,6 +116,12 @@
             last() {
                 return this._length > 0 ? new UsefulWorks(this[this._length - 1]) : [];
             },
+            even() {
+                return this.whereWithIndex((i, e) => i % 2 == 0);
+            },
+            odd() {
+                return this.whereWithIndex((i, e) => (i+1) % 2 == 0);
+            },
             on(eventName, handler) {
                 console.log("UsefulWorks.on" + eventName);
                 this.each((i, e) => e.addEventListener(eventName, handler, false));
@@ -130,6 +136,9 @@
             ready(handler) {
                 return UsefulWorks.ready(handler);
             },
+            elements() { // is this the best name?
+                return this.where(e => isElementNode(e));
+            },
             where(predicate, withIndex = false) {
                 const p = withIndex ? (index, element) => predicate(index, element)
                                     : (index, element) => predicate(element);
@@ -139,6 +148,8 @@
             whereWithIndex(predicate) {
                 return this.where(predicate, true);
             },
+            // returns a text (string) representation of this object by concatenating
+            // text or text-like nodes with an optional delimiter
             toText(delim = "") {
                 if (this._length == 0) return "";
                 let texts = [];
@@ -154,9 +165,9 @@
                 });
                 return texts.join(delim);
             },
+            // returns a shallow copy of this object as an array
             toArray() {
-                // return a shallow copy of this object as an array
-                return Array.prototype.slice.call(this);
+            return Array.prototype.slice.call(this);
             },
             // returns a new JS object with the items in this object as properties
             // - the default key for the items is their index in this object
@@ -401,7 +412,7 @@
     }
 
     // isDOMElement
-    function isDOMElement(value) {
+    function isElementNode(value) {
         return value && value.nodeType === 1;
     }
 
