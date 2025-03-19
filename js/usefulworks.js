@@ -254,7 +254,7 @@
     };
 
     // merge objects in a coalescey way
-    const coalesce = UsefulWorks.coalesce = UsefulWorks.p.coalesce = (function(deepCopy, target, sources) {
+    const decorate = UsefulWorks.decorate = UsefulWorks.p.decorate = (function(deepCopy, target, sources) {
         return function() {
             const args = arguments, args_n = arguments.length;
             let deep = false, index = 0, dstObj = null;
@@ -304,7 +304,7 @@
                             clone = dstValue && isNormalObject(dstValue) ? dstValue : {};
                         }
                         // recurse
-                        dstObj[propName] = clone ? coalesce(deep, clone, srcValue) : srcValue;
+                        dstObj[propName] = clone ? decorate(deep, clone, srcValue) : srcValue;
 
                     } else if (srcValue !== undefined) {
                         // set the property on dest; skip undefined
@@ -322,10 +322,10 @@
             }
             return false;
         }
-    }()); //coalesce
+    }()); //decorate
 
     // decorate UsefulWorks top-level with some more functions
-    coalesce({
+    decorate({
         // set a new global alias for the UsefulWorks object on window
         alias(name) {
             if (typeof name === "string") {
