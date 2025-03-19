@@ -32,222 +32,192 @@
     const UsefulWorks = function(selector, context) {
         const ctx = context || rootContext || {};
 
-        //--- BEGIN UsefulInterals
-        const UsefulInternals = function(usefulworks) {
-            return new UsefulInternals.p.init(usefulworks);
-        };
-
-        UsefulInternals.p = UsefulInternals.prototype = {
-            constructor: UsefulInternals
-        };
-
-        UsefulInternals.p.init = function(usefulworks) {
-            this.usefulworks = usefulworks;
-            console.log("UsefulInternals.init()");
-            return this;
-        };
-        //--- END UsefulInternals
-
         // construct
-        return new UsefulWorks.p.init(selector);
+        return new UsefulWorks.p.init(selector, ctx);
     };
 
     // define UsefulWorks.prototype and assign the alias 'UsefulWorks.p'
-    const p = UsefulWorks.p = UsefulWorks.prototype = {
-
-        // redefine constructor so the contructor name is the
-        // same as the object name
-        constructor: UsefulWorks,
+    const p = UsefulWorks.p = UsefulWorks.prototype = (function() {
 
         //
         // 'internal' properties
         //
+        const nodeTypeToText = {
+            1: n => n.textContent, // Node.ELEMENT_NODE
+            2: n => n.value,       // Node.ATTRIBUTE_NODE
+            3: n => n.nodeValue,   // Node.TEXT_NODE
+            4: n => n.nodeValue,   // Node.CDATA_SECTION_NODE
+            7: n => "",            // Node.PROCESSING_INSTRUCTION_NODE
+            8: n => "",            // Node.COMMENT_NODE
+            9: n => documentElement.textContent, // Node.DOCUMENT_NODE
+            10: n => "",           // Node.DOCUMENT_TYPE_NODE
+            11: n => n.textContent // Node.DOCUMENT_FRAGMENT_NODE
+        }
 
-        _internalFilter: function(predicate) { // return filtered array based on predicate
+        const assertThis = function(obj) { // throw an error if this is not an instance of Usefulworks
+            if (!(obj instanceof UsefulWorks)) {
+                throw new Error(`function call with wrong this '${obj}'`);
+            }
+        }
+
+        const filter = function(predicate) { // return filtered array based on predicate(int:index, object:element)
+            assertThis(this);
             let ret = [], e = null;
-            for (let i = 0, len = this._length; i < len; i++) {
-                e = this[i];
-                if (predicate(i, e)) ret.push(e);
+            for(let i = 0; i < this.length; i++) {
+                if(predicate(i, this[i])) ret.push(this[i]);
             }
             return ret;
-        },
-        _internalElementsOnly: function() { // return array of DOM elements only
-            return this._internalFilter((i, e) => isDOMElement(e));
-        },
+        };
 
-        //
-        // instance properties
-        //
+        const elementsOnly = function() { // return array of DOM elements only
+            assertThis(this);
+            return filter.call(this, (i, e) => isDOMElement(e));
+        };
 
-        get [Symbol.toStringTag]() {
-            return `UsefulWorks v${this.version} len=${this.length}`;
-        },
-        // version
-        get version() {
-            return "0.0.1";
-        },
-        // array-like; number of items
-        get length() {
-            return this._length;
-        },
-        get text() {
-            return (this._length > 0 ? this[0].textContent : "");
-        },
-        addClass(className) {
-            const elements = this._internalElementsOnly();
-            elements.forEach(e => e.classList.add(className));
-            return this;
-        },
-        removeClass(className) {
-            const elements = this._internalElementsOnly();
-            elements.forEach(e => e.classList.remove(className));
-            return this;
-        },
-        replaceClass(oldClassName, newClassName) {
-            const elements = this._internalElementsOnly();
-            elements.forEach(e => e.classList.replace(oldClassName, newClassName));
-            return this;
-        },
-        toggleClass(className) {
-            const elements = this._internalElementsOnly();
-            elements.forEach(e => e.classList.toggle(className));
-            return this;
-        },
-        each(callback) {
-            return UsefulWorks.each(this, callback);
-        },
-        first() {
-            return this._length > 0 ? new UsefulWorks(this[0]) : [];
-        },
-        last() {
-            return this._length > 0 ? new UsefulWorks(this[this._length - 1]) : [];
-        },
-        on(eventName, handler) {
-            console.log("UsefulWorks.on" + eventName);
-            this.each((i, e) => e.addEventListener(eventName, handler, false));
-            return this;
-        },
-        off(eventName, handler) {
-            console.log("UsefulWorks.off" + eventName);
-            // doesn't work with anonymous/arrow functions
-            this.each((i, e) => e.removeEventListener(eventName, handler, false));
-            return this;
-        },
-        ready(handler) {
-            return UsefulWorks.ready(handler);
-        },
-        where(predicate, withIndex = false) {
-            const p = withIndex ? (index, element) => predicate(index, element)
-                                 : (index, element) => predicate(element);
-            let results = this._internalFilter(p);
-            return new UsefulWorks(results);
-        },
-        whereWithIndex(predicate) {
-            return this.where(predicate, true);
-        },
-        // the splice function lets UsefulWorks be logged as an array in the console (???)
-        splice: Array.prototype.splice,
-        toText(delim = "") {
-            if (this._length == 0) return "";
-            let texts = [];
-            this.each((i, e) => {
-                if (e.nodeType) {
-                    switch (e.nodeType) {
-                        case 1: // Node.ELEMENT_NODE
-                            texts.push(e.textContent);
-                            break;
-                        case 2: // Node.ATTRIBUTE_NODE
-                            break;
-                        case 3: // Node.TEXT_NODE
-                            this.text.push(e.nodeValue);
-                            break;
-                        case 4: // Node.CDATA_SECTION_NODE
-                            this.text.push(e.nodeValue);
-                            break;
-                        case 7: // Node.PROCESSING_INSTRUCTION_NODE
-                            break;
-                        case 8: // Node.COMMENT_NODE
-                            break;
-                        case 9: // Node.DOCUMENT_NODE
-                            texts.push(e.documentElement.textContent);
-                            break;
-                        case 10: // Node.DOCUMENT_TYPE_NODE
-                            break;
-                        case 11: // Node.DOCUMENT_FRAGMENT_NODE
-                            texts.push(e.textContent);
-                            break;
-                        default:
-                            break;
+        // define the prototype object
+        const obj = {
+            // redefine constructor to have the same name as the object
+            constructor: UsefulWorks,
+            // custom toString implementation
+            get [Symbol.toStringTag]() {
+                return `UsefulWorks v${this.version} len:${this.length} sel:${this.selectorType}`;
+            },
+            // version
+            get version() { return "0.0.2"; },
+            // array-like; number of items
+            get length() { return this._length; },
+            // string representing how this instance was created
+            get selectorType() { return this._selectorType; },
+            // adds a css class name to elements in the current selection
+            addClass(className) {
+                elementsOnly.call(this).forEach(e => e.classList.add(className));
+                return this;
+            },
+            // removes a css class name from elements in the current selection
+            removeClass(className) {
+                elementsOnly.call(this).forEach(e => e.classList.remove(className));
+                return this;
+            },
+            // replaces a css class name with another on elements in the current selection
+            replaceClass(oldClassName, newClassName) {
+                elementsOnly.call(this).forEach(e => e.classList.replace(oldClassName, newClassName));
+                return this;
+            },
+            // adds or removes a css class name from elements in the current selection
+            toggleClass(className) {
+                elementsOnly.call(this).forEach(e => e.classList.toggle(className));
+                return this;
+            },
+            each(delegate) {
+                return UsefulWorks.each(this, delegate);
+            },
+            first() {
+                return this._length > 0 ? new UsefulWorks(this[0]) : [];
+            },
+            last() {
+                return this._length > 0 ? new UsefulWorks(this[this._length - 1]) : [];
+            },
+            on(eventName, handler) {
+                console.log("UsefulWorks.on" + eventName);
+                this.each((i, e) => e.addEventListener(eventName, handler, false));
+                return this;
+            },
+            off(eventName, handler) {
+                console.log("UsefulWorks.off" + eventName);
+                // doesn't work with anonymous/arrow functions
+                this.each((i, e) => e.removeEventListener(eventName, handler, false));
+                return this;
+            },
+            ready(handler) {
+                return UsefulWorks.ready(handler);
+            },
+            where(predicate, withIndex = false) {
+                const p = withIndex ? (index, element) => predicate(index, element)
+                                    : (index, element) => predicate(element);
+                let results = filter.call(this, p);
+                return new UsefulWorks(results);
+            },
+            whereWithIndex(predicate) {
+                return this.where(predicate, true);
+            },
+            toText(delim = "") {
+                if (this._length == 0) return "";
+                let texts = [];
+                this.each((i, e) => {
+                    let n = e.nodeType;
+                    if (n && [1,3,4,9,11].includes(n)) {
+                        texts.push(nodeTypeToText[n](e));
+                    } else {
+                        if (isArrayish(e)) {
+                            for (let i = 0; i < e.length; i++) texts.push(e[1]);
+                        }
                     }
-                } else {
-                    if (isArrayish(e)) {
-                        for (let i = 0; i < e.length; i++) texts.push(e[1]);
-                    }
-                }
-            });
-            return texts.join(delim);
-        },
-        toArray() {
-            return Array.prototype.slice.call(this);
-        },
+                });
+                return texts.join(delim);
+            },
+            toArray() {
+                // return a shallow copy of this object as an array
+                return Array.prototype.slice.call(this);
+            }
 
-    };
+        };
+        return obj;
+    }());
 
     // init
-    const init = UsefulWorks.p.init = function (selector, context) {
-        console.log(`UsefulWorks.init(): ${typeof selector === "string" ? selector : Object.prototype.toString.call(selector)}`);
+    const init = UsefulWorks.p.init = (function() {
+        // UsefulWorks constructor: build the new UsefulWorks object
+        return function (selector, context) {
+            console.log(`UsefulWorks.init(): ${typeof selector === "string" ? "[" + selector + "]" : Object.prototype.toString.call(selector)}`);
 
-        this._ctx = context;
-        this._length = 0;
-        this._selectorType = null;
+            this._ctx = context;
+            this._length = 0;
+            this._selectorType = null;
 
-        // return empty (consider creating a static empty; not critical path)
-        if (selector === null || selector === undefined) {
+            // return empty (consider creating a static empty; not critical path)
+            if (selector === null || selector === undefined) {
+                return this;
+            }
+
+            // figure out what kind of selector we're dealing with
+            let selectorType = typeof selector;
+            if (selectorType !== "string" && selectorType !== "function") {
+                selectorType = (selector.nodeType ? "domelement" : (isArrayish(selector) ? "arrayish" :  selectorType));
+            }
+
+            // process the selector
+            switch (selectorType) {
+                case "string":
+                    // CSS selector
+                    if (elements = document.querySelectorAll(selector)) {
+                        populateWithArrayish.call(this, elements);
+                    }
+                    break;
+
+                case "function":
+                    // shortcut for UsefulWorks(handler) or UsefulWorks.ready(handler)
+                    this.ready(selector);
+                    break;
+
+                case "domelement": // DOMElement (including window.document)
+                case "object": // any other object (including window)
+                    populateWithObject.call(this, selector);
+                    break;
+
+                case "arrayish":
+                    // array-like object
+                    populateWithArrayish.call(this, selector);
+                    break;
+
+                default:
+                    throw new Error(`cannot handle selector type '${selectorType}'`);
+                    break;
+            }
+
+            this._selectorType = selectorType;
+            // return the new instance
             return this;
         }
-
-        // figure out what kind of selector we're dealing with
-        let selectorType
-         = typeof selector;
-        if (selectorType
-             !== "string" && selectorType
-             !== "function") {
-            selectorType
-             = (selector.nodeType ? "domelement" : (isArrayish(selector) ? "arrayish" :  selectorType
-        ));
-        }
-
-        // process the selector
-        switch (selectorType) {
-            case "string":
-                // CSS selector
-                if (elements = document.querySelectorAll(selector)) {
-                    populateWithArrayish.call(this, elements);
-                }
-                break;
-
-            case "function":
-                // shortcut for UsefulWorks(handler) or UsefulWorks.ready(handler)
-                this.ready(selector);
-                break;
-
-            case "domelement": // DOMElement (including window.document)
-            case "object": // any other object (including window)
-                populateWithObject.call(this, selector);
-                break;
-
-            case "arrayish":
-                // array-like object
-                populateWithArrayish.call(this, selector);
-                break;
-
-            default:
-                throw new Error(`cannot handle selector type '${selectorType}'`);
-                break;
-        }
-
-        this._selectorType = selectorType;
-        return this;
 
         // single object
         function populateWithObject(value) {
@@ -263,7 +233,7 @@
                 this._length++;
             }
         }
-    };
+    }()); //init
 
     // merge objects in a coalescey way
     const decorate = UsefulWorks.decorate = UsefulWorks.p.decorate = (function(deepCopy, target, sources) {
@@ -344,17 +314,19 @@
                 window[name] = UsefulWorks;
             }
         },
-        each(target, callback) {
+        // iterates over the current sequence and calls delegate(int:index,obj:item) for array-likes or
+        // delegate(object:propertyName,obj:item) on each item
+        each(target, delegate) {
             // if only one argument is passed assume that it is the callback
             // and the target is the UsefulWorks object
             if (arguments.length == 1) {
-                callback = target;
+                delegate = target;
                 target = this;
             }
 
-            // define the callback
-            function doCallback(index) {
-                return callback.call(target[index], index, target[index]);
+            // wrap the callback; use call() to set this=
+            function callDelegate(n) {
+                return delegate.call(target[n], n, target[n]);
             }
 
             // iterate over the target; returning false will stop iteration
@@ -362,12 +334,12 @@
                 // as array
                 let len = target.length;
                 for (let i = 0; i < len; i++) {
-                    if (doCallback(i) === false) break;
+                    if (callDelegate(i) === false) break;
                 }
             } else {
                 // as object
                 for (let prop in target) {
-                    if (doCallback(prop) === false) break;
+                    if (callDelegate(prop) === false) break;
                 }
             }
             return target;
@@ -380,7 +352,7 @@
             return this;
         },
         whatIsThis(thisthis = this) {
-            console.log(`whatIsThis = ${thisthis} => ${typeof thisthis}`);
+            console.log(`whatIsThis: '${typeof thisthis}' => ${thisthis}`);
         }
     });
 

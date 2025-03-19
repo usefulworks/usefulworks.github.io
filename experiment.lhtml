@@ -28,6 +28,10 @@ var _ = (function() {
 
     var divs = $UW("section.scoping > div").on("click", clickHandler);
 
+    $UW("#clickme").on("click", function() {
+        $UW("section.scoping > div").toggleClass("clicked");
+    });
+
     divs.each(function(i) {
         console.log(`div${i}: ${this.textContent}`);
     });
@@ -48,17 +52,6 @@ var _ = (function() {
     console.log(`divs: where: ${where.text}`);
     console.log(`divs: whereWithIndex: ${whereWithIndex.text}`);
 
-    divs._length = 5; // <- bad!
-    console.log(`internals: ${divs}`);
-
-
-    UsefulWorks.alias("_bubblegum");
-    _bubblegum.whatIsThis(_bubblegum);
-
-    $UW("#clickme").on("click", function() {
-        console.log(`clicked me`);
-        $UW("section.scoping > div").off("click", clickHandler).toggleClass("clicked");
-    });
 
     console.log("Usefulworks:");
     console.dir(UsefulWorks)
