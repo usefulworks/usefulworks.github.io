@@ -5,14 +5,14 @@
 const NavBar = {
     init : function() {
         console.log("NavBar.init");
-        const NAVBAR = document.querySelector("nav.top-nav");
+        const NAVBAR = $UW("nav.top-nav");
         const initNavMenuToggle = function () {
             console.log("NavBar.initNavMenuToggle");
             const SHOWING_CNAME = "vertical-menu-showing";
-            const MENU_BTN = document.getElementById("navbar-menu-button");
+            const MENU_BTN = $UW("#navbar-menu-button");
             if (MENU_BTN && NAVBAR) {
-                MENU_BTN.addEventListener("click", function(e) {
-                    NAVBAR.classList.toggle(SHOWING_CNAME);
+                MENU_BTN.on("click", function(e) {
+                    NAVBAR.toggleClass(SHOWING_CNAME);
                 });
             }
 
@@ -22,12 +22,10 @@ const NavBar = {
             const TOP_NAV_SLIM_CNAME = "top-nav-slim";
             const HANDLER = function() {
                 if (NAVBAR) {
-                    with(NAVBAR.classList) {
-                        window.scrollY > 50 ? add(TOP_NAV_SLIM_CNAME) : remove(TOP_NAV_SLIM_CNAME);
-                    }
-            }
+                    window.scrollY > 50 ? NAVBAR.addClass(TOP_NAV_SLIM_CNAME) : NAVBAR.removeClass(TOP_NAV_SLIM_CNAME);
+                }
             };
-            window.addEventListener("scroll", HANDLER) && HANDLER.call();
+            $UW(window).on("scroll", HANDLER) && HANDLER.call();
         }
         initNavMenuToggle();
         initWindowScroll();
