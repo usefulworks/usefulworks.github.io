@@ -6,6 +6,9 @@ permalink: experiment.html
     .clicked {
         background-color: #f00;
     }
+    .purple {
+        background-color: purple;
+    }
 </style>
 
 <section class="scoping">
@@ -52,9 +55,8 @@ var _ = (function() {
     console.log(`divs: where: ${where.text}`);
     console.log(`divs: whereWithIndex: ${whereWithIndex.text}`);
 
-
-    console.log("Usefulworks:");
-    console.dir(UsefulWorks)
+    var purples = $UW("body *").where(e => e.tagName == "DIV").addClass("purple");
+    var obj = purples.toObject((k,v) => "".concat(k, ":",  v.tagName));
 
     // ---
 

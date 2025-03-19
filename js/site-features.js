@@ -29,7 +29,7 @@ const Features = (function() {
     };
 
     return {
-        init() {
+        init() { //fn
             console.log("Features.init()");
             // inject a new style element
             const style = document.createElement("style");
@@ -37,21 +37,18 @@ const Features = (function() {
             document.head.appendChild(style);
             _style = style;
 
-            // temp
-            tbloggle = document.querySelector("#tbloggle");
-            if (tbloggle) {
-                let quickclicks = 0, time = window.performance.now();
-                tbloggle.addEventListener("click", (e) => {
-                    (e.timeStamp - time < 999) ? quickclicks++ : quickclicks = 0;
-                    if (quickclicks === 2) {
-                        Features.blog.toggleEnabled();
-                        quickclicks = 0;
-                    }
-                    time = e.timeStamp;
-                });
-            }
+            //tmp
+            let quickclicks = 0, time = $UW.now();
+            const tbloggle = $UW("#tbloggle").on("click", e => {
+                (e.timeStamp - time < 999) ? quickclicks++ : quickclicks = 0;
+                if (quickclicks === 2) {
+                    Features.blog.toggleEnabled();
+                    quickclicks = 0;
+                }
+                time = e.timeStamp;
+            });
         },
-        blog : {
+        blog : { //obj
             get isEnabled() { return _feats.blog; },
             set isEnabled(value) {
                 let b = !!value;

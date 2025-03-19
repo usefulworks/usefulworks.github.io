@@ -5,7 +5,7 @@
  */
 
 /*
- * usefulworks.js (version 0.0.1)
+ * usefulworks.js (version 0.0.2)
  */
 
 // iife wrapper
@@ -27,8 +27,8 @@
             }
         };
 
-    // the base UsefulWorks object is a function; we return a new instance
-    // by calling 'new UsefulWorks.prototype.init()'
+    // the base UsefulWorks object is a function; we return a new instance by
+    // calling new on its prototype, the function 'UsefulWorks.prototype.init'
     const UsefulWorks = function(selector, context) {
         const ctx = context || rootContext || {};
 
@@ -38,10 +38,11 @@
 
     // define UsefulWorks.prototype and assign the alias 'UsefulWorks.p'
     const p = UsefulWorks.p = UsefulWorks.prototype = (function() {
-
         //
         // 'internal' properties
         //
+
+        // fns to get text out of DOM nodes, indexed by Node.nodeType (5,6 are intentionally skipped)
         const nodeTypeToText = {
             1: n => n.textContent, // Node.ELEMENT_NODE
             2: n => n.value,       // Node.ATTRIBUTE_NODE
@@ -54,7 +55,7 @@
             11: n => n.textContent // Node.DOCUMENT_FRAGMENT_NODE
         }
 
-        const assertThis = function(obj) { // throw an error if this is not an instance of Usefulworks
+        const assertThis = function(obj) { // throw an error if obj is not an instance of Usefulworks
             if (!(obj instanceof UsefulWorks)) {
                 throw new Error(`function call with wrong this '${obj}'`);
             }
@@ -79,9 +80,7 @@
             // redefine constructor to have the same name as the object
             constructor: UsefulWorks,
             // custom toString implementation
-            get [Symbol.toStringTag]() {
-                return `UsefulWorks v${this.version} len:${this.length} sel:${this.selectorType}`;
-            },
+            get [Symbol.toStringTag]() { return `UsefulWorks v${this.version} len:${this.length} sel:${this.selectorType}`; },
             // version
             get version() { return "0.0.2"; },
             // array-like; number of items
@@ -158,6 +157,17 @@
             toArray() {
                 // return a shallow copy of this object as an array
                 return Array.prototype.slice.call(this);
+            },
+            // returns a new JS object with the items in this object as properties
+            // - the default key for the items is their index in this object
+            // - the optional keyDelegate arg enables you to override the default
+            //   key generation by supplying a (k,v) => k function that will be applied
+            //   to each item, e.g. [default] (0, div) => 0; [custom] (0, div) => div.id
+            toObject(keyDelegate) {
+                console.log(`UsefulWorks.toObject(${typeof keyDelegate})`);
+                let obj = {}, fn = typeof keyDelegate === "function" ? keyDelegate : (k, v) => k;
+                this.each((k, v) => obj[fn(k, v)] = v);
+                return obj;
             }
 
         };
@@ -170,7 +180,8 @@
         return function (selector, context) {
             console.log(`UsefulWorks.init(): ${typeof selector === "string" ? "[" + selector + "]" : Object.prototype.toString.call(selector)}`);
 
-            this._ctx = context;
+            this._context = context;
+            this._context.selector = selector;
             this._length = 0;
             this._selectorType = null;
 
@@ -236,6 +247,11 @@
     }()); //init
 
     // merge objects in a coalescey way
+    // - literal args list is indicative and fluid
+    // - intended inputs are:
+    //   [deepCopy] (bool)
+    //   [target] (obj or UsefulWorks -> dstObj)
+    //   [sources...] (objs -> srcObj...)
     const decorate = UsefulWorks.decorate = UsefulWorks.p.decorate = (function(deepCopy, target, sources) {
         return function() {
             const args = arguments, args_n = arguments.length;
@@ -345,6 +361,7 @@
             return target;
         },
         noop() {},
+        now() { return window.performance.now() },
         ready(handler) {
             console.log(`UsefulWorks.ready() isReady=${_isReady} handler=${typeof handler}`);
             callWhenReady(handler);
@@ -409,4 +426,4 @@
         console.log("UsefulWorks(): ready-listeners listening");
     }()); // inner iife
 
-}(window, {})); // iife;
+}(window, {})); // outer iife: (window, rootContext);
