@@ -48,10 +48,8 @@
         };
         //--- END UsefulInternals
 
-        ctx['_internals'] = new UsefulInternals.p.init(this); // <- unexpected wrong this
-
         // construct
-        return new UsefulWorks.p.init(selector, ctx);
+        return new UsefulWorks.p.init(selector);
     };
 
     // define UsefulWorks.prototype and assign the alias 'UsefulWorks.p'
@@ -65,7 +63,6 @@
         // 'internal' properties
         //
 
-        _length:  0, // number of items
         _internalFilter: function(predicate) { // return filtered array based on predicate
             let ret = [], e = null;
             for (let i = 0, len = this._length; i < len; i++) {
@@ -82,6 +79,9 @@
         // instance properties
         //
 
+        get [Symbol.toStringTag]() {
+            return `UsefulWorks v${this.version} len=${this.length}`;
+        },
         // version
         get version() {
             return "0.0.1";
@@ -181,7 +181,7 @@
                     }
                 } else {
                     if (isArrayish(e)) {
-                        for (let i = 0; i < e.lenth; i++) texts.push(e[1]);
+                        for (let i = 0; i < e.length; i++) texts.push(e[1]);
                     }
                 }
             });
@@ -197,9 +197,9 @@
     const init = UsefulWorks.p.init = function (selector, context) {
         console.log(`UsefulWorks.init(): ${typeof selector === "string" ? selector : Object.prototype.toString.call(selector)}`);
 
-        this._sel - selector;
         this._ctx = context;
         this._length = 0;
+        this._selectorType = null;
 
         // return empty (consider creating a static empty; not critical path)
         if (selector === null || selector === undefined) {
@@ -207,17 +207,22 @@
         }
 
         // figure out what kind of selector we're dealing with
-        let typeString = typeof selector;
-        if (typeString !== "string" && typeString !== "function") {
-            typeString = (selector.nodeType ? "domelement" : (isArrayish(selector) ? "arrayish" :  typeString));
+        let selectorType
+         = typeof selector;
+        if (selectorType
+             !== "string" && selectorType
+             !== "function") {
+            selectorType
+             = (selector.nodeType ? "domelement" : (isArrayish(selector) ? "arrayish" :  selectorType
+        ));
         }
 
         // process the selector
-        switch (typeString) {
+        switch (selectorType) {
             case "string":
                 // CSS selector
                 if (elements = document.querySelectorAll(selector)) {
-                    populateFromArrayish.call(this, elements);
+                    populateWithArrayish.call(this, elements);
                 }
                 break;
 
@@ -226,25 +231,32 @@
                 this.ready(selector);
                 break;
 
-            case "domelement":
-                // DOMElement
-                this[0] = selector;
-                this._length = 1;
+            case "domelement": // DOMElement (including window.document)
+            case "object": // any other object (including window)
+                populateWithObject.call(this, selector);
                 break;
 
             case "arrayish":
                 // array-like object
-                populateFromArrayish.call(this, selector);
+                populateWithArrayish.call(this, selector);
                 break;
 
             default:
+                throw new Error(`cannot handle selector type '${selectorType}'`);
                 break;
         }
 
+        this._selectorType = selectorType;
         return this;
 
+        // single object
+        function populateWithObject(value) {
+            this[0] = value;
+            this._length = 1;
+        }
+
         // populate this from an array-like value
-        function populateFromArrayish(value) {
+        function populateWithArrayish(value) {
             let len = value.length;
             for (let i = 0; i < len; i++) {
                 this[i] = value[i];

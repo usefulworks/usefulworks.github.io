@@ -38,12 +38,19 @@ var _ = (function() {
     var where = divs.where(e => e.id == "twoth").first();
     var whereWithIndex = divs.whereWithIndex((i, e) => i == 2).first();
 
+    var doc = UsefulWorks(document);
+    var win = UsefulWorks(window);
+
     console.dir(divs);
     console.log(`divs: text ${text}`);
     console.log(`divs: first: ${first.text}`);
     console.log(`divs: last: ${last.text}`);
     console.log(`divs: where: ${where.text}`);
     console.log(`divs: whereWithIndex: ${whereWithIndex.text}`);
+
+    divs._length = 5; // <- bad!
+    console.log(`internals: ${divs}`);
+
 
     UsefulWorks.alias("_bubblegum");
     _bubblegum.whatIsThis(_bubblegum);
