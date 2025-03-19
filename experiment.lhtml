@@ -46,8 +46,6 @@ var _ = (function() {
     console.log(`divs: whereWithIndex: ${whereWithIndex.text}`);
 
     UsefulWorks.alias("_bubblegum");
-
-    _bubblegum.whatIsThis();
     _bubblegum.whatIsThis(_bubblegum);
 
     $UW("#clickme").on("click", function() {

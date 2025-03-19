@@ -1,26 +1,18 @@
 /*
  * Copyright (c) 2025 UsefulWorks Ltd. All Rights Reserved.
+ *
+ * These files are published under the MIT License.
  */
 
 /*
- * usefulworks.js
- *
- * v0.0.1
- *
+ * usefulworks.js (version 0.0.1)
  */
 
-// https://stackoverflow.com/questions/60919267/understanding-how-jquery-works-internally
-// https://github.com/AmraniCh/how-jQuery-works/blob/main/jQuery.js
-// https://github.com/jquery/jquery/issues/3444
-
 // iife wrapper
-(function (context, factory) {
-    // checks on context for window/document/etc...
+(function(window, rootContext) {
 
-    // build (only context is DOM)
-    factory(context);
-
-})(window, function (window) {
+    // check on context for window/document/node/etc...
+    // build (for now, the only context is DOM)
 
     // ready state (shared)
     let _isReady = false,
@@ -35,15 +27,35 @@
             }
         };
 
-    // initialise the base UsefulWorks object, which calls
-    // the contructor function 'UsefulWorks.fn.init'
-    const UsefulWorks = function (selector, context) {
-        return new UsefulWorks.fn.init(selector, context);
+    // the base UsefulWorks object is a function; we return a new instance
+    // by calling 'new UsefulWorks.prototype.init()'
+    const UsefulWorks = function(selector, context) {
+        const ctx = context || rootContext || {};
+
+        //--- BEGIN UsefulInterals
+        const UsefulInternals = function(usefulworks) {
+            return new UsefulInternals.p.init(usefulworks);
+        };
+
+        UsefulInternals.p = UsefulInternals.prototype = {
+            constructor: UsefulInternals
+        };
+
+        UsefulInternals.p.init = function(usefulworks) {
+            this.usefulworks = usefulworks;
+            console.log("UsefulInternals.init()");
+            return this;
+        };
+        //--- END UsefulInternals
+
+        ctx['_internals'] = new UsefulInternals.p.init(this); // <- unexpected wrong this
+
+        // construct
+        return new UsefulWorks.p.init(selector, ctx);
     };
 
-    // initialise UsefulWorks.prototype and assign the shortcut
-    // 'UsefulWorks.fn' to it
-    UsefulWorks.fn = UsefulWorks.prototype = {
+    // define UsefulWorks.prototype and assign the alias 'UsefulWorks.p'
+    const p = UsefulWorks.p = UsefulWorks.prototype = {
 
         // redefine constructor so the contructor name is the
         // same as the object name
@@ -125,9 +137,9 @@
             return UsefulWorks.ready(handler);
         },
         where(predicate, withIndex = false) {
-            const fn = withIndex ? (index, element) => predicate(index, element)
+            const p = withIndex ? (index, element) => predicate(index, element)
                                  : (index, element) => predicate(element);
-            let results = this._internalFilter(fn);
+            let results = this._internalFilter(p);
             return new UsefulWorks(results);
         },
         whereWithIndex(predicate) {
@@ -182,9 +194,11 @@
     };
 
     // init
-    const init = UsefulWorks.fn.init = function (selector, context) {
+    const init = UsefulWorks.p.init = function (selector, context) {
         console.log(`UsefulWorks.init(): ${typeof selector === "string" ? selector : Object.prototype.toString.call(selector)}`);
 
+        this._sel - selector;
+        this._ctx = context;
         this._length = 0;
 
         // return empty (consider creating a static empty; not critical path)
@@ -240,7 +254,7 @@
     };
 
     // merge objects in a coalescey way
-    const coalesce = UsefulWorks.coalesce = UsefulWorks.fn.coalesce = (function(deepCopy, target, sources) {
+    const coalesce = UsefulWorks.coalesce = UsefulWorks.p.coalesce = (function(deepCopy, target, sources) {
         return function() {
             const args = arguments, args_n = arguments.length;
             let deep = false, index = 0, dstObj = null;
@@ -312,14 +326,13 @@
 
     // decorate UsefulWorks top-level with some more functions
     coalesce({
+        // set a new global alias for the UsefulWorks object on window
         alias(name) {
             if (typeof name === "string") {
                 window[name] = UsefulWorks;
             }
         },
         each(target, callback) {
-            console.log("UsefulWorks.each()");
-
             // if only one argument is passed assume that it is the callback
             // and the target is the UsefulWorks object
             if (arguments.length == 1) {
@@ -403,15 +416,13 @@
 
         // catch cases where $(document).ready() is called after the events have already occurred
         if (document.readyState === "complete") {
-            window.setTimeout(UsefulWorks.fn.ready);
+            window.setTimeout(UsefulWorks.p.ready);
 
         } else {
             document.addEventListener("DOMContentLoaded", completed);
             window.addEventListener("load", completed);
         }
         console.log("UsefulWorks(): ready-listeners listening");
-    }());
+    }()); // inner iife
 
-    // expose ourself
-    console.log("iife end");
-});
+}(window, {})); // iife;
