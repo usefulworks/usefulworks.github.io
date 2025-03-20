@@ -1,0 +1,5 @@
+---
+# blank
+---
+{% comment %} such blank {% endcomment %}
+{{ content }}
