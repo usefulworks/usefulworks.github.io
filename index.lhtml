@@ -1,0 +1,37 @@
+---
+layout: page-template
+permalink: index.html
+title: Home
+---
+<section class="hero">
+    <div class="hero-text">
+        <p>Transform Your Business</p>
+        <p>Do you want to know how?</p>
+        <a href="contact.html" role="button" class="action-button">
+            <svg><use href="#svg-mail-icon" /></svg>
+            <span>Get In Touch</span>
+        </a>
+    </div>
+</section>
+<section class="cs1 content-section container">
+    <h2 id="services">What We Offer</h2>
+</section>
+<section class="cs2 content-section container">
+    <h2>Who We Serve</h2>
+    <ul>
+        <li>Solopreneurs</li>
+        <li>Start-Ups</li>
+        <li>Scale-Ups & SMBs</li>
+    </ul>
+</section>
+<section class="cs3 content-section container">
+    <h2>Our Values</h2>
+    <ul>
+        <li>goodest</li>
+        <li>greatest</li>
+        <li>grandest</li>
+    </ul>
+    <a href="contact.html" role="button" class="action-button">
+        <span>Work With Us</span>
+    </a>
+</section>

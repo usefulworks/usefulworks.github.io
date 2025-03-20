@@ -1,0 +1,56 @@
+---
+layout: html-template
+
+linked-resources:
+  - href: "/css/pico.css"
+    rel: "stylesheet"
+  - href: "/css/style.css"
+    rel: "stylesheet"
+  - href: "https://fonts.googleapis.com"
+    rel: "preconnect"
+  - href: "https://fonts.gstatic.com"
+    rel: "preconnect"
+    crossorigin: true
+  - href: "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&family=Ultra&display=swap"
+    rel: "stylesheet"
+
+local-js:
+  - "/js/usefulworks.js"
+  - "/js/site-config.js"
+  - "/js/site-nav.js"
+  - "/js/site-features.js"
+  - "/js/site-store.js"
+  - "/js/site-theme.js"
+---
+{%- include vars.lhtml -%}
+
+<div id="svg-template-container" aria-hidden="true" focusable="false" hidden>
+    {% include svg-all.lhtml %}
+</div>
+
+{{ content }}
+
+{% assign all-local-js = "" | split: "" %}
+{% if page.local-js %}
+  {% assign all-local-js = all-local-js | concat: page.local-js %}
+{% endif %}
+{% if layout.local-js %}
+  {% assign all-local-js = all-local-js | concat: layout.local-js %}
+{% endif %}
+{% assign all-local-js = all-local-js | uniq %}
+{% for js in all-local-js %}
+  <!--script type="text/javascript" src="{{ js | relative_url }}?{{ epoch-ms }}"></!--script-->
+  <script type="text/javascript" src="{{ js | relative_url }}"></script>
+{% endfor %}
+
+{% assign all-external-js = "" | split: "" %}
+{% if page.external-js %}
+  {% assign all-external-js = all-external-js | concat: page.external-js %}
+{% endif %}
+{% if layout.external-js %}
+  {% assign all-external-js = all-external-js | concat: layout.external-js %}
+{% endif %}
+{% assign all-external-js = all-external-js | uniq %}
+{% for js in all-external-js %}
+  <script src="{{ js.href }}"{% if js.async %}{{ " async" }}{% endif %}{% if js.defer %}{{ " defer" }}{% endif %}></script>
+{% endfor %}

@@ -1,0 +1,13 @@
+---
+layout: body-template
+---
+<header>
+    {% include header-content.lhtml %}
+</header>
+<main>
+    <div class="wadding"></div>
+    {{ content }}
+</main>
+<footer>
+    {% include footer-content.lhtml %}
+</footer>
