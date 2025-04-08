@@ -1,0 +1,65 @@
+---
+layout: page-template
+permalink: index.html
+title: Home
+---
+<section class="hero">
+    <div class="hero-text container">
+        <p class="headline">Constructive Consultancy</p>
+        <p class="subheadline narrower">Advice and action to help start-ups and scale-ups grow quickly and smoothly</p>
+    </div>
+    <div class="hero-cta container narrower">
+        <a href="contact.html" role="button" class="action-button">
+            <svg><use href="#svg-calendar-icon" /></svg>
+            <span>Take half an hour to find out more</span>
+        </a>
+    </div>
+</section>
+<section class="services content">
+    <div class="container">
+        <h2 id="services">Growing pains are real</h2>
+        <p>Growth is good &hyphen; but it&apos;s rarely smooth. It would be nice to build up bit by
+           bit, when you're ready for it. But in real life, it tends to happen in bursts.</p>
+        <p>Maybe you win a new, massive contract. You finally get your ground-breaking new
+           product line to market, get the investment you&apos;ve been looking for, or secure
+           gleaming new premises. You have to hire a new sales team (or support staff) to
+           keep up. It's everything you've been working towards &hyphen; but it&apos;s sooner,
+           or bigger, or more complicated than you thought.</p>
+        <h3>It&apos;s not how much you grow. It&apos;s how well you handle growth.</h3>
+        <p>It&apos;s vital to be able to take growth in your stride &hyphen; but that&apos;s a
+           skill in itself. You&apos;re good at what you do &hyphen; but now it&apos;s time to
+           prepare for new challenges. Or maybe you&apos;re in the middle of them right now,
+           and need a roadmap through.</p>
+        <p>Learning how to integrate new methods, new places, new people. Replacing old systems
+           without disrupting day-to-day business. Working out what to do next &hyphen; including
+           the best way to spend your new money.</p>
+        <p>What you need is guidance to eliminate &hyphen; or avoid &hyphen; growing pains.
+           Useful Works offers business consultancy services on how to make the next step count.
+           You don&apos;t need theories, philosophies, or hints and tips. You need real&hyphen;
+           world insight, practical advice and help with useful action.</p>
+    </div>
+    <div class="container">
+        <a href="contact.html" role="button" class="action-button">
+            <span>Set up a half-hour call</span>
+        </a>
+    </div>
+    <div class="container">
+        <h2>Put your money where the growth is</h2>
+        <p>Spending ten minutes online will reveal thousands of solutions promising growth and
+           support for growing businesses. But it&apos;s hard to predict what you&apos;ll need
+           when your business is changing size or shape.</p>
+        <p>Useful Works offers constructive consultancy based in the real world. We start from
+           the foundations of Big Consulting, and infuse them with twenty years&apos; experience
+           founding and scaling tech and services businesses. Our services include:</p>
+        <ul>
+            <li>shiney service</li>
+            <li>super-shiney service</li>
+            <li>bigliest-shiny service</li>
+        </ul>
+    </div>
+    <div class="container">
+        <a href="contact.html" role="button" class="action-button">
+            <span>Get in touch</span>
+        </a>
+    </div>
+</section>
