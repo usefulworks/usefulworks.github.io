@@ -1,39 +1,49 @@
-<ul>
+<ul class="first-row">
     <li class="logo-box">
-        <svg class="cogstar">
-            <use href="#svg-cogstar" />
-        </svg>
+        <svg class="cogstar"><use href="#svg-cogstar" /></svg>
         <span class="uw-logo-text">
-            <span class="uw-useful">USEFUL</span><span class="uw-works">WORKS</span>
+            <span class="uw-useful">Useful</span><span class="uw-works">Works</span>
         </span>
     </li>
     <li class="contact">
-        <p>CONTACT</p>
-        <p>
-            <a href="mailto:hello@usefulworks.uk" target="_self">hello@usefulworks.uk</a>
-        </p>
-    </li>
-    <li class="cta-button">
-        <button role="button">Book a Call</button>
+        <ul class="contact">
+            <li aria-label="email address">
+                <svg class="mail-icon"><use href="#svg-mail-icon" /></svg>
+                <a href="mailto:hello@usefulworks.uk" target="_self">hello@usefulworks.uk</a>
+            </li>
+            <li aria-label="slack channel">
+                <svg class="slack-icon"><use href="#svg-slack-icon" /></svg>
+                <a href="#" target="_self">@usefulworks</a>
+            </li>
+            <li aria-label="linked in" hidden>
+            </li>
+            <li class="cta-button">
+                <a href="contact.html" role="button" class="action-button">
+                    <svg><use href="#svg-calendar-icon" /></svg>
+                    <span>Book A Call</span>
+                </a>
+            </li>
+        </ul>
     </li>
 </ul>
 <nav aria-label="footer navigation">
     <ul>
+        <li><a href="index.html#services">Services</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="legal.html#privacy">Privacy Policy</a></li>
-        <li><a href="legal.html#t-and-c">Terms & Conditions</a></li>
+        <li><a href="legal.html#t-and-c">Terms &amp; Conditions</a></li>
     </ul>
 </nav>
 <div class="legal">
-    <p>
-        Copyright &copy; 2025
-        <a href="index.html">UsefulWorks</a> Ltd. All Rights Reserved.
-    </p>
-    <p>UsefulWorks is a business transformation consultancy that helps companies of all sizes grow and thrive in the digital age.</p>
+    <p><a href="index.html">UsefulWorks</a> is a business transformation consultancy that helps
+       companies of all sizes grow and thrive in the digital age.</p>
+    <p>Copyright &copy; 2025 <a href="index.html">UsefulWorks</a> Ltd. All Rights Reserved.
+       Incorporated in England &amp; Wales. Company number 16203896.</p>
 </div>
 <div class="theme-switch">
     <label>
+        <span>light &nbsp;</span>
         <input id="theme-switch" name="theme-switch" type="checkbox" role="switch" aria-invalid="true" />
-        <span>enable dark mode</span>
+        <span>dark</span>
     </label>
 </div>

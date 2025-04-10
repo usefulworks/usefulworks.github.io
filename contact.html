@@ -1,0 +1,53 @@
+---
+layout: default
+title: Contact
+local-js:
+    - "/js/site-forms.js"
+external-js:
+  - href: "https://www.recaptcha.net/recaptcha/api.js"
+    async: true
+    defer: true
+recaptcha_container: "g-recaptcha"
+linked-resources:
+  - href: "https://www.google.com"
+    rel: "preconnect"
+  - href: "https://www.gstatic.com"
+    rel: "preconnect"
+    crossorigin: true
+---
+<section class="contact content-section container">
+    <h2>Contact Us</h2>
+    <p>We&apos;ve come to understand the best first step in a successful journey is to hold a short, virtual meeting to get introduced, dicuss your needs and gather some basic requirements.</p>
+
+    <p>For any UsefulWorks consulting inquiries, please send us an email <a href="mailto:{{ site.email }}?subject=UsefulWorks consulting inquiry">{{ site.email }}</a></p>
+
+    <div class="container-fluid">
+        <a href="https://calendly.com/jim-apperly/30min" role="button" class="action-button">
+            <svg><use href="#svg-calendar-icon" /></svg>
+            <span>Schedule Meeting</span>
+        </a>
+    </div>
+    <p></p>
+    <p>If you&apos;d rather just send us a brief message, please use the email form below and we can take it from there.</p>
+
+    <form action="https://submit-form.com/uYwztaWKq" class="form" id="contact-form">
+        <div class="name-email">
+            <input type="text" id="name" name="name" placeholder="Name" required="true" />
+            <input type="email" id="email" name="email" placeholder="Email" required="true" />
+        </div>
+        <textarea id="message" name="message" placeholder="Message" required=""></textarea>
+
+        {% if site.uw.repos.dev contains site.github.repository_nwo %}
+            {% assign sitekey = site.uw.recaptcha.v2.localhost.site_key %}
+        {% else %}
+            {% assign sitekey = site.uw.recaptcha.v2.usefulworks_uk.site_key %}
+        {% endif %}
+        <div id="{{ page.recaptcha_container }}" class="{{ page.recaptcha_container }}" data-sitekey="{{ sitekey }}"></div>
+
+        <input type="hidden" name="_feedback.success.title" value="Thanks for contacting UsefulWorks, we'll be in touch shortly!" />
+        <input type="hidden" name="_email.from" value="Formspark UsefulWorks" />
+        <input type="hidden" name="_feedback.error.title" value='An error occurred (did you check the "I&apos;m not a robot" box?)' />
+        <p></p>
+        <button id="submit_contact" type="submit" class="submit-button">Submit</button>
+    </form>
+</section>

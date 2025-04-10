@@ -11,26 +11,44 @@
     <meta property="og:image" content="./favicon/web-app-manifest-512x512.png" />
     <meta property="og:url" content="{{ site.url }}" />
     <meta name="description" property="og:description" content="We help businesses grow" />
-{% comment %}
-  suffix url with a random query string to foil aggressive caching in chrome
-{% endcomment %}
-{% assign epoch-ms = 'now' | date: "%s%L" %}
-{% if layout.common-css %}
-  {% for css in layout.common-css %}
-    <link rel="stylesheet" type="text/css" href="{{ css | relative_url }}?{{ epoch-ms }}">
-  {% endfor %}
+{% comment %} link[@rel] tags {% endcomment %}
+{% assign all-linked-resources = "" | split: "" %}
+{% if layout.linked-resources %}
+    {% assign all-linked-resources = all-linked-resources | concat: layout.linked-resources %}
 {% endif %}
-{% if page.css %}
-  {% for css in page.css %}
-    <link rel="stylesheet" type="text/css" href="{{ css | relative_url }}?{{ epoch-ms }}">
-  {% endfor %}
+{% if page.linked-resources %}
+    {% assign all-linked-resources = all-linked-resources | concat: page.linked-resources %}
 {% endif %}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&Arimo:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" />
+{% for res in all-linked-resources %}
+  {% assign proto = res.href | slice: 0, 4 %}
+  {% capture res_url %}
+    {% if  proto == "http" %}
+      {{ res.href }}
+    {% else %}
+      {{ res.href | relative_url }}?{{ epoch-ms }}
+    {% endif %}
+  {% endcapture %}
+  <link rel="{{ res.rel }}" href="{{ res_url | strip }}" {% if res.crossorigin %}crossorigin{% endif %} />
+{% endfor %}
     <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg" />
     <link rel="shortcut icon" type="image/x-icon" href="./favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png" />
     <link rel="manifest" href="./favicon/site.webmanifest" />
+{% assign all-js-literals = "" | split: "" %}
+{% if layout.js-literals %}
+    {% assign all-js-literals = all-js-literals | concat: layout.js-literals %}
+{% endif %}
+{% if page.js-literals %}
+    {% assign all-js-literals = all-js-literals | concat: page.js-literals %}
+{% endif %}
+{% if all-js-literals.size > 0 %}
+    <script type="text/javascript" data-label="generated">
+        const $UW = {
+        {% for js-var in all-js-literals %}
+            {{ js-var.name }}: "{{ js-var.value }}"{% if forloop.last == false %},{% endif %}
+        {% endfor %}
+        }
+    </script>
+{% endif %}
 </head>
