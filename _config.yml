@@ -8,14 +8,35 @@ author:
   name: UsefulWorks Ltd.
   email: "hello@usefulworks.uk"
   github: usefulworks
-tagline: "a collection of useful works"
-description: "a longer description of this collection of useful works"
-copyright: "Copyright © 2025 UsefulWorks Ltd. All rights reserved."
+tagline: "we know what's useful and we know what works"
+description: "a collection of useful things that works"
 url: "https://usefulworks.uk"
 lang: "en-GB"
+legal:
+  copyright: "Copyright © 2025 UsefulWorks Ltd. All rights reserved."
+  license: MIT
+
+# set a default repo name/w/owner to sub for PAGES_REPO_NWO & github.repository
+repository: usefulworks/usefulworks.github.io
 
 # custom usefulworks config
 uw:
+  loc:
+    href:
+      home: index.html
+      about: about.html
+      blog: blog.html
+      contact: contact.html
+      legal:
+        privacy: legal.html#privacy
+        t-and-c: legal.html#t-and-c
+      services: index.html#services
+  # feature flags
+  features:
+      blog:
+        output: false
+      "new feature":
+        output: false
   # repositiories
   repos:
     dev:
@@ -31,17 +52,18 @@ uw:
       usefulworks_uk:
         site_key: "6Lf7ReQqAAAAAKErE6ZEBwh2-cx9UGae8VBWe-Nx"
 
-# serving
-detach: false
-port: 4001
-host: localhost
+#serving
 baseurl: ""
 show_dir_listing: false
 
+# local serving
+detach: false
+port: 4001
+host: localhost
+
 # filesystem
 source: .
-destination: ./_site
-collections_dir: .
+destination: _site
 plugins_dir: _plugins
 layouts_dir: _layouts
 data_dir: _data
@@ -56,16 +78,27 @@ sass:
 collections:
   posts:
     output: true
+  pages:
+    output: true
+# Jekyll 3 now only supports Kramdown for Markdown
+kramdown:
+  # Use GitHub flavored markdown, including triple backtick fenced code blocks
+  input: GFM
+  # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    # Use existing pygments syntax highlighting css
+    css_class: 'highlight'
 
 # exlude these files from the final build (anything beginning with
 # . _ # ~ are excluded by default)
 exclude:
   - Gemfile
   - Gemfile.lock
+  - Makefile
   - README.md
   - vendor/
   - tests/
-  - sh/
 
 # plugins (see also Gemfile)
 plugins:
