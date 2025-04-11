@@ -1,0 +1,31 @@
+---
+layout: html-template
+linked-resources:
+  - href: "/css/blog.css"
+    rel: "stylesheet"
+#  - href: "/css/blog-new.css"
+#    rel: "stylesheet"
+---
+<div class="wrapper-masthead">
+    <div class="container">
+        <header class="masthead clearfix">
+            <div class="site-info">
+                <h1 class="site-name"><a href="{{ site.uw.loc.href.home | relative_url }}">{{ site.title }} Blog</a></h1>
+                <p class="site-description">{{ site.description }}</p>
+            </div>
+
+            <nav>
+                <a href="{{ site.uw.loc.href.blog | relative_url }}">Posts</a>
+                <a href="{{ site.uw.loc.href.home | relative_url }}">Home</a>
+            </nav>
+        </header>
+    </div>
+</div>
+<div id="main" role="main" class="container">
+    {{ content }}
+</div>
+<div class="wrapper-footer">
+    <div class="container">
+        <footer class="footer">{% include svg-icons.lhtml %}</footer>
+    </div>
+</div>
