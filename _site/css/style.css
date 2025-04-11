@@ -40,7 +40,7 @@
     /* fonts */
     --uw-font-family-brand: "Staatliches", sans-serif, var(--pico-font-family-emoji);
     --uw-font-family-san-serif: "Mona Sans", "Open Sans", var(--pico-font-family-sans-serif);
-    --uw-brand-font-letter-spacing: 0.2rem;
+    --uw-brand-font-letter-spacing: 0.3rem;
 
     /* light scheme */
     --uw-hero-text-light: #111;
@@ -219,6 +219,8 @@ svg.uw-gear-logo {
     display: inline-block;
     color: var(--uw-logo-color);
     vertical-align: middle;
+    margin-left: 0.2rem;
+    margin-right: 0.4rem;
 }
 
 /* header */
@@ -231,7 +233,6 @@ svg.uw-gear-logo {
         font-size: clamp(var(--pico-font-size), 7vmin, 100px);
     }
     .uw-gear-logo {
-        margin-right: 0.3rem;
         width: clamp(30px, 6vmin, 90px);
         height: clamp(30px, 6vmin, 90px);
     }
@@ -474,11 +475,12 @@ section.services {
     }
 }
 
-section.about {
+section.about, services.values {
     h2 {
         padding-top: 4rem;
     }
 }
+
 section.contact {
     h2 {
         padding-top: 4rem;
@@ -532,7 +534,6 @@ footer {
         font-size: clamp(var(--pico-font-size), 5vmin, 50px);
     }
     svg.uw-gear-logo {
-        margin-right: 0.3rem;
         width: clamp(30px, 5vmin, 50px);
         height: clamp(30px, 5vmin, 50px);
     }

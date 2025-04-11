@@ -15,9 +15,9 @@ title: Home
         </a>
     </div>
 </section>
-<section class="services content">
+<section id="services" class="services content">
     <div class="container">
-        <h2 id="services">Growing pains are real</h2>
+        <h2>Growing Pains Are Real</h2>
         <p>Growth is good &hyphen; but it&apos;s rarely smooth. It would be nice to build up bit by
            bit, when you're ready for it. But in real life, it tends to happen in bursts.</p>
         <p>Maybe you win a new, massive contract. You finally get your ground-breaking new
@@ -44,7 +44,7 @@ title: Home
         </a>
     </div>
     <div class="container">
-        <h2>Put your money where the growth is</h2>
+        <h2>Put Your Money Where The Growth Is</h2>
         <p>Spending ten minutes online will reveal thousands of solutions promising growth and
            support for growing businesses. But it&apos;s hard to predict what you&apos;ll need
            when your business is changing size or shape.</p>
@@ -56,10 +56,5 @@ title: Home
             <li>super-shiney service</li>
             <li>bigliest-shiny service</li>
         </ul>
-    </div>
-    <div class="container">
-        <a href="contact.html" role="button" class="action-button">
-            <span>Get in touch</span>
-        </a>
     </div>
 </section>

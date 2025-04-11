@@ -20,7 +20,7 @@
             <li class="cta-button">
                 <a href="{{ site.uw.loc.href.contact }}" role="button" class="action-button">
                     <svg><use href="#svg-calendar-icon" /></svg>
-                    <span>Book A Call</span>
+                    <span>Get in touch</span>
                 </a>
             </li>
         </ul>
@@ -36,8 +36,11 @@
     </ul>
 </nav>
 <div class="legal">
-    <p><a href="{{ site.uw.loc.href.home }}">UsefulWorks</a> is a business transformation consultancy that helps
-       companies of all sizes grow and thrive in the digital age.</p>
+    <p>
+        <a href="{{ site.uw.loc.href.home }}">UsefulWorks</a> is a consultancy company. We work
+        with lively businesses - from strat-up to scale-up - to help them grow.
+    </p>
+    <p>&ldquo;If you have a problem, we&apos;ll solve it: checkout the hook while UsefulWorks resolves it&rdquo;</p>
     <p>Copyright &copy; 2025 <a href="{{ site.uw.loc.href.home }}">UsefulWorks</a> Ltd. All Rights Reserved.
        Incorporated in England &amp; Wales. Company number <span id="tbloggle">16203896</span>.</p>
 </div>
