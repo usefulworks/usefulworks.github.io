@@ -1,12 +1,37 @@
 {
   "name": "UsefulWorks: Constructive Consultancy",
   "short_name": "UsefulWorks",
+  "description": "Advice and action to help start-ups and scale-ups grow quickly and smoothly",
   "icons": [
+    {
+      "src": "/assets/usefulworks-logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "159x159",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/usefulworks-logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "159x159",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "/favicon/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
+    },
+    {
+      "src": "/favicon/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/favicon/web-app-manifest-512x512.png",
@@ -19,5 +44,29 @@
   "background_color": "#ffcc00",
   "display": "standalone",
   "start_url": "/",
-  "id": "/?pwa=1"
+  "id": "/?pwa=1",
+  "shortcuts": [
+    {
+      "name": "Contact UsefulWorks",
+      "short_name": "Contact",
+      "description": "View the list of podcasts you saved for later",
+      "url": "contact.html?pwa=1",
+      "icons": [{ "src": "/favicon/web-app-manifest-192x192.png", "sizes": "192x192" }]
+    }
+  ],
+  "screenshots": [
+    {
+     "src": "/assets/usefulworks-screenshot-wide.png",
+      "sizes": "2423x1322",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "UsefulWorks: Constructive Consultancy"
+    },
+    {
+      "src": "/assets/usefulworks-screenshot-narrow.png",
+       "sizes": "539x1169",
+       "type": "image/png",
+       "label": "UsefulWorks: Constructive Consultancy"
+     }
+   ]
 }

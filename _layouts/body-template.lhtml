@@ -11,16 +11,16 @@ linked-resources:
   - href: "https://fonts.gstatic.com"
     rel: "preconnect"
     crossorigin: true
-  - href: "https://fonts.googleapis.com/css2?family=Staatliches&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+  - href: "https://fonts.googleapis.com/css2?family=Staatliches&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Noto+Sans+Mono:wght@100..900&display=swap"
     rel: "stylesheet"
 
 local-js:
   - "/js/usefulworks.js"
   - "/js/site-config.js"
-  - "/js/site-nav.js"
-  - "/js/site-features.js"
   - "/js/site-store.js"
   - "/js/site-theme.js"
+  - "/js/site-nav.js"
+  - "/js/site-features.js"
 ---
 {%- include vars.lhtml -%}
 
@@ -51,5 +51,5 @@ local-js:
 {% endif %}
 {% assign all-external-js = all-external-js | uniq %}
 {% for js in all-external-js %}
-  <script src="{{ js.href }}"{% if js.async %}{{ " async" }}{% endif %}{% if js.defer %}{{ " defer" }}{% endif %}></scrip>
+  <script src="{{ js.href }}"{% if js.async %}{{ " async" }}{% endif %}{% if js.defer %}{{ " defer" }}{% endif %}></script>
 {% endfor %}

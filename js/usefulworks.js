@@ -86,7 +86,7 @@
             // custom toString implementation
             get [Symbol.toStringTag]() { return `UsefulWorks v${this.version} len:${this.length} sel:${this.selectorType}`; },
             // version
-            get version() { return "0.0.2"; },
+            get version() { return "0.1.1"; },
             // array-like; number of items
             get length() { return this._length; },
             // string representing how this instance was created
@@ -114,6 +114,9 @@
             get debug() {
                 return UsefulWorks.debug;
             },
+            get isEmpty() {
+                return this._length == 0;
+            },
             log(args) {
                 UsefulWorks.log(args);
             },
@@ -133,12 +136,12 @@
                 return this.whereWithIndex((i, e) => i % 2 == 0);
             },
             on(eventName, handler) {
-                this.log("UsefulWorks.on" + eventName);
+                this.log("UsefulWorks.on:" + eventName);
                 this.each((i, e) => e.addEventListener(eventName, handler, false));
                 return this;
             },
             off(eventName, handler) {
-                this.log("UsefulWorks.off" + eventName);
+                this.log("UsefulWorks.off:" + eventName);
                 // doesn't work with anonymous/arrow functions
                 this.each((i, e) => e.removeEventListener(eventName, handler, false));
                 return this;
@@ -346,10 +349,11 @@
 
     // decorate UsefulWorks top-level with some more functions
     decorate({
-        // set a new global alias for the UsefulWorks object on window
-        alias(name) {
+        // set a new global alias on window, taking UsefulWorks as the default
+        alias(name, fn) {
+            const f = fn ?? UsefulWorks;
             if (typeof name === "string") {
-                window[name] = UsefulWorks;
+                window[name] = f;
             }
         },
         get debug() {
