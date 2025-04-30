@@ -40,6 +40,7 @@
     /* fonts */
     --uw-font-family-brand: "Staatliches", sans-serif, var(--pico-font-family-emoji);
     --uw-font-family-san-serif: "Mona Sans", "Open Sans", var(--pico-font-family-sans-serif);
+    --uw-font-family-mono: "Nota Sans Mono", monospace;
     --uw-brand-font-letter-spacing: 0.3rem;
 
     /* light scheme */
@@ -375,6 +376,10 @@ body > main {
 
 /* generic section with content */
 section {
+    h2, h3 {
+        margin-left: auto; margin-right: auto; text-align: center; text-transform: lowercase;
+        &::first-letter { text-transform: uppercase; }
+    }
     min-height: 300px;
     min-width: 350px;
     margin: 0;
@@ -403,7 +408,7 @@ section.hero {
         margin: 0 auto;
         width: 80%;
     }
-    width: clamp(350px, 70vw, var(--uw-hero-width));
+    width: clamp(360px, 70vw, var(--uw-hero-width));
     margin: 0 auto;
     min-height: calc(100vh - var(--uw-hero-offset-top)); /* fill up the viewport minus height of main::before */
     text-align: center;
@@ -427,7 +432,7 @@ section.hero {
     }
     div.hero-cta {
         padding-top: 1rem;
-        padding-bottom: clamp(1rem, var(--uw-hero-offset-top), 100vh);*/
+        padding-bottom: clamp(1rem, var(--uw-hero-offset-top), 100vh);
     }
 }
 
@@ -463,6 +468,7 @@ section.services {
 }
 
 .action-button {
+    margin-left: auto; margin-right: auto;
     color: #fff;
     background: #4fc949;
     vertical-align: middle;
@@ -476,14 +482,20 @@ section.services {
 }
 
 section.about, services.values {
-    h2 {
-        padding-top: 4rem;
-    }
+    h2 {}
 }
 
 section.contact {
-    h2 {
-        padding-top: 4rem;
+    h2 {}
+    .action-button {
+        display: block;
+        margin-bottom: calc(2 * var(--pico-block-spacing-vertical));
+    }
+    div#initial-state {
+        display: none;
+        &.showing {
+            display: block;
+        }
     }
     div.name-email {
         display: flex;
@@ -499,8 +511,34 @@ section.contact {
             flex-shrink: 0;
         }
     }
-    .submit-button {
-        width: auto;
+    div.captcha-container {
+        width: 300px;
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: var(--pico-block-spacing-vertical);
+    }
+    div#results-state, div.debug {
+        display: none;
+        &.showing {
+            display: block;
+        }
+        h2.salute {
+            font-size: calc(1.5 * var(--pico-font-size));
+        }
+        p.signature {
+            font-style: italic;
+        }
+    }
+    div.hidden, div.hidden > input {
+        display: none;
+    }
+
+    div.debug, div.debug p {
+        color: coral;
+        font-size: small;
+        font-family: var(--uw-font-family-mono);
+        line-height: 1rem;
     }
 }
 

@@ -5,55 +5,83 @@ permalink: contact.html
 
 local-js:
   - "/js/usefulworks.js"
-  - "/js/site-forms.js"
+  - "/js/usefulworks-forms.js"
+  - "/js/site-theme.js"
+  - "/js/usefulworks-ratchet.js"
+  - "/js/site-contactform.js"
 external-js:
-  - href: "https://www.recaptcha.net/recaptcha/api.js"
-    async: true
-    defer: true
+  - href: "https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async: false
+    defer: false
 linked-resources:
   - href: "https://www.google.com"
     rel: "preconnect"
   - href: "https://www.gstatic.com"
     rel: "preconnect"
     crossorigin: true
-
-recaptcha_container: "g-recaptcha"
 js-literals:
   - name: "recaptcha_container"
     value: "g-recaptcha"
+web3forms-access-key: "caddf160-d68c-4372-aebe-1bdecaa43edd"
+# form debug options
+# 0 = production
+# * = debug
+form-mode: 0
 ---
+{% if page.form-mode == 0 %}
+    {% assign action = "https://api.web3forms.com/submit" %}
+    {% assign req = true %}
+{% else %}
+    {% assign action = "https://echo.free.beeceptor.com/" %}
+    {% assign debug = true %}
+{% endif %}
 <section class="contact content-section container">
-    <h2>Contact Us</h2>
-    <p>We&apos;ve come to understand the best first step in a successful journey is to hold a short, virtual meeting to get introduced, dicuss your needs and gather some basic requirements.</p>
-
-    <p>For any UsefulWorks consulting inquiries, please send us an email <a href="mailto:{{ site.email }}?subject=UsefulWorks consulting inquiry">{{ site.email }}</a></p>
-
-    <div class="container-fluid">
-        <a href="https://calendly.com/jim-apperly/30min" role="button" class="action-button">
-            <svg><use href="#svg-calendar-icon" /></svg>
-            <span>Schedule Meeting</span>
-        </a>
-    </div>
-    <p></p>
-    <p>If you&apos;d rather just send us a brief message, please use the email form below and we can take it from there.</p>
-
-    <form action="https://submit-form.com/uYwztaWKq" class="form" id="contact-form" method="post">
-        <div class="name-email">
-            <input type="text" id="name" name="name" placeholder="Name" required="true" />
-            <input type="email" id="email" name="email" placeholder="Email" required="true" />
+    <div id="initial-state">
+        <h2>Contact</h2>
+        <p>We&apos;ve come to understand the best first step in a successful journey
+            is to hold a short, virtual meeting to get introduced, dicuss your needs
+            and gather some basic requirements.</p>
+        <div class="container">
+            <a id="cal-btn" href="https://calendly.com/jim-apperly/30min" role="button" class="action-button">
+                <svg><use href="#svg-calendar-icon" /></svg>
+                <span>Schedule Meeting</span>
+            </a>
         </div>
-        <textarea id="message" name="message" placeholder="Message" required=""></textarea>
-
-        {% if site.uw.repos.dev contains site.github.repository_nwo %}
-            {% assign sitekey = site.uw.recaptcha.v2.localhost.site_key %}
-        {% else %}
-            {% assign sitekey = site.uw.recaptcha.v2.usefulworks_uk.site_key %}
-        {% endif %}
-        <div id="{{ page.recaptcha_container }}" class="{{ page.recaptcha_container }}" data-sitekey="{{ sitekey }}" data-callback=""></div>
-        <input type="hidden" name="_feedback.success.title" value="Thanks for contacting UsefulWorks, we'll be in touch shortly!" />
-        <input type="hidden" name="_email.from" value="Formspark UsefulWorks" />
-        <input type="hidden" name="_feedback.error.title" value='An error occurred (did you check the "I&apos;m not a robot" box?)' />
-        <p></p>
-        <button id="submit_contact" type="submit" class="submit-button">Send</button>
-    </form>
+        <form name="contact-usefulworks" action="{{ action }}" method="POST" data-mode="{{ page.form-mode }}">
+            <p>If you&apos;d rather just send us a brief message, please complete this form and we&apos;ll take it from there.</p>
+            <!-- access key -->
+            <input type="hidden" name="access_key" value="{{ page.web3forms-access-key }}">
+            <!-- inputs -->
+            <input type="text" name="person_name" placeholder="Your name" autocomplete="off" {% if req %}required{% endif %}>
+            <input type="email" name="email" placeholder="Your email" autocomplete="off" {% if req %}required{% endif %}>
+            <!-- message -->
+            <textarea name="message" placeholder="ama" rows="7" autocomplete="on"{% if req %} required{% endif %}></textarea>
+            <!-- hidden data -->
+            <div class="hidden">
+                <input type="hidden" name="subject" value="UsefulWorks Contact Form">
+                <input type="hidden" name="from_name" value="Web3Forms">
+                <input type="hidden" name="host" value="{{ site.url }}">
+                <input type="hidden" name="page" value="{{ page.url }}">
+                <!-- anti-spam field (hidden) -->
+                <input type="checkbox" name="botcheck">
+            </div>
+            <!-- captcha -->
+            <div id="ts-widget" class="captcha-container"></div>
+            <!-- submitter -->
+            <button type="submit" name="submitter" class="action-button">Submit Form</button>
+        </form>
+        {% if debug %}
+        <!-- mock results -->
+        <div class="debug container" style="display: block !important;">
+            <h2 class="salute">Harry, thank you for getting in touch!</h2>
+            <p>We appreciate you taking the time to reach out. Your message
+            has been sent successfully and our Customer Excellence team
+            will be in touch with you shortly.</p>
+            <p>Have a great day! 😊</p>
+            <p class="signature">The UsefulWorks Team</p>
+            <p><a href="/" role="link">[ UsefulWorks Home ]</a></p>
+        </div>{% endif %}
+    </div>
+    <!-- form-submit results -->
+    <div id="results-state" class="container"></div>
 </section>

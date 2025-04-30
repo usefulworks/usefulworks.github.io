@@ -1,1 +1,1 @@
-data-epoch="{{ epoch-ms }}" data-page="{{ include.page_name }}"
+data-epoch="{{ epoch-ms }}" data-page="{{ include.page_name | split: '.' | first }}"

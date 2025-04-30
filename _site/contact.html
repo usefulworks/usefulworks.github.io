@@ -4,13 +4,13 @@
 
 
 
-  <!-- +- the epoch is @1744199824958 -->
+  <!-- +- the epoch is @1746018426834 -->
 
-<html lang="en-GB" data-epoch="1744199824958">
-  <head data-epoch="1744199824958" data-page="contact.lhtml"
+<html lang="en-GB" data-epoch="1746018426834">
+  <head data-epoch="1746018426834" data-page="contact"
 >
         <meta charset="UTF-8" />
-    <meta name="generated" content="2025-04-09 12:57:04" />
+    <meta name="generated" content="2025-04-30 14:07:06" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>UsefulWorks | Contact</title>
@@ -33,11 +33,11 @@
 
   
   
-  <link rel="stylesheet" href="/css/pico.css?1744199824958"  />
+  <link rel="stylesheet" href="/css/pico.css?1746018426834"  />
 
   
   
-  <link rel="stylesheet" href="/css/style.css?1744199824958"  />
+  <link rel="stylesheet" href="/css/style.css?1746018426834"  />
 
   
   
@@ -49,7 +49,7 @@
 
   
   
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Staatliches&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"  />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Staatliches&family=Mona+Sans:ital,wght@0,200..900;1,200..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Noto+Sans+Mono:wght@100..900&display=swap"  />
 
   
   
@@ -59,10 +59,10 @@
   
   <link rel="preconnect" href="https://www.gstatic.com" crossorigin />
 
-    <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png?1744199824958" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg?1744199824958" />
-    <link rel="shortcut icon" type="image/x-icon" href="./favicon/favicon.ico?1744199824958" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png?1744199824958" />
+    <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png?1746018426834" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg?1746018426834" />
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon/favicon.ico?1746018426834" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png?1746018426834" />
     <link rel="manifest" href="./assets/site.webmanifest" />
 
 
@@ -81,7 +81,7 @@
     
     
   </head>
-  <body data-page="contact.lhtml" data-epoch="1744199824958">
+  <body data-page="contact.lhtml" data-epoch="1746018426834">
     
 
 <div id="svg-template-container" aria-hidden="true" focusable="false" hidden>
@@ -200,38 +200,47 @@
 <main>
     
 
+
 <section class="contact content-section container">
-    <h2>Contact Us</h2>
-    <p>We&apos;ve come to understand the best first step in a successful journey is to hold a short, virtual meeting to get introduced, dicuss your needs and gather some basic requirements.</p>
-
-    <p>For any UsefulWorks consulting inquiries, please send us an email <a href="mailto:?subject=UsefulWorks consulting inquiry"></a></p>
-
-    <div class="container-fluid">
-        <a href="https://calendly.com/jim-apperly/30min" role="button" class="action-button">
-            <svg><use href="#svg-calendar-icon" /></svg>
-            <span>Schedule Meeting</span>
-        </a>
-    </div>
-    <p></p>
-    <p>If you&apos;d rather just send us a brief message, please use the email form below and we can take it from there.</p>
-
-    <form action="https://submit-form.com/uYwztaWKq" class="form" id="contact-form" method="post">
-        <div class="name-email">
-            <input type="text" id="name" name="name" placeholder="Name" required="true" />
-            <input type="email" id="email" name="email" placeholder="Email" required="true" />
+    <div id="initial-state">
+        <h2>Contact</h2>
+        <p>We&apos;ve come to understand the best first step in a successful journey
+            is to hold a short, virtual meeting to get introduced, dicuss your needs
+            and gather some basic requirements.</p>
+        <div class="container">
+            <a id="cal-btn" href="https://calendly.com/jim-apperly/30min" role="button" class="action-button">
+                <svg><use href="#svg-calendar-icon" /></svg>
+                <span>Schedule Meeting</span>
+            </a>
         </div>
-        <textarea id="message" name="message" placeholder="Message" required=""></textarea>
-
+        <form name="contact-usefulworks" action="https://api.web3forms.com/submit" method="POST" data-mode="0">
+            <p>If you&apos;d rather just send us a brief message, please complete this form and we&apos;ll take it from there.</p>
+            <!-- access key -->
+            <input type="hidden" name="access_key" value="caddf160-d68c-4372-aebe-1bdecaa43edd">
+            <!-- inputs -->
+            <input type="text" name="person_name" placeholder="Your name" autocomplete="off" required>
+            <input type="email" name="email" placeholder="Your email" autocomplete="off" required>
+            <!-- message -->
+            <textarea name="message" placeholder="ama" rows="7" autocomplete="on" required></textarea>
+            <!-- hidden data -->
+            <div class="hidden">
+                <input type="hidden" name="subject" value="UsefulWorks Contact Form">
+                <input type="hidden" name="from_name" value="Web3Forms">
+                <input type="hidden" name="host" value="http://localhost:4001">
+                <input type="hidden" name="page" value="/contact.html">
+                <!-- anti-spam field (hidden) -->
+                <input type="checkbox" name="botcheck">
+            </div>
+            <!-- captcha -->
+            <div id="ts-widget" class="captcha-container"></div>
+            <!-- submitter -->
+            <button type="submit" name="submitter" class="action-button">Submit Form</button>
+        </form>
         
-        <div id="g-recaptcha" class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-callback=""></div>
-        <input type="hidden" name="_feedback.success.title" value="Thanks for contacting UsefulWorks, we'll be in touch shortly!" />
-        <input type="hidden" name="_email.from" value="Formspark UsefulWorks" />
-        <input type="hidden" name="_feedback.error.title" value='An error occurred (did you check the "I&apos;m not a robot" box?)' />
-        <p></p>
-        <button id="submit_contact" type="submit" class="submit-button">Send</button>
-    </form>
+    </div>
+    <!-- form-submit results -->
+    <div id="results-state" class="container"></div>
 </section>
-
 
 </main>
 <footer>
@@ -274,10 +283,9 @@
 </nav>
 <div class="legal">
     <p>
-        <a href="index.html">UsefulWorks</a> is a consultancy company. We work
-        with lively businesses - from strat-up to scale-up - to help them grow.
+        <a href="index.html">UsefulWorks</a> is a Constructive Consultancy. We work
+        with lively businesses - from start-ups to scale-ups - and help them grow.
     </p>
-    <p>&ldquo;If you have a problem, we&apos;ll solve it: checkout the hook while UsefulWorks resolves it&rdquo;</p>
     <p>Copyright &copy; 2025 <a href="index.html">UsefulWorks</a> Ltd. All Rights Reserved.
        Incorporated in England &amp; Wales. Company number <span id="tbloggle">16203896</span>.</p>
 </div>
@@ -299,25 +307,29 @@
 
   <script type="text/javascript" src="/js/usefulworks.js"></script>
 
-  <script type="text/javascript" src="/js/site-forms.js"></script>
+  <script type="text/javascript" src="/js/usefulworks-forms.js"></script>
+
+  <script type="text/javascript" src="/js/site-theme.js"></script>
+
+  <script type="text/javascript" src="/js/usefulworks-ratchet.js"></script>
+
+  <script type="text/javascript" src="/js/site-contactform.js"></script>
 
   <script type="text/javascript" src="/js/site-config.js"></script>
+
+  <script type="text/javascript" src="/js/site-store.js"></script>
 
   <script type="text/javascript" src="/js/site-nav.js"></script>
 
   <script type="text/javascript" src="/js/site-features.js"></script>
 
-  <script type="text/javascript" src="/js/site-store.js"></script>
-
-  <script type="text/javascript" src="/js/site-theme.js"></script>
 
 
 
 
 
 
-
-  <script src="https://www.recaptcha.net/recaptcha/api.js" async defer></scrip>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js"></script>
 
 
   </body>

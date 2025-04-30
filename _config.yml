@@ -6,7 +6,6 @@
 title: "UsefulWorks"
 author:
   name: UsefulWorks Ltd.
-  email: "hello@usefulworks.uk"
   github: usefulworks
 tagline: "we know what's useful and we know what works"
 description: "a collection of useful things that works"
@@ -15,6 +14,10 @@ lang: "en-GB"
 legal:
   copyright: "Copyright © 2025 UsefulWorks Ltd. All rights reserved."
   license: MIT
+email:
+  plain: hello@usefulworks.uk
+  # http://www.katpatuka.org/pub/doc/anti-spam.html
+  hex: "&#109;&#97;&#105;&#108;&#116;&#111;&#58;%68%65%6C%6C%6F%40%75%73%65%66%75%6C%77%6F%72%6B%73%2E%75%6B"
 
 # set a default repo name/w/owner to sub for PAGES_REPO_NWO & github.repository
 repository: usefulworks/usefulworks.github.io
@@ -44,13 +47,17 @@ uw:
     live:
       - "usefulworks/usefulworks.github.io"
       - "usefulworks/staging.usefulworks/usefulworks.github.io"
-  # recaptcha
-  recaptcha:
-    v2:
-      localhost:
-        site_key: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-      usefulworks_uk:
-        site_key: "6Lf7ReQqAAAAAKErE6ZEBwh2-cx9UGae8VBWe-Nx"
+  # turnstile keys
+  # https://developers.cloudflare.com/turnstile/troubleshooting/testing/
+  turnstile:
+    test-pass:
+      key: 1x00000000000000000000AA
+    test-fail:
+      key: 2x00000000000000000000AB
+    test-challenge:
+      key: 3x00000000000000000000FF
+    live:
+      key: 0x4AAAAAABL7O3loEJOaxR5S
 
 #serving
 baseurl: ""
