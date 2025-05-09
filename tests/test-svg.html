@@ -1,0 +1,76 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Test SVG Inline</title>
+        <style type="text/css">
+            ul li {
+                list-style-type: none;
+            }
+            /* container for the svg */
+            .svg-container {
+                width: 300px;
+                height: 300px;
+            }
+            svg {
+                width: 100%;
+                height: 100%;
+                background-color: chartreuse;
+            }
+            svg#composite {
+                background-color: goldenrod;
+            }
+            .brown {
+                color: brown;
+            }
+            .yellow {
+                color: yellow;
+            }
+            .aqua {
+                color: aqua;
+            }
+        </style>
+    </head>
+    <body>
+        <p>test my svg</p>
+        <ul>
+            <li><a href="https://gist.github.com/cvan/934829892064eb51498ce5cc95a4a1ad">README: Creating SVG templated elements</a></li>
+            <li><a href="https://stackoverflow.com/questions/47575677/combining-symbol-with-use-svg-tags-on-a-html-page">README: Combining &lt;symbol&gt; with &lt;use&gt; SVG tags on a HTML page</a></li>
+        </ul>
+        <p></p>
+        <div>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="display: none" hidden aria-hidden="true" focusable="false">
+                <symbol id="cogstar-outer" viewBox="0 0 160 160">
+                    <path
+                        class="outer"
+                        d="m79.82 1.984a77.83 77.83 0 0 0-9.43 0.6744l-5.535 15.56a63.53 63.53 0 0 0-18.07 7.431l-14.78-7.024a77.83 77.83 0 0 0-13.38 13.38l7.025 14.78a63.53 63.53 0 0 0-7.431 18.06l-15.56 5.535a77.83 77.83 0 0 0-0.6744 9.43 77.83 77.83 0 0 0 0.6744 9.43l15.56 5.535a63.53 63.53 0 0 0 7.431 18.06l-7.025 14.78a77.83 77.83 0 0 0 13.38 13.38l14.78-7.025a63.53 63.53 0 0 0 18.07 7.431l5.535 15.56a77.83 77.83 0 0 0 9.43 0.6744 77.83 77.83 0 0 0 9.43-0.6744l5.535-15.56a63.53 63.53 0 0 0 18.07-7.431l14.78 7.025a77.83 77.83 0 0 0 13.38-13.38l-7.025-14.78a63.53 63.53 0 0 0 7.431-18.06l15.56-5.535a77.83 77.83 0 0 0 0.6744-9.43 77.83 77.83 0 0 0-0.5932-9.401l-15.5-5.511a63.53 63.53 0 0 0-7.54-18.2l7.061-14.85a77.83 77.83 0 0 0-13.3-13.3l-14.85 7.06a63.53 63.53 0 0 0-18.2-7.54l-5.51-15.5a77.83 77.83 0 0 0-9.401-0.5932zm0 35.88a41.95 41.95 0 0 1 41.95 41.95 41.95 41.95 0 0 1-41.95 41.95 41.95 41.95 0 0 1-41.95-41.95 41.95 41.95 0 0 1 41.95-41.95z"
+                        style="fill: transparent; paint-order: fill markers stroke; stroke-linecap: square; stroke-linejoin: round; stroke-width: 3.969; stroke: currentColor" />
+                </symbol>
+                <symbol id="cogstar-inner" viewBox="0 0 160 160">
+                    <path
+                        class="inner"
+                        d="m96.31 102.5c-0.7436 0.5396-15.55-8.138-16.47-8.139-0.9187-5.44e-4 -15.74 8.66-16.48 8.119-0.7429-0.5404 2.934-17.31 2.65-18.18-0.2834-0.8739-13.1-12.29-12.82-13.17 0.2844-0.8736 17.37-2.558 18.11-3.098 0.7436-0.5395 7.644-16.26 8.562-16.26 0.9187 5.47e-4 7.8 15.73 8.543 16.27 0.7429 0.5404 17.82 2.246 18.11 3.12s-12.55 12.28-12.83 13.15c-0.2844 0.8735 3.372 17.65 2.629 18.18z"
+                        style="fill: transparent; paint-order: fill markers stroke; stroke-linecap: square; stroke-linejoin: round; stroke-width: 3.969; stroke: currentColor" />
+                </symbol>
+                <symbol id="cogstar">
+                    <use href="#cogstar-outer" />
+                    <use href="#cogstar-inner" />
+                </symbol>
+            </svg>
+        </div>
+        <div class="svg-container">
+            <svg>
+                <use class="brown" href="#cogstar-outer" />
+                <use class="yellow" href="#cogstar-inner" />
+            </svg>
+        </div>
+        <div class="svg-container">
+            <svg id="composite">
+                <use class="aqua" href="#cogstar" />
+            </svg>
+        </div>
+    </body>
+</html>
