@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Test Button</title>
+        <link rel="stylesheet" type="text/css" href="../css/pico.css" />
+        <style type="text/css">
+            :root {
+                scroll-behavior: smooth;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+
+                --color-pallete-0: #5c2d2e;
+                --color-palette-1: #de6600;
+                --color-palette-2: #fea02f;
+                --color-palette-3: #ebd9c8;
+                --color-palette-4: #007a7a;
+                --color-palette-5: #003f5a;
+            }
+            body {
+                height: 100vh;
+                padding: 2rem;
+                color: var(--color-palette-0);
+                background-color: var(--color-palette-3);
+            }
+            button, a[role=button] {
+                padding: 1rem 2rem;
+                font-size: xx-large;
+                font-weight: 500;
+                color: var(--color-palette-3);
+                background-color: var(--color-palette-1);
+                border: 2px solid var(--color-palette-0);
+                border-radius: 0.5rem;
+                cursor: pointer;
+                &:hover, &:focus, &:active {
+                    color: var(--color-palette-3);
+                    background-color: var(--color-palette-2);
+                    border-color: var(--color-palette-5);
+                    border-radius: 0.8rem;
+                }
+            }
+            #spnSvThCh {
+                display: none;
+                font-size: x-large;
+                padding: 0 1rem;
+                color: var(--color-palette-3);
+                background-color: var(--color-palette-5);
+                border: 1px solid var(--color-palette-4);
+                border-radius: 0.5rem;
+            }
+            div.flex {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            button#btnSvThCh {
+                padding: 1rem 2rem;
+                font-weight: 500;
+                color: var(--color-palette-0);
+                background-color: var(--color-palette-4);
+                border: 2px solid var(--color-palette-5);
+                border-radius: 0.5rem;
+                cursor: pointer;
+                &:hover, &:focus, &:active {
+                    font-weight: 700;
+                    color: var(--color-palette-3);
+                    background-color: var(--color-palette-1);
+                    border-color: var(--color-palette-2);
+                    border-radius: 0.8rem;
+                }
+            }
+            #btnLIKIN[role=button] {
+                width: 128px;
+                height: 128px;
+                background-color: transparent;
+                border-radius: 16px;
+                background-image: url(../assets/linkenin_col_svg.webp);
+                &:hover, &:focus, &:active {
+                    background-image: url(../assets/linkedin_round_svg.webp);
+                }
+            }
+        </style>
+        <script type="text/javascript">
+            var stw;
+            window.onload = function() {
+                stw = document.getElementById('spnSvThCh');
+                btnSvThCh = document.getElementById('btnSvThCh');
+                btnSvThCh.addEventListener('click', function() {
+                    stw.style.display != 'inline' ? stw.style.display = 'inline' : stw.style.display = 'none';
+                });
+            };
+        </script>
+    </head>
+    <body>
+        <div>
+            <a id="btnLetsTalk" role="button">Let&apos;s Talk</a>
+        </div>
+        <hr/>
+        <div class="flex">
+            <button id="btnSvThCh">Save The Cheer-Leader</button>
+            <span id="spnSvThCh">Save The World</span>
+        </div>
+        <hr/>
+        <div>
+            <form action="https://www.google.com/search" method="get">
+                <input type="text" name="q" />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div>
+            <a id="btnLIKIN" role="button" alt="linkedin"></a>
+        </div>
+    </body>
+</html>
