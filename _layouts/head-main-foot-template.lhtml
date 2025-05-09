@@ -1,0 +1,12 @@
+---
+layout: body-template
+---
+<header>
+    {% include header-content.lhtml %}
+</header>
+<main>
+    {{ content }}
+</main>
+<footer>
+    {% include footer-content.lhtml %}
+</footer>
