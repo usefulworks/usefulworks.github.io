@@ -1,0 +1,4 @@
+{% comment %} liquid variable declarations {% endcomment %}
+
+{% comment %} use millis since epoch as a query suffix to css/js urls to foil aggressive caching in chrome {% endcomment %}
+{%- assign epoch-ms = 'now' | date: "%s%L" -%}
