@@ -1,0 +1,43 @@
+---
+layout: page-template
+title: About
+permalink: about.html
+---
+<section class="about content">
+    <div class="container">
+        <h2>About Us</h2>
+        <p>Dr Jim Apperly is a veteran business operations specialist.</p>
+        <p>Over the years he has been a neuroscientist, management consultant, tech
+           entrepreneur, VP Operations and Chief Operating Officer. He has more than
+           15 years’ experience in managing and scaling global operations, from start-
+           up to scale.</p>
+        <p>Since leaving the world of Big Consultancy, Jim has focused on practicality,
+           people, and achieving useful works with real-world resource.</p>
+        <p>His skills include global operations, strategic planning, people leadership,
+           contract negotiation, M&amp;A, due diligence and molecular cell biology.</p>
+        <p>And he has hands-on familiarity with a wide variety of business systems
+           including:</p>
+        <ul>
+            <li>Notion, Asana, Slack, Trello, Monday (work management and productivity)</li>
+            <li>Salesforce (CRM software)</li>
+            <li>Carta (private capital platform)</li>
+            <li>Vestd (equity management platform)</li>
+            <li>Xero, QuickBooks (accounting software)</li>
+            <li>Bamboo HR, Gusto, Deel (HR and payroll software)</li>
+            <li>GitHub (developer platform)</li>
+            <li>JIRA (issue and project tracking software)</li>
+            <li>AWS (cloud computing)</li>
+            <li>And of course AI Tools (ChatGPT, Claude, Gemini etc), Google Workspace, Google Cloud, Microsoft 365, Docusign etc.</li>
+        </ul>
+    </div>
+</section>
+<section class="values content">
+    <div class="container">
+        <h2>Our Values</h2>
+        <ul>
+            <li>wellest</li>
+            <li>bestest</li>
+            <li>fineest</li>
+        </ul>
+    </div>
+</section>
