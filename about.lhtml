@@ -6,16 +6,29 @@ permalink: about.html
 <section class="about content">
     <div class="container">
         <h2>About Us</h2>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis hendrerit lacinia sapien, a interdum tortor pharetra at. Quisque rutrum iaculis ante, nec fermentum mi tincidunt sed. Fusce rhoncus viverra sem, sit amet tempus mauris
-            dapibus ac. Maecenas turpis dui, tristique at mattis nec, tincidunt nec justo. Suspendisse at turpis quis arcu pulvinar pharetra sed sed leo. Mauris lorem metus, vehicula et nulla ut, tincidunt lobortis libero. Nulla ac leo sed eros
-            aliquet iaculis vel eu elit. Integer in sodales elit. Donec ut dui nunc. Vivamus vestibulum consectetur malesuada. Nullam dolor mi, tincidunt ullamcorper leo at, fermentum viverra neque. Aenean id est ut lorem posuere facilisis.
-            Morbi vitae aliquet est, nec varius enim. Integer vitae odio bibendum, lobortis metus dictum, fringilla ante. Nunc gravida mi sit amet nulla semper pretium nec et metus. Aliquam libero lectus, fringilla a mattis et, congue dignissim
-            urna. Pellentesque iaculis lobortis lectus faucibus vestibulum. Pellentesque eget quam nec augue pulvinar porta sit amet vitae nisl. Aliquam mi sem, gravida sodales ex quis, placerat vestibulum justo. Suspendisse interdum augue ac
-            massa aliquam mattis. Integer neque erat, feugiat in euismod venenatis, porta quis massa. Donec dapibus, felis eu mattis suscipit, nunc urna molestie nisi, ac accumsan nisi mi id purus. Nullam finibus sapien vitae tortor bibendum
-            congue. Phasellus pharetra molestie sem nec dignissim. Aliquam erat volutpat. Nulla mollis, sem sed dictum iaculis, eros enim egestas lectus, vel interdum urna leo sit amet elit. Pellentesque volutpat purus eget ante rhoncus rutrum.
-            Sed nec maximus nisl. Sed lorem neque, maximus ut sagittis eu, sagittis vel diam. Nullam ante orci, tincidunt et cursus nec, pulvinar ac dui.
-        </p>
+        <p>Dr Jim Apperly is a veteran business operations specialist.</p>
+        <p>Over the years he has been a neuroscientist, management consultant, tech
+           entrepreneur, VP Operations and Chief Operating Officer. He has more than
+           15 years’ experience in managing and scaling global operations, from start-
+           up to scale.</p>
+        <p>Since leaving the world of Big Consultancy, Jim has focused on practicality,
+           people, and achieving useful works with real-world resource.</p>
+        <p>His skills include global operations, strategic planning, people leadership,
+           contract negotiation, M&amp;A, due diligence and molecular cell biology.</p>
+        <p>And he has hands-on familiarity with a wide variety of business systems
+           including:</p>
+        <ul>
+            <li>Notion, Asana, Slack, Trello, Monday (work management and productivity)</li>
+            <li>Salesforce (CRM software)</li>
+            <li>Carta (private capital platform)</li>
+            <li>Vestd (equity management platform)</li>
+            <li>Xero, QuickBooks (accounting software)</li>
+            <li>Bamboo HR, Gusto, Deel (HR and payroll software)</li>
+            <li>GitHub (developer platform)</li>
+            <li>JIRA (issue and project tracking software)</li>
+            <li>AWS (cloud computing)</li>
+            <li>And of course AI Tools (ChatGPT, Claude, Gemini etc), Google Workspace, Google Cloud, Microsoft 365, Docusign etc.</li>
+        </ul>
     </div>
 </section>
 <section class="values content">
