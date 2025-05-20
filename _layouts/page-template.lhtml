@@ -1,0 +1,5 @@
+---
+layout: head-main-foot-template
+---
+{%- include vars.lhtml -%}
+{{ content }}
