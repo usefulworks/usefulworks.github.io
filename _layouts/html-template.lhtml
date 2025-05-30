@@ -1,0 +1,24 @@
+---
+lang: en-GB
+copyright: Copyright (c) 2025 UsefulWorks Ltd. All Rights Resevered.
+---
+<!DOCTYPE html>
+<!-- {{ layout.copyright | default: site.legal.copyright }} -->
+{% include vars.lhtml %}
+{% if jekyll.environment != "production" %}
+  <!-- +- the epoch is @{{ epoch-ms }} -->
+{% endif %}
+<html lang="{{ page.lang | default: layout.lang | default: site.lang | default: 'en' }}" data-epoch="{{ epoch-ms }}">
+  <head {% include head-attributes.lhtml page_name=page.name %}>
+    {% include head.lhtml %}
+    {% if layout.foo %}
+      <link rel="layout.foo" name="{{ layout.foo }}" />
+    {% endif %}
+    {% if page.foo %}
+      <link rel="page.foo" name="{{ page.foo }}" />
+    {% endif %}
+  </head>
+  <body {% include body-attributes.lhtml %}>
+    {{ content }}
+  </body>
+</html>
