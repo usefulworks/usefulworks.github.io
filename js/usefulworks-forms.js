@@ -177,7 +177,7 @@
                 this._selector = 4;
             } else {
                 // give up
-                throw new Error(`UsefulWorksForms: can't create new with supplied ${form}`);
+                throw new Error(`${me}: can't create new with supplied ${form}`);
             }
 
             // watch for changes to the form dom
