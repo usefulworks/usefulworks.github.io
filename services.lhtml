@@ -1,0 +1,24 @@
+---
+layout: page-template
+permalink: services.html
+title: Services
+---
+<section class="services2 content">
+    <div class="container">
+        <p class="headline">Our Services</p>
+        <p class="subheadline narrower">[ details how we can help you ]</p>
+    </div>
+    <div class="hero-cta container narrower">
+        <a href="contact.html" role="button" class="action-button">
+            <svg class="svg24d"><use href="#svg-calendar-icon" /></svg>
+            <span>Take half an hour to find out more</span>
+        </a>
+    </div>
+</section>
+<section id="services" class="services content">
+    <div class="container">
+        <a href="contact.html" role="button" class="action-button">
+            <span>Set up a half-hour call</span>
+        </a>
+    </div>
+</section>

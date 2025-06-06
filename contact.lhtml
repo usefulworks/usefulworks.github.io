@@ -43,7 +43,7 @@ form-mode: 0
             and gather some basic requirements.</p>
         <div class="container">
             <a id="cal-btn" href="https://calendly.com/jim-apperly/30min" role="button" class="action-button">
-                <svg><use href="#svg-calendar-icon" /></svg>
+                <svg class="svg24d"><use href="#svg-calendar-icon" /></svg>
                 <span>Schedule Meeting</span>
             </a>
         </div>
