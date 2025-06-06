@@ -6,38 +6,83 @@ permalink: about.html
 <section class="about content">
     <div class="container">
         <h2>About Us</h2>
-        <p>Dr Jim Apperly is a veteran business operations specialist.</p>
-        <p>Over the years he has been a neuroscientist, management consultant, tech
-           entrepreneur, VP Operations and Chief Operating Officer. He has more than
-           15 years’ experience in managing and scaling global operations, from start-
-           up to scale.</p>
-        <p>Since leaving the world of Big Consultancy, Jim has focused on practicality,
-           people, and achieving useful works with real-world resource.</p>
-        <p>His skills include global operations, strategic planning, people leadership,
-           contract negotiation, M&amp;A, due diligence and molecular cell biology.</p>
-        <p>And he has hands-on familiarity with a wide variety of business systems
-           including:</p>
-        <ul>
-            <li>Notion, Asana, Slack, Trello, Monday (work management and productivity)</li>
-            <li>Salesforce (CRM software)</li>
-            <li>Carta (private capital platform)</li>
-            <li>Vestd (equity management platform)</li>
-            <li>Xero, QuickBooks (accounting software)</li>
-            <li>Bamboo HR, Gusto, Deel (HR and payroll software)</li>
-            <li>GitHub (developer platform)</li>
-            <li>JIRA (issue and project tracking software)</li>
-            <li>AWS (cloud computing)</li>
-            <li>And of course AI Tools (ChatGPT, Claude, Gemini etc), Google Workspace, Google Cloud, Microsoft 365, Docusign etc.</li>
-        </ul>
+        <strong>Thinking about scaling up? We know change can be scary but it doesn&apos;t have to be.
+            UsefulWorks helps businesses expand smoothly using our real-world experience to
+            anticipate and mitigate the inevitable growing pains.</strong>
+        <h2>Our Story</h2>
+        <p>We started UsefulWorks because we&apos;ve been where you are. As entrepreneurs and
+           business leaders, we&apos;ve lived through the excitement &hyphen; and terror &hyphen; of
+           rapid growth. We&apos;ve watched establish systems buckle under pressure, scrambled to
+           fix problems we should have anticipated, and had those late-night conversations about
+           whether we were truly ready for the next level. We&apos;ve felt the panic when customer service
+           couldn&apos;t handle the influx, wrestled with cash flow when growth demanded investment before
+           revenue caught up, and worried about maintaining our culture while scaling fast.</p>
+        <p>Here&apos;s what we learned: those growing pains don&apos;t have to disrupt your
+           momentum. Most businesses tackle growth challenges reactively, but we discovered
+           that anticipating and preparing for these inevitable hurdles makes all the difference.
+           That&apos;s why we created UsefulWorks &hyphen; to help other businesses grow with
+           confidence instead of anxiety, using the hard-won experience we gained from navigating
+           our own scaling journeys.</p>
+        <strong>We&apos;re not consultants with textbook theories; we&apos;re partners who&apos;ve been
+           in your shoes and want to help you walk the path more smoothly.</strong>
+        <h2>Meet the Founder</h2>
+        <p>Hi, I&apos;m Jim Apperly and I&apos;m a veteran business scale-up specialist. Over the
+           years, I&apos;ve been a neuroscientist, a management consultant and tech entrepreneur.
+           I have more than 15 years&apos; experience building and managing global operations, from
+           start-up to scale, learning lessons whilst helping companies tame the chaos of rapid
+           growth.</p>
+        <p>I've been employee #6 at a VC-backed start-up that grew to 160+ people across 23
+           countries with over $10m in annual revenue. I&apos;ve served as Chief of Staff and VP
+           Operations working directly with CEOs and leadership teams, led M&apos;A deals worth
+           millions, supported funding rounds raising over $65m, implemented systems for global
+           payroll and negotiated complex contracts. And yes &hyphen; I&apos;ve also had to turn
+           out the lights when things didn&apos;t go according to plan. Each experience has taught
+           me something valuable about what works, what doesn&apos;t, and how to prepare for
+           (and deal with!) the unexpected.</p>
+        <p>I cut my business teeth as an Associate with McKinsey. Despite learning a ton, I
+           turned my back on the world of Big Consultancy to focus on practicality, what people
+           want and building useful things that work. I founded UsefulWorks to share my real&hyphen;
+           world, hard&hyphen;won experience building resilient operational backbones that allow
+           companies to scale fast without breaking.</p>
+        <strong>I&apos;ve learned that behind every operational challenge is a team of real people
+           trying to build something meaningful &hyphen; and that&apos;s who we&apos;re here to
+           support.</strong>
     </div>
 </section>
 <section class="values content">
     <div class="container">
         <h2>Our Values</h2>
+        <p>At UsefulWorks, we&apos;re driven by a core belief that great work should be genuinely <strong>useful</strong>
+           &hyphen; not overcomplicated, not theoretical, but actionable and practical support that actually
+           <strong>works</strong>. Our values keep us grounded in that mission.</p>
         <ul>
-            <li>wellest</li>
-            <li>bestest</li>
-            <li>fineest</li>
+            <li>
+                <h3>People First</h3>
+                <p>Strong businesses are built on strong relationships. We show up as real people, not corporate
+                   buzzwords — because when trust and empathy come first, everything else <strong>works</strong> better.</p>
+            </li>
+            <li>
+                <h3>Clarity Over Complexity</h3>
+                <p>We strip out the noise to deliver clear, actionable insight. No fluff, no jargon — just sharp
+                   thinking that&apos;s easy to use and built to be <strong>useful</strong> from day one.</p>
+            </li>
+            <li>
+                <h3>Experience That Works</h3>
+                <p>We&apos;ve done the hard yards. Our advice comes from lived experience, not textbooks. We know
+                   what <strong>works</strong> — and just as importantly, what doesn&apos;t — so we can help
+                   you get to the <strong>useful</strong> stuff, faster.</p>
+            </li>
+            <li>
+                <h3>Always Evolving</h3>
+                <p>In fast-moving industries, yesterday&apos;s answers won&apos;t cut it. We stay curious and
+                   adaptable, always working on new, more useful ways to help our clients stay ahead.</p>
+            </li>
+            <li>
+                <h3>Strength In Diversity</h3>
+                <p>Different perspectives unlock better thinking. We bring together varied backgrounds and
+                   viewpoints to co&apos;create solutions that are more thoughtful, more inclusive &apos; and
+                   ultimately, more <strong>useful</strong>.</p>
+            </li>
         </ul>
     </div>
 </section>

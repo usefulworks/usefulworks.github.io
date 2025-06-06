@@ -10,7 +10,7 @@ title: Home
     </div>
     <div class="hero-cta container narrower">
         <a href="contact.html" role="button" class="action-button">
-            <svg><use href="#svg-calendar-icon" /></svg>
+            <svg class="svg24d"><use href="#svg-calendar-icon" /></svg>
             <span>Take half an hour to find out more</span>
         </a>
     </div>
