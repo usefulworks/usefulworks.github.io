@@ -185,6 +185,11 @@ ul li, li {
     list-style: none;
 }
 
+p.strong {
+    /* match pico b, strong */
+    font-weight: bolder;
+}
+
 nav, footer { /* add a little contrast */
     color: var(--pico-muted-color);
     background-color: var(--pico-muted-border-color);
@@ -389,10 +394,15 @@ body > main {
 }
 
 /* generic section with content */
+section:not(.services) {
+    h2, h3 {
+        text-transform: lowercase;
+        &::first-letter { text-transform: uppercase; }
+    }
+}
 section {
     h2, h3 {
-        margin-left: auto; margin-right: auto; text-align: center; text-transform: lowercase;
-        &::first-letter { text-transform: uppercase; }
+        margin-left: auto; margin-right: auto; text-align: center;
     }
     min-height: 300px;
     min-width: 350px;
@@ -478,6 +488,9 @@ section.hero::after {
 }
 
 section.services {
+    ul li, li {
+        list-style: disc;
+    }
     p:first-of-type {
         font-size: larger;
     }

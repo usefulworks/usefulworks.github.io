@@ -3,22 +3,154 @@ layout: page-template
 permalink: services.html
 title: Services
 ---
-<section class="services2 content">
-    <div class="container">
-        <p class="headline">Our Services</p>
-        <p class="subheadline narrower">[ details how we can help you ]</p>
-    </div>
-    <div class="hero-cta container narrower">
-        <a href="contact.html" role="button" class="action-button">
-            <svg class="svg24d"><use href="#svg-calendar-icon" /></svg>
-            <span>Take half an hour to find out more</span>
-        </a>
-    </div>
+<section class="services content">
+  <div class="container">
+    <h2>Our Services</h2>
+    <p class="strong">At UsefulWorks, we believe growing your business should be fast, frictionless, and
+       focused on what really matters.</p>
+    <p>That&apos;s why we&apos;ve built our services around three core pillars designed to meet you
+       whereever you are in your growth journey - and help you get where you want to go.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Pillar</th>
+          <th>Focus</th>
+          <th>We call it</th>
+          <th>Example activities</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Quick Wins</td>
+          <td>Project-Based Consulting</td>
+          <td>UsefulWorks OpsSprint</td>
+          <td>Process audits, workflow redesign, targeted problem&hyphen;solving</td>
+          <td>Immediate relief for pressing operational issues</td>
+        </tr>
+        <tr>
+          <td>Growth Partnership</td>
+          <td>Fractional COO/Director of Operations</td>
+          <td>UsefulWorks GrowthOps</td>
+          <td>Ongoing leadership, team alignment, process optimization</td>
+          <td>Sustainable growth, strategic oversight</td>
+        </tr>
+        <tr>
+          <td>Digital Transformation</td>
+          <td>Custom Workflow &amp; App Design</td>
+          <td>UsefulWorks DataFlow</td>
+          <td>Workflow digitisation with Airtable, automation, data integration, AI enhancement</td>
+          <td>Scalable, efficient, tech-enabled operations</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3>Our Proven Impact</h3>
+    <p>Real Results from Day One: Companies leveraging automation achieve 240% ROI within months, while
+       McKinsey estimates that 60% of employees could save 30% of their time with workflow automation.
+       Our clients typically experience:</p>
+    <ul>
+      <li>75% reduction in manual data processing time</li>
+      <li>65% faster project completion cycles</li>
+      <li>40% improvement in team productivity</li>
+      <li>Eliminate 12-20 hours of weekly administrative overhead per team member</li>
+    </ul>
+    <hr>
+    <h3>GrowthOps Leadership</h3>
+    <p class="strong">Your part-time operational leader for sustainable, scalable growth.</p>
+    <p>Not ready to hire a full-time COO? No problem! Our GrowthOps Leadership service gives you expert
+       operational leadership on a flexible, part-time basis. We step in as your trusted partner to
+       streamline processes, align your team, and keep your business running smoothly &hyphen; scaling
+       our involvement as needed as you grow.</p>
+    <p>Think of us as your behind-the-scenes growth engine, so you can focus on the big picture.</p>
+    <p><strong>Perfect for:</strong> Growing businesses (10-150+ employees) needing strategic operational
+       guidance without C-suite overhead costs.</p>
+    <hr>
+    <h3>OpsSprint Solutions</h3>
+    <p class="strong">Targeted projects to solve your toughest operational challenges.</p>
+    <p>Sometimes you just need a quick win. OpsSprint Solutions is all about delivering fast, focused
+       projects that tackle your specific operational pain points. Whether it&apos;s redesigning
+       workflows, managing a critical project, or helping your team navigate change, we bring the
+       expertise and drive to get things done &hyphen; on time and on budget. No fluff, just results.</p>
+    <p><strong>Perfect for:</strong> Businesses facing specific operational bottlenecks that need immediate
+       resolution.</p>
+    <hr>
+    <h3>DataFlow Platform &amp; Apps</h3>
+    <p class="strong">Transform chaos into clarity &hyphen; ditch the spreadsheets for powerful, automated workflows.</p>
+    <p>Say goodbye to spreadsheet overload and hello to smart automation. Our DataFlow Platform provides
+       a custom workflow automation solution built around Airtable, specifically for growing businesses. We
+       design, configure and implement custom digital workflows that centralize your data, automate repetitive
+       tasks, and keep your team perfectly aligned.</p>
+    <p>What makes UsefulWorks DataFlow different:</p>
+    <ul>
+      <li>Custom-configured for your business: Not another generic tool, but a solution tailored to your specific processes</li>
+      <li>Rapid deployment: From chaos to clarity in 4-8 weeks, not months</li>
+      <li>Team adoption guarantee: We ensure your team actually uses and loves the new system</li>
+      <li>Scalable platform: Grows with your business from startup to enterprise</li>
+    </ul>
+    <p><strong>Perfect for:</strong> Teams drowning in spreadsheets, manual processes, and disconnected
+      tools who need a centralized, automated solution.</p>
+    <hr>
+    <h3>Success Guarantee</h3>
+    <p>We&apos;re so confident in our approach that we guarantee results. If you don&apos;t see measurable operational
+       improvements within 90 days of working with us, we&apos;ll continue working at no additional charge until you
+       do. Your success is our success.</p>
+    <hr>
+    <h3>How We Work Together</h3>
+    <p>Whether you&apos;re looking for a quick fix, ongoing leadership, or a full digital transformation, our services are
+       designed to work together seamlessly. Mix and match according to your needs. Scale up to a larger helping as
+       your business grows.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Starter</th>
+          <th>Growth</th>
+          <th>Enterprise</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>UsefulWorks OpsSprint</td>
+          <td>1 day/week, ops review</td>
+          <td>2&hyphen;3 days/week, process optimization</td>
+          <td>Full ops strategy, team mentoring</td>
+        </tr>
+        <tr>
+          <td>UsefulWorks GrowthOps</td>
+          <td>1 project, 2&hyphen;4 weeks</td>
+          <td>Multi-phase project, 1&hyphen;3 months</td>
+          <td>Programme management, ongoing support</td>
+        </tr>
+        <tr>
+          <td>UsefulWorks DataFlow</td>
+          <td>1 workflow streamlined and automated</td>
+          <td>Multi-workflow, integrations</td>
+          <td>Full platform build, training, support</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Ready to see how UsefulWorks can help your business run better? Get in touch!</p>
+    <hr>
+    <h2>Ready to Transform Your Operations?</h2>
+    <p>Book a complimentary Growth Assessment - We&apos;ll analyze your current operations, work with you to identify
+       major bottlenecks, and show you exactly how to eliminate them. No sales pitch, just actionable insights you
+       can implement immediately.</p>
+    <p>Most assessment calls result in at least one quick win you can implement the same week.</p>
+    <p style="color:red">[Book Your Free Growth Assessment] [Download Our Operations Audit Checklist]</p>
+    <hr>
+    <p style="color:red">All packages include our Success Guarantee and 30-90 days of post-implementation support</p>
+    <hr>
+    <p class="strong">Questions about which service is right for you? Our specialists are here to help you choose
+      the perfect approach for your goals, timeline, and budget.</p>
+  </div>
 </section>
-<section id="services" class="services content">
-    <div class="container">
-        <a href="contact.html" role="button" class="action-button">
-            <span>Set up a half-hour call</span>
-        </a>
-    </div>
+<section class="services content">
+  <div class="container">
+    <a
+      href="contact.html"
+      role="button"
+      class="action-button">
+      <span>Set up a half-hour call</span>
+    </a>
+  </div>
 </section>

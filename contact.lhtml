@@ -38,13 +38,14 @@ form-mode: 0
 <section class="contact content-section container">
     <div id="initial-state">
         <h2>Contact</h2>
+        <p>Do you have a question or want to schedule a free evaluation? Get in touch!</p>
         <p>We&apos;ve come to understand the best first step in a successful journey
             is to hold a short, virtual meeting to get introduced, dicuss your needs
             and gather some basic requirements.</p>
         <div class="container">
-            <a id="cal-btn" href="https://calendly.com/jim-apperly/30min" role="button" class="action-button">
+            <a id="cal-btn" href="https://calendly.com/usefulworks/30min" role="button" class="action-button">
                 <svg class="svg24d"><use href="#svg-calendar-icon" /></svg>
-                <span>Schedule Meeting</span>
+                <span>Schedule a meeting</span>
             </a>
         </div>
         <form name="contact-usefulworks" action="{{ action }}" method="POST" data-mode="{{ page.form-mode }}">
@@ -68,7 +69,7 @@ form-mode: 0
             <!-- captcha -->
             <div id="ts-widget" class="captcha-container"></div>
             <!-- submitter -->
-            <button type="submit" name="submitter" class="action-button">Submit Form</button>
+            <button type="submit" name="submitter" class="action-button">Send a message</button>
         </form>
         {% if debug %}
         <!-- mock results -->
