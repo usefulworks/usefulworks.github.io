@@ -9,7 +9,7 @@ title: Services
     <p class="strong">At UsefulWorks, we believe growing your business should be fast, frictionless, and
        focused on what really matters.</p>
     <p>That&apos;s why we&apos;ve built our services around three core pillars designed to meet you
-       whereever you are in your growth journey - and help you get where you want to go.</p>
+       whereever you are in your growth journey - and help you get to where you want to go.</p>
     <div class="grid grid5x4" data-h22-content="What is it?" data-h33-content="What we call it" data-h44-content="Exam&shy;ple activ&shy;ities" data-h55-content="Busi&shy;ness value">
         <div class="gh h22"></div>
         <div class="gh h33"></div>
@@ -41,9 +41,9 @@ title: Services
     </div>
     <hr />
     <h3>Our Proven Impact</h3>
-    <p>Real Results from Day One: Companies leveraging automation achieve 240% ROI within months, while
+    <p><span class="strong">Real Results from Day One:</span> Companies leveraging automation achieve 240% ROI within months, while
        McKinsey estimates that 60% of employees could save 30% of their time with workflow automation.
-       Our clients typically experience:</p>
+       Clients embracing automation typically experience:</p>
     <ul>
       <li>75% reduction in manual data processing time</li>
       <li>65% faster project completion cycles</li>
@@ -52,17 +52,17 @@ title: Services
     </ul>
     <hr>
     <h3 id="growthops">UsefulWorks GrowthOps</h3>
-    <p class="strong">Your part-time operational leader for sustainable, scalable growth.</p>
-    <p>Not ready to hire a full&hyphen;time COO? No problem! Our GrowthOps Leadership service gives you expert
-       operational leadership on a flexible, part-time basis. We step in as your trusted partner to
-       streamline processes, align your team, and keep your business running smoothly &hyphen; scaling
-       our involvement as needed as you grow.</p>
-    <p>Think of us as your behind-the-scenes growth engine, so you can focus on the big picture.</p>
+    <p class="strong midpointalign">Your part-time operational leader for sustainable, scalable growth</p>
+    <p>Not ready to hire a full&hyphen;time COO? No problem! Our GrowthOps Leadership service gives you
+       expert operational leadership on a flexible, part&hyphen;time basis. We step in as your trusted
+       partner to streamline processes, align your team, and keep your business running smoothly &hyphen;
+       scaling our involvement, as needed and as you grow.</p>
+    <p>Think of us as your behind&hyphen;the&hyphen;scenes growth engine, so you can focus on the big picture.</p>
     <p><strong>Perfect for:</strong> Growing businesses (10-150+ employees) needing strategic operational
-       guidance without C-suite overhead costs.</p>
+       guidance without C&hyphen;suite overhead costs.</p>
     <hr>
     <h3 id="opssprint">UsefulWorks OpsSprint</h3>
-    <p class="strong">Targeted projects to solve your toughest operational challenges.</p>
+    <p class="strong midpointalign">Targeted projects to solve your toughest operational challenges</p>
     <p>Sometimes you just need a quick win. OpsSprint Solutions is all about delivering fast, focused
        projects that tackle your specific operational pain points. Whether it&apos;s redesigning
        workflows, managing a critical project, or helping your team navigate change, we bring the
@@ -71,7 +71,7 @@ title: Services
        resolution.</p>
     <hr>
     <h3 id="dataflow">UsefulWorks DataFlow</h3>
-    <p class="strong">Transform chaos into clarity &hyphen; ditch the spreadsheets for powerful, automated workflows.</p>
+    <p class="strong midpointalilgn">Transform chaos into clarity &hyphen; ditch the spreadsheets for powerful, automated workflows</p>
     <p>Say goodbye to spreadsheet overload and hello to smart automation. Our DataFlow Platform provides
        a custom workflow automation solution built around Airtable, specifically for growing businesses. We
        design, configure and implement custom digital workflows that centralize your data, automate repetitive
