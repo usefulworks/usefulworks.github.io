@@ -195,6 +195,18 @@ nav, footer { /* add a little contrast */
     background-color: var(--pico-muted-border-color);
 }
 
+.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+[hidden] {
+    height: 0;
+}
+
 svg {
     color: inherit;
     fill: inherit;
@@ -208,6 +220,16 @@ svg {
         width: 24px;
         height: 24px;
     }
+}
+
+.action-button {
+    margin-left: auto; margin-right: auto;
+    color: #fff;
+    background: #4fc949;
+    vertical-align: middle;
+    letter-spacing: 1px;
+    font-weight: bolder;
+    border-radius: 5rem;
 }
 
 body > header {
@@ -487,25 +509,6 @@ section.hero::after {
     margin-left: auto;
 }
 
-section.services {
-    ul li, li {
-        list-style: disc;
-    }
-    p:first-of-type {
-        font-size: larger;
-    }
-}
-
-.action-button {
-    margin-left: auto; margin-right: auto;
-    color: #fff;
-    background: #4fc949;
-    vertical-align: middle;
-    letter-spacing: 1px;
-    font-weight: bolder;
-    border-radius: 5rem;
-}
-
 section.about, services.values {
     h2 {}
 }
@@ -567,7 +570,155 @@ section.contact {
     }
 }
 
-/* footer */
+/* BEGIN services */
+
+section.services {
+    ul li, li {
+        list-style: disc;
+    }
+    p:first-of-type {
+        font-size: larger;
+    }
+    div.grid {
+        display: grid;
+        gap: 0.5rem;
+        grid-template-rows: auto;
+        hyphens: manual; /* use &shy; to suggest breaks */
+        margin-bottom: var(--pico-typography-spacing-vertical);
+        & > :is(div.gh, div.ghi) {
+            font-size: larger;
+            font-weight: bold;
+        }
+        & > div.s {
+            display: none;
+        }
+        & > div.h22 { grid-area: h22; }
+        & > div.h33 { grid-area: h33; }
+        & > div.h44 { grid-area: h44; }
+        & > div.h55 { grid-area: h55; }
+        & > div.b11 { grid-area: b11; }
+        & > div.b12 { grid-area: b12; }
+        & > div.b13 { grid-area: b13; }
+        & > div.b14 { grid-area: b14; }
+        & > div.b15 { grid-area: b15; }
+        & > div.b21 { grid-area: b21; }
+        & > div.b22 { grid-area: b22; }
+        & > div.b23 { grid-area: b23; }
+        & > div.b24 { grid-area: b24; }
+        & > div.b25 { grid-area: b25; }
+        & > div.b31 { grid-area: b31; }
+        & > div.b32 { grid-area: b32; }
+        & > div.b33 { grid-area: b33; }
+        & > div.b34 { grid-area: b34; }
+        & > div.b35 { grid-area: b35; }
+
+        --h22-content: attr(data-h22-content);
+        --h33-content: attr(data-h33-content);
+        --h44-content: attr(data-h44-content);
+        --h55-content: attr(data-h55-content);
+
+        & > :is(div.h22, div.h22-1, div.h22-2)::before { content: var(--h22-content) }
+        & > :is(div.h33, div.h33-1, div.h33-2)::before { content: var(--h33-content) }
+        & > :is(div.h44, div.h44-1, div.h44-2)::before { content: var(--h44-content) }
+        & > :is(div.h55, div.h55-1, div.h55-2)::before { content: var(--h55-content) }
+    }
+    @media screen and (min-width: 768px) {
+        div.grid {
+            &.grid5x4 {
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-areas:
+                "... h22 h33 h44 h55"
+                "b11 b12 b13 b14 b15"
+                "b21 b22 b23 b24 b25"
+                "b31 b32 b33 b34 b35";
+            }
+            &.grid4x4 {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-areas:
+                "... h22 h33 h44"
+                "b11 b12 b13 b14"
+                "b21 b22 b23 b24"
+                "b31 b32 b33 b34";
+            }
+        }
+    }
+    @media only screen and (max-width: 767px) {
+        div.grid {
+            font-size: smaller;
+            grid-template-columns: repeat(4, 1fr);
+            &.grid5x4 {
+            grid-template-areas:
+                "... b11 b21 b31"
+                "h22 b12 b22 b32"
+                "h33 b13 b23 b33"
+                "h44 b14 b24 b34"
+                "h55 b15 b25 b35";
+            }
+            &.grid4x4 {
+            grid-template-areas:
+                "... b11 b21 b31"
+                "h22 b12 b22 b32"
+                "h33 b13 b23 b33"
+                "h44 b14 b24 b34";
+            }
+        }
+    }
+    @media only screen and (max-width: 399px) {
+        div.grid {
+            font-size: smaller;
+            grid-template-columns: 1fr 1fr;
+            & > div.s {
+            display: block;
+            }
+            & > div.h22-1 { grid-area: h22-1; }
+            & > div.h33-1 { grid-area: h33-1; }
+            & > div.h44-1 { grid-area: h44-1; }
+            & > div.h55-1 { grid-area: h55-1; }
+            & > div.h22-2 { grid-area: h22-2; }
+            & > div.h33-2 { grid-area: h33-2; }
+            & > div.h44-2 { grid-area: h44-2; }
+            & > div.h55-2 { grid-area: h55-2; }
+
+            &.grid5x4 {
+            grid-template-areas:
+                "...   b11"
+                "h22   b12"
+                "h33   b13"
+                "h44   b14"
+                "h55   b15"
+                "...   b21"
+                "h22-1 b22"
+                "h33-1 b23"
+                "h44-1 b24"
+                "h55-1 b25"
+                "...   b31"
+                "h22-2 b32"
+                "h33-2 b33"
+                "h44-2 b34"
+                "h55-2 b35";
+            }
+            &.grid4x4 {
+            grid-template-areas:
+                "...   b11"
+                "h22   b12"
+                "h33   b13"
+                "h44   b14"
+                "...   b21"
+                "h22-1 b22"
+                "h33-1 b23"
+                "h44-1 b24"
+                "...   b31"
+                "h22-2 b32"
+                "h33-2 b33"
+                "h44-2 b34";
+            }
+        }
+    }
+}
+
+/* END services */
+
+/* BEGIN footer */
 footer {
 }
 
@@ -611,20 +762,5 @@ footer {
     }
 }
 
-.fixed-top {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-}
+/* END footer */
 
-[hidden] {
-    height: 0;
-}
-
-:is(.needs-work) {
-    --pico-color: coral;
-    color: coral;
-    background-color: darkolivegreen;
-}
