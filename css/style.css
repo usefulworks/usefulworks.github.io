@@ -430,7 +430,7 @@ section {
     :is(h2, h3, .midpointalign) {
         margin-left: auto; margin-right: auto; text-align: center;
     }
-    ul { padding: 0 }
+    h3.uw-logo-text { display: block; }
     &.content {
         background-color: var(--pico-muted-border-color);
         opacity: 0.85;
@@ -518,10 +518,17 @@ section.hero::after {
 }
 
 /* BEGIN about */
-section.about {}
+section.about {
+}
 
 /* END about */
 
+/* BEGIN values */
+section.values {
+    ul { padding: 0 }
+}
+
+/* END values */
 
 /* BEGIN contact */
 section.contact {
