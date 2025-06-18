@@ -40,7 +40,7 @@ title: Services
         <div class="gi b35">Scalable, efficient, tech-enabled oper&shy;ations</div>
     </div>
     <hr />
-    <h3>Our Proven Impact</h3>
+    <h3>Proven impact</h3>
     <p><span class="strong">Real Results from Day One:</span> Companies leveraging automation achieve 240% ROI within months, while
        McKinsey estimates that 60% of employees could save 30% of their time with workflow automation.
        Clients embracing automation typically experience:</p>
@@ -86,12 +86,7 @@ title: Services
     <p><strong>Perfect for:</strong> Teams drowning in spreadsheets, manual processes, and disconnected
       tools who need a centralized, automated solution.</p>
     <hr>
-    <h3>Success Guarantee</h3>
-    <p>We&apos;re so confident in our approach that we guarantee results. If you don&apos;t see measurable operational
-       improvements within 90 days of working with us, we&apos;ll continue working at no additional charge until you
-       do. Your success is our success.</p>
-    <hr>
-    <h3>How We Work Together</h3>
+    <h3>How we work together</h3>
     <p>Whether you&apos;re looking for a quick fix, ongoing leadership, or a full digital transformation, our services are
        designed to work together seamlessly. Mix and match according to your needs. Scale up to a larger helping as
        your business grows.</p>
@@ -118,28 +113,15 @@ title: Services
         <div class="gi b33">Multi&hyphen;workflow, integr&shy;ations</div>
         <div class="gi b34">Full platform build, training, support</div>
     </div>
-    <p class="strong">Ready to see how UsefulWorks can help your business run better? Get in touch!</p>
     <hr>
-    <h2>Ready to Transform Your Operations?</h2>
-    <p>Book a complimentary Growth Assessment - We&apos;ll analyze your current operations, work with you to identify
-       major bottlenecks, and show you exactly how to eliminate them. No sales pitch, just actionable insights you
-       can implement immediately.</p>
-    <p>Most assessment calls result in at least one quick win you can implement the same week.</p>
-    <p style="color:red">[Book Your Free Growth Assessment] [Download Our Operations Audit Checklist]</p>
+    <h2>Are you ready to transform your operations?</h2>
+    <p class="strong">If you want to learn how UsefulWorks can help your business run better then get in touch!</p>
+    <p>We&apos;ll analyze your current operations, work with you to identify the major pain points, and show
+        you exactly how to eliminate them. No sales pitch, just actionable insights you
+        can implement immediately.</p>
+    <p>Most introductory calls result in at least one quick win that you can implement straight away!</p>
+    <a href="contact.html" role="button" class="action-button">Get in touch!</a>
+    <p><a href="https://drive.google.com/file/d/1JO0fq_ki-y_UCF3T6uMoUAvWqfUklL45/view?usp=sharing">[Download Our Operations Audit Checklist]</a></p>
     <hr>
-    <p style="color:red">All packages include our Success Guarantee and 30-90 days of post-implementation support</p>
-    <hr>
-    <p class="strong">Questions about which service is right for you? Our specialists are here to help you choose
-      the perfect approach for your goals, timeline, and budget.</p>
-  </div>
-</section>
-<section class="services content">
-  <div class="container">
-    <a
-      href="contact.html"
-      role="button"
-      class="action-button">
-      <span>Set up a half-hour call</span>
-    </a>
   </div>
 </section>

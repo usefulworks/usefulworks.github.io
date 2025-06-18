@@ -424,12 +424,13 @@ body > main {
 }
 
 section {
+    margin: 0;
+    min-height: 300px;
+    min-width: 350px;
     :is(h2, h3, .midpointalign) {
         margin-left: auto; margin-right: auto; text-align: center;
     }
-    min-height: 300px;
-    min-width: 350px;
-    margin: 0;
+    ul { padding: 0 }
     &.content {
         background-color: var(--pico-muted-border-color);
         opacity: 0.85;
@@ -516,10 +517,17 @@ section.hero::after {
     margin-left: auto;
 }
 
+/* BEGIN about */
+section.about {}
+
+/* END about */
+
+
 /* BEGIN contact */
 section.contact {
     .action-button {
         display: block;
+        width: 300px;
         margin-bottom: calc(2 * var(--pico-block-spacing-vertical));
     }
     div#initial-state {
@@ -642,7 +650,7 @@ section.services {
                 "b31 b32 b33 b34 b35";
             }
             &.grid4x4 {
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: auto repeat(3, 1fr);
             grid-template-areas:
                 "... h22 h33 h44"
                 "b11 b12 b13 b14"
