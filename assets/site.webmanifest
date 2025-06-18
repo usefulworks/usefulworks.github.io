@@ -50,7 +50,7 @@
       "name": "Contact UsefulWorks",
       "short_name": "Contact",
       "description": "View the list of podcasts you saved for later",
-      "url": "contact.html?pwa=1",
+      "url": "/contact.html?pwa=1",
       "icons": [{ "src": "/favicon/web-app-manifest-192x192.png", "sizes": "192x192" }]
     }
   ],
