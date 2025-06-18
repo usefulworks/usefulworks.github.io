@@ -168,6 +168,10 @@ button, [role=button]
 
 /* BEGIN top-level and generic styling */
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-image: var(--uw-body-background);
     background-attachment: fixed;
@@ -415,6 +419,7 @@ body > main {
         content: "";
         display: block;
         padding-bottom: var(--uw-top-nav-height); /* needs to be subtracted from hero.min-height */
+        transition: padding-bottom 0.2s ease-in-out;
     }
 }
 
