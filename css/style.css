@@ -6,7 +6,7 @@
     --uw-max-width: 1280px;
     --uw-navbar-height: calc(170px); /* n-children * approx. li height */
     --uw-hero-offset-top: clamp(100px, 15vh, 170px);
-
+    --uw-top-nav-height: 150px; /* this is dynamically updated by site-nav.js */
     --uw-logo-background: #ffcc00;
 
     /* hero image selection */
@@ -303,17 +303,18 @@ button.menu-button[role="button"] {
 
 /* header navigation */
 
-/* used by nav menu toggle */
-header > nav.vertical-menu-showing {
-    padding-bottom: 0.4rem;
-    ul.navbar-links {
-        display: flex;
-        max-height: var(--uw-navbar-height);
-    }
-}
-
 header > nav {
     align-items: center;
+    ul.navbar-links {
+        display: flex;
+    }
+    /* used by nav menu toggle */
+    &.vertical-menu-showing {
+        padding-bottom: 0.4rem;
+        ul.navbar-links {
+            max-height: var(--uw-navbar-height);
+        }
+    }
 }
 
 /* limit width on ultra wide setups */
@@ -352,10 +353,8 @@ header > nav {
     }
     .navbar-links {
         /* BEGIN: must match in .vertical-menu-showing */
-        display: flex;
         max-height: var(--uw-navbar-height);
          /* END */
-
         flex-direction: row;
         justify-content: space-between;
         gap: 1rem;
@@ -376,7 +375,6 @@ header > nav {
         flex-grow: 1;
     }
     .navbar-links {
-        display: flex;
         flex-direction: column;
         align-items: normal;
         max-height: 0;
@@ -416,7 +414,7 @@ body > main {
     &::before {
         content: "";
         display: block;
-        padding-bottom: var(--uw-hero-offset-top); /* needs to be subtracted from hero.min-height */
+        padding-bottom: var(--uw-top-nav-height); /* needs to be subtracted from hero.min-height */
     }
 }
 
@@ -456,7 +454,7 @@ section.hero {
     }
     width: clamp(360px, 70vw, var(--uw-hero-width));
     margin: 0 auto;
-    min-height: calc(100vh - var(--uw-hero-offset-top)); /* fill up the viewport minus height of main::before */
+    min-height: calc(100vh - var(--uw-top-nav-height)); /* fill up the viewport minus height of main::before */
     text-align: center;
     h2, h3 {
         text-transform: lowercase;
