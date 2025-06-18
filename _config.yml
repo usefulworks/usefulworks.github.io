@@ -33,7 +33,7 @@ uw:
       legal:
         privacy: legal.html#privacy
         t-and-c: legal.html#t-and-c
-      services: index.html#services
+      services: services.html
   # feature flags
   features:
       blog:

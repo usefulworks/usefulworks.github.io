@@ -6,7 +6,7 @@
     --uw-max-width: 1280px;
     --uw-navbar-height: calc(170px); /* n-children * approx. li height */
     --uw-hero-offset-top: clamp(100px, 15vh, 170px);
-
+    --uw-top-nav-height: 150px; /* this is dynamically updated by site-nav.js */
     --uw-logo-background: #ffcc00;
 
     /* hero image selection */
@@ -166,6 +166,8 @@ button, [role=button]
 
 */
 
+/* BEGIN top-level and generic styling */
+
 body {
     background-image: var(--uw-body-background);
     background-attachment: fixed;
@@ -185,9 +187,26 @@ ul li, li {
     list-style: none;
 }
 
+:is(p, span).strong {
+    /* match pico b, strong */
+    font-weight: bolder;
+}
+
 nav, footer { /* add a little contrast */
     color: var(--pico-muted-color);
     background-color: var(--pico-muted-border-color);
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+[hidden] {
+    height: 0;
 }
 
 svg {
@@ -204,6 +223,18 @@ svg {
         height: 24px;
     }
 }
+
+.action-button {
+    margin-left: auto; margin-right: auto;
+    color: #fff;
+    background: #4fc949;
+    vertical-align: middle;
+    letter-spacing: 1px;
+    font-weight: bolder;
+    border-radius: 5rem;
+}
+
+/* END top-level and generic styling */
 
 body > header {
     padding-block: 0; /* padding unnecessary because nav is fixed */
@@ -272,17 +303,18 @@ button.menu-button[role="button"] {
 
 /* header navigation */
 
-/* used by nav menu toggle */
-header > nav.vertical-menu-showing {
-    padding-bottom: 0.4rem;
-    ul.navbar-links {
-        display: flex;
-        max-height: var(--uw-navbar-height);
-    }
-}
-
 header > nav {
     align-items: center;
+    ul.navbar-links {
+        display: flex;
+    }
+    /* used by nav menu toggle */
+    &.vertical-menu-showing {
+        padding-bottom: 0.4rem;
+        ul.navbar-links {
+            max-height: var(--uw-navbar-height);
+        }
+    }
 }
 
 /* limit width on ultra wide setups */
@@ -321,10 +353,8 @@ header > nav {
     }
     .navbar-links {
         /* BEGIN: must match in .vertical-menu-showing */
-        display: flex;
         max-height: var(--uw-navbar-height);
          /* END */
-
         flex-direction: row;
         justify-content: space-between;
         gap: 1rem;
@@ -345,7 +375,6 @@ header > nav {
         flex-grow: 1;
     }
     .navbar-links {
-        display: flex;
         flex-direction: column;
         align-items: normal;
         max-height: 0;
@@ -375,7 +404,8 @@ header > nav {
     }
 }
 
-/* main content */
+/* BEGIN generic content (main, section ..) */
+
 body > main {
     width: 100%;
     padding-block-start: 0;
@@ -384,15 +414,13 @@ body > main {
     &::before {
         content: "";
         display: block;
-        padding-bottom: var(--uw-hero-offset-top); /* needs to be subtracted from hero.min-height */
+        padding-bottom: var(--uw-top-nav-height); /* needs to be subtracted from hero.min-height */
     }
 }
 
-/* generic section with content */
 section {
-    h2, h3 {
-        margin-left: auto; margin-right: auto; text-align: center; text-transform: lowercase;
-        &::first-letter { text-transform: uppercase; }
+    :is(h2, h3, .midpointalign) {
+        margin-left: auto; margin-right: auto; text-align: center;
     }
     min-height: 300px;
     min-width: 350px;
@@ -409,6 +437,8 @@ section {
     }
 }
 
+/* END generic content (main, section ..) */
+
 /* hero (notably not a section.content) */
 section.hero {
     display: flex;
@@ -424,8 +454,12 @@ section.hero {
     }
     width: clamp(360px, 70vw, var(--uw-hero-width));
     margin: 0 auto;
-    min-height: calc(100vh - var(--uw-hero-offset-top)); /* fill up the viewport minus height of main::before */
+    min-height: calc(100vh - var(--uw-top-nav-height)); /* fill up the viewport minus height of main::before */
     text-align: center;
+    h2, h3 {
+        text-transform: lowercase;
+        &::first-letter { text-transform: uppercase; }
+    }
 
     div.hero-text p {
         color: var(--uw-hero-text);
@@ -477,28 +511,8 @@ section.hero::after {
     margin-left: auto;
 }
 
-section.services {
-    p:first-of-type {
-        font-size: larger;
-    }
-}
-
-.action-button {
-    margin-left: auto; margin-right: auto;
-    color: #fff;
-    background: #4fc949;
-    vertical-align: middle;
-    letter-spacing: 1px;
-    font-weight: bolder;
-    border-radius: 5rem;
-}
-
-section.about, services.values {
-    h2 {}
-}
-
+/* BEGIN contact */
 section.contact {
-    h2 {}
     .action-button {
         display: block;
         margin-bottom: calc(2 * var(--pico-block-spacing-vertical));
@@ -553,8 +567,162 @@ section.contact {
         line-height: 1rem;
     }
 }
+/* END contact */
 
-/* footer */
+/* BEGIN services */
+section.services {
+    :is(a) {
+        text-decoration-color: var(--pico-muted-color);
+        text-decoration-style: dotted;
+    }
+    ul li, li {
+        list-style: disc;
+    }
+    p:first-of-type {
+        font-size: larger;
+    }
+    div.grid {
+        display: grid;
+        gap: 0.5rem;
+        grid-template-rows: auto;
+        hyphens: manual; /* use &shy; to suggest breaks */
+        margin-bottom: var(--pico-typography-spacing-vertical);
+        & > :is(div.gh, div.ghi) {
+            font-weight: bold;
+            &.grid5x4 {
+                font-size: larger;
+            }
+        }
+        & > div.s {
+            display: none;
+        }
+        & > div.h22 { grid-area: h22; }
+        & > div.h33 { grid-area: h33; }
+        & > div.h44 { grid-area: h44; }
+        & > div.h55 { grid-area: h55; }
+        & > div.b11 { grid-area: b11; }
+        & > div.b12 { grid-area: b12; }
+        & > div.b13 { grid-area: b13; }
+        & > div.b14 { grid-area: b14; }
+        & > div.b15 { grid-area: b15; }
+        & > div.b21 { grid-area: b21; }
+        & > div.b22 { grid-area: b22; }
+        & > div.b23 { grid-area: b23; }
+        & > div.b24 { grid-area: b24; }
+        & > div.b25 { grid-area: b25; }
+        & > div.b31 { grid-area: b31; }
+        & > div.b32 { grid-area: b32; }
+        & > div.b33 { grid-area: b33; }
+        & > div.b34 { grid-area: b34; }
+        & > div.b35 { grid-area: b35; }
+
+        --h22-content: attr(data-h22-content);
+        --h33-content: attr(data-h33-content);
+        --h44-content: attr(data-h44-content);
+        --h55-content: attr(data-h55-content);
+
+        & > :is(div.h22, div.h22-1, div.h22-2)::before { content: var(--h22-content) }
+        & > :is(div.h33, div.h33-1, div.h33-2)::before { content: var(--h33-content) }
+        & > :is(div.h44, div.h44-1, div.h44-2)::before { content: var(--h44-content) }
+        & > :is(div.h55, div.h55-1, div.h55-2)::before { content: var(--h55-content) }
+    }
+    @media screen and (min-width: 768px) {
+        div.grid {
+            &.grid5x4 {
+            grid-template-columns: 1fr 1fr auto 1fr 1fr; /* col3:auto is to prevent product name from wrapping */
+            grid-template-areas:
+                "... h22 h33 h44 h55"
+                "b11 b12 b13 b14 b15"
+                "b21 b22 b23 b24 b25"
+                "b31 b32 b33 b34 b35";
+            }
+            &.grid4x4 {
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-areas:
+                "... h22 h33 h44"
+                "b11 b12 b13 b14"
+                "b21 b22 b23 b24"
+                "b31 b32 b33 b34";
+            }
+        }
+    }
+    @media only screen and (max-width: 767px) {
+        div.grid {
+            font-size: smaller;
+            grid-template-columns: repeat(4, 1fr);
+            &.grid5x4 {
+            grid-template-areas:
+                "... b11 b21 b31"
+                "h22 b12 b22 b32"
+                "h33 b13 b23 b33"
+                "h44 b14 b24 b34"
+                "h55 b15 b25 b35";
+            }
+            &.grid4x4 {
+            grid-template-areas:
+                "... b11 b21 b31"
+                "h22 b12 b22 b32"
+                "h33 b13 b23 b33"
+                "h44 b14 b24 b34";
+            }
+        }
+    }
+    @media only screen and (max-width: 399px) {
+        div.grid {
+            font-size: smaller;
+            grid-template-columns: 1fr 1fr;
+            & > div.s {
+            display: block;
+            }
+            & > div.h22-1 { grid-area: h22-1; }
+            & > div.h33-1 { grid-area: h33-1; }
+            & > div.h44-1 { grid-area: h44-1; }
+            & > div.h55-1 { grid-area: h55-1; }
+            & > div.h22-2 { grid-area: h22-2; }
+            & > div.h33-2 { grid-area: h33-2; }
+            & > div.h44-2 { grid-area: h44-2; }
+            & > div.h55-2 { grid-area: h55-2; }
+
+            &.grid5x4 {
+            grid-template-areas:
+                "...   b11"
+                "h22   b12"
+                "h33   b13"
+                "h44   b14"
+                "h55   b15"
+                "...   b21"
+                "h22-1 b22"
+                "h33-1 b23"
+                "h44-1 b24"
+                "h55-1 b25"
+                "...   b31"
+                "h22-2 b32"
+                "h33-2 b33"
+                "h44-2 b34"
+                "h55-2 b35";
+            }
+            &.grid4x4 {
+            grid-template-areas:
+                "...   b11"
+                "h22   b12"
+                "h33   b13"
+                "h44   b14"
+                "...   b21"
+                "h22-1 b22"
+                "h33-1 b23"
+                "h44-1 b24"
+                "...   b31"
+                "h22-2 b32"
+                "h33-2 b33"
+                "h44-2 b34";
+            }
+        }
+    }
+}
+
+/* END services */
+
+/* BEGIN footer */
 footer {
 }
 
@@ -598,20 +766,5 @@ footer {
     }
 }
 
-.fixed-top {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-}
+/* END footer */
 
-[hidden] {
-    height: 0;
-}
-
-:is(.needs-work) {
-    --pico-color: coral;
-    color: coral;
-    background-color: darkolivegreen;
-}
