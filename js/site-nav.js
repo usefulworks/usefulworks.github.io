@@ -27,14 +27,15 @@ const NavBar = {
             const HANDLER = function() {
                 if (NAVBAR) {
                     window.scrollY > 50 ? NAVBAR.addClass(TOP_NAV_SLIM_CNAME) : NAVBAR.removeClass(TOP_NAV_SLIM_CNAME);
-                    updateNavHeight();
                 }
             };
             $UW(window).on("scroll", HANDLER) && HANDLER.call();
         };
         const initDynamicNavHeight = function() {
             $UW.log("NavBar.initDynamicNavHeight");
-            $UW(window).on("resize", updateNavHeight) && updateNavHeight();
+            $UW(window).on("resize", updateNavHeight);
+            NAVBAR.on("transitionend", updateNavHeight);
+            updateNavHeight();
         };
         initNavMenuToggle();
         initWindowScroll();
