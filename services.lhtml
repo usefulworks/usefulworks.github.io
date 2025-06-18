@@ -23,19 +23,19 @@ title: Services
         <div class="gh h33-2 s"></div>
         <div class="gh h44-2 s"></div>
         <div class="gh h55-2 s"></div>
-        <div class="gi b11 ghi">I: Quick Wins</div>
+        <div class="gi b11 ghi"><a href="#opssprint" class="uw-logo-text">ops/&shy;Sprint</a></div>
         <div class="gi b12">Project&hyphen;Based Consult&shy;ing</div>
-        <div class="gi b13"><a href="#opssprint">Useful&shy;Works Ops&shy;Sprint</a></div>
+        <div class="gi b13">Quick Wins</div>
         <div class="gi b14">Process audits, workflow redesign, targeted problem&hyphen;solving</div>
         <div class="gi b15">Immediate relief for pressing oper&shy;ational issues</div>
-        <div class="gi b21 ghi">II: Growth Partner&shy;ship</div>
+        <div class="gi b21 ghi"><a href="#growthops" class="uw-logo-text">ops/&shy;Growth</a></div>
         <div class="gi b22">Fractional COO / Director of Oper&shy;ations</div>
-        <div class="gi b23"><a href="#growthops">Useful&shy;Works Growth&shy;Ops</a></div>
+        <div class="gi b23">Growth Partner&shy;ship</div>
         <div class="gi b24">Ongoing leadership, team alignment, process optim&shy;ization</div>
         <div class="gi b25">Sustainable growth, strategic oversight</div>
-        <div class="gi b31 ghi">III: Digital Trans&shy;formation</div>
+        <div class="gi b31 ghi"><a href="#dataflow" class="uw-logo-text">ops/&shy;Flow</a></div>
         <div class="gi b32">Custom Workflow &amp; App Design</div>
-        <div class="gi b33"><a href="#dataflow">Useful&shy;Works Data&shy;Flow</a></div>
+        <div class="gi b33">Digital Trans&shy;formation</div>
         <div class="gi b34">Workflow digitis&shy;ation with Airtable, autom&shy;ation, data integr&shy;ation, AI enhance&shy;ment</div>
         <div class="gi b35">Scalable, efficient, tech-enabled oper&shy;ations</div>
     </div>
@@ -51,7 +51,16 @@ title: Services
       <li>Eliminate 12-20 hours of weekly administrative overhead per team member</li>
     </ul>
     <hr>
-    <h3 id="growthops"><span class="uw-logo-text">USEFULWORKS</span> GrowthOps</h3>
+    <h3 id="opssprint" class="uw-logo-text">ops/Sprint</h3>
+    <p class="strong midpointalign">Targeted projects to solve your toughest operational challenges</p>
+    <p>Sometimes you just need a quick win. OpsSprint Solutions is all about delivering fast, focused
+       projects that tackle your specific operational pain points. Whether it&apos;s redesigning
+       workflows, managing a critical project, or helping your team navigate change, we bring the
+       expertise and drive to get things done &hyphen; on time and on budget. No fluff, just results.</p>
+    <p><strong>Perfect for:</strong> Businesses facing specific operational bottlenecks that need immediate
+       resolution.</p>
+    <hr>
+    <h3 id="growthops" class="uw-logo-text">ops/Growth</h3>
     <p class="strong midpointalign">Your part-time operational leader for sustainable, scalable growth</p>
     <p>Not ready to hire a full&hyphen;time COO? No problem! Our GrowthOps Leadership service gives you
        expert operational leadership on a flexible, part&hyphen;time basis. We step in as your trusted
@@ -61,16 +70,7 @@ title: Services
     <p><strong>Perfect for:</strong> Growing businesses (10-150+ employees) needing strategic operational
        guidance without C&hyphen;suite overhead costs.</p>
     <hr>
-    <h3 id="opssprint"><span class="uw-logo-text">USEFULWORKS</span> OpsSprint</h3>
-    <p class="strong midpointalign">Targeted projects to solve your toughest operational challenges</p>
-    <p>Sometimes you just need a quick win. OpsSprint Solutions is all about delivering fast, focused
-       projects that tackle your specific operational pain points. Whether it&apos;s redesigning
-       workflows, managing a critical project, or helping your team navigate change, we bring the
-       expertise and drive to get things done &hyphen; on time and on budget. No fluff, just results.</p>
-    <p><strong>Perfect for:</strong> Businesses facing specific operational bottlenecks that need immediate
-       resolution.</p>
-    <hr>
-    <h3 id="dataflow"><span class="uw-logo-text">USEFULWORKS</span> DataFlow</h3>
+    <h3 id="dataflow" class="uw-logo-text">ops/Flow</h3>
     <p class="strong midpointalilgn">Transform chaos into clarity &hyphen; ditch the spreadsheets for powerful, automated workflows</p>
     <p>Say goodbye to spreadsheet overload and hello to smart automation. Our DataFlow Platform provides
        a custom workflow automation solution built around Airtable, specifically for growing businesses. We
@@ -100,15 +100,15 @@ title: Services
         <div class="gh h22-2 s"></div>
         <div class="gh h33-2 s"></div>
         <div class="gh h44-2 s"></div>
-        <div class="gi b11 ghi"><a href="#opssprint">Useful&shy;Works Ops&shy;Sprint</a></div>
+        <div class="gi b11 ghi"><a href="#opssprint" class="uw-logo-text">ops/&shy;Sprint</a></div>
         <div class="gi b12">1 day / week, Ops review</div>
         <div class="gi b13">2&hyphen;3 days / week, process optimiz&shy;ation</div>
         <div class="gi b14">Full Ops strategy, team mentoring</div>
-        <div class="gi b21 ghi"><a href="#growthops">Useful&shy;Works Growth&shy;Ops</a></div>
+        <div class="gi b21 ghi"><a href="#growthops" class="uw-logo-text">ops/&shy;Growth</a></div>
         <div class="gi b22">1 project, 2&hyphen;4 weeks</div>
         <div class="gi b23">Multi&hyphen;phase project, 1&hyphen;3 months</div>
         <div class="gi b24">Programme manage&shy;ment, ongoing support</div>
-        <div class="gi b31 ghi"><a href="#dataflow">Useful&shy;Works Data&shy;Flow</a></div>
+        <div class="gi b31 ghi"><a href="#dataflow" class="uw-logo-text">ops/&shy;Flow</a></div>
         <div class="gi b32">1 workflow stream&shy;lined and automated</div>
         <div class="gi b33">Multi&hyphen;workflow, integr&shy;ations</div>
         <div class="gi b34">Full platform build, training, support</div>
