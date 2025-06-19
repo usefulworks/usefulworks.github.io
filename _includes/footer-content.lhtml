@@ -40,6 +40,7 @@
         <li><a href="{{ site.uw.loc.href.services }}">Services</a></li>
         <li><a href="{{ site.uw.loc.href.about }}">About Us</a></li>
         <li class="feature-blog"><a href="{{ site.uw.loc.href.blog }}">Blog</a></li>
+        <li><a href="{{ site.uw.loc.href.contact }}">Contact</a></li>
         <li><a href="{{ site.uw.loc.href.legal.privacy }}">Privacy Policy</a></li>
         <li><a href="{{ site.uw.loc.href.legal.t-and-c }}">Terms &amp; Conditions</a></li>
     </ul>

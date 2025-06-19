@@ -258,7 +258,6 @@ body > header {
 
 /* branding */
 .uw-logo-text {
-    display: inline-block;
     line-height: normal;
     font-family: var(--uw-font-family-brand);
     letter-spacing: var(--uw-brand-font-letter-spacing);
@@ -279,6 +278,7 @@ svg.uw-gear-logo {
         text-decoration: none;
     }
     .uw-logo-text {
+        display: inline-block;
         font-size: clamp(var(--pico-font-size), 7vmin, 100px);
         text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
     }
@@ -430,7 +430,6 @@ section {
     :is(h2, h3, .midpointalign) {
         margin-left: auto; margin-right: auto; text-align: center;
     }
-    h3.uw-logo-text { display: block; }
     &.content {
         background-color: var(--pico-muted-border-color);
         opacity: 0.85;
@@ -591,6 +590,9 @@ section.contact {
 
 /* BEGIN services */
 section.services {
+    *[id] {
+        scroll-margin-top: var(--uw-top-nav-height);
+    }
     :is(a) {
         text-decoration-color: var(--pico-muted-color);
         text-decoration-style: dotted;
@@ -649,7 +651,7 @@ section.services {
     @media screen and (min-width: 768px) {
         div.grid {
             &.grid5x4 {
-            grid-template-columns: 1fr 1fr auto 1fr 1fr; /* col3:auto is to prevent product name from wrapping */
+            grid-template-columns: auto 1fr 1fr 1fr 1fr; /* col1:auto is to prevent product name from wrapping */
             grid-template-areas:
                 "... h22 h33 h44 h55"
                 "b11 b12 b13 b14 b15"
@@ -692,7 +694,7 @@ section.services {
             font-size: smaller;
             grid-template-columns: 1fr 1fr;
             & > div.s {
-            display: block;
+                display: block;
             }
             & > div.h22-1 { grid-area: h22-1; }
             & > div.h33-1 { grid-area: h33-1; }
