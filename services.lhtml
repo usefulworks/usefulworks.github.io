@@ -36,7 +36,7 @@ title: Services
             </div>
             <div class="gi b22">Fractional COO / Director of Oper&shy;ations</div>
             <div class="gi b23">Growth Partner&shy;ship</div>
-            <div class="gi b24">Ongoing leadership, team alignment, process optim&shy;ization</div>
+            <div class="gi b24">Ongoing leadership, team alignment, process optim&shy;isation</div>
             <div class="gi b25">Sustainable growth, strategic oversight</div>
             <div class="gi b31 ghi">
                 <a href="#opsflow" class="uw-brand-text">ops/&shy;Flow</a>
@@ -64,7 +64,7 @@ title: Services
         <hr>
         <h3 id="opssprint" class="uw-brand-text">ops/Sprint</h3>
         <p class="strong midpointalign">Targeted projects to solve your toughest operational challenges</p>
-        <p>Sometimes you just need a quick win. OpsSprint Solutions is all about delivering fast, focused
+        <p>Sometimes you just need a quick win. ops/Sprint Solutions is all about delivering fast, focused
             projects that tackle your specific operational pain points. Whether it&apos;s redesigning
             workflows, managing a critical project, or helping your team navigate change, we bring the
             expertise and drive to get things done &hyphen; on time and on budget. No fluff, just results.</p>
@@ -73,17 +73,12 @@ title: Services
             Businesses facing specific operational bottlenecks that need immediate
             resolution.
         </p>
-        <a href="{{ site.uw.loc.href.contact }}" role="button" class="action-button">
-            <svg class="svg24d">
-                <use href="#svg-customer-icon" />
-            </svg>
-            <span>Get in touch!</span>
-        </a>
+        <div class="cta-button-container">{% include cta-button.lhtml %}</div>
         <hr>
         <h3 id="opsgrowth" class="uw-brand-text">ops/Growth</h3>
         <p class="strong midpointalign">Your part-time operational leader for sustainable, scalable growth</p>
-        <p>Not ready to hire a full&hyphen;time COO? No problem! Our GrowthOps Leadership service gives you
-            expert operational leadership on a flexible, part&hyphen;time basis. We step in as your trusted
+        <p>Not ready to hire a full&hyphen;time COO? No problem! Our ops/Growth service gives you expert
+            operational leadership on a flexible, part&hyphen;time basis. We step in as your trusted
             partner to streamline processes, align your team, and keep your business running smoothly &hyphen;
             scaling our involvement, as needed and as you grow.</p>
         <p>Think of us as your behind&hyphen;the&hyphen;scenes growth engine, so you can focus on the big picture.</p>
@@ -92,39 +87,29 @@ title: Services
             Growing businesses (10-150+ employees) needing strategic operational
             guidance without C&hyphen;suite overhead costs.
         </p>
-        <a href="{{ site.uw.loc.href.contact }}" role="button" class="action-button">
-            <svg class="svg24d">
-                <use href="#svg-customer-icon" />
-            </svg>
-            <span>Get in touch!</span>
-        </a>
+        <div class="cta-button-container">{% include cta-button.lhtml %}</div>
         <hr>
         <h3 id="opsflow" class="uw-brand-text">ops/Flow</h3>
         <p class="strong midpointalilgn">Transform chaos into clarity &hyphen; ditch the spreadsheets for powerful,
             automated workflows</p>
-        <p>Say goodbye to spreadsheet overload and hello to smart automation. Our DataFlow Platform provides
-            a custom workflow automation solution built around Airtable, specifically for growing businesses. We
-            design, configure and implement custom digital workflows that centralize your data, automate repetitive
+        <p>Say goodbye to spreadsheet overload and hello to smart automation. Our ops/Flow platform provides
+            custom workflow automation solutions built around Airtable, specifically for growing businesses. We
+            design, configure and implement custom digital workflows that centralise your data, automate repetitive
             tasks, and keep your team perfectly aligned.</p>
-        <p>What makes UsefulWorks DataFlow different:</p>
+        <p>What makes UsefulWorks ops/Flow different:</p>
         <ul>
             <li>Custom&hyphen;configured for your business: Not another generic tool, but a solution tailored to your
                 specific processes</li>
-            <li>Rapid deployment: From chaos to clarity in 4-8 weeks, not months</li>
+            <li>Rapid deployment: From chaos to clarity in 4&amp;8 weeks, not months</li>
             <li>Team adoption guarantee: We ensure your team actually uses and loves the new system</li>
             <li>Scalable platform: Grows with your business from startup to enterprise</li>
         </ul>
         <p>
             <strong>Perfect for:</strong>
             Teams drowning in spreadsheets, manual processes, and disconnected
-            tools who need a centralized, automated solution.
+            tools who need a centralised, automated solution.
         </p>
-        <a href="{{ site.uw.loc.href.contact }}" role="button" class="action-button">
-            <svg class="svg24d">
-                <use href="#svg-customer-icon" />
-            </svg>
-            <span>Get in touch!</span>
-        </a>
+        <div class="cta-button-container">{% include cta-button.lhtml %}</div>
         <hr>
         <h3>How we work together</h3>
         <p>Whether you&apos;re looking for a quick fix, ongoing leadership, or a full digital transformation, our
@@ -145,7 +130,7 @@ title: Services
                 <a href="#opssprint" class="uw-brand-text">ops/&shy;Sprint</a>
             </div>
             <div class="gi b12">1 day / week, Ops review</div>
-            <div class="gi b13">2&hyphen;3 days / week, process optimiz&shy;ation</div>
+            <div class="gi b13">2&hyphen;3 days / week, process optimis&shy;ation</div>
             <div class="gi b14">Full Ops strategy, team mentoring</div>
             <div class="gi b21 ghi">
                 <a href="#opsgrowth" class="uw-brand-text">ops/&shy;Growth</a>
@@ -163,26 +148,19 @@ title: Services
         <hr>
         <h2>Are you ready to transform your operations?</h2>
         <p class="strong">If you want to learn how UsefulWorks can help your business run better then get in touch!</p>
-        <p>We&apos;ll analyze your current operations, work with you to identify the major pain points, and show
+        <p>We&apos;ll analyse your current operations, work with you to identify the major pain points, and show
             you exactly how to eliminate them. No sales pitch, just actionable insights you
             can implement immediately.</p>
         <p>Most introductory calls result in at least one quick win that you can implement straight away!</p>
-        <a href="{{ site.uw.loc.href.contact }}" role="button" class="action-button">
-            <svg class="svg24d">
-                <use href="#svg-customer-icon" />
-            </svg>
-            <span>Get in touch!</span>
-        </a>
+        <div class="cta-button-container">{% include cta-button.lhtml %}</div>
         <p></p>
         <p>We have created a best-practice operations checklist that you can use to perform a rapid
             review of your business. It's free to download here.</p>
-        <a href="https://drive.google.com/file/d/1JO0fq_ki-y_UCF3T6uMoUAvWqfUklL45/view?usp=sharing" role="button"
-            class="action-button">
-            <svg class="svg24d">
-                <use href="#svg-download-icon" />
-            </svg>
-            <span>UsefulWorks ops/Checklist</span>
-        </a>
+        <div class="cta-button-container">
+        {%- include cta-button.lhtml href="https://drive.google.com/file/d/1JO0fq_ki-y_UCF3T6uMoUAvWqfUklL45/view?usp=sharing"
+                                     svg="svg-download-icon"
+                                     text="UsefulWorks ops/Checklist" -%}
+        </div>
         <hr>
     </div>
 </section>

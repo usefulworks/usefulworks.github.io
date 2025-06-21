@@ -8,11 +8,8 @@ title: Home
         <p class="headline">Constructive Consultancy</p>
         <p class="subheadline narrower">Advice and action to help start-ups and scale-ups grow quickly and smoothly</p>
     </div>
-    <div class="hero-cta container narrower">
-        <a href="contact.html" role="button" class="action-button">
-            <svg class="svg24d"><use href="#svg-customer-icon" /></svg>
-            <span>Take half an hour to find out more</span>
-        </a>
+    <div class="cta-button-container narrower">
+    {%- include cta-button.lhtml text="Take half an hour to find out more" -%}
     </div>
 </section>
 <section class="content">
@@ -23,7 +20,7 @@ title: Home
         <p>Maybe you win a new, massive contract. You finally get your ground-breaking new
            product line to market, get the investment you&apos;ve been looking for, or secure
            gleaming new premises. You have to hire a new sales team (or support staff) to
-           keep up. It's everything you've been working towards &hyphen; but it&apos;s sooner,
+           keep up. It&apos;s everything you've been working towards &hyphen; but it&apos;s sooner,
            or bigger, or more complicated than you thought.</p>
         <h3>It&apos;s not how much you grow. It&apos;s how well you handle growth.</h3>
         <p>It&apos;s vital to be able to take growth in your stride &hyphen; but that&apos;s a
@@ -37,11 +34,9 @@ title: Home
            Useful Works offers business consultancy services on how to make the next step count.
            You don&apos;t need theories, philosophies, or hints and tips. You need real&hyphen;
            world insight, practical advice and help with useful action.</p>
-        <a href="contact.html" role="button" class="action-button">
-            <svg class="svg24d"><use href="#svg-customer-icon" /></svg>
-            <span>Set up a half-an-hour call</span>
-        </a>
+        <div class="cta-button-container">{% include cta-button.lhtml text="Set up a half an hour call" %}</div>
     </div>
+    <hr>
     <div class="container">
         <h2>Put Your Money Where The Growth Is</h2>
         <p>Spending ten minutes online will reveal thousands of solutions promising growth and
@@ -50,6 +45,8 @@ title: Home
         <p>Useful Works offers constructive consultancy based in the real world. We start from
            the foundations of Big Consulting, and infuse them with over fifteen years&apos;
            experience starting, operating and scaling tech and services businesses.</p>
-        <p class="strong midpointalign"><a href="{{ site.uw.loc.href.services }}">See all of the services that UsefulWorks offers</a>
+        <h3 class="strong midpointalign">
+            <a href="{{ site.uw.loc.href.services }}" role="link">See all of the services that UsefulWorks offers</a>
+        </h3>
     </div>
 </section>
