@@ -454,6 +454,10 @@ section {
     :is(h2, h3, .midpointalign) {
         margin-left: auto; margin-right: auto; text-align: center;
     }
+    :is(a, a[role=link]) {
+        text-decoration-color: var(--pico-muted-color);
+        text-decoration-style: dotted;
+    }
     &.content {
         background-color: var(--pico-muted-border-color);
         opacity: 0.85;
@@ -462,6 +466,9 @@ section {
         .container {
             padding: var(--pico-nav-element-spacing-vertical)
                      var(--pico-nav-element-spacing-horizontal);
+        }
+        .cta-button-container {
+            padding-top: 1rem;
         }
         .action-button {
             width: fit-content;
@@ -513,8 +520,7 @@ section.hero {
             padding-bottom: 3rem;
         }
     }
-    div.hero-cta {
-        padding-top: 1rem;
+    div.cta-button-container {
         padding-bottom: clamp(1rem, var(--uw-hero-offset-top), 100vh);
     }
 }
@@ -595,10 +601,6 @@ section.contact {
 section.services {
     *[id] {
         scroll-margin-top: var(--uw-top-nav-height);
-    }
-    :is(a) {
-        text-decoration-color: var(--pico-muted-color);
-        text-decoration-style: dotted;
     }
     ul li, li {
         list-style: disc;
