@@ -1,62 +1,81 @@
 <ul class="first-row">
-    <li class="logo-box">
-        <svg class="uw-gear-logo"><use href="#svg-gear-logo" /></svg>
-        <span class="uw-logo-text">
-            <span class="uw-useful">Useful</span><span class="uw-works">Works</span>
-        </span>
-    </li>
-    <li class="contact">
-        <ul class="contact">
-            <li aria-label="email address">
-                <a href="{{ site.uw.loc.href.contact }}" target="_self">
-                    <svg class="svg18d"><use href="#svg-mailsend-icon"></svg>
-                </a>
-            </li>
-            <li aria-label="linkedin">
-                <a href="https://www.linkedin.com/company/106838232" target="_self">
-                    <svg class="svg18d"><use href="#svg-linkedin-icon"></svg>
-                </a>
-            </li>
-            <li aria-label="bluesky">
-                <a href="https://bsky.app/profile/usefulworks.bsky.social" target="_self">
-                    <svg class="svg18d"><use href="#svg-bluesky-icon"></svg>
-                </a>
-            </li>
-            <li aria-label="facebook">
-                <a href="https://www.facebook.com/profile.php?id=61576548526039" target="_self">
-                    <svg class="svg18d"><use href="#svg-facebook-icon"></svg>
-                </a>
-            </li>
-            <li aria-label="github">
-                <a href="https://github.com/usefulworks" target="_self">
-                    <svg class="svg18d"><use href="#svg-github-icon"></svg>
-                </a>
-            </li>
-        </ul>
-    </li>
+  <li class="logo-box">
+    <svg class="uw-gear-logo"><use href="#svg-gear-logo" /></svg>
+    <span class="uw-brand-text">UsefulWorks</span>
+  </li>
+  <li class="contact">
+    <ul class="contact">
+      <li aria-label="email address">
+        <a href="{{ site.uw.loc.href.contact }}" target="_self">
+          <svg class="svg18d"><use href="#svg-mailsend-icon"></svg>
+        </a>
+      </li>
+      <li aria-label="linkedin">
+        <a href="https://www.linkedin.com/company/106838232" target="_self">
+          <svg class="svg18d"><use href="#svg-linkedin-icon"></svg>
+        </a>
+      </li>
+      <li aria-label="bluesky">
+        <a href="https://bsky.app/profile/usefulworks.bsky.social" target="_self">
+          <svg class="svg18d"><use href="#svg-bluesky-icon"></svg>
+        </a>
+      </li>
+      <li aria-label="facebook">
+        <a href="https://www.facebook.com/profile.php?id=61576548526039" target="_self">
+          <svg class="svg18d"><use href="#svg-facebook-icon"></svg>
+        </a>
+      </li>
+      <li aria-label="github">
+        <a href="https://github.com/usefulworks" target="_self">
+          <svg class="svg18d"><use href="#svg-github-icon"></svg>
+        </a>
+      </li>
+    </ul>
+  </li>
 </ul>
 <nav aria-label="footer navigation">
-    <ul>
-        <li><a href="{{ site.uw.loc.href.services }}">Services</a></li>
-        <li><a href="{{ site.uw.loc.href.about }}">About Us</a></li>
-        <li class="feature-blog"><a href="{{ site.uw.loc.href.blog }}">Blog</a></li>
-        <li><a href="{{ site.uw.loc.href.contact }}">Contact</a></li>
-        <li><a href="{{ site.uw.loc.href.legal.privacy }}">Privacy Policy</a></li>
-        <li><a href="{{ site.uw.loc.href.legal.t-and-c }}">Terms &amp; Conditions</a></li>
-    </ul>
+  <ul>
+    <li>
+      <a href="{{ site.uw.loc.href.services }}">Services</a>
+    </li>
+    <li>
+      <a href="{{ site.uw.loc.href.about }}">About Us</a>
+    </li>
+    <li class="feature-blog">
+      <a href="{{ site.uw.loc.href.blog }}">Blog</a>
+    </li>
+    <li>
+      <a href="{{ site.uw.loc.href.contact }}">Contact</a>
+    </li>
+    <li>
+      <a href="{{ site.uw.loc.href.legal.privacy }}">Privacy Policy</a>
+    </li>
+    <li>
+      <a href="{{ site.uw.loc.href.legal.t-and-c }}">Terms &amp; Conditions</a>
+    </li>
+  </ul>
 </nav>
 <div class="legal">
-    <p>
-        <a href="{{ site.uw.loc.href.home }}">UsefulWorks</a> is a Constructive Consultancy. We work
+  <p>
+    <a href="{{ site.uw.loc.href.home }}">UsefulWorks</a>
+    is a Constructive Consultancy. We work
         with lively businesses - from start-ups to scale-ups - and help them grow.
-    </p>
-    <p>Copyright &copy; 2025 <a href="{{ site.uw.loc.href.home }}">UsefulWorks</a> Ltd. All Rights Reserved.
-       Incorporated in England &amp; Wales. Company number <span id="tbloggle">16203896</span>.</p>
+  </p>
+  <p>Copyright &copy; 2025
+    <a href="{{ site.uw.loc.href.home }}">UsefulWorks</a>
+    Ltd. All Rights Reserved.
+       Incorporated in England &amp; Wales. Company number
+    <span id="tbloggle">16203896</span>.</p>
 </div>
 <div class="theme-switch">
-    <label>
-        <span>light &nbsp;</span>
-        <input id="theme-switch" name="theme-switch" type="checkbox" role="switch" aria-invalid="true" />
-        <span>dark</span>
-    </label>
+  <label>
+    <span>light &nbsp;</span>
+    <input
+      id="theme-switch"
+      name="theme-switch"
+      type="checkbox"
+      role="switch"
+      aria-invalid="true" />
+    <span>dark</span>
+  </label>
 </div>

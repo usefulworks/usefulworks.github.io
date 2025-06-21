@@ -10,7 +10,7 @@ title: Home
     </div>
     <div class="hero-cta container narrower">
         <a href="contact.html" role="button" class="action-button">
-            <svg class="svg24d"><use href="#svg-calendar-icon" /></svg>
+            <svg class="svg24d"><use href="#svg-customer-icon" /></svg>
             <span>Take half an hour to find out more</span>
         </a>
     </div>
@@ -37,10 +37,9 @@ title: Home
            Useful Works offers business consultancy services on how to make the next step count.
            You don&apos;t need theories, philosophies, or hints and tips. You need real&hyphen;
            world insight, practical advice and help with useful action.</p>
-    </div>
-    <div class="container">
         <a href="contact.html" role="button" class="action-button">
-            <span>Set up a half-hour call</span>
+            <svg class="svg24d"><use href="#svg-customer-icon" /></svg>
+            <span>Set up a half-an-hour call</span>
         </a>
     </div>
     <div class="container">
@@ -51,6 +50,6 @@ title: Home
         <p>Useful Works offers constructive consultancy based in the real world. We start from
            the foundations of Big Consulting, and infuse them with over fifteen years&apos;
            experience starting, operating and scaling tech and services businesses.</p>
-        <p><a href="{{ site.uw.loc.href.services }}">See all of the services that UsefulWorks offers</a>
+        <p class="strong midpointalign"><a href="{{ site.uw.loc.href.services }}">See all of the services that UsefulWorks offers</a>
     </div>
 </section>

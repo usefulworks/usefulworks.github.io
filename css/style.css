@@ -257,7 +257,7 @@ body > header {
 }
 
 /* branding */
-.uw-logo-text {
+.uw-brand-text {
     line-height: normal;
     font-family: var(--uw-font-family-brand);
     letter-spacing: var(--uw-brand-font-letter-spacing);
@@ -277,7 +277,7 @@ svg.uw-gear-logo {
         font-weight: normal;
         text-decoration: none;
     }
-    .uw-logo-text {
+    .uw-brand-text {
         display: inline-block;
         font-size: clamp(var(--pico-font-size), 7vmin, 100px);
         text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
@@ -421,6 +421,30 @@ body > main {
         padding-bottom: var(--uw-top-nav-height); /* needs to be subtracted from hero.min-height */
         transition: padding-bottom 0.2s ease-in-out;
     }
+    &::after {
+        /* fixed position; full width; centred */
+        content: "";
+        display: block;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: -1;
+
+        /* media dependent properties */
+        max-width: var(--uw-hero-max-width);
+        width: var(--uw-hero-width);
+        height: var(--uw-hero-height);
+        background-image: var(--uw-hero-image);
+
+        /* position and center to scale nicely on all screens */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 section {
@@ -435,9 +459,13 @@ section {
         opacity: 0.85;
         padding: var(--pico-nav-element-spacing-vertical)
                  var(--pico-nav-element-spacing-horizontal);
-        div.container {
+        .container {
             padding: var(--pico-nav-element-spacing-vertical)
                      var(--pico-nav-element-spacing-horizontal);
+        }
+        .action-button {
+            width: fit-content;
+            display: block;
         }
     }
 }
@@ -489,31 +517,6 @@ section.hero {
         padding-top: 1rem;
         padding-bottom: clamp(1rem, var(--uw-hero-offset-top), 100vh);
     }
-}
-
-section.hero::after {
-    /* fixed position; full width; centred */
-    content: "";
-    display: block;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    z-index: -1;
-
-    /* media dependent properties */
-    max-width: var(--uw-hero-max-width);
-    width: var(--uw-hero-width);
-    height: var(--uw-hero-height);
-    background-image: var(--uw-hero-image);
-
-    /* position and center to scale nicely on all screens */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 /* BEGIN about */
@@ -773,7 +776,7 @@ footer ul {
 }
 
 footer {
-    .uw-logo-text {
+    .uw-brand-text {
         font-size: clamp(var(--pico-font-size), 5vmin, 50px);
     }
     svg.uw-gear-logo {
