@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2025 UsefulWorks Ltd. All Rights Reserved.
+ */
+
+const NavBar = {
+    init : function() {
+        $UW.log("NavBar.init");
+        const NAVBAR = $UW("nav.top-nav");
+        const initNavMenuToggle = function () {
+            $UW.log("NavBar.initNavMenuToggle");
+            const SHOWING_CNAME = "vertical-menu-showing";
+            const MENU_BTN = $UW("#navbar-menu-button");
+            if (MENU_BTN && NAVBAR) {
+                MENU_BTN.on("click", function(e) {
+                    NAVBAR.toggleClass(SHOWING_CNAME);
+                });
+            }
+        };
+        const updateNavHeight = function() {
+            let heightNow = NAVBAR[0].offsetHeight;
+            let heightPre = (NavBar.topNavHeight ?? 0);
+            if (heightNow > heightPre) {
+                document.documentElement.style.setProperty("--uw-top-nav-height", `${heightNow}px`);
+            }
+            NavBar.topNavHeight = heightNow;
+        };
+        const initWindowScroll = function() {
+            $UW.log("NavBar.initWindowScroll");
+            const TOP_NAV_SLIM_CNAME = "top-nav-slim";
+            const HANDLER = function() {
+                if (NAVBAR) {
+                    window.scrollY > 50 ? NAVBAR.addClass(TOP_NAV_SLIM_CNAME) : NAVBAR.removeClass(TOP_NAV_SLIM_CNAME);
+                }
+            };
+            $UW(window).on("scroll", HANDLER) && HANDLER.call();
+        };
+        const initDynamicNavHeight = function() {
+            $UW.log("NavBar.initDynamicNavHeight");
+            $UW(window).on("resize", updateNavHeight);
+            NAVBAR.on("transitionend", updateNavHeight);
+            updateNavHeight();
+        };
+        initNavMenuToggle();
+        initWindowScroll();
+        initDynamicNavHeight();
+    }
+};
+
+// ready => init
+UsefulWorks(NavBar.init);
