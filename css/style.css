@@ -201,14 +201,6 @@ nav, footer { /* add a little contrast */
     background-color: var(--pico-muted-border-color);
 }
 
-.fixed-top {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-}
-
 [hidden] {
     height: 0;
 }
@@ -238,21 +230,21 @@ svg {
     border-radius: 5rem;
 }
 
-/* END top-level and generic styling */
-
-body > header {
-    padding-block: 0; /* padding unnecessary because nav is fixed */
-    nav {
-        padding: 2.2rem var(--pico-nav-element-spacing-horizontal);
-        &.top-nav {
-            -webkit-transition: padding .2s ease-in-out;
-            -moz-transition: padding .2s ease-in-out;
-            transition: padding .2s ease-in-out;
-        }
-        &.top-nav-slim {
-            padding-top: 0.4rem;
-            padding-bottom: 0.4rem; /* must match in .vertical-menu-showing */
-        }
+/* navbar-related => needs refatoring */
+button.menu-button[role="button"] {
+    padding: 2px;
+    border: none;
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+    /* TODO */
+    &:is([aria-current]:not([aria-current=false])), &:is(:hover, :active, :focus) {
+        --pico-background-color: var(--pico-primary-hover-background);
+        --pico-border-color: var(--pico-primary-hover-border);
+        --pico-box-shadow: var(--pico-button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0));
+        --pico-color: var(--pico-primary-inverse);
+        --pico-border-color: red !important;
     }
 }
 
@@ -271,8 +263,41 @@ svg.uw-gear-logo {
     margin-right: 0.4rem;
 }
 
-/* header */
-.navbar-brand {
+/* END top-level and generic styling */
+
+/* BEGIN header */
+
+body > header { /* b > h specificity to override pico (header by itself is not sufficient) */
+    padding: 0;
+    position: fixed; /* fixed top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+header > nav { /* flex (from pico) */
+    align-items: center;
+    padding: 2.2rem var(--pico-nav-element-spacing-horizontal);
+    ul.navbar-links {
+        display: flex;
+    }
+    &.top-nav {
+        transition: padding .5s ease-in-out;
+    }
+    &.top-nav-slim {
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem; /* must match in .vertical-menu-showing */
+    }
+    &.vertical-menu-showing {     /* used by nav menu toggle */
+        padding-bottom: 0.4rem;
+        ul.navbar-links {
+            max-height: var(--uw-navbar-height);
+        }
+    }
+}
+
+header div.navbar-brand {
     a {
         font-weight: normal;
         text-decoration: none;
@@ -288,38 +313,7 @@ svg.uw-gear-logo {
     }
 }
 
-button.menu-button[role="button"] {
-    padding: 2px;
-    border: none;
-    svg {
-        width: 24px;
-        height: 24px;
-    }
-    /* TODO */
-    &:is([aria-current]:not([aria-current=false])), &:is(:hover, :active, :focus) {
-        --pico-background-color: var(--pico-primary-hover-background);
-        --pico-border-color: var(--pico-primary-hover-border);
-        --pico-box-shadow: var(--pico-button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0));
-        --pico-color: var(--pico-primary-inverse);
-        --pico-border-color: red !important;
-    }
-}
-
-/* header navigation */
-
-header > nav {
-    align-items: center;
-    ul.navbar-links {
-        display: flex;
-    }
-    /* used by nav menu toggle */
-    &.vertical-menu-showing {
-        padding-bottom: 0.4rem;
-        ul.navbar-links {
-            max-height: var(--uw-navbar-height);
-        }
-    }
-}
+/* END header (ish) */
 
 /* limit width on ultra wide setups */
 @media screen and (min-width: 1280px) {
@@ -419,7 +413,7 @@ body > main {
         content: "";
         display: block;
         padding-bottom: var(--uw-top-nav-height); /* needs to be subtracted from hero.min-height */
-        transition: padding-bottom 0.2s ease-in-out;
+        transition: padding-bottom .5s ease-in-out;
     }
     &::after {
         /* fixed position; full width; centred */
@@ -500,7 +494,6 @@ section.hero {
         text-transform: lowercase;
         &::first-letter { text-transform: uppercase; }
     }
-
     div.hero-text p {
         color: var(--uw-hero-text);
         text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
@@ -750,7 +743,7 @@ section.services {
 /* END services */
 
 /* BEGIN footer */
-footer {
+body > footer {
 }
 
 footer > * {
