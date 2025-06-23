@@ -17,9 +17,12 @@ const NavBar = {
             }
         };
         const updateNavHeight = function() {
-            let height = NAVBAR[0].offsetHeight;
-            //$UW.log(`updateNavHeight ${height}px`);
-            document.documentElement.style.setProperty("--uw-top-nav-height", `${height}px`);
+            let heightNow = NAVBAR[0].offsetHeight;
+            let heightPre = (NavBar.topNavHeight ?? 0);
+            if (heightNow > heightPre) {
+                document.documentElement.style.setProperty("--uw-top-nav-height", `${heightNow}px`);
+            }
+            NavBar.topNavHeight = heightNow;
         };
         const initWindowScroll = function() {
             $UW.log("NavBar.initWindowScroll");

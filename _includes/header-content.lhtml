@@ -1,37 +1,33 @@
-<nav
-  class="top-nav fixed-top"
-  aria-label="top navigation"
-  data-feature="{{ site.uw.features.blog.output }}">
-  <div class="navbar-brand">
-    <svg class="uw-gear-logo">
-      <use href="#svg-gear-logo" />
-    </svg>
-    <a class="uw-brand-text" href="{{ site.uw.loc.href.home }}">
-      <span class="uw-brand-text">UsefulWorks</span>
-    </a>
-  </div>
-  <div class="navbar-toggler">
-    <button
-      id="navbar-menu-button"
-      role="button"
-      class="menu-button">
-      <svg><use href="#svg-menu-hamburger-icon" /></svg>
-    </button>
-  </div>
-  <div class="navbar-nav">
-    <ul class="navbar-links">
-      <li class="navbar-link">
-        <a href="{{ site.uw.loc.href.services }}">Services</a>
-      </li>
-      <li class="navbar-link">
-        <a href="{{ site.uw.loc.href.about }}">About Us</a>
-      </li>
-      <li class="navbar-link feature-blog">
-        <a href="{{ site.uw.loc.href.blog }}">Blog</a>
-      </li>
-      <li class="navbar-link">
-        <a href="{{ site.uw.loc.href.contact }}">Contact</a>
-      </li>
-    </ul>
-  </div>
+<nav class="top-nav" aria-label="top navigation" data-feature="{{ site.uw.features.blog.output }}">
+    <div class="navbar-brand">
+        <svg class="uw-gear-logo">
+            <use href="#svg-gear-logo" />
+        </svg>
+        <a class="uw-brand-text" href="{{ site.uw.loc.href.home }}">
+            <span class="uw-brand-text">UsefulWorks</span>
+        </a>
+    </div>
+    <div class="navbar-toggler">
+        <button id="navbar-menu-button" role="button" class="menu-button">
+            <svg>
+                <use href="#svg-menu-hamburger-icon" />
+            </svg>
+        </button>
+    </div>
+    <div class="navbar-nav">
+        <ul class="navbar-links">
+            <li class="navbar-link">
+                <a href="{{ site.uw.loc.href.services }}">Services</a>
+            </li>
+            <li class="navbar-link">
+                <a href="{{ site.uw.loc.href.about }}">About Us</a>
+            </li>
+            <li class="navbar-link feature-blog">
+                <a href="{{ site.uw.loc.href.blog }}">Blog</a>
+            </li>
+            <li class="navbar-link">
+                <a href="{{ site.uw.loc.href.contact }}">Contact</a>
+            </li>
+        </ul>
+    </div>
 </nav>

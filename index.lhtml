@@ -4,7 +4,7 @@ permalink: index.html
 title: Home
 ---
 <section class="hero">
-    <div class="hero-text container">
+    <div class="hero-text">
         <p class="headline">Constructive Consultancy</p>
         <p class="subheadline narrower">Advice and action to help start-ups and scale-ups grow quickly and smoothly</p>
     </div>
