@@ -17,16 +17,16 @@
     <div class="navbar-nav">
         <ul class="navbar-links">
             <li class="navbar-link">
-                <a href="{{ site.uw.loc.href.services }}">Services</a>
+                <a href="{{ site.uw.loc.href.services }}" role="link">Services</a>
             </li>
             <li class="navbar-link">
-                <a href="{{ site.uw.loc.href.about }}">About Us</a>
+                <a href="{{ site.uw.loc.href.about }}" role="link">About Us</a>
             </li>
             <li class="navbar-link feature-blog">
-                <a href="{{ site.uw.loc.href.blog }}">Blog</a>
+                <a href="{{ site.uw.loc.href.blog }}" role="link">Blog</a>
             </li>
             <li class="navbar-link">
-                <a href="{{ site.uw.loc.href.contact }}">Contact</a>
+                <a href="{{ site.uw.loc.href.contact }}" role="link">Contact</a>
             </li>
         </ul>
     </div>

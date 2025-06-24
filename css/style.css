@@ -378,6 +378,11 @@ header div.navbar-brand {
         max-height: 0;
         overflow-y: hidden;
         transition: max-height 0.2s ease-in; /* can't transition display: or height: */
+        a, a[role=link] {
+            text-decoration-color: var(--pico-muted-color);
+            text-decoration-line: underline;
+            text-decoration-style: dotted;
+        }
     }
     .navbar-toggler {
         display: block;
@@ -636,15 +641,10 @@ section.services {
         & > div.b34 { grid-area: b34; }
         & > div.b35 { grid-area: b35; }
 
-        --h22-content: attr(data-h22-content);
-        --h33-content: attr(data-h33-content);
-        --h44-content: attr(data-h44-content);
-        --h55-content: attr(data-h55-content);
-
-        & > :is(div.h22, div.h22-1, div.h22-2)::before { content: var(--h22-content) }
-        & > :is(div.h33, div.h33-1, div.h33-2)::before { content: var(--h33-content) }
-        & > :is(div.h44, div.h44-1, div.h44-2)::before { content: var(--h44-content) }
-        & > :is(div.h55, div.h55-1, div.h55-2)::before { content: var(--h55-content) }
+        & > :is(div.h22, div.h22-1, div.h22-2)::before { content: var(--h22); }
+        & > :is(div.h33, div.h33-1, div.h33-2)::before { content: var(--h33); }
+        & > :is(div.h44, div.h44-1, div.h44-2)::before { content: var(--h44); }
+        & > :is(div.h55, div.h55-1, div.h55-2)::before { content: var(--h55); }
     }
     @media screen and (min-width: 768px) {
         div.grid {
