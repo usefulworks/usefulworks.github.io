@@ -138,12 +138,22 @@
             on(eventName, handler) {
                 this.log("UsefulWorks.on:" + eventName);
                 this.each((i, e) => e.addEventListener(eventName, handler, false));
+                this._context.lastOnEventName = eventName;
+                this._context.lastOnHandler = handler;
                 return this;
             },
             off(eventName, handler) {
                 this.log("UsefulWorks.off:" + eventName);
                 // doesn't work with anonymous/arrow functions
                 this.each((i, e) => e.removeEventListener(eventName, handler, false));
+                return this;
+            },
+            callLastOn() {
+                this.log(`UsefulWorks.callLastOn: ${this._context.lastOnEventName}`);
+                let handler = this._context.lastOnHandler;
+                if (handler && typeof(handler) === "function") {
+                    handler.call(this);
+                }
                 return this;
             },
             ready(handler) {
@@ -205,6 +215,7 @@
             this.log(`UsefulWorks.init(): ${typeof selector === "string" ? "[" + selector + "]" : Object.prototype.toString.call(selector)}`);
 
             this._context = context;
+            this._context.lastOnHandler = null
             this._context.selector = selector;
             this._length = 0;
             this._selectorType = null;

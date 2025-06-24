@@ -10,8 +10,7 @@ title: Services
             focused on what really matters.</p>
         <p>That&apos;s why we&apos;ve built our services around three core pillars designed to meet you
             whereever you are in your growth journey - and help you get to where you want to go.</p>
-        <div class="grid grid5x4" data-h22-content="What is it?" data-h33-content="Focus"
-            data-h44-content="Exam&shy;ple activ&shy;ities" data-h55-content="Busi&shy;ness value">
+        <div class="grid grid5x4" style="--h22:'What is it?';--h33:'Focus';--h44:'Exam&shy;ple activ&shy;ities';--h55:'Busi&shy;ness value'">
             <div class="gh h22"></div>
             <div class="gh h33"></div>
             <div class="gh h44"></div>
@@ -116,7 +115,7 @@ title: Services
             services are
             designed to work together seamlessly. Mix and match according to your needs. Scale up to a larger helping as
             your business grows.</p>
-        <div class="grid grid4x4" data-h22-content="Starter" data-h33-content="Growth" data-h44-content="Enterprise">
+        <div class="grid grid4x4" style="--h22:'Starter';--h33:'Growth';--h44:'Enterprise'" data-note="attr()->var() solution doenst work on Safari">
             <div class="gh h22"></div>
             <div class="gh h33"></div>
             <div class="gh h44"></div>
