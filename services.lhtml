@@ -6,7 +6,7 @@ title: Services
 <section class="services content">
     <div class="container">
         <h2>Our Services</h2>
-        <p class="strong">At UsefulWorks, we believe growing your business should be fast, frictionless, and
+        <p class="strong">At UsefulWorks, we believe growing your business should be fast, frictionless and
             focused on what really matters.</p>
         <p>That&apos;s why we&apos;ve built our services around three core pillars designed to meet you
             whereever you are in your growth journey - and help you get to where you want to go.</p>
@@ -46,76 +46,59 @@ title: Services
                 enhance&shy;ment</div>
             <div class="gi b35">Scalable, efficient, tech-enabled oper&shy;ations</div>
         </div>
-        <hr />
-        <h3>Proven impact</h3>
+        <h3>Big results without big consulting</h3>
         <p>
-            <span class="strong">Real Results from Day One:</span>
-            Companies leveraging automation achieve 240% ROI within months, while
-            McKinsey estimates that 60% of employees could save 30% of their time with workflow automation.
-            Clients embracing automation typically experience:
+            At UsefulWorks, we consider ourselves to be startup smart and enterprise strong. Our
+            aim is to provide practical solutions for real problems that deliver real results.
+            With us, there’s no big-consulting fluff; just <strong>useful</strong> stuff that
+            <strong>works</strong> for <strong>you</strong>.
         </p>
-        <ul>
-            <li>75% reduction in manual data processing time</li>
-            <li>65% faster project completion cycles</li>
-            <li>40% improvement in team productivity</li>
-            <li>Eliminate 12-20 hours of weekly administrative overhead per team member</li>
-        </ul>
-        <hr>
         <h3 id="opssprint" class="uw-brand-text">ops/Sprint</h3>
         <p class="strong midpointalign">Targeted projects to solve your toughest operational challenges</p>
-        <p>Sometimes you just need a quick win. ops/Sprint Solutions is all about delivering fast, focused
-            projects that tackle your specific operational pain points. Whether it&apos;s redesigning
-            workflows, managing a critical project, or helping your team navigate change, we bring the
-            expertise and drive to get things done &hyphen; on time and on budget. No fluff, just results.</p>
-        <p>
-            <strong>Perfect for:</strong>
-            Businesses facing specific operational bottlenecks that need immediate
-            resolution.
+        <p>Sometimes you just need a quick win. ops/Sprint is all about delivering fast, frictionless and
+           focused solutions that tackle your specific operational pain points. Whether it&apos;s redesigning
+           workflows, managing a critical project, or helping your team navigate change, we bring the
+           expertise and drive to get things done &hyphen; on time and on budget. No fluff, just useful stuff
+           that works.</p>
+        <p><strong>Perfect for:</strong> Businesses facing specific operational bottlenecks that need
+           immediate resolution.
         </p>
         <div class="cta-button-container">{% include cta-button.lhtml %}</div>
-        <hr>
         <h3 id="opsgrowth" class="uw-brand-text">ops/Growth</h3>
         <p class="strong midpointalign">Your part-time operational leader for sustainable, scalable growth</p>
         <p>Not ready to hire a full&hyphen;time COO? No problem! Our ops/Growth service gives you expert
-            operational leadership on a flexible, part&hyphen;time basis. We step in as your trusted
-            partner to streamline processes, align your team, and keep your business running smoothly &hyphen;
-            scaling our involvement, as needed and as you grow.</p>
+           operational leadership on a flexible, part&hyphen;time basis. We step in as your trusted
+           partner to streamline processes, manage change, align your team and keep your business running
+           smoothly &hyphen; scaling our involvement as needed and as you grow.</p>
         <p>Think of us as your behind&hyphen;the&hyphen;scenes growth engine, so you can focus on the big picture.</p>
-        <p>
-            <strong>Perfect for:</strong>
-            Growing businesses (10-150+ employees) needing strategic operational
-            guidance without C&hyphen;suite overhead costs.
+        <p><strong>Perfect for:</strong> Growing businesses (10&hyphen;150+ employees) needing strategic operational
+           guidance without C&hyphen;suite overhead costs.
         </p>
         <div class="cta-button-container">{% include cta-button.lhtml %}</div>
-        <hr>
         <h3 id="opsflow" class="uw-brand-text">ops/Flow</h3>
         <p class="strong midpointalilgn">Transform chaos into clarity &hyphen; ditch the spreadsheets for powerful,
-            automated workflows</p>
+           automated workflows</p>
         <p>Say goodbye to spreadsheet overload and hello to smart automation. Our ops/Flow platform provides
-            custom workflow automation solutions built around Airtable, specifically for growing businesses. We
-            design, configure and implement custom digital workflows that centralise your data, automate repetitive
-            tasks, and keep your team perfectly aligned.</p>
+           custom workflow automation solutions built around Airtable, specifically for growing businesses. W
+           design, configure and implement custom digital workflows that centralise your data, automate repetitive
+           tasks, and keep your team perfectly aligned.</p>
         <p>What makes UsefulWorks ops/Flow different:</p>
         <ul>
-            <li>Custom&hyphen;configured for your business: Not another generic tool, but a solution tailored to your
+            <li>Custom&hyphen;configured for your business: Not another generic tool but a solution tailored to your
                 specific processes</li>
-            <li>Rapid deployment: From chaos to clarity in 4&amp;8 weeks, not months</li>
+            <li>Rapid deployment: From chaos to clarity in 4&hyphen;8 weeks, not months</li>
             <li>Team adoption guarantee: We ensure your team actually uses and loves the new system</li>
             <li>Scalable platform: Grows with your business from startup to enterprise</li>
         </ul>
-        <p>
-            <strong>Perfect for:</strong>
-            Teams drowning in spreadsheets, manual processes, and disconnected
-            tools who need a centralised, automated solution.
+        <p><strong>Perfect for:</strong> Teams drowning in spreadsheets, manual processes and disconnected
+            tools who will see their productivity soar with a centralised, automated solution.
         </p>
         <div class="cta-button-container">{% include cta-button.lhtml %}</div>
-        <hr>
         <h3>How we work together</h3>
-        <p>Whether you&apos;re looking for a quick fix, ongoing leadership, or a full digital transformation, our
-            services are
-            designed to work together seamlessly. Mix and match according to your needs. Scale up to a larger helping as
-            your business grows.</p>
-        <div class="grid grid4x4" style="--h22:'Starter';--h33:'Growth';--h44:'Enterprise'" data-note="attr()->var() solution doenst work on Safari">
+        <p>Whether you&apos;re looking for a quick win, ongoing leadership, or full digital transformation, our
+           services are designed to work together seamlessly. Mix and match according to your needs. Scale up to
+           a larger helping as your business grows.</p>
+        <div class="grid grid4x4" style="--h22:'Starter';--h33:'Growth';--h44:'Enterprise'">
             <div class="gh h22"></div>
             <div class="gh h33"></div>
             <div class="gh h44"></div>
@@ -144,7 +127,6 @@ title: Services
             <div class="gi b33">Multi&hyphen;workflow, integr&shy;ations</div>
             <div class="gi b34">Full platform build, training, support</div>
         </div>
-        <hr>
         <h2>Are you ready to transform your operations?</h2>
         <p class="strong">If you want to learn how UsefulWorks can help your business run better then get in touch!</p>
         <p>We&apos;ll analyse your current operations, work with you to identify the major pain points, and show
@@ -152,14 +134,13 @@ title: Services
             can implement immediately.</p>
         <p>Most introductory calls result in at least one quick win that you can implement straight away!</p>
         <div class="cta-button-container">{% include cta-button.lhtml %}</div>
-        <p></p>
-        <p>We have created a best-practice operations checklist that you can use to perform a rapid
-            review of your business. It's free to download here.</p>
+        <h3>Real results from day one</h3>
+        <p class="strong midpointalign">We have created a best-practice operations checklist that you can use to perform a rapid
+            review of your business. It&apos;s free to download here.</p>
         <div class="cta-button-container">
         {%- include cta-button.lhtml href="https://drive.google.com/file/d/1JO0fq_ki-y_UCF3T6uMoUAvWqfUklL45/view?usp=sharing"
                                      svg="svg-download-icon"
                                      text="UsefulWorks ops/Checklist" -%}
         </div>
-        <hr>
     </div>
 </section>

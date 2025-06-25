@@ -1,10 +1,10 @@
 <ul class="first-row">
-  <li class="logo-box">
+  <li>
     <svg class="uw-gear-logo"><use href="#svg-gear-logo" /></svg>
     <span class="uw-brand-text">UsefulWorks</span>
   </li>
-  <li class="contact">
-    <ul class="contact">
+  <li>
+    <ul class="social-links">
       <li aria-label="email address">
         <a href="{{ site.uw.loc.href.contact }}" target="_self">
           <svg class="svg18d"><use href="#svg-mailsend-icon"></svg>
@@ -34,26 +34,12 @@
   </li>
 </ul>
 <nav aria-label="footer navigation">
-  <ul>
-    <li>
-      <a href="{{ site.uw.loc.href.services }}">Services</a>
-    </li>
-    <li>
-      <a href="{{ site.uw.loc.href.about }}">About Us</a>
-    </li>
-    <li class="feature-blog">
-      <a href="{{ site.uw.loc.href.blog }}">Blog</a>
-    </li>
-    <li>
-      <a href="{{ site.uw.loc.href.contact }}">Contact</a>
-    </li>
-    <li>
-      <a href="{{ site.uw.loc.href.legal.privacy }}">Privacy Policy</a>
-    </li>
-    <li>
-      <a href="{{ site.uw.loc.href.legal.t-and-c }}">Terms &amp; Conditions</a>
-    </li>
-  </ul>
+  <a href="{{ site.uw.loc.href.services }}" role="link">Services</a>
+  <a href="{{ site.uw.loc.href.about }}" role="link">About Us</a>
+  <a href="{{ site.uw.loc.href.blog }}" role="link" class="feature-blog">Blog</a>
+  <a href="{{ site.uw.loc.href.contact }}" role="link">Contact</a>
+  <a href="{{ site.uw.loc.href.legal.privacy }}" role="link">Privacy Policy</a>
+  <a href="{{ site.uw.loc.href.legal.t-and-c }}" role="link">Terms &amp; Conditions</a>
 </nav>
 <div class="legal">
   <p>

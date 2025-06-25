@@ -5,7 +5,7 @@ title: Home
 ---
 <section class="hero">
     <div class="hero-text">
-        <p class="headline">Constructive Consultancy</p>
+        <p class="headline uw-brand-text">Constructive Consultancy</p>
         <p class="subheadline narrower">Advice and action to help start-ups and scale-ups grow quickly and smoothly</p>
     </div>
     <div class="cta-button-container narrower">
@@ -14,7 +14,7 @@ title: Home
 </section>
 <section class="content">
     <div class="container">
-        <h2>Growing Pains Are Real</h2>
+        <h2>Growing pains are real</h2>
         <p>Growth is good &hyphen; but it&apos;s rarely smooth. It would be nice to build up bit by
            bit, when you're ready for it. But in real life, it tends to happen in bursts.</p>
         <p>Maybe you win a new, massive contract. You finally get your ground-breaking new
@@ -38,7 +38,7 @@ title: Home
     </div>
     <hr>
     <div class="container">
-        <h2>Put Your Money Where The Growth Is</h2>
+        <h2>Put your money where the growth is</h2>
         <p>Spending ten minutes online will reveal thousands of solutions promising growth and
            support for growing businesses. But it&apos;s hard to predict what you&apos;ll need
            when your business is changing size or shape.</p>

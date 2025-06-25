@@ -1,67 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>UsefulWorks | Legal</title>
-        <link rel="stylesheet" type="text/css" href="./css/pico.css" />
-        <script type="text/javascript">
-            var originator;
-            window.onload = function() { originator = (originator ?? document.referrer); }
-        </script>
-        <style type="text/css">
-            html {
-                margin: 0;
-                padding: 0;
-                scroll-behavior: smooth;
-            }
-            body {
-                padding: 1em;
-                box-sizing: border-box;
-                min-height: 100vh;
-            }
-            nav {
-                position: -webkit-sticky;
-                position: sticky;
-                top: 0;
-                height: 75px;
-                width: 100%;
-            }
-            nav ul {
-                display: flex;
-                justify-content: space-between;
-                padding: 0;
-                margin: 0;
-                li {
-                    list-style-type: none;
-                }
-            }
-            h3 {
-                position: relative;
-                top: -75px;
-                padding-top: 75px;
-                z-index: -1;
-            }
-            pre {
-                position: relative;
-                top: -75px;
-                z-index: -1;
-                white-space: pre-wrap;
-                word-wrap: break-word;
-            }
-        </style>
-    </head>
-    <body>
-        <nav>
-            <ul>
-                <li><button onclick="window.location.href=originator; return false;">&lt; BACK</button></li>
-                <li><button onclick="window.location.href='#privacy'; return false;">Privacy</button></li>
-                <li><button onclick="window.location.href='#t-and-c'; return false;">Ts&Cs</button></li>
-                <li><button onclick="window.location.href='#'; return false;">^ TOP</button></li>
-            </ul>
-        </nav>
-        <h2>Legal</h2>
-        <hr />
+---
+layout: page-template
+permalink: legal.html
+title: Legal
+---
+<section class="services legal">
+    <nav class="container">
+        <ul>
+            <li><button onclick="window.location.href='#privacy'; return false;">Privacy</button></li>
+            <li><button onclick="window.location.href='#t-and-c'; return false;">Ts&Cs</button></li>
+            <li><button onclick="window.location.href='#'; return false;">^ TOP</button></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Legal Notices</h2>
         <h3 id="privacy">Privacy Policy</h3>
         <pre>
 1. Useful Works Ltd. Customer Privacy Notice
@@ -180,7 +131,6 @@ SK9 5AF
 Helpline number: 0303 123 1113
 Website: https://www.ico.org.uk/make-a-complaint
         </pre>
-        <hr />
         <h3 id="t-and-c">Terms &amp; Conditions</h3>
         <pre>
 ## Terms and Conditions
@@ -242,5 +192,5 @@ If you have any questions about these Terms and Conditions, please contact us at
 
 Last updated: [Date]
         </pre>
-    </body>
-</html>
+    </div>
+</section>
