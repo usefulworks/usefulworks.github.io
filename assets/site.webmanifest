@@ -47,10 +47,24 @@
   "id": "/?pwa=1",
   "shortcuts": [
     {
+      "name": "About UsefulWorks",
+      "short_name": "About",
+      "description": "Read our origin story and the values that we hold",
+      "url": "/about.html?pwa=1",
+      "icons": [{ "src": "/favicon/web-app-manifest-192x192.png", "sizes": "192x192" }]
+    },
+    {
       "name": "Contact UsefulWorks",
       "short_name": "Contact",
-      "description": "View the list of podcasts you saved for later",
+      "description": "Get in touch with UsefulWorks to schedule a short call",
       "url": "/contact.html?pwa=1",
+      "icons": [{ "src": "/favicon/web-app-manifest-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Work with UsefulWorks",
+      "short_name": "Services",
+      "description": "Learn about the services that we offer and how we can work together",
+      "url": "/services.html?pwa=1",
       "icons": [{ "src": "/favicon/web-app-manifest-192x192.png", "sizes": "192x192" }]
     }
   ],

@@ -176,7 +176,8 @@ body {
     background-image: var(--uw-body-background);
     background-attachment: fixed;
     min-height: 100dvh;
-    max-width: 100%;
+    min-width: 320px;
+    width: 100%;
     overflow-x: hidden;
     font-family: var(--uw-font-family-san-serif);
     header {
@@ -186,6 +187,13 @@ body {
         padding-top: 0;
     }
 }
+
+a, a[role=link] {
+    text-decoration-color: var(--pico-muted-color);
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+}
+
 
 ul li, li {
     list-style: none;
@@ -228,6 +236,9 @@ svg {
     letter-spacing: 1px;
     font-weight: bolder;
     border-radius: 5rem;
+    svg {
+        padding-right: 3px;
+    }
 }
 
 /* navbar-related => needs refatoring */
@@ -253,6 +264,7 @@ button.menu-button[role="button"] {
     line-height: normal;
     font-family: var(--uw-font-family-brand);
     letter-spacing: var(--uw-brand-font-letter-spacing);
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
     vertical-align: middle;
 }
 svg.uw-gear-logo {
@@ -269,6 +281,7 @@ svg.uw-gear-logo {
 
 body > header { /* b > h specificity to override pico (header by itself is not sufficient) */
     padding: 0;
+    width: 100%;
     position: fixed; /* fixed top */
     top: 0;
     left: 0;
@@ -277,6 +290,7 @@ body > header { /* b > h specificity to override pico (header by itself is not s
 }
 
 header > nav { /* flex (from pico) */
+    width: 100%;
     align-items: center;
     padding: 2.2rem var(--pico-nav-element-spacing-horizontal);
     ul.navbar-links {
@@ -305,7 +319,6 @@ header div.navbar-brand {
     .uw-brand-text {
         display: inline-block;
         font-size: clamp(var(--pico-font-size), 7vmin, 100px);
-        text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
     }
     .uw-gear-logo {
         width: clamp(30px, 6vmin, 90px);
@@ -378,11 +391,6 @@ header div.navbar-brand {
         max-height: 0;
         overflow-y: hidden;
         transition: max-height 0.2s ease-in; /* can't transition display: or height: */
-        a, a[role=link] {
-            text-decoration-color: var(--pico-muted-color);
-            text-decoration-line: underline;
-            text-decoration-style: dotted;
-        }
     }
     .navbar-toggler {
         display: block;
@@ -408,7 +416,6 @@ header div.navbar-brand {
 }
 
 /* BEGIN generic content (main, section ..) */
-
 body > main {
     width: 100%;
     padding-block-start: 0;
@@ -449,7 +456,7 @@ body > main {
 section {
     margin: 0;
     min-height: 300px;
-    min-width: 350px;
+    width: 100%;
     :is(h2, h3, .midpointalign) {
         margin-left: auto; margin-right: auto; text-align: center;
     }
@@ -467,7 +474,8 @@ section {
                      var(--pico-nav-element-spacing-horizontal);
         }
         .cta-button-container {
-            padding-top: 1rem;
+            padding-top: var(--pico-nav-element-spacing-vertical);
+            padding-bottom: var(--pico-nav-element-spacing-vertical);
         }
         .action-button {
             width: fit-content;
@@ -495,17 +503,10 @@ section.hero {
     margin: 0 auto;
     min-height: calc(100vh - var(--uw-top-nav-height)); /* fill up the viewport minus height of main::before */
     text-align: center;
-    h2, h3 {
-        text-transform: lowercase;
-        &::first-letter { text-transform: uppercase; }
-    }
     div.hero-text p {
         color: var(--uw-hero-text);
-        text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
         &.headline {
-            font-family: var(--uw-font-family-brand);
             font-size: clamp(40px, 12vw, 150px);
-            letter-spacing: var(--uw-brand-font-letter-spacing);
             line-height: 0.85;
         }
         &.subheadline {
@@ -514,7 +515,6 @@ section.hero {
             padding-top: 1.5rem;
         }
         &:last-of-type {
-            text-shadow: none;
             padding-bottom: 3rem;
         }
     }
@@ -739,52 +739,91 @@ section.services {
         }
     }
 }
-
 /* END services */
+
+/* BEGIN legal */
+section.legal {
+    nav {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        height: 75px;
+        width: 100%;
+    }
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        li {
+            list-style-type: none;
+        }
+    }
+    h3 {
+        position: relative;
+        top: -75px;
+        padding-top: 75px;
+        z-index: -1;
+    }
+    pre {
+        position: relative;
+        top: -75px;
+        z-index: 0;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+}
+/* END legal */
 
 /* BEGIN footer */
 body > footer {
-}
+    width: 100%;
+    padding-block-start: 0;
+    padding-block-end: 0;
 
-footer > * {
     font-size: smaller;
-    padding: var(--pico-nav-element-spacing-vertical) var(--pico-nav-element-spacing-horizontal);
-    border-top: var(--pico-border-width) solid var(--pico-contrast-border);
-}
-
-footer ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0;
-    gap: 0.1rem;
-    li {
-        display: inline-block;
-        margin: 0;
-    }
-    .contact {
-        padding: 0;
-        gap: 1rem;
-        flex-direction: row;
-        align-items: flex-start;
-    }
-}
-
-footer {
     .uw-brand-text {
         font-size: clamp(var(--pico-font-size), 5vmin, 50px);
     }
     svg.uw-gear-logo {
+        margin-left: 0;
         width: clamp(30px, 5vmin, 50px);
         height: clamp(30px, 5vmin, 50px);
-    }
-    .legal, .theme-switch {
-        font-size: smaller;
     }
     p:last-of-type:not([hidden]) {
         margin-bottom: 0;
     }
+    /* top-level footer elements create sections */
+    & > * {
+        padding: var(--pico-nav-element-spacing-vertical) var(--pico-nav-element-spacing-horizontal);
+        border-top: var(--pico-border-width) solid var(--pico-contrast-border);
+    }
+    ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        align-content: space-around;
+        margin-bottom: 0;
+        gap: 1rem;
+        li {
+            display: inline-block;
+            margin: 0;
+        }
+        &.social-links {
+            padding: 0;
+            align-items: flex-start;
+        }
+    }
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        align-content: space-around;
+        gap: 1rem;
+    }
 }
-
 /* END footer */
 
