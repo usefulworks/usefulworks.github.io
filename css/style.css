@@ -295,6 +295,7 @@ header > nav.top-nav { /* flex (from pico) */
     flex-wrap: nowrap;
     justify-content: space-between;
     padding: 2.2rem var(--pico-nav-element-spacing-horizontal);
+    transition: padding 0.5s ease-in-out;
     .navbar-nav {
         display: grid;
         grid-template-rows: none;
