@@ -188,7 +188,7 @@ body {
     }
 }
 
-a, a[role=link] {
+a, a[role=link], nav li a, nav li a[role=link] {
     text-decoration-color: var(--pico-muted-color);
     text-decoration-line: underline;
     text-decoration-style: dotted;
