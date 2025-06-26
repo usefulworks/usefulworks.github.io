@@ -1,0 +1,146 @@
+#
+# Copyright (c) 2025 UsefulWorks Ltd.
+#
+
+# site settings
+title: "UsefulWorks"
+author:
+  name: UsefulWorks Ltd.
+  github: usefulworks
+tagline: "we know what's useful and we know what works"
+description: "a collection of useful things that works"
+url: "https://usefulworks.uk"
+lang: "en-GB"
+legal:
+  copyright: "Copyright © 2025 UsefulWorks Ltd. All rights reserved."
+  license: MIT
+email:
+  plain: hello@usefulworks.uk
+  # http://www.katpatuka.org/pub/doc/anti-spam.html
+  hex: "&#109;&#97;&#105;&#108;&#116;&#111;&#58;%68%65%6C%6C%6F%40%75%73%65%66%75%6C%77%6F%72%6B%73%2E%75%6B"
+
+# set a default repo name/w/owner to sub for PAGES_REPO_NWO & github.repository
+repository: usefulworks/usefulworks.github.io
+
+# custom usefulworks config
+uw:
+  loc:
+    href:
+      home: index.html
+      about: about.html
+      blog: blog.html
+      contact: contact.html
+      legal:
+        privacy: legal.html#privacy
+        t-and-c: legal.html#t-and-c
+      services: services.html
+  # feature flags
+  features:
+      blog:
+        output: false
+      "new feature":
+        output: false
+  # repositiories
+  repos:
+    dev:
+      - "usefulworks/uw-corp-website"
+    live:
+      - "usefulworks/usefulworks.github.io"
+      - "usefulworks/staging.usefulworks/usefulworks.github.io"
+  # turnstile keys
+  # https://developers.cloudflare.com/turnstile/troubleshooting/testing/
+  turnstile:
+    test-pass:
+      key: 1x00000000000000000000AA
+    test-fail:
+      key: 2x00000000000000000000AB
+    test-challenge:
+      key: 3x00000000000000000000FF
+    live:
+      key: 0x4AAAAAABL7O3loEJOaxR5S
+
+#serving
+baseurl: ""
+show_dir_listing: false
+
+# local serving
+detach: false
+port: 4001
+host: localhost
+
+# filesystem
+source: .
+destination: _site
+plugins_dir: _plugins
+layouts_dir: _layouts
+data_dir: _data
+includes_dir: _includes
+sass:
+  sass_dir: _sass
+  style: :expanded
+  load_paths:
+    - _sass
+    - _sass/partials
+    - _sass/vendor
+collections:
+  posts:
+    output: true
+  pages:
+    output: true
+# Jekyll 3 now only supports Kramdown for Markdown
+kramdown:
+  # Use GitHub flavored markdown, including triple backtick fenced code blocks
+  input: GFM
+  # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    # Use existing pygments syntax highlighting css
+    css_class: 'highlight'
+
+# exlude these files from the final build (anything beginning with
+# . _ # ~ are excluded by default)
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
+  - README.md
+  - vendor/
+  - tests/
+
+# plugins (see also Gemfile)
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+# GitHub Pages uses plugins that are enabled by default and cannot be disabled:
+  - jekyll-coffeescript
+  - jekyll-default-layout
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-optional-front-matter
+  - jekyll-paginate
+  - jekyll-readme-index
+  - jekyll-titles-from-headings
+  - jekyll-relative-links
+
+# enable safe mode
+safe: true
+
+# whitelist plugins (necessary under safe: true)
+whitelist:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-coffeescript
+  - jekyll-default-layout
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jekyll-optional-front-matter
+  - jekyll-paginate
+  - jekyll-readme-index
+  - jekyll-titles-from-headings
+  - jekyll-relative-links
+
+# liquid settings
+liquid:
+  error_mode: warn
+  strict_variables: false
+  strict_filters: true
