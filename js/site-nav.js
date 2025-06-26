@@ -9,7 +9,6 @@ const NavBar = {
         const uwWindow = $UW(window);
         const menuToggleClass = "vertical-menu-showing";
 
-        NavBar.topNavHeight = 0;
         NavBar.scrollY = window.scrollY;
 
         const initNavMenuToggle = function () {
@@ -32,9 +31,10 @@ const NavBar = {
                 if (wasSlim && !nowSlim) {
                     uwNavBar.removeClass("top-nav-slim");
                     uwNavBar.removeClass(menuToggleClass);
-                } else if (!wasSlim && nowSlim) {
+               } else if (!wasSlim && nowSlim) {
                     uwNavBar.addClass("top-nav-slim");
                 }
+
                 NavBar.scrollY = scrollYNow;
                 document.documentElement.setAttribute("data-scrollY", `${scrollYNow}px`);
             };
@@ -43,17 +43,15 @@ const NavBar = {
 
         const initDynamicNavHeight = function() {
             $UW.log("NavBar.initDynamicNavHeight");
-            const updateNavHeight = function() {
-                let heightNow = uwNavBar[0].offsetHeight;
-                let heightPre = NavBar.topNavHeight;
-                if (heightNow > heightPre) {
-                    document.documentElement.style.setProperty("--uw-top-nav-height", `${heightNow}px`);
-                }
-                NavBar.topNavHeight = heightNow;
-                document.documentElement.setAttribute("data-topNavHeight", `${heightNow}px`);
-            };
-            uwWindow.on("resize", updateNavHeight);
-            uwNavBar.on("transitionend", updateNavHeight).callLastOn();
+            const resizer = new ResizeObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.target === uwNavBar[0]) {
+                        let heightNow = uwNavBar[0].offsetHeight;
+                        document.documentElement.style.setProperty("--uw-top-nav-height", `${heightNow}px`);
+                    }
+                });
+            });
+            resizer.observe(uwNavBar[0], { box: "border-box" });
         };
 
         const initMatchMedia = function() {
