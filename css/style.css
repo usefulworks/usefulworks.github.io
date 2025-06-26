@@ -289,15 +289,25 @@ body > header { /* b > h specificity to override pico (header by itself is not s
     z-index: 10;
 }
 
-header > nav { /* flex (from pico) */
+header > nav.top-nav { /* flex (from pico) */
     width: 100%;
     align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
     padding: 2.2rem var(--pico-nav-element-spacing-horizontal);
-    ul.navbar-links {
-        display: flex;
+    .navbar-nav {
+        display: grid;
+        grid-template-rows: none;
+        padding-left: var(--pico-nav-element-spacing-horizontal);
+        padding-right: var(--pico-nav-element-spacing-horizontal);
+        width: auto;
     }
-    &.top-nav {
-        transition: padding .5s ease-in-out;
+    .navbar-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+        overflow: hidden;
     }
     &.top-nav-slim {
         padding-top: 0.4rem;
@@ -305,28 +315,51 @@ header > nav { /* flex (from pico) */
     }
     &.vertical-menu-showing {     /* used by nav menu toggle */
         padding-bottom: 0.4rem;
-        ul.navbar-links {
-            max-height: var(--uw-navbar-height);
+        .navbar-nav {
+            /* https://keithjgrant.com/posts/2023/04/transitioning-to-height-auto/ */
+            grid-template-rows: 1fr;
+            width: 100%;
+        }
+    }
+    .navbar-toggler {
+        display: none;
+    }
+    .navbar-brand {
+        a {
+            font-weight: normal;
+            text-decoration: none;
+        }
+        .uw-brand-text {
+            display: inline-block;
+            font-size: clamp(var(--pico-font-size), 7vmin, 100px);
+        }
+        .uw-gear-logo {
+            width: clamp(30px, 6vmin, 90px);
+            height: clamp(30px, 6vmin, 90px);
         }
     }
 }
 
-header div.navbar-brand {
-    a {
-        font-weight: normal;
-        text-decoration: none;
-    }
-    .uw-brand-text {
-        display: inline-block;
-        font-size: clamp(var(--pico-font-size), 7vmin, 100px);
-    }
-    .uw-gear-logo {
-        width: clamp(30px, 6vmin, 90px);
-        height: clamp(30px, 6vmin, 90px);
+/* for tablets and smaller; query needs to match initMatchMedia in site-nav.js */
+@media screen and (max-width: 800px) {
+    header > nav.top-nav {
+        flex-wrap: wrap;
+        .navbar-nav {
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.5s ease-in-out;
+            width: 100%;
+        }
+        .navbar-links {
+            flex-direction: column;
+            align-items: start;
+            gap: 0rem;
+        }
+        .navbar-toggler {
+            display: block;
+        }
     }
 }
-
-/* END header (ish) */
+/* END header */
 
 /* limit width on ultra wide setups */
 @media screen and (min-width: 1280px) {
@@ -349,52 +382,8 @@ header div.navbar-brand {
     }
 }
 
-/* smaller screens */
-@media screen and (min-width: 801px) {
-    header > nav {
-        flex-wrap: nowrap;
-    }
-    .navbar-nav {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        flex-basis: auto;
-        flex-grow: 1;
-        padding-right: 1rem;
-    }
-    .navbar-links {
-        /* BEGIN: must match in .vertical-menu-showing */
-        max-height: var(--uw-navbar-height);
-         /* END */
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 1rem;
-    }
-    .navbar-toggler {
-        display: none;
-    }
-}
-
 /* tablet */
 @media screen and (max-width: 800px) {
-    header > nav {
-        flex-wrap: wrap;
-    }
-    .navbar-nav {
-        display: block;
-        flex-basis: 100%;
-        flex-grow: 1;
-    }
-    .navbar-links {
-        flex-direction: column;
-        align-items: normal;
-        max-height: 0;
-        overflow-y: hidden;
-        transition: max-height 0.2s ease-in; /* can't transition display: or height: */
-    }
-    .navbar-toggler {
-        display: block;
-    }
     :root {
         --uw-hero-top: var(--uw-hero-tablet-top);
         --uw-hero-max-width: var(--uw-hero-tablet-width);
@@ -425,7 +414,6 @@ body > main {
         content: "";
         display: block;
         padding-bottom: var(--uw-top-nav-height); /* needs to be subtracted from hero.min-height */
-        transition: padding-bottom .5s ease-in-out;
     }
     &::after {
         /* fixed position; full width; centred */

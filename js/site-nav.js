@@ -7,14 +7,15 @@ const NavBar = {
         $UW.log("NavBar.init");
         const uwNavBar = $UW("nav.top-nav");
         const uwWindow = $UW(window);
-        /* CONSIDER: let y = uwWindow$(scrollY); */
+        const menuToggleClass = "vertical-menu-showing";
+
         NavBar.topNavHeight = 0;
         NavBar.scrollY = window.scrollY;
 
         const initNavMenuToggle = function () {
             $UW.log("NavBar.initNavMenuToggle");
             $UW("#navbar-menu-button").on("click", () => {
-                uwNavBar.toggleClass("vertical-menu-showing");
+                uwNavBar.toggleClass(menuToggleClass);
             });
         };
 
@@ -30,10 +31,12 @@ const NavBar = {
 
                 if (wasSlim && !nowSlim) {
                     uwNavBar.removeClass("top-nav-slim");
+                    uwNavBar.removeClass(menuToggleClass);
                 } else if (!wasSlim && nowSlim) {
                     uwNavBar.addClass("top-nav-slim");
                 }
                 NavBar.scrollY = scrollYNow;
+                document.documentElement.setAttribute("data-scrollY", `${scrollYNow}px`);
             };
             uwWindow.on("scroll", handleWindowScroll).callLastOn();
         };
@@ -47,12 +50,27 @@ const NavBar = {
                     document.documentElement.style.setProperty("--uw-top-nav-height", `${heightNow}px`);
                 }
                 NavBar.topNavHeight = heightNow;
+                document.documentElement.setAttribute("data-topNavHeight", `${heightNow}px`);
             };
             uwWindow.on("resize", updateNavHeight);
             uwNavBar.on("transitionend", updateNavHeight).callLastOn();
         };
 
+        const initMatchMedia = function() {
+            $UW.log("NavBar.initMatchMedia");
+            const handleMediaChange = function(eventOrMedia) {
+                if (!eventOrMedia.matches) {
+                    // screen is wider than 800px
+                    uwNavBar.removeClass(menuToggleClass);
+                }
+            };
+            const mediaQuery = window.matchMedia("(max-width: 800px)"); // needs to match the CSS media query
+            mediaQuery.addEventListener("change", handleMediaChange);
+            handleMediaChange(mediaQuery);
+        };
+
         initNavMenuToggle();
+        initMatchMedia();
         initWindowScroll();
         initDynamicNavHeight();
     }
