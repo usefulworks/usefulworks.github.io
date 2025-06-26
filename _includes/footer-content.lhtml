@@ -34,12 +34,13 @@
   </li>
 </ul>
 <nav aria-label="footer navigation">
-  <a href="{{ site.uw.loc.href.services }}" role="link">Services</a>
-  <a href="{{ site.uw.loc.href.about }}" role="link">About Us</a>
-  <a href="{{ site.uw.loc.href.blog }}" role="link" class="feature-blog">Blog</a>
-  <a href="{{ site.uw.loc.href.contact }}" role="link">Contact</a>
-  <a href="{{ site.uw.loc.href.legal.privacy }}" role="link">Privacy Policy</a>
-  <a href="{{ site.uw.loc.href.legal.t-and-c }}" role="link">Terms &amp; Conditions</a>
+  <a href="/" role="link">home</a>
+  <a href="{{ site.uw.loc.href.services }}" role="link">services</a>
+  <a href="{{ site.uw.loc.href.about }}" role="link">about</a>
+  <a href="{{ site.uw.loc.href.blog }}" role="link" class="feature-blog">blog</a>
+  <a href="{{ site.uw.loc.href.contact }}" role="link">contact</a>
+  <a href="{{ site.uw.loc.href.legal.privacy }}" role="link">privacy policy</a>
+  <a href="{{ site.uw.loc.href.legal.t-and-c }}" role="link">terms &amp; conditions</a>
 </nav>
 <div class="legal">
   <p>
