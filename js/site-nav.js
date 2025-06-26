@@ -18,6 +18,25 @@ const NavBar = {
             });
         };
 
+        const initNavMenuCurrentPage = function() {
+            $UW.log("NavBar.initNavMenuCurrentPage");
+            const normalise = function(str) {
+                let s = (str + "");
+                return s.replace(/[\/]?(?:index\.html)?$/g, "");
+            };
+            const loc = window.location.pathname.slice(1);
+            $UW.log(`NavBar.setCurrentPageLink to ${loc}`);
+            const links = $UW("nav.top-nav a[href]");
+            for(let i = 0; i < links.length; i++) {
+                let link = links[i];
+                const href = link.getAttribute("href");
+                if (href.endsWith(loc)) {
+                    $UW.log(`got one ${loc} ~ ${href}`);
+                    link.classList.add("current");
+                }
+            };
+        };
+
         const initWindowScroll = function() {
             $UW.log("NavBar.initWindowScroll");
             const isSlim = slim => (slim > 50);
@@ -68,6 +87,7 @@ const NavBar = {
         };
 
         initNavMenuToggle();
+        initNavMenuCurrentPage();
         initMatchMedia();
         initWindowScroll();
         initDynamicNavHeight();
