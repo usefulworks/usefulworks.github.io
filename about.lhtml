@@ -10,14 +10,15 @@ permalink: about.html
             UsefulWorks helps businesses expand smoothly using our real-world experience to
             anticipate and mitigate the inevitable growing pains.</p>
         <h2>Our Story</h2>
-        <p>We started UsefulWorks because we&apos;ve been where you are. As entrepreneurs and
+        <p class="strong">We started UsefulWorks because we&apos;ve been where you are.</p>
+        <p>As entrepreneurs and
            business leaders, we&apos;ve lived through the excitement &hyphen; and terror &hyphen; of
            rapid growth. We&apos;ve watched established systems buckle under pressure, scrambled to
            fix problems we should have anticipated, and had those late-night conversations about
            whether we were truly ready for the next level. We&apos;ve felt the panic when customer service
            couldn&apos;t handle the influx, wrestled with cash flow when growth demanded investment before
            revenue caught up, and worried about maintaining our culture while scaling fast.</p>
-        <p>Here&apos;s what we learned: those growing pains don&apos;t have to disrupt your
+        <p><strong>Here&apos;s what we learned:</strong> those growing pains don&apos;t have to disrupt your
            momentum. Most businesses tackle growth challenges reactively, but we discovered
            that anticipating and preparing for these inevitable hurdles makes all the difference.
            That&apos;s why we created UsefulWorks &hyphen; to help other businesses grow with
@@ -31,7 +32,7 @@ permalink: about.html
            I have more than 15 years&apos; experience building and managing global operations, from
            start-up to scale, learning lessons whilst helping companies tame the chaos of rapid
            growth.</p>
-        <p>I've been employee #6 at a VC-backed start-up that grew to 160+ people across 23
+        <p>I&apos;ve been employee #6 at a VC-backed start-up that grew to 160+ people across 23
            countries with over $10m in annual revenue. I&apos;ve served as Chief of Staff and VP
            Operations working directly with CEOs and leadership teams, led M&amp;A deals worth
            millions, supported funding rounds raising over $65m, implemented systems for global
@@ -46,7 +47,7 @@ permalink: about.html
            world, hard&hyphen;won experience building resilient operational backbones that allow
            companies to scale fast without breaking.</p>
         <p class="strong">I&apos;ve learned that behind every operational challenge is a team of real people
-           trying to build something meaningful &hyphen; and that&apos;s who USefulWorks is here to
+           trying to build something meaningful &hyphen; and that&apos;s who UsefulWorks is here to
            support.</p>
     </div>
 </section>
