@@ -41,10 +41,10 @@ permalink: about.html
         <p>I&apos;ve seen things you people wouldn&apos;t believe. Attack ships on fire off the
            shoulder of Orion. I watched <a href="https://en.wikipedia.org/wiki/Tears_in_rain_monologue">
            C-beams</a> glitter in the dark near the Tannhäuser Gate.</p>
-        <p>Each experience has taught me something valuable about what works, what doesn&apos;t,
-           and how to prepare for (and deal with!) the unexpected. And also that the original
-           <a href="https://en.wikipedia.org/wiki/Blade_Runner">Bladerunner</a> movie is an excellent
-           film.</p>
+        <p>Each experience has taught me something valuable about what <span class="uw-brand-text-subtle">works</span>,
+           what doesn&apos;t, and how to prepare for (and deal with!) the unexpected. And also
+           that the original <a href="https://en.wikipedia.org/wiki/Blade_Runner">Bladerunner</a> movie
+           is an excellent film.</p>
         <p>I cut my business teeth as an Associate with McKinsey. Despite learning a ton, I
            turned my back on the world of Big Consultancy to focus on practical solutions: identifying
            what people actually want and delivering <strong>useful</strong> solutions that
@@ -60,25 +60,27 @@ permalink: about.html
 <section class="values content">
     <div class="container">
         <h2>Our Values</h2>
-        <p>At UsefulWorks, we&apos;re driven by a core belief that great work should be genuinely <strong>useful</strong>
-           &hyphen; not overcomplicated, not theoretical, but actionable and practical support that actually
-           <strong>works</strong>. Our values keep us grounded in that mission.</p>
+        <p>At UsefulWorks, we are driven by a core belief that great work should be genuinely
+           <span class="uw-brand-text-subtle">useful</span>; not overcomplicated, not theoretical,
+           but advice and action that actually <span class="uw-brand-text-subtle">works</span>.
+           Our values keep us grounded in that mission.</p>
         <ul>
             <li>
                 <h3>People First</h3>
-                <p>Strong businesses are built on strong relationships. We show up as real people, not corporate
-                   buzzwords &hyphen; because when trust and empathy come first, everything else <strong>works</strong> better.</p>
+                <p>Strong businesses are built on strong relationships. We are real people, with
+                   valuable opinions; we are not suits carrying a folder of corporate buzzwords.</p>
             </li>
             <li>
                 <h3>Clarity Over Complexity</h3>
-                <p>We strip out the noise to deliver clear, actionable insight. No fluff, no jargon — just sharp
-                   thinking that&apos;s easy to use and built to be <strong>useful</strong> from day one.</p>
+                <p>No fluff, no jargon, no noise. We are practical people who deliver clear,
+                   actionable insight. Impact from Day One.</p>
             </li>
             <li>
                 <h3>Experience That Works</h3>
-                <p>We&apos;ve done the hard yards. Our advice comes from lived experience, not textbooks. We know
-                   what <strong>works</strong> &hyphen; and just as importantly, what doesn&apos;t &hyphen; so we can help
-                   you get to the <strong>useful</strong> stuff, faster.</p>
+                <p>Straight to the point, because we&apos;ve done the hard yards. Our advice comes from real graft, not textbooks. We know
+                   what <span class="uw-brand-text-subtle">works</span> &hyphen; and just as importantly, what
+                   doesn&apos;t &hyphen; so we can help you get to the <span class="uw-brand-text-subtle">useful</span>
+                   stuff, faster.</p>
             </li>
         </ul>
     </div>

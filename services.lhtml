@@ -6,8 +6,8 @@ title: Services
 <section class="services content">
     <div class="container">
         <h2>Our Services</h2>
-        <p class="strong">At UsefulWorks, we believe growing your business should be fast, frictionless and
-            focused on what really matters.</p>
+        <p class="strong midpointalign">Growing your business should be fast, frictionless and
+            focused on what really matters</p>
         <p>That&apos;s why we&apos;ve built our services around three core pillars designed to meet you
             whereever you are in your growth journey - and help you get to where you want to go.</p>
         <div class="grid grid5x4" style="--h22:'What is it?';--h33:'Focus';--h44:'Exam&shy;ple activ&shy;ities';--h55:'Busi&shy;ness value'">
@@ -47,19 +47,19 @@ title: Services
             <div class="gi b35">Scalable, efficient, tech-enabled oper&shy;ations</div>
         </div>
         <h3>Big results without big consulting</h3>
-        <p>
-            At UsefulWorks, we consider ourselves to be startup smart and enterprise strong. Our
-            aim is to provide practical solutions for real problems that deliver real results.
-            With us, there’s no big-consulting fluff; just <strong>useful</strong> stuff that
-            <strong>works</strong> for <strong>you</strong>.
+        <p> UsefulWorks is startup smart and enterprise strong. We provide practical solutions for real
+            problems that deliver real results.
+            With us, there&apos;s no big-consulting fluff; just <span class="uw-brand-text-subtle">useful</span>
+            stuff that <span class="uw-brand-text-subtle">works</span> for <strong>you</strong>.
         </p>
         <h3 id="opssprint" class="uw-brand-text">ops/Sprint</h3>
         <p class="strong midpointalign">Targeted projects to solve your toughest operational challenges</p>
-        <p>Sometimes you just need a quick win. ops/Sprint is all about delivering fast, frictionless and
-           focused solutions that tackle your specific operational pain points. Whether it&apos;s redesigning
-           workflows, managing a critical project, or helping your team navigate change, we bring the
-           expertise and drive to get things done &hyphen; on time and on budget. No fluff, just useful stuff
-           that works.</p>
+        <p>Sometimes you just need a quick win. <span class="uw-brand-text-subtle">ops/Sprint</span> is all
+           about delivering fast, frictionless and focused solutions that tackle your operational
+           pain points. Whether it&apos;s re-imagining workflows, managing critical projects, or helping
+           your team navigate change, we bring the experience and drive to get things done &hyphen; on time
+           and on budget. No fluff, just <span class="uw-brand-text-subtle">useful</span> stuff that
+           <span class="uw-brand-text-subtle">works</span>.</p>
         <p><strong>Perfect for:</strong> Businesses facing specific operational bottlenecks that need
            immediate resolution.
         </p>
