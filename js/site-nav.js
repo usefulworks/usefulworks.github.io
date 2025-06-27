@@ -27,15 +27,19 @@ const NavBar = {
              *   /g global match needed for this to work
              */
             const normalise = s => s.replace(/^(?:\/(?:index\.html)?|index\.html)$|^\//g, "");
+            const decorateLinks = function (cssQueryString) {
+                const links = document.querySelectorAll(cssQueryString);
+                links.forEach(function (link) {
+                    const href = normalise(link.getAttribute("href"));
+                    if (href === loc) {
+                        $UW.log(`NavBar.setCurrentPage: got one '${loc}' ~> '${href}'`);
+                        link.classList.add("current");
+                    }
+                });
+            };
             const loc = normalise(window.location.pathname);
-            const links = document.querySelectorAll("nav.top-nav li.navbar-link a[href]");
-            links.forEach(function (link) {
-                const href = normalise(link.getAttribute("href"));
-                if (href === loc) {
-                    $UW.log(`NavBar.setCurrentPage: got one '${loc}' ~> '${href}'`);
-                    link.classList.add("current");
-                }
-            });
+            decorateLinks("nav.top-nav li.navbar-link a[href]");
+            decorateLinks("footer > nav > a[href]");
         };
 
         const initWindowScroll = function() {

@@ -198,7 +198,7 @@ a, a[role=link] {
     text-decoration-style: dotted;
 }
 
-:is(nav li a).current {
+:is(nav a).current {
     font-weight: bold;
 }
 
