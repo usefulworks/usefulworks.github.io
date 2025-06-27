@@ -1,0 +1,5 @@
+---
+layout: header-main-footer-template
+---
+{%- include vars.lhtml -%}
+{{ content }}
