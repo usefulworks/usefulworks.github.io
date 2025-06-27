@@ -6,11 +6,13 @@ permalink: about.html
 <section class="about content">
     <div class="container">
         <h2>About Us</h2>
-        <p class="strong">Thinking about scaling up? We know change can be scary but it doesn&apos;t have to be.
-           <span class="uw-brand-text-subtle">UsefulWorks</span> helps businesses expand smoothly
-           using our real-world experience to anticipate and mitigate the inevitable growing pains.</p>
+        <p class="strong">Thinking about scaling up? We know change can be scary but it doesn&apos;t
+           have to be. <span class="uw-brand-text-subtle">UsefulWorks</span> helps businesses grow
+           smoothly using our real-world experience to anticipate and mitigate the inevitable growing
+           pains.</p>
         <h2>Our Story</h2>
-        <p class="strong midpointalign">We started UsefulWorks because we&apos;ve been where you are.</p>
+        <p class="strong midpointalign">We started <span class="uw-brand-text-subtle">UsefulWorks</span>
+           because we&apos;ve been where you are.</p>
         <p>As entrepreneurs and
            business leaders, we&apos;ve lived through the excitement &hyphen; and terror &hyphen; of
            rapid growth. We&apos;ve watched established systems buckle under pressure, scrambled to
@@ -21,9 +23,9 @@ permalink: about.html
         <p><strong>Here&apos;s what we learned:</strong> those growing pains don&apos;t have to disrupt your
            momentum. Most businesses tackle growth challenges reactively, but we discovered
            that anticipating and preparing for these inevitable hurdles makes all the difference.
-           That&apos;s why we created UsefulWorks &hyphen; to help other businesses grow with
-           confidence instead of anxiety, using the hard-won experience we gained from navigating
-           our own scaling journeys.</p>
+           That&apos;s why we created <span class="uw-brand-text-subtle">UsefulWorks</span>: to help other
+           businesses grow with confidence instead of anxiety, using the hard-won experience we gained
+           from navigating our own scaling journeys.</p>
         <strong>We&apos;re not consultants with textbook theories; we&apos;re partners who&apos;ve been
            in your shoes and want to help you walk the path more smoothly.</strong>
         <h2>Meet the Founder</h2>
@@ -49,12 +51,12 @@ permalink: about.html
            turned my back on the world of Big Consultancy to focus on practical solutions: identifying
            what people actually want and delivering <strong>useful</strong> solutions that
            <strong>work</strong>.</p>
-        <p>I founded <span class="uw-brand-text-subtle">UsefulWorks</span> to share my real&hyphen;
-           world, hard&hyphen;won experience building resilient operational backbones that allow
-           companies to scale fast without breaking.</p>
+        <p>I founded <span class="uw-brand-text-subtle">UsefulWorks</span> to share my real&hyphen;world,
+           hard&hyphen;won experience building resilient operational backbones that allow companies to
+           scale fast without breaking.</p>
         <p class="strong">I&apos;ve learned that behind every operational challenge is a team of real people
-           trying to build something meaningful &hyphen; and that&apos;s who UsefulWorks is here to
-           support.</p>
+           trying to build something meaningful &hyphen; and that&apos;s who <span class="uw-brand-text-subtle">UsefulWorks</span>
+           is here to support.</p>
     </div>
 </section>
 <section class="values content">
@@ -77,10 +79,8 @@ permalink: about.html
             </li>
             <li>
                 <h3>Experience That Works</h3>
-                <p>Straight to the point. We&apos;ve done the hard yards: our counsel comes from
-                   real graft, not textbooks. Because know what <span class="uw-brand-text-subtle">works</span> &hyphen; and,
-                   what doesn&apos;t &hyphen; we will get you to the <span class="uw-brand-text-subtle">useful</span>
-                   stuff, faster.</p>
+                <p>Straight to the point because we&apos;ve done the hard yards. Our counsel comes from
+                   real graft and real experience, not parroted from textbooks. </p>
             </li>
         </ul>
     </div>
