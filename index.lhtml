@@ -33,8 +33,8 @@ title: Home
            the best way to spend your new money.</p>
         <p>What you need is guidance to eliminate &hyphen; or avoid &hyphen; growing pains.
            UsefulWorks offers business consultancy services on how to make the next step count.
-           You don&apos;t need theories, philosophies, or hints and tips. You need real&hyphen;
-           world insight, practical advice and help with useful action.</p>
+           You don&apos;t need theories, philosophies, or hints and tips. You need real&hyphen;world
+           insight, practical advice and help with useful action.</p>
         <div class="cta-button-container">{% include cta-button.lhtml text="Set up a half an hour call" %}</div>
     </div>
     <hr>

@@ -76,18 +76,18 @@ title: Services
         </p>
         <div class="cta-button-container">{% include cta-button.lhtml %}</div>
         <h3 id="opsflow" class="uw-brand-text">ops/Flow</h3>
-        <p class="strong midpointalilgn">Ditch the spreadsheets. Embrace powerful,
+        <p class="strong midpointalign">Ditch the spreadsheets. Embrace powerful,
            automated workflows</p>
         <p>Say goodbye to spreadsheet overload and hello to smart automation. Our
            <span class="uw-brand-text-subtle">ops/Flow</span> platform provides
-           custom workflow automation solutions built around Airtable, specifically for growing businesses. W
+           custom workflow automation solutions built around Airtable, specifically for growing businesses. We
            design, configure and implement custom digital workflows that centralise your data, automate repetitive
            tasks, and keep your team perfectly aligned.</p>
-        <p>What makes UsefulWorks ops/Flow different:</p>
+        <p>What makes UsefulWorks <span class="uw-brand-text-subtle">ops/Flow</span> different:</p>
         <ul>
             <li>Custom&hyphen;configured for your business: Not another generic tool but a solution tailored to your
                 specific processes</li>
-            <li>Rapid deployment: From chaos to clarity in 4&hyphen;8 weeks, not months</li>
+            <li>Rapid deployment: From chaos to clarity in weeks, not months</li>
             <li>Team adoption guarantee: We ensure your team actually uses and loves the new system</li>
             <li>Scalable platform: Grows with your business from startup to enterprise</li>
         </ul>
@@ -129,10 +129,10 @@ title: Services
             <div class="gi b34">Full platform build, training, support</div>
         </div>
         <h2>Are you ready to transform your operations?</h2>
-        <p class="strong">If you want to learn how UsefulWorks can help your business run better then get in touch!</p>
+        <p class="strong midpointalign">If you want to learn how UsefulWorks can help your business run better then get in touch!</p>
         <p>We&apos;ll analyse your current operations, work with you to identify the major pain points, and show
             you exactly how to eliminate them. No sales pitch, just actionable insights you
-            can implement immediately.</p>
+            can implement immediately for instant impact.</p>
         <p>Most introductory calls result in at least one quick win that you can implement straight away!</p>
         <div class="cta-button-container">{% include cta-button.lhtml %}</div>
         <h3>Real results from day one</h3>
