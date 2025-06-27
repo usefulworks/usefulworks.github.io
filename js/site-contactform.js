@@ -17,6 +17,8 @@
 
     // ui things
     const CAL_BUTTON = "a#cal-btn";
+    const PRE_VER_MSG = "p#pre-verify-message";
+    const POST_VER_MSG = "p#post-verify-message";
     const INITIAL = "div#initial-state";
     const RESULTS = "div#results-state";
     const SHOWING = "showing";
@@ -107,11 +109,27 @@
             $UW.log(ratchet);
             $UW.log(uwf);
 
+            const setVerifyMessage = function(unverified) {
+                const h = "hidden";
+                const elements = [$UW(PRE_VER_MSG)[0], $UW(POST_VER_MSG)[0]];
+                const [hide, show] = unverified ? [0,1] : [1,0];
+                elements[show].removeAttribute(h);
+                elements[hide].setAttribute(h, h);
+            };
+
             const setButtonsState = function(enabled) {
-                uwf.submitButtonEnabled = enabled;
-                enabled ? $UW(CAL_BUTTON)[0].removeAttribute("disabled")
-                        : $UW(CAL_BUTTON)[0].setAttribute("disabled", "disabled");
-            }
+                const d = "disabled";
+                const enabler = (e) => e.removeAttribute(d);
+                const disabler = (e) => e.setAttribute(d, d);
+                const abler = enabled ? enabler : disabler;
+                abler($UW(CAL_BUTTON)[0]);         // calendar
+                uwf.submitButtonEnabled = enabled; // form
+            };
+
+            const setUIState = function(goodToGo) {
+                setButtonsState(goodToGo);
+                setVerifyMessage(goodToGo);
+            };
 
             // debug
             if ($environment && $environment !== "production") {
@@ -128,7 +146,7 @@
             setView({ initialstate: true });
 
             // disable action buttons until Turnstile verification completes
-            setButtonsState(false);
+            setUIState(false);
 
             // listen for form submit event
             uwf.addBeforeSubmitEventListener(function(e) {
@@ -182,14 +200,14 @@
             ratchet.addValidatedEventListener(e => {
                 // check data for success/failure
                 if (e.detail.success) {
-                    // enable the submit button on a form
-                    setButtonsState(true);
+                    // enable the UI
+                    setUIState(true);
                 }
             });
             // called when the token expires
             ratchet.addWidgetExpiredEventListener(e => {
-                // disable the submit button on a form
-                setButtonsState(false);
+                // disable the UI
+                setUIState(false);
             });
         }
     };

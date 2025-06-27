@@ -530,9 +530,12 @@ section.values {
 
 /* BEGIN contact */
 section.contact {
+    h3 > p:last-of-type {
+        margin-bottom: var(--pico-block-spacing-vertical);
+    }
     .action-button {
         display: block;
-        width: 300px;
+        width: 40%;
         margin-bottom: calc(2 * var(--pico-block-spacing-vertical));
     }
     div#initial-state {
@@ -560,7 +563,6 @@ section.contact {
         height: auto;
         padding-top: 10px;
         padding-bottom: 10px;
-        margin-bottom: var(--pico-block-spacing-vertical);
     }
     div#results-state, div.debug {
         display: none;

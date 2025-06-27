@@ -38,28 +38,33 @@ form-mode: 0
 <section class="contact content">
     <div id="initial-state" class="container">
         <h2>Contact</h2>
-        <p class="strong">Do you have a question or want to schedule a free evaluation? Get in touch!</p>
-        <p>We&apos;ve come to understand the best first step in a successful journey is to hold a
-           short, virtual meeting to get introduced, dicuss your needs and gather some basic requirements.</p>
-        <hr>
+        <p class="strong midpointalign">We&apos;re looking forward to talking to you!</p>
+        <p>The best first step in a successful partnership journey is to get introduced and start a
+           discussion.</p>
+        <p>Let's set up a short, virtual meeting to get started. Either book a short virtual meet
+           using our calendar or send us a note and we'll be in touch.</p>
+        <p id="pre-verify-message">First, Cloudflare needs to verify that you are human. You may
+           need to complete an action below.</p>
+        <p id="post-verify-message">Congratulations! Cloudflare has verified that you are human.</p>
+        <!-- captcha -->
+        <div id="ts-widget" class="captcha-container container"></div>
         <h3>Schedule a meeting</h3>
+        <p class="midpointalign">Set up a short call using the link in this button, which links to our calendar via Calendly.</p>
         <a id="cal-btn" href="https://calendly.com/usefulworks/30min" role="button" class="action-button">
             <svg class="svg24d"><use href="#svg-calendar-icon" /></svg>
             <span>Book now</span>
         </a>
-        <h3>Send us a message</h3>
+        <h3>Send us a note</h3>
+        <p class="midpointalign">If you&apos;d rather just send us a brief message, please
+           complete this form, click the send button below, and we&apos;ll take it from there.</p>
         <form name="contact-usefulworks" action="{{ action }}" method="POST" data-mode="{{ page.form-mode }}">
-            <!-- captcha -->
-            <div id="ts-widget" class="captcha-container"></div>
-
-            <p>If you&apos;d rather just send us a brief message, please complete this form and we&apos;ll take it from there.</p>
             <!-- access key -->
             <input type="hidden" name="access_key" value="{{ page.web3forms-access-key }}">
             <!-- inputs -->
             <input type="text" name="person_name" placeholder="Your name" autocomplete="off" {% if req %}required{% endif %}>
             <input type="email" name="email" placeholder="Your email" autocomplete="off" {% if req %}required{% endif %}>
             <!-- message -->
-            <textarea name="message" placeholder="ama" rows="7" autocomplete="on"{% if req %} required{% endif %}></textarea>
+            <textarea name="message" placeholder="ama" rows="10" autocomplete="on"{% if req %} required{% endif %}></textarea>
             <!-- hidden data -->
             <div class="hidden">
                 <input type="hidden" name="subject" value="UsefulWorks Contact Form">
