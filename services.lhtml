@@ -47,10 +47,10 @@ title: Services
             <div class="gi b35">Scalable, efficient, tech-enabled oper&shy;ations</div>
         </div>
         <h3>Big results without big consulting</h3>
-        <p> UsefulWorks is startup smart and enterprise strong. We provide practical solutions for real
-            problems that deliver real results.
-            With us, there&apos;s no big-consulting fluff; just <span class="uw-brand-text-subtle">useful</span>
-            stuff that <span class="uw-brand-text-subtle">works</span> for <strong>you</strong>.
+        <p><span class="uw-brand-text-subtle">UsefulWorks</span> is startup smart and enterprise strong. We
+            provide practical solutions for real problems that deliver real results.
+            With us, there&apos;s no big-consulting fluff &hyphen; just <span class="uw-brand-text-subtle">useful</span>
+            stuff that <span class="uw-brand-text-subtle">works</span>.
         </p>
         <h3 id="opssprint" class="uw-brand-text">ops/Sprint</h3>
         <p class="strong midpointalign">Targeted projects to solve your toughest operational challenges</p>
@@ -66,19 +66,20 @@ title: Services
         <div class="cta-button-container">{% include cta-button.lhtml %}</div>
         <h3 id="opsgrowth" class="uw-brand-text">ops/Growth</h3>
         <p class="strong midpointalign">Your part-time operational leader for sustainable, scalable growth</p>
-        <p>Not ready to hire a full&hyphen;time COO? No problem! Our ops/Growth service gives you expert
-           operational leadership on a flexible, part&hyphen;time basis. We step in as your trusted
-           partner to streamline processes, manage change, align your team and keep your business running
-           smoothly &hyphen; scaling our involvement as needed and as you grow.</p>
+        <p>Not ready to hire a full&hyphen;time COO? No problem! Our <span class="uw-brand-text-subtle">ops/Growth</span>
+           plan provides expert operational leadership on a flexible, part&hyphen;time basis. We join your team
+           as your trusted partner to streamline processes, manage change, align your goals and keep your
+           business running smoothly &hyphen; scaling our involvement as needed and as you grow.</p>
         <p>Think of us as your behind&hyphen;the&hyphen;scenes growth engine, so you can focus on the big picture.</p>
         <p><strong>Perfect for:</strong> Growing businesses (10&hyphen;150+ employees) needing strategic operational
            guidance without C&hyphen;suite overhead costs.
         </p>
         <div class="cta-button-container">{% include cta-button.lhtml %}</div>
         <h3 id="opsflow" class="uw-brand-text">ops/Flow</h3>
-        <p class="strong midpointalilgn">Transform chaos into clarity &hyphen; ditch the spreadsheets for powerful,
+        <p class="strong midpointalilgn">Ditch the spreadsheets. Embrace powerful,
            automated workflows</p>
-        <p>Say goodbye to spreadsheet overload and hello to smart automation. Our ops/Flow platform provides
+        <p>Say goodbye to spreadsheet overload and hello to smart automation. Our
+           <span class="uw-brand-text-subtle">ops/Flow</span> platform provides
            custom workflow automation solutions built around Airtable, specifically for growing businesses. W
            design, configure and implement custom digital workflows that centralise your data, automate repetitive
            tasks, and keep your team perfectly aligned.</p>
