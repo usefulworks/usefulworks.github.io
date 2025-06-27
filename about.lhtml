@@ -27,24 +27,29 @@ permalink: about.html
         <strong>We&apos;re not consultants with textbook theories; we&apos;re partners who&apos;ve been
            in your shoes and want to help you walk the path more smoothly.</strong>
         <h2>Meet the Founder</h2>
-        <p>Hi, I&apos;m Jim Apperly and I&apos;m a veteran business scale-up specialist. Over the
-           years, I&apos;ve been a neuroscientist, a management consultant and tech entrepreneur.
-           I have more than 15 years&apos; experience building and managing global operations, from
-           start-up to scale, learning lessons whilst helping companies tame the chaos of rapid
-           growth.</p>
+        <p class="strong midpointalign">Hi, I&apos;m Jim, the Founder of UsefulWorks 👋</p>
+        <p>I&apos;m a start-up veteran and no-nonsense enterprise builder. Over the years,
+           I&apos;ve been a neuroscientist, a management consultant, a gardener, a Chief of
+           Staff, and a tech entrepreneur. I have more than 15 years experience planning,
+           building, and managing key operations &hyphen; small and big &hyphen; from the inception
+           of a business, through growth challenges, to success and to global scale.</p>
         <p>I&apos;ve been employee #6 at a VC-backed start-up that grew to 160+ people across 23
            countries with over $10m in annual revenue. I&apos;ve served as Chief of Staff and VP
            Operations working directly with CEOs and leadership teams, led M&amp;A deals worth
            millions, supported funding rounds raising over $65m, implemented systems for global
-           payroll and negotiated complex contracts. And yes &hyphen; I&apos;ve also had to turn
-           out the lights when things didn&apos;t go according to plan. Each experience has taught
-           me something valuable about what works, what doesn&apos;t, and how to prepare for
-           (and deal with!) the unexpected.</p>
+           payroll and negotiated complex contracts.</p>
+        <p>I&apos;ve seen things you people wouldn&apos;t believe. Attack ships on fire off the
+           shoulder of Orion. I watched <a href="https://en.wikipedia.org/wiki/Tears_in_rain_monologue">
+           C-beams</a> glitter in the dark near the Tannhäuser Gate.</p>
+        <p>Each experience has taught me something valuable about what works, what doesn&apos;t,
+           and how to prepare for (and deal with!) the unexpected. And also that the original
+           <a href="https://en.wikipedia.org/wiki/Blade_Runner">Bladerunner</a> movie is an excellent
+           film.</p>
         <p>I cut my business teeth as an Associate with McKinsey. Despite learning a ton, I
            turned my back on the world of Big Consultancy to focus on practical solutions: identifying
            what people actually want and delivering <strong>useful</strong> solutions that
            <strong>work</strong>.</p>
-        <p>I founded UsefulWorks to share my real&hyphen;
+        <p>I founded <span class="uw-brand-text-subtle">UsefulWorks</span> to share my real&hyphen;
            world, hard&hyphen;won experience building resilient operational backbones that allow
            companies to scale fast without breaking.</p>
         <p class="strong">I&apos;ve learned that behind every operational challenge is a team of real people
