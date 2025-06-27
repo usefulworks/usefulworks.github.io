@@ -135,7 +135,7 @@ title: Services
         <p>Most introductory calls result in at least one quick win that you can implement straight away!</p>
         <div class="cta-button-container">{% include cta-button.lhtml %}</div>
         <h3>Real results from day one</h3>
-        <p class="strong midpointalign">We have created a best-practice operations checklist that you can use to perform a rapid
+        <p class="strong midpointalign narrower">We have created a best-practice operations checklist that you can use to perform a rapid
             review of your business. It&apos;s free to download here.</p>
         <div class="cta-button-container">
         {%- include cta-button.lhtml href="https://drive.google.com/file/d/1JO0fq_ki-y_UCF3T6uMoUAvWqfUklL45/view?usp=sharing"

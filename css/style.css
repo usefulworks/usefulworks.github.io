@@ -180,6 +180,10 @@ body {
     width: 100%;
     overflow-x: hidden;
     font-family: var(--uw-font-family-san-serif);
+    header, footer { /* add a little contrast */
+        color: var(--pico-muted-color);
+        background-color: var(--pico-muted-border-color);
+    }
     header {
         padding: var(--pico-nav-element-spacing-vertical) var(--pico-nav-element-spacing-horizontal);
     }
@@ -205,11 +209,6 @@ ul li, li {
 :is(p, span).strong {
     /* match pico b, strong */
     font-weight: bolder;
-}
-
-nav, footer { /* add a little contrast */
-    color: var(--pico-muted-color);
-    background-color: var(--pico-muted-border-color);
 }
 
 [hidden] {
@@ -271,6 +270,9 @@ button.menu-button[role="button"] {
     text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
     vertical-align: middle;
 }
+.uw-brand-text-subtle {
+    font-weight: bolder;
+}
 svg.uw-gear-logo {
     display: inline-block;
     color: var(--uw-logo-color);
@@ -278,11 +280,12 @@ svg.uw-gear-logo {
     margin-left: 0.2rem;
     margin-right: 0.4rem;
 }
-
+:is(p, span).dropshadow {
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+}
 /* END top-level and generic styling */
 
 /* BEGIN header */
-
 body > header { /* b > h specificity to override pico (header by itself is not sufficient) */
     padding: 0;
     width: 100%;
@@ -457,6 +460,11 @@ section {
         text-decoration-color: var(--pico-muted-color);
         text-decoration-style: dotted;
     }
+    .narrower {
+        margin: 0 auto;
+        width: 80%;
+    }
+
     &.content {
         background-color: var(--pico-muted-border-color);
         opacity: 0.85;
@@ -487,10 +495,6 @@ section.hero {
 
     padding: 0;
     position: relative;
-    .narrower {
-        margin: 0 auto;
-        width: 80%;
-    }
     width: clamp(360px, 70vw, var(--uw-hero-width));
     margin: 0 auto;
     min-height: calc(100vh - var(--uw-top-nav-height)); /* fill up the viewport minus height of main::before */
@@ -599,6 +603,9 @@ section.services {
     }
     p:first-of-type {
         font-size: larger;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-size: calc(var(--pico-font-size) * 1.4);
     }
     div.grid {
         display: grid;
