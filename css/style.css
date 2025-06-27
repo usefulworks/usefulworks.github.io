@@ -331,6 +331,8 @@ header > nav.top-nav { /* flex (from pico) */
     }
     .navbar-toggler {
         display: none;
+        padding-left: var(--pico-nav-element-spacing-horizontal);
+        padding-right: var(--pico-nav-element-spacing-horizontal);
     }
     .navbar-brand {
         a {
@@ -522,14 +524,12 @@ section.hero {
 /* BEGIN about */
 section.about {
 }
-
 /* END about */
 
 /* BEGIN values */
 section.values {
     ul { padding: 0 }
 }
-
 /* END values */
 
 /* BEGIN contact */
@@ -621,7 +621,7 @@ section.services {
         margin-bottom: var(--pico-typography-spacing-vertical);
         & > :is(div.gh, div.ghi) {
             font-weight: bold;
-            &.grid5x4 {
+            .uw-brand-text {
                 font-size: larger;
             }
         }
@@ -675,23 +675,22 @@ section.services {
     }
     @media only screen and (max-width: 767px) {
         div.grid {
-            font-size: smaller;
             grid-template-columns: repeat(4, 1fr);
             &.grid5x4 {
-            grid-template-areas:
-                "... b11 b21 b31"
-                "h22 b12 b22 b32"
-                "h33 b13 b23 b33"
-                "h44 b14 b24 b34"
-                "h55 b15 b25 b35";
-            }
+                grid-template-areas:
+                    "... b11 b21 b31"
+                    "h22 b12 b22 b32"
+                    "h33 b13 b23 b33"
+                    "h44 b14 b24 b34"
+                    "h55 b15 b25 b35";
+                }
             &.grid4x4 {
-            grid-template-areas:
-                "... b11 b21 b31"
-                "h22 b12 b22 b32"
-                "h33 b13 b23 b33"
-                "h44 b14 b24 b34";
-            }
+                grid-template-areas:
+                    "... b11 b21 b31"
+                    "h22 b12 b22 b32"
+                    "h33 b13 b23 b33"
+                    "h44 b14 b24 b34";
+                }
         }
     }
     @media only screen and (max-width: 399px) {

@@ -96,6 +96,6 @@ form-mode: 0
             </div>{% endif %}
         </div>
     </div>
-    <!-- form-submit results -->e
+    <!-- form-submit results -->
     <div id="results-state" class="container"></div>
 </section>
