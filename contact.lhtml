@@ -48,50 +48,54 @@ form-mode: 0
         <p id="post-verify-message">Congratulations! Cloudflare has verified that you are human.</p>
         <!-- captcha -->
         <div id="ts-widget" class="captcha-container container"></div>
-        <h3>Schedule a meeting</h3>
-        <p class="midpointalign">Set up a short call using the link in this button, which links to our calendar via Calendly.</p>
-        <a id="cal-btn" href="https://calendly.com/usefulworks/30min" role="button" class="action-button">
-            <svg class="svg24d"><use href="#svg-calendar-icon" /></svg>
-            <span>Book now</span>
-        </a>
-        <h3>Send us a note</h3>
-        <p class="midpointalign">If you&apos;d rather just send us a brief message, please
-           complete this form, click the send button below, and we&apos;ll take it from there.</p>
-        <form name="contact-usefulworks" action="{{ action }}" method="POST" data-mode="{{ page.form-mode }}">
-            <!-- access key -->
-            <input type="hidden" name="access_key" value="{{ page.web3forms-access-key }}">
-            <!-- inputs -->
-            <input type="text" name="person_name" placeholder="Your name" autocomplete="off" {% if req %}required{% endif %}>
-            <input type="email" name="email" placeholder="Your email" autocomplete="off" {% if req %}required{% endif %}>
-            <!-- message -->
-            <textarea name="message" placeholder="ama" rows="10" autocomplete="on"{% if req %} required{% endif %}></textarea>
-            <!-- hidden data -->
-            <div class="hidden">
-                <input type="hidden" name="subject" value="UsefulWorks Contact Form">
-                <input type="hidden" name="from_name" value="Web3Forms">
-                <input type="hidden" name="host" value="{{ site.url }}">
-                <input type="hidden" name="page" value="{{ page.url }}">
-                <!-- anti-spam field (hidden) -->
-                <input type="checkbox" name="botcheck">
-            </div>
-            <!-- submitter -->
-            <button type="submit" name="submitter" class="action-button" role="button">
-                <svg class="svg24d"><use href="#svg-mail-icon" /></svg>
-                <span>Send</span>
-            </button>
-        </form>
-        {% if debug %}
-        <!-- mock results -->
-        <div class="debug container" style="display: block !important;">
-            <h2 class="salute">Harry, thank you for getting in touch!</h2>
-            <p>We appreciate you taking the time to reach out. Your message
-            has been sent successfully and our Customer Excellence team
-            will be in touch with you shortly.</p>
-            <p>Have a great day! 😊</p>
-            <p class="signature">The UsefulWorks Team</p>
-            <p><a href="/" role="link">[ UsefulWorks Home ]</a></p>
-        </div>{% endif %}
+        <div class="contact-section">
+            <h3>Schedule a meeting</h3>
+            <p class="midpointalign">Set up a short call using the link in this button, which links to our calendar via Calendly.</p>
+            <a id="cal-btn" href="https://calendly.com/usefulworks/30min" role="button" class="action-button">
+                <svg class="svg24d"><use href="#svg-calendar-icon" /></svg>
+                <span>Book now</span>
+            </a>
+        </div>
+        <div class="contact-section">
+            <h3 >Send us a note</h3>
+            <p class="midpointalign">If you&apos;d rather just send us a brief message, please
+            complete this form, click the send button below, and we&apos;ll take it from there.</p>
+            <form name="contact-usefulworks" action="{{ action }}" method="POST" data-mode="{{ page.form-mode }}">
+                <!-- access key -->
+                <input type="hidden" name="access_key" value="{{ page.web3forms-access-key }}">
+                <!-- inputs -->
+                <input type="text" name="person_name" placeholder="Your name" autocomplete="off" {% if req %}required{% endif %}>
+                <input type="email" name="email" placeholder="Your email" autocomplete="off" {% if req %}required{% endif %}>
+                <!-- message -->
+                <textarea name="message" placeholder="ama" rows="10" autocomplete="on"{% if req %} required{% endif %}></textarea>
+                <!-- hidden data -->
+                <div class="hidden">
+                    <input type="hidden" name="subject" value="UsefulWorks Contact Form">
+                    <input type="hidden" name="from_name" value="Web3Forms">
+                    <input type="hidden" name="host" value="{{ site.url }}">
+                    <input type="hidden" name="page" value="{{ page.url }}">
+                    <!-- anti-spam field (hidden) -->
+                    <input type="checkbox" name="botcheck">
+                </div>
+                <!-- submitter -->
+                <button type="submit" name="submitter" class="action-button" role="button">
+                    <svg class="svg24d"><use href="#svg-mail-icon" /></svg>
+                    <span>Send</span>
+                </button>
+            </form>
+            {% if debug %}
+            <!-- mock results -->
+            <div class="debug container" style="display: block !important;">
+                <h2 class="salute">Harry, thank you for getting in touch!</h2>
+                <p>We appreciate you taking the time to reach out. Your message
+                has been sent successfully and our Customer Excellence team
+                will be in touch with you shortly.</p>
+                <p>Have a great day! 😊</p>
+                <p class="signature">The UsefulWorks Team</p>
+                <p><a href="/" role="link">[ UsefulWorks Home ]</a></p>
+            </div>{% endif %}
+        </div>
     </div>
-    <!-- form-submit results -->
+    <!-- form-submit results -->e
     <div id="results-state" class="container"></div>
 </section>

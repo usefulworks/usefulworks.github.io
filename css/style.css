@@ -534,8 +534,14 @@ section.values {
 
 /* BEGIN contact */
 section.contact {
-    h3 > p:last-of-type {
-        margin-bottom: var(--pico-block-spacing-vertical);
+    div.contact-section {
+        margin-top: 2.5rem;
+        margin-bottom: 0,5rem;;
+    }
+    h3 {
+        & > p:last-of-type {
+            margin-bottom: var(--pico-block-spacing-vertical);
+        }
     }
     .action-button {
         display: block;
