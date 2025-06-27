@@ -20,21 +20,22 @@ const NavBar = {
 
         const initNavMenuCurrentPage = function() {
             $UW.log("NavBar.initNavMenuCurrentPage");
-            const normalise = function(str) {
-                let s = (str + "");
-                return s.replace(/[\/]?(?:index\.html)?$/g, "");
-            };
-            const loc = window.location.pathname.slice(1);
-            $UW.log(`NavBar.setCurrentPageLink to ${loc}`);
-            const links = $UW("nav.top-nav a[href]");
-            for(let i = 0; i < links.length; i++) {
-                let link = links[i];
-                const href = link.getAttribute("href");
-                if (href.endsWith(loc)) {
-                    $UW.log(`got one ${loc} ~ ${href}`);
+            /* regex reminder
+             *   ^(?:\/(?:index\.html)?|index\.html)$ matches complete root cases
+             *   (/, /index.html, index.html) and replaces with empty string
+             *   |^\/ matches leading slash in other cases and removes it
+             *   /g global match needed for this to work
+             */
+            const normalise = s => s.replace(/^(?:\/(?:index\.html)?|index\.html)$|^\//g, "");
+            const loc = normalise(window.location.pathname);
+            const links = document.querySelectorAll("nav.top-nav li.navbar-link a[href]");
+            links.forEach(function (link) {
+                const href = normalise(link.getAttribute("href"));
+                if (href === loc) {
+                    $UW.log(`NavBar.setCurrentPage: got one '${loc}' ~> '${href}'`);
                     link.classList.add("current");
                 }
-            };
+            });
         };
 
         const initWindowScroll = function() {
