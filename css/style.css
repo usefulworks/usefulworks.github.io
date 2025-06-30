@@ -830,6 +830,9 @@ body > footer {
         align-content: space-around;
         gap: 1rem;
     }
+    .uw-brand-text-subtle {
+        font-weight: normal;
+    }
 }
 /* END footer */
 
