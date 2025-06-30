@@ -44,9 +44,12 @@
 </nav>
 <div class="legal">
   <p>
-    <a href="{{ site.uw.loc.href.home }}">UsefulWorks</a>
-    is a Constructive Consultancy. We work
-        with lively businesses - from start-ups to scale-ups - and help them grow.
+    <a href="{{ site.uw.loc.href.home }}">UsefulWorks</a> is a Constructive
+    Consultancy. We work with lively businesses &hyphen; from start&hyphen;ups
+    to scale-ups &hyphen; and help them grow.
+  </p>
+  <p>No fluff. Just <span class="uw-brand-text-subtle">Useful</span> stuff that
+    <span class="uw-brand-text-subtle">Works</span> for your business.</p>
   </p>
   <p>Copyright &copy; 2025
     <a href="{{ site.uw.loc.href.home }}">UsefulWorks</a>
