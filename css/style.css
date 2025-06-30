@@ -3,7 +3,7 @@
 :root {
     --color-scheme: light dark;
 
-    --uw-max-width: 1280px;
+    --uw-max-width: 1140px;
     --uw-navbar-height: calc(170px); /* n-children * approx. li height */
     --uw-hero-offset-top: clamp(100px, 15vh, 170px);
     --uw-top-nav-height: 150px; /* this is dynamically updated by site-nav.js */
@@ -341,7 +341,7 @@ header > nav.top-nav { /* flex (from pico) */
         }
         .uw-brand-text {
             display: inline-block;
-            font-size: clamp(var(--pico-font-size), 7vmin, 100px);
+            font-size: clamp(min(120%, var(--pico-font-size)), 6vmin, 100px);
         }
         .uw-gear-logo {
             width: clamp(30px, 6vmin, 90px);
@@ -373,7 +373,7 @@ header > nav.top-nav { /* flex (from pico) */
 
 /* limit width on ultra wide setups */
 @media screen and (min-width: 1280px) {
-    body, header > nav {
+    body, header, header > nav {
         max-width: var(--uw-max-width);
         width: 100%;
         margin-right: auto;
