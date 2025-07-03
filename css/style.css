@@ -469,7 +469,7 @@ section {
 
     &.content {
         background-color: var(--pico-muted-border-color);
-        opacity: 0.85;
+        opacity: 0.82;
         padding: var(--pico-nav-element-spacing-vertical)
                  var(--pico-nav-element-spacing-horizontal);
         .container {
@@ -784,6 +784,7 @@ section.legal {
 /* BEGIN footer */
 body > footer {
     width: 100%;
+    opacity: 0.92;
     padding-block-start: 0;
     padding-block-end: 0;
 
