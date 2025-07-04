@@ -1,0 +1,71 @@
+<ul class="first-row">
+  <li>
+    <svg class="uw-gear-logo"><use href="#svg-gear-logo" /></svg>
+    <span class="uw-brand-text">UsefulWorks</span>
+  </li>
+  <li>
+    <ul class="social-links">
+      <li aria-label="email address">
+        <a href="{{ site.uw.loc.href.contact }}" target="_self">
+          <svg class="svg18d"><use href="#svg-mailsend-icon"></svg>
+        </a>
+      </li>
+      <li aria-label="linkedin">
+        <a href="https://www.linkedin.com/company/106838232" target="_self">
+          <svg class="svg18d"><use href="#svg-linkedin-icon"></svg>
+        </a>
+      </li>
+      <li aria-label="bluesky">
+        <a href="https://bsky.app/profile/usefulworks.bsky.social" target="_self">
+          <svg class="svg18d"><use href="#svg-bluesky-icon"></svg>
+        </a>
+      </li>
+      <li aria-label="facebook">
+        <a href="https://www.facebook.com/profile.php?id=61576548526039" target="_self">
+          <svg class="svg18d"><use href="#svg-facebook-icon"></svg>
+        </a>
+      </li>
+      <li aria-label="github">
+        <a href="https://github.com/usefulworks" target="_self">
+          <svg class="svg18d"><use href="#svg-github-icon"></svg>
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<nav aria-label="footer navigation">
+  <a href="/" role="link">home</a>
+  <a href="{{ site.uw.loc.href.services }}" role="link">services</a>
+  <a href="{{ site.uw.loc.href.about }}" role="link">about</a>
+  <a href="{{ site.uw.loc.href.blog }}" role="link" class="feature-blog">blog</a>
+  <a href="{{ site.uw.loc.href.contact }}" role="link">contact</a>
+  <a href="{{ site.uw.loc.href.legal.privacy }}" role="link">privacy policy</a>
+  <a href="{{ site.uw.loc.href.legal.t-and-c }}" role="link">terms &amp; conditions</a>
+</nav>
+<div class="legal">
+  <p>
+    <a href="{{ site.uw.loc.href.home }}">UsefulWorks</a> is a Constructive
+    Consultancy. We work with lively businesses &hyphen; from start&hyphen;ups
+    to scale-ups &hyphen; and help them grow.
+  </p>
+  <p>No fluff. Just <span class="uw-brand-text-subtle">Useful</span> stuff that
+    <span class="uw-brand-text-subtle">Works</span> for your business.</p>
+  </p>
+  <p>Copyright &copy; 2025
+    <a href="{{ site.uw.loc.href.home }}">UsefulWorks</a>
+    Ltd. All Rights Reserved.
+       Incorporated in England &amp; Wales. Company number
+    <span id="tbloggle">16203896</span>.</p>
+</div>
+<div class="theme-switch">
+  <label>
+    <span>light &nbsp;</span>
+    <input
+      id="theme-switch"
+      name="theme-switch"
+      type="checkbox"
+      role="switch"
+      aria-invalid="true" />
+    <span>dark</span>
+  </label>
+</div>
