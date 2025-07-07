@@ -55,11 +55,11 @@ title: Services
         <h3 id="opssprint" class="uw-brand-text">ops/Sprint</h3>
         <p class="strong midpointalign">Targeted projects to solve your toughest operational challenges</p>
         <p>Sometimes you just need a quick win. <span class="uw-brand-text-subtle">ops/Sprint</span> is all
-           about delivering fast, frictionless and focused solutions that tackle your operational
-           pain points. Whether it&apos;s re-imagining workflows, managing critical projects, or helping
-           your team navigate change, we bring the experience and drive to get things done &hyphen; on time
-           and on budget. No fluff, just <span class="uw-brand-text-subtle">useful</span> stuff that
-           <span class="uw-brand-text-subtle">works</span>.</p>
+           about delivering fast, frictionless and focused solutions that tackle your operational pain
+           points to unlock smooth growth. Whether it&apos;s reimagining workflows, managing critical
+           projects, or helping your team navigate change, we bring the experience and drive to get
+           things done &hyphen; on time and on budget. No fluff, just <span class="uw-brand-text-subtle">useful</span>
+           stuff that <span class="uw-brand-text-subtle">works</span>.</p>
         <p><strong>Perfect for:</strong> Businesses facing specific operational bottlenecks that need
            immediate resolution.
         </p>
@@ -91,8 +91,8 @@ title: Services
             <li>Team adoption guarantee: We ensure your team actually uses and loves the new system</li>
             <li>Scalable platform: Grows with your business from startup to enterprise</li>
         </ul>
-        <p><strong>Perfect for:</strong> Teams drowning in spreadsheets, manual processes and disconnected
-            tools who will see their productivity soar with a centralised, automated solution.
+        <p><strong>Perfect for:</strong> Teams drowning in spreadsheets, manual drudgery, disconnected
+            tools, and disparate data.
         </p>
         <div class="cta-button-container">{% include cta-button.lhtml %}</div>
         <h3>How we work together</h3>
@@ -128,7 +128,7 @@ title: Services
             <div class="gi b33">Multi&hyphen;workflow, integr&shy;ations</div>
             <div class="gi b34">Full platform build, training, support</div>
         </div>
-        <h2>Are you ready to transform your operations?</h2>
+        <h2 id="opschecklist">Are you ready to transform your operations?</h2>
         <p class="strong midpointalign">If you want to learn how <span class="uw-brand-text-subtle">UsefulWorks</span>
            can help your business run better and grow bigger then get in touch!</p>
         <p>We&apos;ll analyse your current operations, work with you to identify the major pain points, and show
