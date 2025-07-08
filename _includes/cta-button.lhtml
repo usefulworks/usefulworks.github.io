@@ -1,0 +1,13 @@
+{% comment %}
+reference parameters with include.[param-name] in the parent include directive
+parameters:
+    href    === href (default: contact page)
+    svg     id of svg/symbol element to display (default: svg-customer-icon)
+    text    text to display in button (default: Get in touch!)
+{% endcomment %}
+<a href="{{ include.href | default: site.uw.loc.href.contact }}" role="button" class="action-button">
+    <svg class="svg24d">
+        <use href="#{{ include.svg | default: "svg-customer-icon" }}" />
+    </svg>
+    <span>{{ include.text | default: "Get in touch!" }}</span>
+</a>
