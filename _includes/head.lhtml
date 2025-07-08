@@ -50,8 +50,7 @@
 {% endif %}
 <script type="text/javascript" data-label="generated">
     const $environment = "{{- jekyll.environment -}}";
-    const $repository_url = "{{ site.github.respository_url }}";
-    const $repository_nwo = "{{ site.github.respository_nwo }}";
+    const $repository = "{{ site.github.repository_nwo }}";
     {% if all-js-literals.size > 0 %}
     const $literals = {
     {% for js-var in all-js-literals %}
