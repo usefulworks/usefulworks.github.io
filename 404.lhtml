@@ -1,0 +1,303 @@
+---
+layout: html-template
+title: 404
+permalink: 404.html
+linked-resources:
+  - href: "/css/404.css"
+    rel: "stylesheet"
+  - href: "https://fonts.googleapis.com"
+    rel: "preconnect"
+  - href: "https://fonts.gstatic.com"
+    rel: "preconnect"
+    crossorigin: true
+  - href: "https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@400;500&display=swap"
+    rel: "stylesheet"
+---
+<div class="background-container">
+    <svg class="background-svg" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+        <!-- Background gradient sky -->
+        <defs>
+            <radialGradient id="skyGradient" cx="50%" cy="20%" r="80%">
+                <stop offset="0%" stop-color="#FFB366"/>
+                <stop offset="50%" stop-color="#FF8533"/>
+                <stop offset="100%" stop-color="#2A1810"/>
+            </radialGradient>
+
+            <linearGradient id="desertGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#D4A574"/>
+                <stop offset="50%" stop-color="#C19653"/>
+                <stop offset="100%" stop-color="#8B6914"/>
+            </linearGradient>
+
+            <linearGradient id="mountainGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#4A3429"/>
+                <stop offset="100%" stop-color="#2A1810"/>
+            </linearGradient>
+
+            <radialGradient id="sun1" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#FFE5B3" stop-opacity="0.9"/>
+                <stop offset="70%" stop-color="#FFD666" stop-opacity="0.5"/>
+                <stop offset="100%" stop-color="#FFB366" stop-opacity="0.2"/>
+            </radialGradient>
+
+            <radialGradient id="sun2" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#FFCCB3" stop-opacity="0.8"/>
+                <stop offset="70%" stop-color="#FF9966" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#FF6633" stop-opacity="0.2"/>
+            </radialGradient>
+
+            <linearGradient id="armorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#C0C0C0"/>
+                <stop offset="30%" stop-color="#A0A0A0"/>
+                <stop offset="70%" stop-color="#808080"/>
+                <stop offset="100%" stop-color="#606060"/>
+            </linearGradient>
+
+            <linearGradient id="capeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#8B4513"/>
+                <stop offset="50%" stop-color="#654321"/>
+                <stop offset="100%" stop-color="#3E2723"/>
+            </linearGradient>
+
+            <linearGradient id="beskarShine" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#E6E6E6"/>
+                <stop offset="25%" stop-color="#CCCCCC"/>
+                <stop offset="75%" stop-color="#999999"/>
+                <stop offset="100%" stop-color="#666666"/>
+            </linearGradient>
+
+            <radialGradient id="helmetReflection" cx="30%" cy="30%" r="60%">
+                <stop offset="0%" stop-color="#F0F0F0" stop-opacity="0.3"/>
+                <stop offset="50%" stop-color="#D0D0D0" stop-opacity="0.1"/>
+                <stop offset="100%" stop-color="#B0B0B0" stop-opacity="0"/>
+            </radialGradient>
+        </defs>
+
+        <!-- Sky background -->
+        <rect width="1200" height="800" fill="url(#skyGradient)"/>
+
+        <!-- Stars -->
+        <circle cx="100" cy="80" r="1" fill="white" opacity="0.6"/>
+        <circle cx="200" cy="120" r="1.5" fill="white" opacity="0.4"/>
+        <circle cx="300" cy="60" r="1" fill="white" opacity="0.5"/>
+        <circle cx="450" cy="90" r="1" fill="white" opacity="0.3"/>
+        <circle cx="650" cy="70" r="1.5" fill="white" opacity="0.5"/>
+        <circle cx="800" cy="110" r="1" fill="white" opacity="0.4"/>
+        <circle cx="950" cy="85" r="1" fill="white" opacity="0.6"/>
+        <circle cx="1100" cy="95" r="1.5" fill="white" opacity="0.3"/>
+
+        <!-- Twin suns -->
+        <circle cx="200" cy="150" r="45" fill="url(#sun1)"/>
+        <circle cx="280" cy="180" r="35" fill="url(#sun2)"/>
+
+        <!-- Distant mountains -->
+        <polygon points="0,400 150,250 300,300 450,200 600,280 750,220 900,260 1050,180 1200,240 1200,800 0,800" fill="url(#mountainGradient)"/>
+
+        <!-- Desert dunes -->
+        <ellipse cx="0" cy="550" rx="200" ry="80" fill="url(#desertGradient)" opacity="0.8"/>
+        <ellipse cx="400" cy="580" rx="300" ry="60" fill="url(#desertGradient)" opacity="0.7"/>
+        <ellipse cx="800" cy="600" rx="250" ry="70" fill="url(#desertGradient)" opacity="0.6"/>
+        <ellipse cx="1200" cy="620" rx="200" ry="50" fill="url(#desertGradient)" opacity="0.5"/>
+
+        <!-- Ground -->
+        <rect x="0" y="600" width="1200" height="200" fill="url(#desertGradient)"/>
+
+        <!-- Mandalorian figure -->
+        <g transform="translate(500, 300)">
+            <!-- Cape/cloak -->
+            <path d="M -30 120 Q -40 100 -35 80 L -25 70 Q -20 120 -15 140 Q 0 160 15 140 Q 20 120 25 70 L 35 80 Q 40 100 30 120 L 25 200 Q 0 210 -25 200 Z" fill="url(#capeGradient)" opacity="0.8"/>
+
+            <!-- Body armor base -->
+            <rect x="-25" y="70" width="50" height="80" rx="8" fill="url(#beskarShine)"/>
+
+            <!-- Beskar chest plate segments -->
+            <rect x="-22" y="75" width="44" height="18" rx="4" fill="url(#armorGradient)" stroke="#A0A0A0" stroke-width="0.5"/>
+            <rect x="-18" y="78" width="36" height="12" rx="2" fill="#B8B8B8"/>
+            <polygon points="-15,85 -5,85 -5,90 -10,92 -15,90" fill="#D0D0D0"/>
+            <polygon points="5,85 15,85 15,90 10,92 5,90" fill="#D0D0D0"/>
+
+            <!-- Chest plate central diamond -->
+            <polygon points="0,95 -8,105 0,115 8,105" fill="#E0E0E0" stroke="#C0C0C0" stroke-width="0.5"/>
+            <polygon points="0,98 -5,105 0,112 5,105" fill="#F0F0F0"/>
+
+            <!-- Lower chest armor segments -->
+            <rect x="-20" y="118" width="18" height="12" rx="3" fill="url(#armorGradient)" stroke="#A0A0A0" stroke-width="0.5"/>
+            <rect x="2" y="118" width="18" height="12" rx="3" fill="url(#armorGradient)" stroke="#A0A0A0" stroke-width="0.5"/>
+            <rect x="-8" y="125" width="16" height="8" rx="2" fill="#C0C0C0"/>
+
+            <!-- Arms with detailed beskar -->
+            <ellipse cx="-35" cy="85" rx="12" ry="25" fill="url(#beskarShine)"/>
+            <ellipse cx="35" cy="85" rx="12" ry="25" fill="url(#beskarShine)"/>
+
+            <!-- Arm armor details -->
+            <rect x="-40" y="75" width="10" height="6" rx="2" fill="#D0D0D0"/>
+            <rect x="30" y="75" width="10" height="6" rx="2" fill="#D0D0D0"/>
+            <ellipse cx="-35" cy="90" rx="6" ry="4" fill="#E0E0E0"/>
+            <ellipse cx="35" cy="90" rx="6" ry="4" fill="#E0E0E0"/>
+
+            <!-- Enhanced shoulder pauldrons -->
+            <ellipse cx="-30" cy="75" rx="18" ry="15" fill="url(#beskarShine)" stroke="#A0A0A0" stroke-width="0.8"/>
+            <ellipse cx="30" cy="75" rx="18" ry="15" fill="url(#beskarShine)" stroke="#A0A0A0" stroke-width="0.8"/>
+            <ellipse cx="-30" cy="73" rx="12" ry="8" fill="#E0E0E0"/>
+            <ellipse cx="30" cy="73" rx="12" ry="8" fill="#E0E0E0"/>
+            <circle cx="-30" cy="75" r="3" fill="#F0F0F0"/>
+            <circle cx="30" cy="75" r="3" fill="#F0F0F0"/>
+
+            <!-- Legendary Mandalorian Helmet -->
+            <ellipse cx="0" cy="30" rx="25" ry="32" fill="url(#beskarShine)" stroke="#A0A0A0" stroke-width="0.5"/>
+
+            <!-- Helmet reflection/shine -->
+            <ellipse cx="0" cy="30" rx="25" ry="32" fill="url(#helmetReflection)"/>
+
+            <!-- Helmet crest/fin -->
+            <path d="M -2 5 Q 0 2 2 5 L 2 12 Q 0 15 -2 12 Z" fill="#C0C0C0"/>
+            <path d="M -1 6 Q 0 4 1 6 L 1 11 Q 0 12 -1 11 Z" fill="#E0E0E0"/>
+
+            <!-- Enhanced T-visor -->
+            <rect x="-4" y="18" width="8" height="25" rx="2" fill="#000000"/>
+            <rect x="-15" y="24" width="30" height="6" rx="2" fill="#000000"/>
+            <rect x="-14" y="25" width="28" height="4" rx="1" fill="#1a1a1a"/>
+            <rect x="-3" y="19" width="6" height="23" rx="1" fill="#0d0d0d"/>
+
+            <!-- Helmet side vents -->
+            <rect x="-20" y="35" width="6" height="2" rx="1" fill="#808080"/>
+            <rect x="14" y="35" width="6" height="2" rx="1" fill="#808080"/>
+            <rect x="-20" y="38" width="6" height="2" rx="1" fill="#808080"/>
+            <rect x="14" y="38" width="6" height="2" rx="1" fill="#808080"/>
+
+            <!-- Helmet chin guard -->
+            <rect x="-12" y="45" width="24" height="8" rx="3" fill="#C0C0C0"/>
+            <rect x="-10" y="47" width="20" height="4" rx="2" fill="#D0D0D0"/>
+
+            <!-- Rangefinder -->
+            <rect x="20" y="20" width="12" height="3" rx="1" fill="#707070"/>
+            <circle cx="30" cy="21.5" r="2" fill="#333"/>
+            <circle cx="30" cy="21.5" r="1" fill="#ff4444"/>
+
+            <!-- Enhanced utility belt -->
+            <rect x="-28" y="135" width="56" height="12" rx="2" fill="#4A4A4A"/>
+            <rect x="-25" y="137" width="50" height="8" rx="1" fill="#606060"/>
+
+            <!-- Belt pouches and details -->
+            <rect x="-20" y="132" width="8" height="18" rx="2" fill="#555"/>
+            <rect x="-5" y="132" width="10" height="18" rx="2" fill="#606060"/>
+            <rect x="8" y="132" width="8" height="18" rx="2" fill="#555"/>
+            <circle cx="-16" cy="141" r="2" fill="#707070"/>
+            <circle cx="0" cy="141" r="2" fill="#808080"/>
+            <circle cx="12" cy="141" r="2" fill="#707070"/>
+
+            <!-- Enhanced leg armor -->
+            <rect x="-20" y="150" width="18" height="55" rx="5" fill="url(#beskarShine)"/>
+            <rect x="2" y="150" width="18" height="55" rx="5" fill="url(#beskarShine)"/>
+
+            <!-- Thigh armor details -->
+            <rect x="-18" y="155" width="14" height="8" rx="2" fill="#D0D0D0"/>
+            <rect x="4" y="155" width="14" height="8" rx="2" fill="#D0D0D0"/>
+            <rect x="-15" y="157" width="8" height="4" rx="1" fill="#E0E0E0"/>
+            <rect x="7" y="157" width="8" height="4" rx="1" fill="#E0E0E0"/>
+
+            <!-- Enhanced knee pads -->
+            <ellipse cx="-11" cy="175" rx="12" ry="10" fill="url(#beskarShine)" stroke="#A0A0A0" stroke-width="0.5"/>
+            <ellipse cx="11" cy="175" rx="12" ry="10" fill="url(#beskarShine)" stroke="#A0A0A0" stroke-width="0.5"/>
+            <ellipse cx="-11" cy="173" rx="8" ry="6" fill="#E0E0E0"/>
+            <ellipse cx="11" cy="173" rx="8" ry="6" fill="#E0E0E0"/>
+            <circle cx="-11" cy="175" r="3" fill="#F0F0F0"/>
+            <circle cx="11" cy="175" r="3" fill="#F0F0F0"/>
+
+            <!-- Shin guards -->
+            <rect x="-17" y="185" width="12" height="15" rx="3" fill="#C0C0C0"/>
+            <rect x="5" y="185" width="12" height="15" rx="3" fill="#C0C0C0"/>
+
+            <!-- Enhanced boots -->
+            <ellipse cx="-11" cy="215" rx="15" ry="10" fill="#2A2A2A"/>
+            <ellipse cx="11" cy="215" rx="15" ry="10" fill="#2A2A2A"/>
+            <ellipse cx="-11" cy="212" rx="12" ry="6" fill="#404040"/>
+            <ellipse cx="11" cy="212" rx="12" ry="6" fill="#404040"/>
+
+            <!-- Enhanced weapon - Amban rifle -->
+            <rect x="48" y="75" width="6" height="35" rx="1" fill="#333"/>
+            <rect x="46" y="80" width="10" height="6" rx="2" fill="#555"/>
+            <rect x="47" y="90" width="8" height="4" rx="1" fill="#666"/>
+            <circle cx="51" cy="100" r="2" fill="#777"/>
+            <rect x="50" y="72" width="2" height="8" fill="#444"/>
+        </g>
+
+        <!-- Atmospheric dust/particles -->
+        <circle cx="150" cy="400" r="2" fill="#D4A574" opacity="0.3"/>
+        <circle cx="350" cy="450" r="1.5" fill="#C19653" opacity="0.4"/>
+        <circle cx="550" cy="380" r="2.5" fill="#D4A574" opacity="0.2"/>
+        <circle cx="750" cy="420" r="1" fill="#C19653" opacity="0.5"/>
+        <circle cx="950" cy="460" r="2" fill="#D4A574" opacity="0.3"/>
+
+        <!-- Subtle lighting effects -->
+        <ellipse cx="600" cy="500" rx="400" ry="100" fill="#FFB366" opacity="0.1"/>
+    </svg>
+</div>
+
+<div class="content-overlay">
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">This is not the way</h1>
+        <p class="error-description">
+            The page you are seeking cannot be found.<br>
+            Maybe it was lost in the Outer Rim.
+        </p>
+        <div class="action-buttons">
+            <a href="/" class="btn btn-primary">Return to Home</a>
+            <a href="#" onclick="history.back(); return false;" class="btn btn-secondary">Go Back</a>
+        </div>
+    </div>
+</div>
+
+<div class="mandalorian-quote">
+    "I have spoken."
+</div>
+
+<script>
+    // Improved particle system
+    function createParticle() {
+        const particle = document.createElement('div');
+        const sizes = ['small', 'medium', 'large'];
+        const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
+
+        particle.className = `particle ${randomSize}`;
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDelay = Math.random() * 2 + 's';
+
+        document.body.appendChild(particle);
+
+        // Remove particle after animation completes
+        const animationDuration = randomSize === 'small' ? 12000 : randomSize === 'medium' ? 15000 : 18000;
+        setTimeout(() => {
+            if (particle.parentNode) {
+                particle.remove();
+            }
+        }, animationDuration);
+    }
+
+    // Create particles at intervals
+    setInterval(createParticle, 2000);
+
+    // Create initial particles
+    for (let i = 0; i < 3; i++) {
+        setTimeout(createParticle, i * 1000);
+    }
+
+    // Subtle parallax effect on mouse move
+    document.addEventListener('mousemove', (e) => {
+        const container = document.querySelector('.error-container');
+        if (container) {
+            const x = (e.clientX / window.innerWidth - 0.5) * 10;
+            const y = (e.clientY / window.innerHeight - 0.5) * 10;
+            container.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    });
+
+    // Reset transform when mouse leaves
+    document.addEventListener('mouseleave', () => {
+        const container = document.querySelector('.error-container');
+        if (container) {
+            container.style.transform = 'translate(0, 0)';
+        }
+    });
+</script>
