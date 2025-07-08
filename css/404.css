@@ -1,0 +1,244 @@
+/* Copyright (c) 2025 UsefulWorks Ltd. All Rights Reserved */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #000;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.background-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content-overlay {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem 2rem 2rem;
+}
+
+.error-container {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 179, 102, 0.2);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+}
+
+.error-code {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(3rem, 6vw, 6rem);
+    font-weight: 900;
+    color: #FFB366;
+    text-shadow: 0 0 20px rgba(255, 179, 102, 0.6), 0 0 40px rgba(255, 179, 102, 0.3);
+    margin-bottom: 0.5rem;
+    line-height: 1;
+}
+
+.error-title {
+    font-family: 'Orbitron', monospace;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.error-description {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    color: #DDDDDD;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    max-width: 400px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    font-family: 'Orbitron', monospace;
+    font-weight: 500;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    min-width: 140px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #FFB366, #FF8533);
+    color: #000;
+    box-shadow: 0 8px 20px rgba(255, 179, 102, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #FFD699, #FFB366);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(255, 179, 102, 0.4);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.mandalorian-quote {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Orbitron', monospace;
+    font-size: 0.8rem;
+    color: rgba(255, 179, 102, 0.7);
+    text-align: center;
+    font-style: italic;
+    z-index: 3;
+}
+
+@media (max-width: 768px) {
+    .content-overlay {
+        padding: 2rem 1rem 1rem 1rem;
+    }
+
+    .error-container {
+        padding: 1.5rem 1rem;
+        margin: 0.5rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .mandalorian-quote {
+        bottom: 1rem;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-overlay {
+        padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+    }
+
+    .error-container {
+        padding: 1rem 0.8rem;
+    }
+}
+
+/* Floating animation - fixed */
+@keyframes gentleFloat {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateY(-8px) scale(1.02);
+    }
+}
+
+.error-container {
+    animation: gentleFloat 4s ease-in-out infinite;
+}
+
+/* Particle effect - improved */
+.particle {
+    position: fixed;
+    background: radial-gradient(circle, rgba(255, 179, 102, 0.8) 0%, rgba(255, 179, 102, 0.2) 70%, transparent 100%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle.small {
+    width: 2px;
+    height: 2px;
+    animation: particleFloat 12s linear infinite;
+}
+
+.particle.medium {
+    width: 4px;
+    height: 4px;
+    animation: particleFloat 15s linear infinite;
+}
+
+.particle.large {
+    width: 6px;
+    height: 6px;
+    animation: particleFloat 18s linear infinite;
+}
+
+@keyframes particleFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(100vh) translateX(-50px);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px) translateX(50px);
+    }
+}
+
+/* Glow effect on hover */
+.error-container:hover {
+    border-color: rgba(255, 179, 102, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 179, 102, 0.1);
+}
