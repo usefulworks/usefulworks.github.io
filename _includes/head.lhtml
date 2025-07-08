@@ -1,0 +1,62 @@
+    <meta charset="UTF-8" />
+    <meta name="generated" content="{{ 'now' | date: '%Y-%m-%d %H:%M:%S' }}" />
+{% if jekyll.environment == "production" %}
+    {% include google-analytics.lhtml %}
+{% endif %}
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ site.title }}{% if page.title %} | {{ page.title }}{% endif %}</title>
+    <meta name="keywords" content="business consulting growth transformation" />
+    <meta name="author" content="{{ site.author.name }}" />
+    <meta name="copyright" content="{{ site.legal.copyright }}" />
+    <meta name="application-name" property="og:title" content="{{ site.title }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./favicon/web-app-manifest-512x512.png" />
+    <meta property="og:url" content="{{ site.url }}" />
+    <meta name="description" property="og:description" content="{{ site.description }}" />
+{% if page.title %}
+    <meta property="og:title" content="{{ page.title }}" />
+    <meta property="twitter:title" content="{{ page.title }}" />
+{% endif %}
+{% comment %} link[@rel] tags {% endcomment %}
+{% assign all-linked-resources = "" | split: "" %}
+{% if layout.linked-resources %}
+    {% assign all-linked-resources = all-linked-resources | concat: layout.linked-resources %}
+{% endif %}
+{% if page.linked-resources %}
+    {% assign all-linked-resources = all-linked-resources | concat: page.linked-resources %}
+{% endif %}
+{% for res in all-linked-resources %}
+  {% assign proto = res.href | slice: 0, 4 %}
+  {% capture res_url %}
+    {% if  proto == "http" %}
+      {{ res.href }}
+    {% else %}
+      {{ res.href | relative_url }}?{{ epoch-ms }}
+    {% endif %}
+  {% endcapture %}
+  <link rel="{{ res.rel }}" href="{{ res_url | strip }}" {% if res.crossorigin %}crossorigin{% endif %} />
+{% endfor %}
+    <link rel="icon" type="image/png" href="./favicon/favicon-96x96.png?{{ epoch-ms }}" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./favicon/favicon.svg?{{ epoch-ms }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon/favicon.ico?{{ epoch-ms }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png?{{ epoch-ms }}" />
+    <link rel="manifest" href="./assets/site.webmanifest" />
+{% assign all-js-literals = "" | split: "" %}
+{% if layout.js-literals %}
+    {% assign all-js-literals = all-js-literals | concat: layout.js-literals %}
+{% endif %}
+{% if page.js-literals %}
+    {% assign all-js-literals = all-js-literals | concat: page.js-literals %}
+{% endif %}
+<script type="text/javascript" data-label="generated">
+    const $environment = "{{- jekyll.environment -}}";
+    const $repository_url = "{{ site.github.respository_url }}";
+    const $repository_nwo = "{{ site.github.respository_nwo }}";
+    {% if all-js-literals.size > 0 %}
+    const $literals = {
+    {% for js-var in all-js-literals %}
+        {{ js-var.name }}: "{{ js-var.value }}"{% if forloop.last == false %},{% endif %}
+    {% endfor %}
+    }
+    {% endif %}
+</script>
