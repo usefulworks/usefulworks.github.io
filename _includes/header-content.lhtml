@@ -1,8 +1,13 @@
 <nav class="top-nav" aria-label="top navigation" data-feature="{{ site.uw.features.blog.output }}">
     <div class="navbar-brand">
-        <svg class="uw-gear-logo">
-            <use href="#svg-gear-logo" />
-        </svg>
+        <div class="uw-gear-logo">
+            <svg class="uw-gear-logo-background">
+                <use href="#svg-gear-logo-background" />
+            </svg>
+            <svg class="uw-gear-logo-gears">
+                <use href="#svg-gear-logo-gears" />
+            </svg>
+        </div>
         <a class="uw-brand-text" href="{{ site.uw.loc.href.home }}">
             <span class="uw-brand-text">UsefulWorks</span>
         </a>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg">
       <symbol id="svg-gear-logo-background" viewBox="0 0 50 50">
-        <circle class="background-gear" style="fill:#ffcc00;fill-opacity:1;stroke:none;" cx="25" cy="25" r="24.85487" />
+        <circle class="background-gear" style="fill:currentColor;fill-opacity:1;stroke:none;" cx="25" cy="25" r="24.85487" />
       </symbol>
       <symbol id="svg-gear-logo-gears" viewBox="0 0 50 50">
         <path class="outer-gear" style="fill:currentColor;fill-opacity:1;stroke:none;"

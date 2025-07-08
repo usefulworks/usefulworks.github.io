@@ -1,6 +1,13 @@
 <ul class="first-row">
   <li>
-    <svg class="uw-gear-logo"><use href="#svg-gear-logo" /></svg>
+    <div class="uw-gear-logo">
+        <svg class="uw-gear-logo-background">
+            <use href="#svg-gear-logo-background" />
+        </svg>
+        <svg class="uw-gear-logo-gears">
+            <use href="#svg-gear-logo-gears" />
+        </svg>
+    </div>
     <span class="uw-brand-text">UsefulWorks</span>
   </li>
   <li>
