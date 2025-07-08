@@ -49,7 +49,8 @@
     {% assign all-js-literals = all-js-literals | concat: page.js-literals %}
 {% endif %}
 <script type="text/javascript" data-label="generated">
-    var $environment = "{{- jekyll.environment -}}";
+    const $environment = "{{- jekyll.environment -}}";
+    const $repository = "{{- site.github.respository_name -}}";
     {% if all-js-literals.size > 0 %}
     const $literals = {
     {% for js-var in all-js-literals %}
