@@ -60,13 +60,13 @@ permalink: about.html
     </div>
 </section>
 <section class="values content">
-    <div class="container">
+    <div class="container narrower midpointalign">
         <h2>Our Values</h2>
-        <p>At UsefulWorks, we are driven by a core belief that great work should be genuinely
-           <span class="uw-brand-text-subtle">useful</span>; not overcomplicated, not theoretical,
-           but advice and action that actually <span class="uw-brand-text-subtle">works</span>.
+        <p>At <span class="uw-brand-text-subtle">UsefulWorks</span>, we are driven by a core belief
+           that great work should be genuinely <span class="uw-brand-text-subtle">useful</span>; not over&hyphen;complicated,
+           not theoretical, but advice and action that actually <span class="uw-brand-text-subtle">works</span>.
            Our values keep us grounded in that mission.</p>
-        <ul>
+        <ul class="">
             <li>
                 <h3>People First</h3>
                 <p>Strong businesses are built on strong relationships. We are real people, with

@@ -12,27 +12,27 @@
   </li>
   <li>
     <ul class="social-links">
-      <li aria-label="email address">
+      <li aria-label="email" title="email">
         <a href="{{ site.uw.loc.href.contact }}" target="_self">
           <svg class="svg18d"><use href="#svg-mailsend-icon"></svg>
         </a>
       </li>
-      <li aria-label="linkedin">
+      <li aria-label="linkedin" title="linkedin">
         <a href="https://www.linkedin.com/company/106838232" target="_self">
           <svg class="svg18d"><use href="#svg-linkedin-icon"></svg>
         </a>
       </li>
-      <li aria-label="bluesky">
-        <a href="https://bsky.app/profile/usefulworks.bsky.social" target="_self">
+      <li aria-label="bluesky" title="bluesky">
+        <a href="https://bsky.app/profile/usefulworks.uk" target="_self">
           <svg class="svg18d"><use href="#svg-bluesky-icon"></svg>
         </a>
       </li>
-      <li aria-label="facebook">
+      <li aria-label="facebook" title="facebook">
         <a href="https://www.facebook.com/profile.php?id=61576548526039" target="_self">
           <svg class="svg18d"><use href="#svg-facebook-icon"></svg>
         </a>
       </li>
-      <li aria-label="github">
+      <li aria-label="github" title="github">
         <a href="https://github.com/usefulworks" target="_self">
           <svg class="svg18d"><use href="#svg-github-icon"></svg>
         </a>
