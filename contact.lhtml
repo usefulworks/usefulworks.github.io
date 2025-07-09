@@ -50,7 +50,7 @@ form-mode: 0
         <div id="ts-widget" class="captcha-container container"></div>
         <div class="contact-section">
             <h3>Schedule a meeting</h3>
-            <p class="midpointalign">Set up a short call using the link in this button, which links to our calendar via Calendly.</p>
+            <p class="midpointalign">Set up a short call by clicking this button, which links to our calendar via Calendly.</p>
             <a id="cal-btn" href="https://calendly.com/usefulworks/30min" role="button" class="action-button">
                 <svg class="svg24d"><use href="#svg-calendar-icon" /></svg>
                 <span>Book now</span>

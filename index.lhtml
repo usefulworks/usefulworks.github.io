@@ -47,7 +47,8 @@ title: Home
            the foundations of Big Consulting, and infuse them with over fifteen years&apos;
            experience starting, operating and scaling tech and services businesses.</p>
         <h3 class="strong midpointalign">
-            <a href="{{ site.uw.loc.href.services }}" role="link">See all of the services that UsefulWorks offers</a>
+            <a href="{{ site.uw.loc.href.services }}" role="link">See all of the services that
+            <span class="uw-brand-text-subtle">UsefulWorks</span> offers</a>
         </h3>
     </div>
 </section>
