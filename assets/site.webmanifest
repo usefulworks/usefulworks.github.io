@@ -1,0 +1,86 @@
+{
+  "name": "UsefulWorks: Constructive Consultancy",
+  "short_name": "UsefulWorks",
+  "description": "Advice and action to help start-ups and scale-ups grow quickly and smoothly",
+  "icons": [
+    {
+      "src": "/assets/usefulworks-logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "159x159",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/usefulworks-logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "159x159",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#2c3139",
+  "background_color": "#ffcc00",
+  "display": "standalone",
+  "start_url": "/",
+  "id": "/?pwa=1",
+  "shortcuts": [
+    {
+      "name": "About UsefulWorks",
+      "short_name": "About",
+      "description": "Read our origin story and the values that we hold",
+      "url": "/about.html?pwa=1",
+      "icons": [{ "src": "/favicon/web-app-manifest-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Contact UsefulWorks",
+      "short_name": "Contact",
+      "description": "Get in touch with UsefulWorks to schedule a short call",
+      "url": "/contact.html?pwa=1",
+      "icons": [{ "src": "/favicon/web-app-manifest-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Work with UsefulWorks",
+      "short_name": "Services",
+      "description": "Learn about the services that we offer and how we can work together",
+      "url": "/services.html?pwa=1",
+      "icons": [{ "src": "/favicon/web-app-manifest-192x192.png", "sizes": "192x192" }]
+    }
+  ],
+  "screenshots": [
+    {
+     "src": "/assets/usefulworks-screenshot-wide.png",
+      "sizes": "2423x1322",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "UsefulWorks: Constructive Consultancy"
+    },
+    {
+      "src": "/assets/usefulworks-screenshot-narrow.png",
+       "sizes": "539x1169",
+       "type": "image/png",
+       "label": "UsefulWorks: Constructive Consultancy"
+     }
+   ]
+}
