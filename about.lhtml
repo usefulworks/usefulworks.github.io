@@ -66,7 +66,7 @@ permalink: about.html
            that great work should be genuinely <span class="uw-brand-text-subtle">useful</span>; not over&hyphen;complicated,
            not theoretical, but advice and action that actually <span class="uw-brand-text-subtle">works</span>.
            Our values keep us grounded in that mission.</p>
-        <ul class="">
+        <ul class="narrower">
             <li>
                 <h3>People First</h3>
                 <p>Strong businesses are built on strong relationships. We are real people, with
@@ -80,7 +80,7 @@ permalink: about.html
             <li>
                 <h3>Experience That Works</h3>
                 <p>Straight to the point because we&apos;ve done the hard yards. Our counsel comes from
-                   real graft and real experience, not parroted from textbooks. </p>
+                   real graft and real experience, not rot parroted from textbooks.</p>
             </li>
         </ul>
     </div>
